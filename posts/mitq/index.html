@@ -1,0 +1,57 @@
+---
+title: Միտք
+---
+$if(methodologyPosts)$
+<h3>Մեթոդաբանություն</h3>
+<ul>
+    $for(methodologyPosts)$
+        <li>
+            <a href="$url$">$title$</a> - $date$
+        </li>
+    $endfor$
+</ul>
+$endif$
+
+
+$if(programmingPosts)$
+<h3>Ծրագրավորում և Մաթեմատիկա </h3>
+<ul>
+    $for(programmingPosts)$
+        <li>
+            <a href="$url$">$title$</a> - $date$
+        </li>
+    $endfor$
+</ul>
+$endif$
+
+$if(haskellPosts)$
+<h3>Haskell & FP</h3>
+<ul>
+  $for(haskellPosts)$
+        <li>
+            <a href="$url$">$title$</a> - $date$
+        </li>
+    $endfor$
+    $if(fpPosts)$
+      $for(fpPosts)$
+          <li>
+              <a href="$url$">$title$</a> - $date$
+          </li>
+      $endfor$
+    $endif$
+</ul>
+$endif$
+
+
+$if(restPosts)$
+<h3>Այլ</h3>
+    <ul>
+        $for(restPosts)$
+            <li>
+                <a href="$url$">$title$</a> - $date$
+            </li>
+        $endfor$
+    </ul>
+$else$
+    <!-- <p>There are no posts.</p> -->
+$endif$

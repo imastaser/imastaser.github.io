@@ -1,0 +1,29 @@
+---
+title: Հոգի
+date: 2013-12-05
+description: DESCRIPTION
+---
+
+$if(mashalyanPosts)$
+<h3>Mashalyan</h3>
+<ul>
+    $for(mashalyanPosts)$
+        <li>
+            <a href="$url$">$title$</a> - $date$
+        </li>
+    $endfor$
+</ul>
+$endif$
+
+
+$if(restPosts)$
+<h3>Այլ</h3>
+
+<ul>
+    $for(restPosts)$
+        <li>
+            <a href="$url$">$title$</a> - $date$
+        </li>
+    $endfor$
+</ul>
+$endif$

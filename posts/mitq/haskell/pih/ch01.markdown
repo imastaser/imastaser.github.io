@@ -1,0 +1,241 @@
+---
+title: Գլուխ Ա - Programming in Haskell(PiH)
+tags: PiH, haskell
+date: 2014-02-01
+description: DESCRIPTION
+comments: true
+toc: true
+---
+
+[David, who is also working through PiH](http://davidtran.doublegifts.com/blog/?cat=7)
+
+
+#Ներածություն
+
+##Ֆունկցիաներ
+
+Ֆունկցիան կարող է սահմանվել հետևյալ հավասարությամբ՝
+
+~~~~ {.haskell}
+double x = x + x
+~~~~
+Երբ ֆունկցիան կիրառվում է կոնկրետ արգումենտի վրա, ապա ֆունկցիայի մարմնի արգումենտի փոփոխականները
+փոխարինվում են արգումենտի արժեքով և պարզեցնում է ստացված արտահայտությունը։
+
+Օրինակ՝
+
+~~~~ {.haskell}
+double 3
+~~~~
+դեպքում կատարվում է հետևյալը հաշվարկները.
+
+~~~~ {.haskell}
+    double 3
+ =    {-- double կիրառում --}
+    3 + 3
+ =    {-- + կիրառում --}  
+    6     
+~~~~
+
+
+##Features of Haskell
+* **Concise Programs - Հակիրճություն**
+
+* **Powerful type System – Հզոր տիպային համակարգ**
+
+* **List Comprehension ցուցակների**
+
+* **Recursive functions Ռեկուրսիա**
+
+* **Higher-order functions Բարձր կարգի ֆունկցիաներ**
+
+* **Monadic effects Մոնադներ**
+
+* **Lazy evolution**
+
+* **Reasoning about programs**
+
+
+
+#Վարժությունները
+
+1. Give another possible calculation for the result of double (double 2).
+2. Showthatsum [x]=x foranynumberx.
+3. Define a function product that produces the product of a list of numbers, and show using your definition that product [ 2, 3, 4 ] = 24.
+4. How should the definition of the function qsort be modified so that it produces a reverse sorted version of a list?
+5. What would be the effect of replacing ≤ by < in the definition of qsort? Hint: consider the example qsort [ 2, 2, 3, 1, 1 ].
+
+
+#Լուծումներ
+
+#####**վարժ. 1.1**
+
+~~~~ {.haskell}
+ double x = x + x
+
+ double (double 2) -- պարզեցման հնարավոր տարբերակները
+~~~~
+~~~~ {.haskell}
+a)
+ double (double 2)
+=    {-- ներսի double կիրառում --}
+  double (2 + 2)
+=    {-- double կիրառում --}
+  (2 + 2) + (2 + 2)
+=    {-- առաջին + կիրառում --}
+  4 + (2 + 2)
+=    {-- երկրորդ + կիրառում --}
+  4 + 4
+=    {-- + կիրառում --}
+  8
+~~~~
+
+~~~~ {.haskell}
+b)
+  double (double 2)
+=    {-- ներսի double կիրառում --}
+  double (2 + 2)
+=    {-- + կիրառում --}
+  double 4
+=    {-- double կիրառում --}
+  4 + 4
+=    {-- + կիրառում --}
+  8
+
+~~~~
+
+~~~ {lang="haskell"}
+c)
+  double (double 2)
+=    {-- ներսի double կիրառում --}
+  double 2 + double 2
+=    {-- առաջին double կիրառում --}
+  (2 + 2) + double 2
+=    {-- առաջին + կիրառում --}
+  4 + double 2
+=    {-- double կիրառում --}
+  4 + (2 + 2)
+=    {-- երկրորդ + կիրառում --}
+  4 + 4
+=    {-- + կիրառում --}
+  8
+~~~
+
+#####**վարժ. 1.2**
+
+~~~~ {.haskell}
+sum :: (Num a) => [a] -> a
+sum []     = 0
+sum (x:xs) = x + sum xs
+
+  sum [x]
+=    {-- sum կիրառում --}
+  x + sum []
+=    {-- sum կիրառում --}
+  x + 0
+=    {-- + կիրառում --}
+  x
+~~~~
+
+
+#####**վարժ. 1.3**
+
+~~~~ {.haskell}
+product :: (Num a) => [a] -> a
+product []     = 1
+product (x:xs) = x * product xs
+
+  product [2,3,4]
+=    {-- product կիրառում --}
+  2 * product [3,4]
+=    {-- product կիրառում --}
+  2 * (3 * product [4])
+=    {-- product կիրառում --}
+  2 * (3 * (4 * product []))
+=    {-- product կիրառում --}
+  2 * (3 * (4 * 1))
+=    {-- * կիրառում --}
+  2 * (3 * 4)
+=    {-- * կիրառում --}
+  2 * 12)
+=    {-- * կիրառում --}
+  24
+~~~~
+
+ռեալ աշխատող տարբերակ՝
+
+~~~~ {.haskell}
+import Prelude hiding (product)
+
+product :: Num a => [a] -> a
+product []      = 1
+product (x:xs)  = x * product xs
+
+product' :: Num a => [a] -> a
+product' = foldr (*) 1
+
+main = do
+  putStrLn $ show $ product[2,3,4]
+~~~~
+
+#####**վարժ. 1.4**
+~~~~ {.haskell}
+rQsort :: Ord a => [a] -> [a]
+rQsort []     = []
+rQsort (x:xs) = rQsort larger ++ [x] ++ rQsrot smaller
+                where
+                     smaller = [a | a <- xs, a <= x]
+                     larger  = [b | b <- xs, b > x]
+
+
+qsort :: Ord a => [a] -> [a]
+qsort []     = []
+qsort (x:xs) = qsort smaller ++ [x] ++ qsort larger
+                where
+                     smaller = [a | a <- xs, a <= x]
+                     larger  = [b | b <- xs, b > x]
+
+rQsort' :: Ord a => [a] -> [a]  
+rQsort' = reverse . qsort      
+
+~~~~
+
+#####**վարժ. 1.5**
+~~~ {lang="haskell"}
+-- Եթե <= փոխարինենք խիստ անհավասարի նղանով <,
+-- ապա կստանանք կարգավորված ցուցակ որտեղ կբացակայեն
+-- կրկնվող տարերը։
+
+qsort' :: Ord a => [a] -> [a]
+qsort' []     = []
+qsort' (x:xs) = qsort' smaller ++ [x] ++ qsort' larger
+                where
+                     smaller = [a | a <- xs, a < x]
+                     larger  = [b | b <- xs, b > x]
+
+
+-- Ցույց տանք, որ կամայական x-ի համար qsort [x] = [x]
+
+  qsort [x]  
+=    {-- qsort կիրառում --}
+  qsort [] ++ [x] ++ qsort []
+=    {-- qsort կիրառում --}
+  [] ++ [x] ++ []
+=    {-- ++ կիրառում --}
+  [x]
+~~~
+
+~~~~ {.haskell}
+  qsort' [2,2,3,1,1]  -- qsort' (2:[2,3,1,1])
+=    {-- qsort' կիրառում --}
+  qsort' [1,1] ++ [2] ++ qsort' [3]
+=    {-- qsort' կիրառում --}
+  (qsort' [] ++ [1] ++ qsort' []) ++ [2] ++ qsort' [3]
+=    {-- qsort'-ի վերը ապացուցված հատկության կիրառում --}
+  ([] ++ [1] ++ []) ++ [2] ++ [3]
+=    {-- ++ կիրառում --}
+  [1] ++ [2,3]
+=    {-- ++ կիրառում --}
+  [1,2,3]
+
+~~~~
