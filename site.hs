@@ -128,7 +128,7 @@ main = do
         match "index.html" $ do
             route idRoute
             compile $ do
-                posts <- fmap (take 5) . recentFirst =<< loadAll postPattern --  ((++) <$> loadAll "posts/*" <*> loadAll "posts/*/*")
+                posts <- fmap (take 3) . recentFirst =<< loadAll postPattern --  ((++) <$> loadAll "posts/*" <*> loadAll "posts/*/*")
                 let indexCtx =
                       listField "posts" (postCtx tags) (return posts) <>
                       field "tagcloud" (\_ -> myTagCloud tags) <>
