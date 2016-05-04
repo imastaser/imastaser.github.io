@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Վերնագիր: Haskell</title>
+        <link rel="alternate" type="application/rss+xml" title="From Hask Til Dawn" href="./rss.xml" />
+        <link rel="shortcut icon" href="./favicon.ico?v=2" type="image/x-icon" />
+        <link rel="stylesheet" href="./css/bootstrap.min.css" />
+        <link rel="stylesheet" href="./css/bootstrap-theme.min.css" />
+        <link rel="stylesheet" href="./css/default.css" />
+        <link rel="stylesheet" href="./css/syntax.css" />
+          <link rel="stylesheet" href="./css/quotes.css" />
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config( { tex2jax: { inlineMath: [ ["\\(", "\\)"] ]
+                                           , displayMath: [ ["\\[", "\\]" ] ]
+                                           , processEscapes: true
+                                           }
+                              });
+
+
+
+        </script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
+
+        <script type="text/javascript" src="./js/jquery.min.js">
+        </script>
+        <script type="text/javascript" src="./js/bootstrap.min.js">
+        </script>
+
+    </head>
+    <body>
+        <div class="container">
+
+
+            <div id="header">
+
+                <ul id="navigation" class="list-inline text-center">
+                    <li class="logo"><a href="./">ԳԼԽԱՎՈՐ</a></i>
+                    <li><a href="./hogi/">ՀՈԳԻ</a></li>
+                    <li><a href="./mitq/">ՄԻՏՔ</a></li>
+                    <li><a href="./marmin/">ՄԱՐՄԻՆ</a></li>
+                    <li><a href="./rss.xml"><i class="fa fa-rss"></i></a></li>
+                    <!-- <li><a href="/atom.xml"><i class="fa fa-rss"></i></a></li> -->
+                </ul>
+            </div>
+            <div class="clear"></div>
+            
+
+  <div class="clear"></div>
+            <div id="content">
+                <div class="title text-center">
+                    <h2>Haskell</h2>
+                    <hr>
+                </div>
+
+                <div class="page-content">
+<p><strong>Haskell</strong> has now been my programming language of choice for 7 years. For many things, I had to struggle to understand the meat of them and went through the usual troubles (lost in monad tutorials and friends, seeing super-abstract code written mentionning all kinds of abstractions, etc). This page is just supposed to gather some links and explanations that I found to be helpful and/or interesting.</p>
+<section id="basics" class="level1">
+<h1>Basics</h1>
+<section id="books" class="level2">
+<h2>Books</h2>
+<p>Two good books that are recommended to any Haskell beginner:</p>
+<ul>
+<li><a href="http://www.learnyouahaskell.com/">Learn You A Haskell!</a></li>
+<li><a href="http://book.realworldhaskell.com/">Real World Haskell</a></li>
+</ul>
+<p>In addition, I also suggest taking an occasional look at the <a href="http://en.wikibooks.org/wiki/Haskell">Haskell wikibook</a> when the other two leave you clueless about something.</p>
+</section>
+<section id="key-topics-not-covered-enough-in-the-books" class="level2">
+<h2>Key topics not covered enough in the books</h2>
+<ul>
+<li><p><a href="http://alpmestan.com/posts/2013-10-02-oh-my-laziness.html">Laziness and strictness</a> are covered in decent depth in this post I wrote on this blog ; you can find some great explanations in Simon Marlow’s <a href="http://chimera.labs.oreilly.com/books/1230000000929/ch02.html">Parallel and Concurrent Programming in Haskell</a>.</p></li>
+<li><p>There are many monad tutorials out there, yes. There’s one that I really recommend to <em>any</em> Haskeller who is still struggling to understand what they are, written by the great Dan Piponi: <a href="http://blog.sigfpe.com/2006/08/you-could-have-invented-monads-and.html">You Could Have Invented Monads! (And Maybe You Already Have.)</a></p></li>
+</ul>
+</section>
+</section>
+<section id="ghc-core" class="level1">
+<h1>GHC Core</h1>
+<p>Although I have written a few things about it (see <a href="http://alpmestan.com/tags/core.html">here</a>), I strongly recommend checking out the links given on StackOverflow, mostly by Don Stewart: <a href="http://stackoverflow.com/questions/6121146/reading-ghc-core">Reading GHC Core</a>.</p>
+<p>A small tip for getting a GHC Core output that’s actually readable is to build your file/project with:</p>
+<pre class="shell"><code>$ ghc -O2 -ddump-simpl -dsuppress-idinfo -dsuppress-coercions -dsuppress-type-applications -dsuppress-uniques -dsuppress-module-prefixes Hello.hs</code></pre>
+</section>
+<section id="libraries" class="level1">
+<h1>Libraries</h1>
+<ul>
+<li><a href="https://www.fpcomplete.com/user/thoughtpolice/using-reflection">Great tutorial about the ‘reflection’ library</a>, written by Austin Seipp.</li>
+<li><a href="https://skillsmatter.com/skillscasts/4251-lenses-compositional-data-access-and-manipulation">An introductory talk about ‘lens’</a>, by Simon Peyton Jones</li>
+</ul>
+</section>
+<section id="history" class="level1">
+<h1>History</h1>
+<p>Like anything but photons in this world, <em>Haskell</em> does have an history. A very interesting one – you can see many of the ideas and features we know, love and use these days come into play (but not all of them). And guess what? Most of that story is available to anyone interested in a very-well written paper.</p>
+<ul>
+<li><a href="http://research.microsoft.com/en-us/um/people/simonpj/papers/history-of-haskell/history.pdf">A History of Haskell: Being Lazy With Class</a>, Paul Hudak (Yale University), John Hughes (Chalmers University), Simon Peyton Jones (Microsoft Research), Philip Wadler (Edinburgh University), The Third ACM SIGPLAN History of Programming Languages Conference (HOPL-III) San Diego, California, June 9-10, 2007.</li>
+</ul>
+</section>
+</div>
+
+
+            </div>
+            <div id="footer" class="col-md-12">
+                <div class="row"><hr /></div>
+                <div class="row">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <i class="fa fa-github"></i>
+                            <a href="http://github.com/arthurvard" target="_blank">github</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-file-o"></i>
+                            <a href="http://hub.darcs.net/arthur" target="_blank">darcshub</a>
+                        </li>
+                        <!-- <li>
+                            <i class="fa fa-twitter-square"></i>
+                            <a href="http://twitter.com/arthurvard"  target="_blank">twitter</a>
+                        </li> -->
+                        <li>
+                            <i class="fa fa-user"></i>
+                            <a href="http://www.haskellers.com/user/arthurvard" target="_blank">haskeller</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope-o"></i>
+                            <a href="mailto:alpmestan@gmail.com">artie.vard@gmail.com</a>
+                        </li>
+                        <li>© 1995-2016 <a href="./about.html">Arthur Vardanyan</a></li>
+                    </ul>
+                </div>
+                <div class="row text-center">
+                    Powered by  <a href="http://jaspervdj.be/hakyll" target="_blank">Hakyll</a>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="./js/quotes.js">
+        </script>
+    </body>
+</html>
