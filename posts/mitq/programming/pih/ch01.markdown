@@ -1,6 +1,6 @@
 ---
 title: Գլուխ Ա - Programming in Haskell(PiH)
-tags: PiH, haskell
+tags: PiH, haskell, urish
 date: 2014-02-01
 description: DESCRIPTION
 comments: true
@@ -9,6 +9,7 @@ toc: true
 
 [David, who is also working through PiH](http://davidtran.doublegifts.com/blog/?cat=7)
 
+* toc
 
 #Ներածություն
 
@@ -201,7 +202,7 @@ rQsort' = reverse . qsort
 ~~~~
 
 #####**վարժ. 1.5**
-~~~ {lang="haskell"}
+~~~ {.haskell}
 -- Եթե <= փոխարինենք խիստ անհավասարի նղանով <,
 -- ապա կստանանք կարգավորված ցուցակ որտեղ կբացակայեն
 -- կրկնվող տարերը։
