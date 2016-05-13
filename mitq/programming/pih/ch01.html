@@ -66,6 +66,9 @@
 <li><a href="#լուծումներ">Լուծումներ</a></li>
 </ul></div>
 <p><a href="http://davidtran.doublegifts.com/blog/?cat=7">David, who is also working through PiH</a></p>
+<ul>
+<li>toc</li>
+</ul>
 <section id="ներածություն" class="level1">
 <h1>Ներածություն</h1>
 <section id="ֆունկցիաներ" class="level2">
@@ -220,27 +223,27 @@ rQsort' <span class="fu">=</span> reverse <span class="fu">.</span> qsort      <
 </section>
 <section id="վարժ.-1.5" class="level5">
 <h5><strong>վարժ. 1.5</strong></h5>
-<pre lang="haskell"><code>-- Եթե &lt;= փոխարինենք խիստ անհավասարի նղանով &lt;,
--- ապա կստանանք կարգավորված ցուցակ որտեղ կբացակայեն
--- կրկնվող տարերը։
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="co">-- Եթե &lt;= փոխարինենք խիստ անհավասարի նղանով &lt;,</span>
+<span class="co">-- ապա կստանանք կարգավորված ցուցակ որտեղ կբացակայեն</span>
+<span class="co">-- կրկնվող տարերը։</span>
 
-qsort' :: Ord a =&gt; [a] -&gt; [a]
-qsort' []     = []
-qsort' (x:xs) = qsort' smaller ++ [x] ++ qsort' larger
-                where
-                     smaller = [a | a &lt;- xs, a &lt; x]
-                     larger  = [b | b &lt;- xs, b &gt; x]
+<span class="ot">qsort' ::</span> <span class="dt">Ord</span> a <span class="ot">=&gt;</span> [a] <span class="ot">-&gt;</span> [a]
+qsort' []     <span class="fu">=</span> []
+qsort' (x<span class="fu">:</span>xs) <span class="fu">=</span> qsort' smaller <span class="fu">++</span> [x] <span class="fu">++</span> qsort' larger
+                <span class="kw">where</span>
+                     smaller <span class="fu">=</span> [a <span class="fu">|</span> a <span class="ot">&lt;-</span> xs, a <span class="fu">&lt;</span> x]
+                     larger  <span class="fu">=</span> [b <span class="fu">|</span> b <span class="ot">&lt;-</span> xs, b <span class="fu">&gt;</span> x]
 
 
--- Ցույց տանք, որ կամայական x-ի համար qsort [x] = [x]
+<span class="co">-- Ցույց տանք, որ կամայական x-ի համար qsort [x] = [x]</span>
 
   qsort [x]  
-=    {-- qsort կիրառում --}
-  qsort [] ++ [x] ++ qsort []
-=    {-- qsort կիրառում --}
-  [] ++ [x] ++ []
-=    {-- ++ կիրառում --}
-  [x]</code></pre>
+<span class="fu">=</span>    <span class="co">{-- qsort կիրառում --}</span>
+  qsort [] <span class="fu">++</span> [x] <span class="fu">++</span> qsort []
+<span class="fu">=</span>    <span class="co">{-- qsort կիրառում --}</span>
+  [] <span class="fu">++</span> [x] <span class="fu">++</span> []
+<span class="fu">=</span>    <span class="co">{-- ++ կիրառում --}</span>
+  [x]</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">  qsort' [<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">1</span>]  <span class="co">-- qsort' (2:[2,3,1,1])</span>
 <span class="fu">=</span>    <span class="co">{-- qsort' կիրառում --}</span>
   qsort' [<span class="dv">1</span>,<span class="dv">1</span>] <span class="fu">++</span> [<span class="dv">2</span>] <span class="fu">++</span> qsort' [<span class="dv">3</span>]
@@ -261,7 +264,7 @@ qsort' (x:xs) = qsort' smaller ++ [x] ++ qsort' larger
             <i class="fa fa-calenda"></i> Posted on February  1, 2014
         </span>
         <span class="tags text-right" style="width: 100%">
-            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="../../../tags/PiH.html">PiH</a></li><li><a href="../../../tags/haskell.html">haskell</a></li></ul>
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="../../../tags/PiH.html">PiH</a></li><li><a href="../../../tags/haskell.html">haskell</a></li><li><a href="../../../tags/urish.html">urish</a></li></ul>
         </span>
 </div>
 
