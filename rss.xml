@@ -36,6 +36,92 @@
     <dc:creator>Arthur Vardanyan</dc:creator>
 </item>
 <item>
+    <title>Mike's World-O-Programming</title>
+    <link>http://imastaser.am/mitq/haskell/tutorials/mvanier.html</link>
+    <description><![CDATA[<div class="post-content">
+<section id="mikes-world-o-programming" class="level2">
+<h2><a href="http://mvanier.livejournal.com/?skip=10">Mike’s World-O-Programming</a></h2>
+</section>
+<section id="mike-vaniers-home-page" class="level2">
+<h2><a href="http://users.cms.caltech.edu/~mvanier/">Mike Vanier’s home page</a></h2>
+</section>
+<section id="section" class="level2">
+<h2>2008</h2>
+<section id="january" class="level3">
+<h3>15 January</h3>
+<p><a href="http://mvanier.livejournal.com/519.html">Welcome to my blog!</a> <br> <a href="http://mvanier.livejournal.com/998.html">“Foundational” programming languages</a></p>
+</section>
+<section id="january-1" class="level3">
+<h3>16 January</h3>
+<p><a href="http://mvanier.livejournal.com/1205.html">How not to explain Haskell monads</a> <br> <a href="http://mvanier.livejournal.com/1351.html">Ruby critique, part 1</a></p>
+</section>
+<section id="january-2" class="level3">
+<h3>21 January</h3>
+<p><a href="http://mvanier.livejournal.com/1765.html">Haskell state monads, part 1</a></p>
+</section>
+<section id="january-3" class="level3">
+<h3>22 January</h3>
+<p><a href="http://mvanier.livejournal.com/1901.html">Haskell state monads, part 2</a></p>
+</section>
+<section id="april" class="level3">
+<h3>10 April</h3>
+<p><a href="http://mvanier.livejournal.com/2133.html">Forth</a></p>
+</section>
+<section id="july" class="level3">
+<h3>20 July</h3>
+<p><a href="http://mvanier.livejournal.com/2700.html">The Y Combinator</a></p>
+</section>
+<section id="august" class="level3">
+<h3>14 August</h3>
+<p><a href="http://mvanier.livejournal.com/2897.html">The Y Combinator (Slight Return)</a></p>
+</section>
+</section>
+<section id="section-1" class="level2">
+<h2>2009</h2>
+<section id="march" class="level3">
+<h3>17 March</h3>
+<p><a href="http://mvanier.livejournal.com/2009/03/17/">Haskell is sandbox crack!</a></p>
+</section>
+</section>
+<section id="section-2" class="level2">
+<h2>2010</h2>
+<section id="july-1" class="level3">
+<h3>12 July</h3>
+<p><a href="http://mvanier.livejournal.com/3395.html">Why Scala Is Interesting</a></p>
+</section>
+<section id="july-2" class="level3">
+<h3>21 July</h3>
+<p><a href="http://mvanier.livejournal.com/3820.html">Stupid Haskell Trick: Factorials in the Type System</a></p>
+</section>
+<section id="july-3" class="level3">
+<h3>25 July</h3>
+<p><a href="http://mvanier.livejournal.com/3917.html">Yet Another Monad Tutorial (part 1: basics)</a> <br> <a href="http://mvanier.livejournal.com/4305.html">Yet Another Monad Tutorial (part 2: &gt;&gt;= and return)</a> <br> <a href="http://mvanier.livejournal.com/4586.html">Yet Another Monad Tutorial (part 3: The Monad Laws)</a> <br> <a href="http://mvanier.livejournal.com/4647.html">Yet Another Monad Tutorial (part 4: The Maybe and List Monads)</a></p>
+</section>
+<section id="august-1" class="level3">
+<h3>16 August</h3>
+<p><a href="http://mvanier.livejournal.com/5103.html">Yet Another Monad Tutorial (part 5: error-handling monads)</a> <br> <a href="http://mvanier.livejournal.com/5343.html">Yet Another Monad Tutorial (part 6: more on error-handling monads)</a></p>
+</section>
+<section id="august-2" class="level3">
+<h3>25 August</h3>
+<p><a href="http://mvanier.livejournal.com/5406.html">Yet Another Monad Tutorial (part 7: state monads)</a> <br> <a href="http://mvanier.livejournal.com/5846.html">Yet Another Monad Tutorial (part 8: more on state monads)</a></p>
+</section>
+</section>
+</div>
+
+<div class="row">
+        <span class="date  text-right">
+            <i class="fa fa-calenda"></i> Posted on December  5, 2016
+        </span>
+        <span class="tags text-right" style="width: 100%">
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/monads.html">monads</a></li><li><a href="/tags/tutorials.html">tutorials</a></li><li><a href="/tags/haskell.html">haskell</a></li></ul>
+        </span>
+</div>
+]]></description>
+    <pubDate>Mon, 05 Dec 2016 00:00:00 UT</pubDate>
+    <guid>http://imastaser.am/mitq/haskell/tutorials/mvanier.html</guid>
+    <dc:creator>Arthur Vardanyan</dc:creator>
+</item>
+<item>
     <title>videos on haskell</title>
     <link>http://imastaser.am/mitq/haskell/videos.html</link>
     <description><![CDATA[<div class="post-content">
@@ -236,29 +322,6 @@ Data from &lt;a target=’_blank’ style=‘text-decoration:none;’href=’htt
 ]]></description>
     <pubDate>Sun, 07 Dec 2014 00:00:00 UT</pubDate>
     <guid>http://imastaser.am/mitq/programming/learnhaskell.resources.html</guid>
-    <dc:creator>Arthur Vardanyan</dc:creator>
-</item>
-<item>
-    <title>tmux</title>
-    <link>http://imastaser.am/mitq/programming/2014-12-06-tmux-tips.html</link>
-    <description><![CDATA[<div class="post-content">
-
-<p><a href="http://byobu.co/">Byobu</a></p>
-<p><a href="http://blog.niklasottosson.com/?p=574">My Tmux “cheat sheet”</a></p>
-<p><a href="http://leonardo-m.livejournal.com/77079.html">Good font for terminal</a></p>
-</div>
-
-<div class="row">
-        <span class="date  text-right">
-            <i class="fa fa-calenda"></i> Posted on December  6, 2014
-        </span>
-        <span class="tags text-right" style="width: 100%">
-            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/tmux.html">tmux</a></li></ul>
-        </span>
-</div>
-]]></description>
-    <pubDate>Sat, 06 Dec 2014 00:00:00 UT</pubDate>
-    <guid>http://imastaser.am/mitq/programming/2014-12-06-tmux-tips.html</guid>
     <dc:creator>Arthur Vardanyan</dc:creator>
 </item>
 
