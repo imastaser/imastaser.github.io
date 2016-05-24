@@ -1,5 +1,5 @@
 .cbp-qtrotator {
-height: 140px;
+height: 120px;
 position: relative;
 margin: 0;
 /*padding-top: 11px*/
@@ -8,7 +8,7 @@ margin: 0;
 width: 100%;
 height: auto;
 position: absolute;
-min-height: 140px;
+min-height: 120px;
 top: 0;
 z-index: 2;
 display: none
@@ -17,7 +17,7 @@ display: none
 display: block
 }
 .cbp-qtrotator blockquote {
-margin: 40px 0 0 0;
+margin: 20px 0 0 0;
 padding: 0
 }
 .cbp-qtrotator blockquote p {
@@ -34,7 +34,7 @@ content: '― '
 }
 .cbp-qtrotator .cbp-qtcontent img {
 float: right;
-margin: 50px 0 0 50px
+margin: 50px 0 0 20px
 }
 .cbp-qtprogress {
 position: absolute;

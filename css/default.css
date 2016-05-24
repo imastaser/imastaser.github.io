@@ -9,7 +9,7 @@ body {
     color: black;
     font-size: 16px;
     min-width: 800px;
-    font-family: 'arian_amuregular', 'Arian AMU', 'georgia', 'Futura','Lucida Sans','Helvetica','Arial',sans-serif;
+    font-family: 'arian_amuregular', 'Arian AMU', 'georgia', 'Futura','Lucida Sans','Helvetica','Arial';
 
 }
 
@@ -216,7 +216,7 @@ ul {
 }
 
 .tagcloud {
-    width:80%;
+    /*width:80%;*/
     margin: 0 auto 6px;
 }
 

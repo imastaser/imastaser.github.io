@@ -1,5 +1,5 @@
 ---
-title: How learn haskell, resource collection
+title: How learn haskell resource collection
 tags: learning, haskell
 date: 2014-12-07
 description: DESCRIPTION
