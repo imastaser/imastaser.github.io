@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>How not to explain Haskell monads</title>
+        <link rel="alternate" type="application/rss+xml" title="From Hask Til Dawn" href="../../../rss.xml" />
+        <link rel="shortcut icon" href="../../../favicon.ico?v=2" type="image/x-icon" />
+        <link rel="stylesheet" href="../../../css/bootstrap.min.css" />
+        <link rel="stylesheet" href="../../../css/bootstrap-theme.min.css" />
+        <link rel="stylesheet" href="../../../css/default.css" />
+        <link rel="stylesheet" href="../../../css/syntax.css" />
+          <link rel="stylesheet" href="../../../css/quotes.css" />
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config( { tex2jax: { inlineMath: [ ["\\(", "\\)"] ]
+                                           , displayMath: [ ["\\[", "\\]" ] ]
+                                           , processEscapes: true
+                                           }
+                              });
+
+
+
+        </script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
+
+        <script type="text/javascript" src="../../../js/jquery.min.js">
+        </script>
+        <script type="text/javascript" src="../../../js/bootstrap.min.js">
+        </script>
+
+    </head>
+    <body>
+        <div class="container">
+
+
+            <div id="header">
+
+                <ul id="navigation" class="list-inline text-center">
+                    <li class="logo"><a href="../../../">ԳԼԽԱՎՈՐ</a></i>
+                    <li><a href="../../../hogi/">ՀՈԳԻ</a></li>
+                    <li><a href="../../../mitq/">ՄԻՏՔ</a></li>
+                    <li><a href="../../../marmin/">ՄԱՐՄԻՆ</a></li>
+                    <li><a href="../../../rss.xml"><i class="fa fa-rss"></i></a></li>
+                    <!-- <li><a href="/atom.xml"><i class="fa fa-rss"></i></a></li> -->
+                </ul>
+            </div>
+            <div class="clear"></div>
+            
+
+  <div class="clear"></div>
+            <div id="content">
+                <div class="title text-center">
+                    <h2>How not to explain Haskell monads</h2>
+                    <hr>
+                </div>
+
+                <div class="post-content">
+
+<p><a href="http://mvanier.livejournal.com/1205.html">original article</a></p>
+<p>One of the key concepts in Haskell that sets it apart from other programming languages is the concept of a “monad”. People seem to find this difficult to learn (I did as well), and as a result there are loads of monad tutorials on the web, some of which are very good (I particularly like <a target="_blank" href="http://web.archive.org/web/20061211101052/http://www.nomaware.com/monads/html/index.html">All About Monads</a> by Jeff Newbern). It’s even been said that writing a monad tutorial is a rite of passage for new Haskell programmers. However, one big problem with many monad tutorials is that they try to explain what monads are in reference to existing concepts that the reader already understands (I’ve even seen this in presentations by Simon Peyton-Jones, the main author of the GHC compiler and general Haskell grand poobah). This is a mistake, and I’m going to tell you why.</p>
+<p>It’s natural, when trying to explain what something is, to explain it by reference to things the other person already knows about. This works well when the new thing is similar in some ways to things the other person is familiar with. It breaks down utterly when the new thing is completely out of the experience of the person learning it. For instance, if you were trying to explain what fire is to a caveman who had never seen a fire, what would you say? “It’s kind of like a cross between air and water, but hot…” Not very effective. Similarly, explaining what an atom is in terms of quantum mechanics is problematic, because we know that the electron doesn’t <em>really</em> orbit around the nucleus like a planet around a star, and the notion of a “delocalized electron cloud” doesn’t really mean much. Feynman once said that nobody really understood quantum mechanics, and on an intuitive level that’s true. But on a mathematical level, quantum mechanics is well-understood; we just don’t have a good intuition for what the math really means.</p>
+<p>How does this relate to monads? Time and again, in tutorials, blog posts and on the Haskell mailing lists, I’ve seen monads explained in one of two supposedly-intuitive ways: a monad is “kind of like an action” or “kind of like a container”. How can something be both an action and a container? Aren’t these separate concepts? Is a monad some kind of weird “active container”? No, but the point is that claiming that a monad is a kind of action or a kind of container is incorrect. So what is a monad, anyway?</p>
+<p>Here’s the answer: <strong>A monad is a purely abstract concept, with no fundamental relationship to anything you’ve probably ever heard of before.</strong> The notion of a monad comes from category theory, which is the most abstract branch of mathematics I know of. In fact, the whole point of category theory is to abstract out all of the structure of mathematics to expose the similarities and analogies between seemingly disparate areas (for instance, between algebra and topology), so as to condense mathematics into its fundamental concepts, and thus reduce redundancy. (I could go on about this for quite a while, but I’d rather get back to the point I’m trying to make.) Since I’m guessing that most programmers learning Haskell don’t know much about category theory, monads are not going to mean anything to them. That doesn’t mean that they need to learn all about category theory to use monads in Haskell (fortunately), but it does mean that they need to get comfortable thinking about things in a more abstract way than they are probably used to.</p>
+<p>So monads in Haskell are not actions, and they’re not containers. Why do people use these analogies? It’s because a monad is such a general concept that specific kinds of monads can be thought of as actions or containers. The <code>IO</code> monad can be considered to be an “action” (a kind of function wrapped in a data structure). The <code>list</code> monad and the <code>Maybe</code> monad can be considered as containers. And there are probably other monads that can’t be thought of usefully as either of these things, but as something else entirely. So why have one “monad” concept if it describes all these radically different things? It’s because all these seemingly different things can have similar sets of operations that characterize how they work, even though the details of how those operations work are going to be radically different for each particular kind of monad. In other words, there are structural similarities between all monads, even if the details of what they do is quite different. That’s what makes it useful to have the general concept of a monad in the language in the first place; you can provide support for one thing (a monad), including syntactic support, and it will work in all these different contexts.</p>
+<p><strong>Warning!</strong> I’m going to get into a fairly detailed discussion of Haskell language features below in order to make the above discussion more concrete. Wish me luck.</p>
+<p>Here’s an abbreviated definition of what a monad is in Haskell, leaving out some nonessential features:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">class</span> <span class="dt">Monad</span> m <span class="kw">where</span>
+<span class="ot">  (&gt;&gt;=)  ::</span> m a <span class="ot">-&gt;</span> (a <span class="ot">-&gt;</span> m b) <span class="ot">-&gt;</span> m b
+<span class="ot">  return ::</span> a <span class="ot">-&gt;</span> m a</code></pre></div>
+<p>This says that in order for <code>m</code> to be a monad, there must be two functions called <code>&gt;&gt;=</code> and <code>return</code> that have the given type signatures (the stuff following the <code>::</code> is a type signature). <code>&gt;&gt;=</code> is actually a binary operator usually called “bind”, and return is a regular function of one argument. This kind of “class” is not like the classes in C++ or Java; it’s a type class which is a way of specifying what related types have in common. It’s somewhat similar to the notion of an interface in Java, except that all type checking is done at compile time. Different types can become instances of this type class by saying how they would implement the two operations <code>&gt;&gt;=</code> and <code>return</code> that characterize this particular type class. As long as the implementations have the correct types, it’s allowable as an instance of the class.</p>
+<p>Most type classes are simpler than the <code>Monad</code> class; for instance, we have:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">class</span> <span class="dt">Eq</span> a <span class="kw">where</span>
+<span class="ot">  (==) ::</span> a <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> <span class="dt">Bool</span>
+<span class="ot">  (/=) ::</span> a <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> <span class="dt">Bool</span></code></pre></div>
+<p>This says that any type <code>a</code> is an instance of the type class <code>Eq</code> (meaning “equality”) as long as there are definitions of two functions (actually binary operators, but in Haskell any binary operator can also be treated as a function) called <code>==</code> and <code>/=</code>. The first is the “equals” operator and the second is the “not-equals” operator. They each take two arguments of type <code>a</code> and return a boolean result. The reason for the notation <code>a -&gt; a -&gt; Bool</code> for a function of two arguments is beyond the scope of this discussion but is explained in any Haskell tutorial.</p>
+<p>Looking back at the <code>Monad</code> class above, we see one peculiarity: the thing that can be made into an instance of the <code>Monad</code> class (called <code>m</code>) appears in the type signature concatenated to another thing called <code>a</code>, for instance:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">return<span class="ot"> ::</span> a <span class="ot">-&gt;</span> m a</code></pre></div>
+<p>Where does the <code>a</code> come from? And what does <code>m a</code> mean? <code>a</code> represents an arbitrary type (in Haskellese we say that <code>return</code> is a <em>polymorphic</em> function); a more precise type signature would be this:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">return<span class="ot"> ::</span> forall a<span class="fu">.</span> a <span class="ot">-&gt;</span> m a</code></pre></div>
+<p>So <code>return</code> will work on an argument of any type <code>a</code>, which means that the first argument can be of any type whatsoever. However, whatever that type <code>a</code> is, the result of applying <code>return</code> to a value of that type will be a value of type <code>m a</code>. That means that <code>m</code> is a type constructor, which is like a function on types. <code>m</code> takes a type argument <code>a</code> and produces a new type <code>m a</code> (function application in Haskell doesn’t use parentheses; you just put the function name in front of its arguments, with spaces separating each entity). So anything that can be a monad in Haskell first of all has to be a type constructor with a single type argument. Common monads in Haskell include the <code>IO</code> monad, which does input and output, and the <code>Maybe</code> monad, which is useful for computations that can fail. Both <code>IO</code> and <code>Maybe</code> are type constructors. There is no <code>IO</code> type or <code>Maybe</code> type, but there is e.g. an <code>IO Int</code> type and a <code>Maybe String</code> type.</p>
+<p>Let’s say I have a type constructor called <code>Foo</code> which takes one type argument. That would mean that <code>Foo Int</code> and <code>Foo String</code> would be valid types. How would I tell Haskell that <code>Foo</code> is a monad? I’d have to supply an instance declaration for <code>Foo</code> which might look something like this:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">instance</span> <span class="dt">Monad</span> <span class="dt">Foo</span> <span class="kw">where</span>
+    [definition <span class="kw">of</span> what return means for <span class="dt">Foo</span>]
+    [definition <span class="kw">of</span> what <span class="fu">&gt;&gt;=</span> means for <span class="dt">Foo</span>]</code></pre></div>
+<p>Whatever the definition of <code>return</code> for type <code>Foo a</code> was, it would have to have the type <code>a -&gt; Foo a</code>, which means that it would take a value of type <code>a</code> and convert it into a value of type <code>Foo a</code>. So if type <code>a</code> was <code>Int</code>, the result would have type <code>Foo Int</code>.</p>
+<p>Whatever the definition of <code>&gt;&gt;=</code> for type <code>Foo a</code> was, it would have to have the type <code>Foo a -&gt; (a -&gt; Foo a) -&gt; Foo a</code>, which means that the first argument to <code>&gt;&gt;=</code> has type <code>Foo a</code> (a monadic value), the second argument has type <code>a -&gt; Foo a</code> (a function taking a value of type <code>a</code> to a value of type <code>Foo a</code>, and the result of the function application would have type <code>Foo a</code>.</p>
+<p>As far as Haskell is concerned, once you’ve done all that, you have your monad. To be a well-behaved monad (in category theory terms), there are additional rules that have to be obeyed. However, Haskell isn’t powerful enough to enforce those rules, so it’s up to the programmer to do it himself. That’s a topic for another time, but the standard monads defined in Haskell are all well-behaved in this sense.</p>
+<p>The point I’m trying to make is that <strong>any</strong> type constructor (taking one type argument) for which the return and bind functions are defined with the correct types is a monad in Haskell, regardless of whether it’s “really” a kind of container, or a kind of action, or whatever. It’s kind of like duck typing: if it looks like a monad, and acts like a monad, it <strong>is</strong> a monad. Anything that is compatible with the above definition is a monad, and trying to find an intuitive explanation that covers all monads is fruitless. I had a physics professor once who had trouble explaining what a tensor was. Finally he said “a tensor is something that transforms the way a tensor does!” In other words, the thing is defined by its behavior (represented by the equations it has to satisfy), not by any intuitive notions.</p>
+<p>I realize that I haven’t said anything whatsoever about what monads are good for; you can refer to existing Haskell tutorials for that, and maybe I’ll talk about that here some other time</p>
+</div>
+
+<div class="row">
+        <span class="date  text-right">
+            <i class="fa fa-calenda"></i> Posted on January 16, 2008
+        </span>
+        <span class="tags text-right" style="width: 100%">
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="../../../tags/mvanier.html">mvanier</a></li><li><a href="../../../tags/monads.html">monads</a></li><li><a href="../../../tags/tutorials.html">tutorials</a></li><li><a href="../../../tags/haskell.html">haskell</a></li></ul>
+        </span>
+</div>
+
+            </div>
+            <div id="footer" class="col-md-12">
+                <div class="row"><hr /></div>
+                <div class="row">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <i class="fa fa-github"></i>
+                            <a href="http://github.com/arthurvard" target="_blank">github</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-file-o"></i>
+                            <a href="http://hub.darcs.net/arthur" target="_blank">darcshub</a>
+                        </li>
+                        <!-- <li>
+                            <i class="fa fa-twitter-square"></i>
+                            <a href="http://twitter.com/arthurvard"  target="_blank">twitter</a>
+                        </li> -->
+                        <li>
+                            <i class="fa fa-user"></i>
+                            <a href="http://www.haskellers.com/user/arthurvard" target="_blank">haskeller</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope-o"></i>
+                            <a href="mailto:alpmestan@gmail.com">artie.vard@gmail.com</a>
+                        </li>
+                        <li>© 1995-2016 <a href="../../../about.html">Arthur Vardanyan</a></li>
+                    </ul>
+                </div>
+                <div class="row text-center">
+                    Powered by  <a href="http://jaspervdj.be/hakyll" target="_blank">Hakyll</a>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="../../../js/quotes.js">
+        </script>
+    </body>
+</html>

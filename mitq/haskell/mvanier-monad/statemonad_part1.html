@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Haskell state monads, part 1</title>
+        <link rel="alternate" type="application/rss+xml" title="From Hask Til Dawn" href="../../../rss.xml" />
+        <link rel="shortcut icon" href="../../../favicon.ico?v=2" type="image/x-icon" />
+        <link rel="stylesheet" href="../../../css/bootstrap.min.css" />
+        <link rel="stylesheet" href="../../../css/bootstrap-theme.min.css" />
+        <link rel="stylesheet" href="../../../css/default.css" />
+        <link rel="stylesheet" href="../../../css/syntax.css" />
+          <link rel="stylesheet" href="../../../css/quotes.css" />
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config( { tex2jax: { inlineMath: [ ["\\(", "\\)"] ]
+                                           , displayMath: [ ["\\[", "\\]" ] ]
+                                           , processEscapes: true
+                                           }
+                              });
+
+
+
+        </script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
+
+        <script type="text/javascript" src="../../../js/jquery.min.js">
+        </script>
+        <script type="text/javascript" src="../../../js/bootstrap.min.js">
+        </script>
+
+    </head>
+    <body>
+        <div class="container">
+
+
+            <div id="header">
+
+                <ul id="navigation" class="list-inline text-center">
+                    <li class="logo"><a href="../../../">ԳԼԽԱՎՈՐ</a></i>
+                    <li><a href="../../../hogi/">ՀՈԳԻ</a></li>
+                    <li><a href="../../../mitq/">ՄԻՏՔ</a></li>
+                    <li><a href="../../../marmin/">ՄԱՐՄԻՆ</a></li>
+                    <li><a href="../../../rss.xml"><i class="fa fa-rss"></i></a></li>
+                    <!-- <li><a href="/atom.xml"><i class="fa fa-rss"></i></a></li> -->
+                </ul>
+            </div>
+            <div class="clear"></div>
+            
+
+  <div class="clear"></div>
+            <div id="content">
+                <div class="title text-center">
+                    <h2>Haskell state monads, part 1</h2>
+                    <hr>
+                </div>
+
+                <div class="post-content">
+
+<p><a href="http://mvanier.livejournal.com/1765.html">original article</a></p>
+<p>I found the concept of state monads in Haskell quite hard to grasp for a long time, so I thought I’d give a (hopefully) brief description of what they are, why they’re useful, and how they work. In addition to being useful and interesting by themselves, understanding state monads will make it much easier to understand the IO monad, which is how input/output is done in Haskell (and which is thus one of the most useful monads).</p>
+<p><strong>First question:</strong> Why do we need anything like state monads? Why not just handle state the way it’s handled in most programming languages?</p>
+<p>Most programming languages are essentially imperative, which means that they have a notion of a collection of mutable variables (local, global, or some other kind e.g. inside an object), and much of the computation consists of altering the values of these variables (which we in the functional programming community call “mutation”, generally pronounced in a way so as to suggest that something obscene and unholy is going on). In essence, in imperative languages, variables vary. But functional languages, and more specifically pure functional languages like Haskell, either don’t allow this at all or at least strongly discourage it. Why is that? It’s because functional languages are built on a notion of functions that is identical to the mathematical notion of functions, where you give a certain set of inputs and the function will always produce the same outputs for those inputs. This property is called “referential transparency”. Having mutable variables, and most especially mutable global variables, makes this property much harder to enforce. Referential transparency is important because it makes functions easy to reason about; you don’t have to consider the current state of a lot of global variables or object instance variables when considering if your function is correct or not, so debugging is much easier. This isn’t to say you can’t write a referentially-transparent function in an imperative language – you can and people do all the time. It’s just that you have no guarantee that any given function is referentially-transparent, which is a bad thing (kind of like driving without seat belts). And even if you could prove that your spiffy new function (which has lots of mutation of, say, local variables) is referentially transparent, it’s still probably going to be harder to prove that it’s correct than it would be to prove the correctness of a function without mutation. One of the main reasons for using a functional language is to write programs that are easy to prove correct. If you want that, mutable state is not your friend.</p>
+<p>It turns out that in imperative languages, a huge part of the code is involved with changing the value of some variable. I would estimate that at least 50% of the code in a typical C program changes the value of some variable. For instance, every assignment statement changes a variable’s value. And now I tell you that you have to live without this? Am I on crack or something? Well, I hope not (is my parole officer reading this?), but it’s clear that at the very least, writing functions in a functional style is going to be different from writing them in imperative style. This is covered quite well in a number of books, of which my favorite is Abelson and Sussman’s <a href="http://mitpress.mit.edu/sicp">Structure and Interpretation of Computer Programs</a> (though that book uses the Scheme language, not Haskell). However, I can give you a flavor for the issues here. Consider a function which takes in two positive integers and computes the greatest common denominator of the two integers using Euclid’s method. In C, such a function would look like this:</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="dt">int</span> gcd(<span class="dt">int</span> x, <span class="dt">int</span> y) 
+{
+    <span class="kw">while</span> (x != y) 
+    {
+        <span class="kw">if</span> (x &lt; y)
+        {
+            y = y - x;
+        }
+        <span class="kw">else</span>
+        {
+            x = x - y;
+        }
+    }
+
+    <span class="kw">return</span> x;
+}</code></pre></div>
+<p>The details of the algorithm or why it works aren’t important for the points I’m going to make, so I won’t go into that here (read Euclid or Knuth or look it up on Wikipedia if you’re curious). What is interesting is that this function contains two mutable variables (x and y), and computes the result by mutating those two variables. So mutation is critical to make this particular function work the way it does.</p>
+<p>Now, how would you write a function like this in a functional language where mutation wasn’t allowed? The standard way to do this is to use recursion, and the resulting function would look something like this:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">gcd<span class="ot"> ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>
+gcd x y <span class="fu">|</span> x <span class="fu">==</span> y    <span class="fu">=</span> x
+        <span class="fu">|</span> x <span class="fu">&lt;</span> y     <span class="fu">=</span> gcd x (y <span class="fu">-</span> x)
+        <span class="fu">|</span> otherwise <span class="fu">=</span> gcd (x <span class="fu">-</span> y) y</code></pre></div>
+<p>This Haskell function is using the same algorithm as the C version, but instead of having a while loop it uses recursion (the same trick will also work in C, but recursion is implemented more efficiently in most functional languages than it is in imperative languages so you don’t want to do it that way in C).</p>
+<p>OK, fine. I’ve just shown that for some functions at least, there are ways to get around the absence of mutation. (The Abelson and Sussman book I referred to above goes into this style of programming in great detail if you want to learn more about it – and if you’re a right-thinking person i.e. one who thinks like me, you do.) So this begs a different question: if this is the case, why even bother with stateful computations?</p>
+<p>Why not write everything using this neato recursion trick or some variation of it? <strong>There are basically two answers to this question:</strong></p>
+<ul>
+<li><p>Some computations may just be more naturally expressed in terms of state mutation than in other way. To write them in terms of recursion might be quite tedious and difficult.</p></li>
+<li><p>If you write a computation in terms of explicit state mutation, a clever compiler might be able to generate really fast code out of that, because computers are basically big imperative state mutation machines.</p></li>
+</ul>
+<p>For these reasons, there is value in supporting some way of doing stateful computations that involve mutation, even in functional languages. Many functional programming languages like <a href="http://www.schemers.org/">Scheme</a> or <a href="http://www.ocaml.org/">Ocaml</a> therefore offer constructs to do imperative programming (mutation of state variables) as fundamental constructs of the language. By doing so, they can no longer be considered pure functional languages, and are thus usually called “impure”. “Impure” doesn’t mean “bad”, but it does mean that the nice properties that characterize programs written in pure functional languages may not hold in these languages. Basically, these languages give you a back door or escape hatch and allow you to program in an imperative style if you want to. Haskell, as a pure functional language, can’t do that. So how does Haskell support these kinds of computations? The answer to this question is somewhat involved, but it will eventually lead us to the topic of state monads.</p>
+<p>First of all, you should realize that any function that involves some mutable state can be rewritten in a form in which the mutable state variables becomes extra arguments to the function (or several extra arguments). So instead of this:</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="co">// pseudo-code, sort of javascript-ish</span>
+function foo(x, y) {
+   <span class="co">// code which operates on x, y and some</span>
+   <span class="co">// internal state variable or variables,</span>
+   <span class="co">// possibly mutating any or all of them</span>
+}</code></pre></div>
+<p>you could write this:</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="co">// note the extra &quot;state&quot; argument</span>
+function foo(state, x, y) {
+    <span class="co">// code which operates on x, y, </span>
+    <span class="co">// and state only</span>
+}</code></pre></div>
+<p>or even this:</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="co">// multiple (3) state variables:</span>
+function foo(state1, state2, state3, x, y)
+{
+    <span class="co">// code which operates on state1, </span>
+    <span class="co">// state2, state3 and x and y</span>
+}</code></pre></div>
+<p>This approach is called <strong>“threading the state”</strong> You take all the local or global variables that are used inside your function and make them extra arguments to the function.</p>
+<p>In Haskell, you can take a bunch of values of any types and make a composite type that contains all of them. So in the above example, if <code>state1</code> was of type <code>Int, state2</code> was of type <code>Float</code>, and <code>state3</code> was of type <code>String</code>, we could define a new type like this:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">newtype</span> <span class="dt">FooState</span> <span class="fu">=</span> <span class="dt">FS</span> (<span class="dt">Int</span>, <span class="dt">Float</span>, <span class="dt">String</span>)</code></pre></div>
+<p>The “FS” is a <em>type constructor;</em> it’s basically a function which generates a new <code>FooState</code> value out of an <code>(Int, Float, String)</code> tuple. There are other ways to define <code>FooState</code> in Haskell, but they aren’t any better and the differences aren’t important here. What this means is that in Haskell, you can thread the state by using a maximum of one extra argument to a function, as long as you’re willing to define a new type for the state variables for that function. So in Haskell, <code>foo</code> could be written like this:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="dt">Foo</span><span class="ot"> ::</span> <span class="dt">FooState</span> <span class="ot">-&gt;</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span> 
+       <span class="ot">-&gt;</span> (<span class="dt">Int</span>, <span class="dt">FooState</span>)
+<span class="dt">Foo</span> (<span class="dt">FS</span> (a, b, c)) x y <span class="fu">=</span>
+    <span class="co">-- code that uses x, y, plus the three </span>
+    <span class="co">-- components of FooState, </span>
+    <span class="co">-- called a, b, and c here</span></code></pre></div>
+<p>Here I’m assuming that x and y are Ints, and that the entire function returns an Int. Since FooState may be modified by the function, the function also has to return that, so the return value is a tuple of an Int and a FooState.</p>
+<p>The significance of this is that any computation involving mutation of state can be broken down into a bunch of smaller computations involving mutation of state, until you get down to very primitive state mutations. That’s how state monads work in Haskell. This is a good place to stop, so I’ll pick up the discussion in <a href="./statemonad_part2.html">part 2</a>.</p>
+</div>
+
+<div class="row">
+        <span class="date  text-right">
+            <i class="fa fa-calenda"></i> Posted on January 21, 2008
+        </span>
+        <span class="tags text-right" style="width: 100%">
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="../../../tags/mvanier.html">mvanier</a></li><li><a href="../../../tags/monads.html">monads</a></li><li><a href="../../../tags/tutorials.html">tutorials</a></li><li><a href="../../../tags/haskell.html">haskell</a></li></ul>
+        </span>
+</div>
+
+            </div>
+            <div id="footer" class="col-md-12">
+                <div class="row"><hr /></div>
+                <div class="row">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <i class="fa fa-github"></i>
+                            <a href="http://github.com/arthurvard" target="_blank">github</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-file-o"></i>
+                            <a href="http://hub.darcs.net/arthur" target="_blank">darcshub</a>
+                        </li>
+                        <!-- <li>
+                            <i class="fa fa-twitter-square"></i>
+                            <a href="http://twitter.com/arthurvard"  target="_blank">twitter</a>
+                        </li> -->
+                        <li>
+                            <i class="fa fa-user"></i>
+                            <a href="http://www.haskellers.com/user/arthurvard" target="_blank">haskeller</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope-o"></i>
+                            <a href="mailto:alpmestan@gmail.com">artie.vard@gmail.com</a>
+                        </li>
+                        <li>© 1995-2016 <a href="../../../about.html">Arthur Vardanyan</a></li>
+                    </ul>
+                </div>
+                <div class="row text-center">
+                    Powered by  <a href="http://jaspervdj.be/hakyll" target="_blank">Hakyll</a>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="../../../js/quotes.js">
+        </script>
+    </body>
+</html>
