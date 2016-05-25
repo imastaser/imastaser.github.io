@@ -123,6 +123,26 @@
 ]]></summary>
 </entry>
 <entry>
+    <title>Կյանքի ճշմարիտ իմաստը</title>
+    <link href="http://imastaser.am/hogi/mashalyan/kyanqi_imast.html" />
+    <id>http://imastaser.am/hogi/mashalyan/kyanqi_imast.html</id>
+    <published>2016-05-25T00:00:00Z</published>
+    <updated>2016-05-25T00:00:00Z</updated>
+    <summary type="html"><![CDATA[<div class="post-content">
+<p>https://www.youtube.com/watch?v=Tk-UbtDKq5w</p>
+</div>
+
+<div class="row">
+        <span class="date  text-right">
+            <i class="fa fa-calenda"></i> Posted on May 25, 2016
+        </span>
+        <span class="tags text-right" style="width: 100%">
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/%D6%84%D5%A1%D6%80%D5%B8%D5%A6.html">քարոզ</a></li><li><a href="/tags/%D5%84%D5%A1%D5%B7%D5%A1%D5%AC%D5%B5%D5%A1%D5%B6.html">Մաշալյան</a></li></ul>
+        </span>
+</div>
+]]></summary>
+</entry>
+<entry>
     <title>videos on haskell</title>
     <link href="http://imastaser.am/mitq/haskell/videos.html" />
     <id>http://imastaser.am/mitq/haskell/videos.html</id>
@@ -296,31 +316,6 @@ Data from &lt;a target=’_blank’ style=‘text-decoration:none;’href=’htt
         </span>
         <span class="tags text-right" style="width: 100%">
             <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/tmux.html">tmux</a></li></ul>
-        </span>
-</div>
-]]></summary>
-</entry>
-<entry>
-    <title>How learn haskell resource collection</title>
-    <link href="http://imastaser.am/mitq/programming/learnhaskell.resources.html" />
-    <id>http://imastaser.am/mitq/programming/learnhaskell.resources.html</id>
-    <published>2014-12-07T00:00:00Z</published>
-    <updated>2014-12-07T00:00:00Z</updated>
-    <summary type="html"><![CDATA[<div class="post-content">
-
-<ul>
-<li><a href="https://haskell.zeef.com/konstantin.skipor">Haskell on zeef</a></li>
-<li><a href="https://github.com/grsmv/haskell-bookmarks">Haskell bookmarks</a></li>
-<li><a href="https://github.com/bitemyapp/learnhaskell">Learn haskell</a></li>
-</ul>
-</div>
-
-<div class="row">
-        <span class="date  text-right">
-            <i class="fa fa-calenda"></i> Posted on December  7, 2014
-        </span>
-        <span class="tags text-right" style="width: 100%">
-            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/learning.html">learning</a></li><li><a href="/tags/haskell.html">haskell</a></li></ul>
         </span>
 </div>
 ]]></summary>
