@@ -1,7 +1,8 @@
 #!/usr/bin/sh
 
 sshGitHub="git@github.com:imastaser/imastaser.github.io.git"
-hakylldir=/d/root/dev/web/hakyll/imastaser
+#hakylldir=/d/root/dev/web/hakyll/imastaser
+hakylldir=/f/imastaser
 pubdir=$hakylldir/_publish
 
 # [[ ! -e $pubdir ]] && git clone -b master $sshGitHub --single-branch _publish
