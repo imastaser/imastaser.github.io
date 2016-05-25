@@ -9,8 +9,8 @@ body {
     color: black;
     font-size: 16px;
     min-width: 800px;
-    font-family: 'arian_amuregular', 'Arian AMU', 'georgia', 'Futura','Lucida Sans','Helvetica','Arial';
-
+/*    font-family: 'arian_amuregular', 'Arian AMU', 'georgia', 'Futura','Lucida Sans','Helvetica','Arial';
+*/
 }
 
 .container {
@@ -160,6 +160,8 @@ hr {
     font-size: 14px;
     margin-top: 2px;
     width: 100%;
+    font-family: 'arian_amuregular', 'Arian AMU', 'georgia', 'Futura','Lucida Sans','Helvetica','Arial';
+
 }
 
 #footer a {

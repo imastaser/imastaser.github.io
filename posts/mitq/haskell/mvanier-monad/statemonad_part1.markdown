@@ -1,11 +1,11 @@
 ---
 title: Haskell state monads, part 1
-tags: monads, tutorials, haskell
+tags: mvanier, monads, tutorials, haskell
 date: 2008-01-21
 author: Mike Vanier
 description: Mike Vanier's article 
 comments: true
-toc: false
+toc: true
 ---
 [original article](http://mvanier.livejournal.com/1765.html)
 
