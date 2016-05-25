@@ -74,6 +74,8 @@
 <li><a href="#function-application">Function application</a></li>
 <li><a href="#function-composition">Function composition</a></li>
 </ul></li>
+<li><a href="#monadic-functions-monadic-values">Monadic functions, monadic values</a></li>
+<li><a href="#lets-recap">Let’s recap:</a></li>
 </ul></li>
 <li><a href="#aside-currying">ASIDE: CURRYING</a></li>
 </ul></div>
@@ -193,6 +195,8 @@
 <p>To do something with a function, we have to apply it to its argument (we’re assuming one-argument functions here). This is usually done by simply juxtaposing the function name with the argument:</p>
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">  f <span class="dv">2</span>  <span class="fu">--&gt;</span> has value <span class="dv">4</span></code></pre></div>
 <p>Note that in Haskell, unlike most computer languages, we don’t have to surround a function’s arguments with parentheses(<a href="#aside-currying">see currying</a>).</p>
+<section id="operator" class="level4">
+<h4><code>$</code> operator</h4>
 <p>There is also an explicit operator called <code>$</code>which is the function application operator. It has the type:</p>
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">  ($) ::</span> (a <span class="ot">-&gt;</span> b) <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> b</code></pre></div>
 <p>[In Haskell, symbolic infix operators are equivalent to functions with the same name surrounded by parentheses, so <code>f $ 2</code> means the same thing as <code>($) f 2</code>. When defining new symbolic operators we often write them in their functional form for convenience (see any introductory Haskell tutorial for more on how to do this). We will be using this facility a lot below.]</p>
@@ -201,10 +205,15 @@
   f <span class="fu">$</span> <span class="dv">2</span>    <span class="fu">--&gt;</span> also has value <span class="dv">4</span>
   (<span class="fu">$</span>) f <span class="dv">2</span>  <span class="fu">--&gt;</span> also has value <span class="dv">4</span></code></pre></div>
 <p>These are just three different ways of writing the exact same thing.</p>
-<p>Now, using the <code>$</code> operator for function application isn’t technically necessary because you can just juxtapose the function with its argument to apply the function to the argument (though there are actually some common uses for <code>$</code> involving operator precedence that we won’t get into here). Interestingly, we can also define a “reverse apply” operator (which we’ll call <code>&gt;$&gt;</code>) that is like <code>$</code> but takes its arguments in the reverse order:</p>
+<p>Now, using the <code>$</code> operator for function application isn’t technically necessary because you can just juxtapose the function with its argument to apply the function to the argument (though there are actually some common uses for <code>$</code> involving operator precedence that we won’t get into here).</p>
+</section>
+<section id="operator-reverse-apply" class="level4">
+<h4><code>&gt;$&gt;</code> operator (“reverse apply”)</h4>
+<p>Interestingly, we can also define a “reverse apply” operator (which we’ll call <code>&gt;$&gt;</code>) that is like <code>$</code> but takes its arguments in the reverse order:</p>
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">  (&gt;$&gt;) ::</span> a <span class="ot">-&gt;</span> (a <span class="ot">-&gt;</span> b) <span class="ot">-&gt;</span> b
   x <span class="fu">&gt;$&gt;</span> f <span class="fu">=</span> f x  <span class="co">-- = f $ x as well</span></code></pre></div>
-<p>This is somewhat appealing in that we can read it as “take a value x, apply the function f to it, and get the result”. If you know unix, you may notice that the unix shell’s pipe (<code>|</code>) operator works this way — you produce some data and then apply a program to it to transform it in some way. We can use whichever function application operator is more convenient for our purposes at any given time, though usually we don’t use an operator at all, just juxtaposition.</p>
+<p>This is somewhat appealing in that we can read it as “take a value x, apply the function f to it, and get the result”. If you know unix, you may notice that the unix shell’s pipe (<code>|</code>) operator works this way — you produce some data and then apply a program to it to transform it in some way. We can use whichever function application operator is more convenient for our purposes at any given time, though usually we don’t use an operator at all, just juxtaposition[^juxtaposition].</p>
+</section>
 </section>
 <section id="function-composition" class="level3">
 <h3>Function composition</h3>
@@ -212,7 +221,188 @@
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">  x ::</span> a
 <span class="ot">  f ::</span> a <span class="ot">-&gt;</span> b
 <span class="ot">  g ::</span> b <span class="ot">-&gt;</span> c</code></pre></div>
+<p>for some types <code>a</code>, <code>b</code>, and <code>c</code>. One thing you might want to do with <code>x</code>, <code>f</code>, and <code>g</code> is to take the value <code>x</code>, pass it to the function <code>f</code> (which converts the value <code>x</code> (of type <code>a</code>) into a value that has type <code>b</code>), and then pass that value (of type <code>b</code>) to the function <code>g</code> (which converts the value of type <code>b</code> into a value of type <code>c</code>). The way to write this in Haskell is:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">  g (f x)</code></pre></div>
+<p>Note that this will only work if the types of <code>f</code> and <code>g</code> are compatible, <em>i.e.</em> if the type of the output of <code>f</code> is also the type of the input of <code>g</code> (here, type <code>b</code>). A different way of looking at this is that we are really taking the two functions <code>f</code> and <code>g</code> (of types <code>a -&gt; b</code> and <code>b -&gt; c</code> respectively), combining them into a function of type <code>a -&gt; c</code>, and applying that function to <code>x</code> (type <code>a</code>) to get a value of type <code>c</code>.</p>
+<section id="operator-1" class="level4">
+<h4><code>.</code> operator</h4>
+<p>This idea of taking two functions and generating a third one from them is called function composition, and it’s very easy to define an operator for function composition (called <code>.</code> in Haskell):</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">(.) ::</span> (b <span class="ot">-&gt;</span> c) <span class="ot">-&gt;</span> (a <span class="ot">-&gt;</span> b) <span class="ot">-&gt;</span> (a <span class="ot">-&gt;</span> c)
+g <span class="fu">.</span> f <span class="fu">=</span> \x <span class="ot">-&gt;</span> g (f x)</code></pre></div>
+<p>Here, we’re using the notation <code>\x -&gt; ...</code> to mean a lambda expression (anonymous function) of one argument <code>x</code>. So the function composition operator <code>.</code> takes two functions as its arguments and returns a single function. Again, in functional languages this kind of function is perfectly valid because functions are acceptable as arguments of, or as return values from, other functions.</p>
 </section>
+<section id="operator-reverse-function-composition" class="level4">
+<h4><code>&gt;.&gt;</code> operator (“reverse function composition”)</h4>
+<p>One thing about the <code>.</code> operator that is a bit ugly is that the arguments are not in the most obvious order. We can write a “reverse function composition” operator (which I’ll call <code>&gt;.&gt;</code>) as follows:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">(&gt;.&gt;) ::</span> (a <span class="ot">-&gt;</span> b) <span class="ot">-&gt;</span> (b <span class="ot">-&gt;</span> c) <span class="ot">-&gt;</span> (a <span class="ot">-&gt;</span> c)
+f <span class="fu">&gt;.&gt;</span> g <span class="fu">=</span> \x <span class="ot">-&gt;</span> g (f x)</code></pre></div>
+<p>We could also define it using the <code>&gt;$&gt;</code> operator defined above as:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">(&gt;.&gt;) ::</span> (a <span class="ot">-&gt;</span> b) <span class="ot">-&gt;</span> (b <span class="ot">-&gt;</span> c) <span class="ot">-&gt;</span> (a <span class="ot">-&gt;</span> c)
+f <span class="fu">&gt;.&gt;</span> g <span class="fu">=</span> \x <span class="ot">-&gt;</span> x <span class="fu">&gt;$&gt;</span> f <span class="fu">&gt;$&gt;</span> g</code></pre></div>
+<p>Or, even more simply, as:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">(&gt;.&gt;) ::</span> (a <span class="ot">-&gt;</span> b) <span class="ot">-&gt;</span> (b <span class="ot">-&gt;</span> c) <span class="ot">-&gt;</span> (a <span class="ot">-&gt;</span> c)
+f <span class="fu">&gt;.&gt;</span> g <span class="fu">=</span> g <span class="fu">.</span> f</code></pre></div>
+<p>The <code>&gt;.&gt;</code> operator has a type signature that makes it clearer what’s really happening with function composition. You take functions <code>f</code> and <code>g</code> and compute a new function (call it <code>h</code>). Applying <code>h</code> to a value is equivalent to first applying <code>f</code> to the value and then applying <code>g</code> to the result. That’s all function composition is: a way to take existing functions and make new functions from them.</p>
+<p>Here’s an example:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">f ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>
+f x <span class="fu">=</span> <span class="dv">2</span> <span class="fu">*</span> x
+
+<span class="ot">g ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>
+g y <span class="fu">=</span> <span class="dv">3</span> <span class="fu">+</span> y
+
+<span class="ot">h ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>
+h <span class="fu">=</span> g <span class="fu">.</span> f  <span class="co">-- or equivalently: f &gt;.&gt; g</span></code></pre></div>
+<p>What does <code>h</code> do here? It takes in an integer, multiplies it by 2, and adds 3 to it. So it’s equivalent to:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">h ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>
+h x <span class="fu">=</span> <span class="dv">3</span> <span class="fu">+</span> <span class="dv">2</span> <span class="fu">*</span> x</code></pre></div>
+<p>Function composition may not seem like a big deal, but it’s one of the keys to functional programming. It allows us to take existing functions and easily “snap them together” to form more complex functions without having to write all the arguments out by hand. So instead of saying, in effect, “<code>h(x)</code> is the function we get when we first compute <code>f(x)</code> to give us <code>y</code>, and then compute <code>g(y)</code> to give us <code>z</code>, and then return <code>z</code>” we are saying “<code>h</code> is the function we get by applying <code>f</code> and then <code>g</code>”. Not having to name the intermediate values makes code more concise and high-level. Imagine if you were composing ten functions together one after another — if you had to write out all the intermediate results, it would look something like this (we’ll assume all the functions have type <code>Int -&gt; Int</code>):</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"> f11 x <span class="fu">=</span>
+     <span class="kw">let</span>
+       x2 <span class="fu">=</span> f1 x
+       x3 <span class="fu">=</span> f2 x2
+       x4 <span class="fu">=</span> f3 x3
+       x5 <span class="fu">=</span> f4 x4
+       x6 <span class="fu">=</span> f5 x5
+       x7 <span class="fu">=</span> f6 x6
+       x8 <span class="fu">=</span> f7 x7
+       x9 <span class="fu">=</span> f8 x8
+       x10 <span class="fu">=</span> f9 x9
+       x11 <span class="fu">=</span> f10 x10
+     <span class="kw">in</span>
+       x11</code></pre></div>
+<p>Pretty tedious, right? Now look at what we get when we use function composition:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">f11 <span class="fu">=</span> f10 <span class="fu">.</span> f9 <span class="fu">.</span> f8 <span class="fu">.</span> f7 <span class="fu">.</span> f6 <span class="fu">.</span> f5 <span class="fu">.</span> f4 <span class="fu">.</span> f3 <span class="fu">.</span> f2 <span class="fu">.</span> f1</code></pre></div>
+<p>or, equivalently:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">f11 <span class="fu">=</span> f1 <span class="fu">&gt;.&gt;</span> f2 <span class="fu">&gt;.&gt;</span> f3 <span class="fu">&gt;.&gt;</span> f4 <span class="fu">&gt;.&gt;</span> f5 <span class="fu">&gt;.&gt;</span> f6 <span class="fu">&gt;.&gt;</span> f7 <span class="fu">&gt;.&gt;</span> f8 <span class="fu">&gt;.&gt;</span> f9 <span class="fu">&gt;.&gt;</span> f10</code></pre></div>
+</section>
+<section id="point-free-style-argument-free-style" class="level4">
+<h4>point-free style = argument-free style</h4>
+<p>This is not only shorter but more intuitive (“<code>f11</code> is what you get when you first apply <code>f1</code>, then <code>f2</code>, then <code>f3</code> …”). In fact, this way of writing functions using composition and without specifying the values that the functions act on is called “point-free style”. (This name is extremely ironic given that the <code>.</code> (point) operator is actually used more in point-free code than in regular code — the word “point” in “point-free” really means “argument” so perhaps “argument-free style” would be a better name.)</p>
+<p>The take-home lessons from this section are:</p>
+<ul>
+<li><p>Functions, function application, and function composition are fundamental concepts in functional programming.</p></li>
+<li><p>We can write operators for function application and function composition, and these operators can take their arguments in whatever order we want.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="monadic-functions-monadic-values" class="level2">
+<h2>Monadic functions, monadic values</h2>
+<p>So far, everything I’ve said has (I hope) been pretty straightforward. Now we’re going to get into the more complicated stuff.</p>
+<p>I’ve said above that the point of monads is to generalize the notions of function application and function composition to notions of computation which are different from pure functions, and I’ve talked about what some of these notions are.</p>
+<section id="extended-function" class="level4">
+<h4>Extended function</h4>
+<p>If we could write this down schematically in a pseudo-Haskell notation, we might want to write the type of one of these “extended functions” (functions that do something else besides take in an input value and compute and return an output value) as something like this:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">f ::</span> a <span class="co">--[something else]--&gt; b</span></code></pre></div>
+<p>for extended function <code>f</code>, input type <code>a</code> and output type <code>b</code>. The “something else” is specific to a particular notion of computation. In Haskell, special “notions of computation” correspond to particular monads (we don’t know what a monad is yet, so trust me on this for now), and we can refer to these extended functions as “monadic functions” (this isn’t standard terminology; it’s just my way of distinguishing these extended functions from pure functions).</p>
+<p>Note that this notation with the <code>--[something else]--&gt;</code> is not legal Haskell syntax; we’ll see how Haskell handles this below, and it will hopefully be illuminating. But for now, we’ll stick with this notation and look at the different notions of computation we described above, giving the name that Haskell assigns to each one where feasible:</p>
+<ol type="1">
+<li>Functions that may do (terminal or file) input/output. This corresponds to the <code>IO</code> monad, so we could write this as</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">  f ::</span> a <span class="co">--[IO]--&gt; b</span></code></pre></div>
+<pre><code>[In fact, the ```IO``` monad also has other uses which we'll see later.]</code></pre>
+<ol start="2" type="1">
+<li>Functions that may raise exceptions. This correspond to various kinds of error monads:</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">  f ::</span> a <span class="co">--[error]--&gt; b    </span></code></pre></div>
+<ol start="3" type="1">
+<li>Functions that can interact with global or local state. This corresponds to the <code>State</code> monad:</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">  f ::</span> a <span class="co">--[State s]--&gt; b</span></code></pre></div>
+<p>The <code>s</code> in (<code>State s</code>) is the type of the state that is being manipulated.</p>
+<ol start="4" type="1">
+<li>Functions that can fail. This corresponds to the <code>Maybe</code> monad:</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">  f ::</span> a <span class="co">--[Maybe]--&gt; b</span></code></pre></div>
+<ol start="5" type="1">
+<li>Functions that can return multiple values in parallel. This corresponds to the <code>list</code> monad: I didn’t capitalize “list” because lists have special syntactic support in Haskell, so we don’t need to define a special name for them.</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">  f ::</span> a <span class="co">--[list]--&gt; b</span></code></pre></div>
+</section>
+<section id="example-of-io" class="level4">
+<h4>Example of I/O</h4>
+<p>I’ll give examples of all of these monads later in the series. For now, let’s consider functions that may do terminal or file input/output i.e. are in the <code>IO</code> monad. We have:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">  f ::</span> a <span class="co">--[IO]--&gt; b</span></code></pre></div>
+<p>and so we could say that <code>f</code> is a function from <code>a</code> to <code>b</code> in the <code>IO</code> monad. As I said above, this is not legal Haskell syntax. In Haskell, you have to stuff the “monad-ness” of a monadic function into a type; in this case, you have to put it into either the input type or the output type. So, in principle, we might imagine that we could change our monadic function to have one of the following two type signatures:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">  f ::</span> <span class="dt">IO</span> a <span class="ot">-&gt;</span> b</code></pre></div>
+<p>or</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">  f ::</span> a <span class="ot">-&gt;</span> <span class="dt">IO</span> b</code></pre></div>
+<p>It turns out that in Haskell, monadic functions always have the second form:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">  f ::</span> a <span class="ot">-&gt;</span> m b</code></pre></div>
+<p>or some monad <code>m</code> (in this case, <code>m</code> is <code>IO</code>). (Side note for the truly hard-core: there is a related notion called a “comonad” which uses functions like <code>f :: c a -&gt; b</code> for some comonad <code>c</code>. I’ll leave that for a later article.)</p>
+<p>OK, then, what the heck does “<code>f :: a -&gt; m b</code>” really mean? It means that <code>f</code> is a regular (pure) function which takes input values of type <code>a</code>, and returns output values of type <code>m b</code> (whatever they are). So in Haskell, these monadic functions are represented as pure functions with a funky “monadic return type”; put differently, the pure function takes in regular values and returns funky “monadic values”. But what does that mean?</p>
+<p>The notation “<code>m b</code>” needs explanation. <code>b</code> is some Haskell type, and <code>m</code> will represent some kind of monad. But what is <code>m</code> as far as Haskell is concerned? In Haskell, <code>m</code> has to be a type constructor, which is basically a function on types: it takes a type argument and returns a type. This is less weird than it may seem. Consider the notion of “list of Int” (written in Haskell as type <code>[Int]</code>). The “list of” part can be thought of as a type constructor that takes a particular type (<code>Int</code>) and turns it into another type (<code>list of Int</code>, or <code>[Int]</code>). The square bracket notation for list types is hard-coded into Haskell, but it’s perfectly possible to define your own type constructors. In fact, any polymorphic type in Haskell has a corresponding type constructor. One of the simplest is the <code>Maybe</code> polymorphic type, defined as:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">data</span> <span class="dt">Maybe</span> a <span class="fu">=</span> <span class="dt">Nothing</span> <span class="fu">|</span> <span class="dt">Just</span> a</code></pre></div>
+<p>What this says is that <code>Maybe</code> is a type constructor which takes as input one type (called <code>a</code>) and produces a type as output. If <code>a</code> is <code>Int</code>, then the resulting type is <code>Maybe Int</code>, and it’s just as if we’d written:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">  <span class="kw">data</span> <span class="dt">Maybe</span> <span class="dt">Int</span> <span class="fu">=</span> <span class="dt">Nothing</span> <span class="fu">|</span> <span class="dt">Just</span> <span class="dt">Int</span></code></pre></div>
+<p>So <code>Maybe</code> itself is a function on types mapping one input type to one output type. There is a technical name for this: the type constructor <code>Maybe</code> has the kind <code>* -&gt; *</code>. A “kind” is a type of types; primitive types have the kind *, which just means that they aren’t type functions (i.e. type constructors). Don’t worry if this seems confusing; it isn’t particularly important in what follows.</p>
+<p>What is important is that monads, as represented in Haskell, are type constructors like this, turning an input type into a new type. So the <code>IO</code> monad described above is in fact a type constructor, and there are types like <code>IO Bool</code>, <code>IO Int</code>, <code>IO Float</code>, <code>IO Char</code>, <code>IO String</code> etc. which all represent valid Haskell types. Similarly, it will turn out that <code>Maybe</code> will be a monad, and types like <code>Maybe Bool</code>, <code>Maybe Int</code> etc. are all valid Haskell types. I will refer to types that are made from a monadic type constructor to be “monadic types”, so <code>IO Bool</code>, <code>Maybe Int</code>, etc. are all monadic types.</p>
+<blockquote>
+<p><em>Side note:</em> although all monads in Haskell are type constructors, not all type constructors are monads. As we will see, monads have to be type constructors for which specific operations are defined and for which specific “monad laws” hold.</p>
+</blockquote>
+<p>Now we get to a very big question: what do values that happen to have monadic types represent? I call these “monadic values”. What does a value of type <code>Maybe Int</code> represent? What does a value of type <code>IO Float</code> represent?</p>
+<p>We have just hit on the crux of why monads are “hard to understand”.</p>
+</section>
+</section>
+<section id="lets-recap" class="level2">
+<h2>Let’s recap:</h2>
+<ol type="1">
+<li><p>There is a familiar notion of “pure function” <em>i.e.</em> a function which does nothing more than convert an input value of some type into an output value of a (possibly different) type.</p></li>
+<li>There are some special kinds of functions that do something else besides just converting input values into output values. That “something else” can be doing
+<ul>
+<li>terminal or file input/output,</li>
+<li>raising exceptions,</li>
+<li>interacting with global or local state,</li>
+<li>possibly failing,</li>
+<li>possibly returning more than one result,</li>
+<li>or other things.</li>
+</ul>
+<p>Each of these special kinds of functions corresponds to a particular monad, and I refer to them as “monadic functions”. The notion of a monadic function should be fairly intuitive, as every programmer uses functions like this all the time (but without calling them “monadic functions”).</p></li>
+<li><p>Haskell represents monadic functions as pure functions which convert an input value of some type into an output value of a special monadic type. I refer to these output values as “monadic values”.</p></li>
+</ol>
+<p>Now let’s restate the problem: what do “monadic values” really represent?</p>
+<p>Here’s the answer: <strong>They don’t really represent <em>anything</em> intuitive!</strong> The intuitive concept is the notion of a monadic <em>function</em> (<em>i.e.</em> a function which does something else besides convert its input data into some output data). The concept of a monadic <em>value</em> is not intuitive; it’s just how Haskell has chosen to represent the outputs of monadic functions. So if you’ve been trying to understand Haskell monads by understanding what monadic values “really mean”, you have been wasting your time! Don’t bother! It isn’t necessary!</p>
+<p>Nevertheless, In the Haskell literature, there are two common ways of trying to explain what a monadic value is (along with a bunch of silly ways that are occasionally used, mainly in tutorials):</p>
+<ol type="1">
+<li><p>A monadic value of type <code>m a</code> (for some monad <code>m</code>) is some kind of “action” that does something (the exact nature of which depends on the specific monad) and “returns” a value of type <code>a</code>.</p></li>
+<li><p>A monadic value of type <code>m a</code> (for some monad <code>m</code>) is kind of like a container that stores values of type <code>a</code>.</p></li>
+</ol>
+<p>So even though thinking of monadic values is the wrong way to approach monads (and thinking of monadic functions is the right way), I want to try to convince you that (1) at least makes some sense. As we’ll see later, (2) is the wrong way to think about monads; most monad aren’t containers, though some particular monadic values can also behave as containers.</p>
+<p>Let’s take our (hopefully fairly intuitive) notion of a monadic function as our starting point:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">  f ::</span> a <span class="ot">-&gt;</span> m b</code></pre></div>
+<p>Then <code>f x</code>, where <code>x</code> has type <code>a</code>, would have the type <code>m b</code>:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">  x ::</span> a
+  f<span class="ot"> x ::</span> m b</code></pre></div>
+<p>Now <code>f x</code> is a “monadic value”, which isn’t very intuitive. Let’s consider a new function:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">  g ::</span> a <span class="ot">-&gt;</span> () <span class="ot">-&gt;</span> a
+  g x () <span class="fu">=</span> x</code></pre></div>
+<p>What <code>g</code> does is take a value (of any type <code>a</code>) and wrap it into a function so that you can only retrieve the value by calling the function with a unit value. The <code>unit type</code> and <code>value</code> are both written as <code>()</code> in Haskell, and it’s just a type/value that has no significance (the name “unit” just means that it’s a type that has only one value, so the value can’t mean anything in particular). So, for instance, we could have</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"> h <span class="fu">=</span> g <span class="dv">10</span>
+ h ()   <span class="co">-- this will evaluate to 10</span></code></pre></div>
+<p>So what is <code>g (f x)</code>? It has the type:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">  f<span class="ot"> x ::</span> m b  <span class="co">-- see above</span>
+<span class="ot">  g ::</span> a <span class="ot">-&gt;</span> () <span class="ot">-&gt;</span> a
+  g (f x)<span class="ot"> ::</span> () <span class="ot">-&gt;</span> m b </code></pre></div>
+<p>So <code>g (f x)</code> has the type <code>() -&gt; m b</code>. In other words, it’s a function which takes a unit value as its argument and returns a monadic value. But looked at another way, it’s a monadic function which converts a unit value (a value of no significance) into a value of type <code>b</code>, also doing “something else” in the process (the “something else” depending on the monad). This should make sense.</p>
+<p>Now here’s my point. If you feel the need to understand what a monadic value (of type <code>m b</code>) really means, the closest you can get is that it’s like a monadic function of type <code>() -&gt; m b</code> <em>i.e.</em> a function which maps the <code>unit value</code> to a value of type <code>b</code>, doing something else in the process. So it’s as if values of type <code>m b</code> are really functions of type <code>() -&gt; m b</code>, except that they’re not written that way. Monadic values are “undercover functions” as it were. That’s why they’re often called “actions”, which connotes something like a function, but not quite. (Sometimes we also talk about “performing an action” or “executing an action” which is like applying the function.)</p>
+<p>At this point, a couple of examples won’t kill us. I’ll use the example of two input/output functions in Haskell:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">  getLine  ::</span> <span class="dt">IO</span> <span class="dt">String</span>
+<span class="ot">  putStrLn ::</span> <span class="dt">String</span> <span class="ot">-&gt;</span> <span class="dt">IO</span> ()</code></pre></div>
+<p><code>getLine</code> is a “function” (really a monadic value AKA a monadic “action”) which reads a line of text from the terminal, somehow returning the line of text read as a string. <code>putStrLn</code> is a function (a real function this time) which takes a string as input and displays it on the terminal, also outputting a newline character at the end.</p>
+<p>Think for a second how the types of these two functions would be written in a more conventional language. They would probably look something like this:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">getLine<span class="ot">  ::</span> () <span class="ot">-&gt;</span> <span class="dt">String</span>   <span class="co">-- not in Haskell</span>
+putStrLn<span class="ot"> ::</span> <span class="dt">String</span> <span class="ot">-&gt;</span> ()   <span class="co">-- not in Haskell</span></code></pre></div>
+<p>This should be easy to understand: <code>getLine</code> takes a unit value (of no significance) as its input, interacts with the terminal somehow (getting a line of text in the process), and returns a string. <code>putStrLn</code> takes a string as its input, interacts with the terminal somehow (printing the string onto the terminal in the process), and returns a <code>unit value</code> (of no significance). Notice in this case that the purpose of the unit values in these two functions are simply to make sure that they are real functions <em>i.e.</em> that they have an input and an output value. If we removed the <code>()</code>s from the type signatures of <code>getLine</code> and <code>putStrLn</code>, we’d be left with:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot"> getLine  ::</span> <span class="dt">String</span>
+<span class="ot"> putStrLn ::</span> <span class="dt">String</span></code></pre></div>
+<p>which is clearly wrong — <code>getLine</code> isn’t just a string; it’s a function that has to be called with an argument and which returns a string. Similarly, <code>putStrLn</code> isn’t a string, it’s a function which takes a string as an argument and returns an unimportant value. In both cases, the unit types are there as placeholders to make sure that the functions have both inputs and outputs.</p>
+<p>Let’s go back to Haskell. We have:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">  getLine  ::</span> <span class="dt">IO</span> <span class="dt">String</span>
+<span class="ot">  putStrLn ::</span> <span class="dt">String</span> <span class="ot">-&gt;</span> <span class="dt">IO</span> ()</code></pre></div>
+<p>The type of <code>putStrLn</code> isn’t that hard to understand. <code>putStrLn</code> is just a monadic function which happens to be in the <code>IO</code> monad, meaning that it takes in a particular string (the string to be printed), outputs a unit value (of no significance), and does “something else” (in this case, it interacts with the terminal so as to print out the string, because that’s what the <code>IO</code> monad allows you to do).</p>
+<p>The type of <code>getLine</code> is harder to understand. <code>getLine</code> is a monadic value. But if we think of it as a monadic function of type <code>() -&gt; IO String</code> then it makes sense: it is like a function that takes a unit input value (of no significance) and returns a <code>string</code> value, in the process interacting with the terminal (which is how it can determine which string to return; it returns whatever you type on a line).</p>
+<p>And yet, Haskell doesn’t give getLine the type <code>() -&gt; IO</code> String; it gives it the type <code>IO String</code>. So a monadic value is essentially a monadic function with an implicit input argument of type <code>()</code>. As I said above, a lot of Haskell cognoscenti refer to this as an “action”, so when they say that getLine is an “action” which does some terminal input/output and returns a string, that’s what they mean. And that’s about as much meaning as you can give to monadic values. When I talk about state monads in a later article you’ll get a deeper perspective on how something that looks like a value can act like a function.</p>
+<p>In the <a href="monad_2.html">next article</a> in this series, I’ll discuss the two fundamental monadic operations, where they come from, and what they mean.</p>
 </section>
 </section>
 <section id="aside-currying" class="level1">
@@ -234,6 +424,7 @@ r w x y z <span class="fu">=</span> <span class="fu">...</span>  <span class="co
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">r ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> (<span class="dt">Int</span> <span class="ot">-&gt;</span> (<span class="dt">Int</span> <span class="ot">-&gt;</span> (<span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>)))
 r w x y z <span class="fu">=</span> <span class="fu">...</span>  <span class="co">-- some function of w, x, y, and z</span></code></pre></div>
 <p>So here, <code>r</code> is a function of a single argument (an <code>Int</code>, called <code>w</code> in the example) which returns a function of type <code>(Int -&gt; (Int -&gt; (Int -&gt; Int)))</code>. That function, when applied to an <code>Int</code> (<code>x</code> in the example) returns a function of type <code>(Int -&gt; (Int -&gt; Int))</code>. That function, when applied to an <code>Int</code> (<code>y</code> in the example) returns a function of type <code>(Int -&gt; Int)</code>, and that function, when applied to another <code>Int</code> (<code>z</code> in the example) returns an <code>Int</code> — the result of the entire function call <code>(r w x y z)</code>, which is really <code>((((r w) x) y) z)</code>. That’s called currying, and Haskell functions automatically curry their arguments. Currying turns out to be quite handy because you can apply the arguments one at a time instead of all at once, and these partially-applied functions are often quite useful by themselves. It’s also conceptually useful in that from now on, we only have to worry about single-argument functions in our discussion. Nice!</p>
+<p>[^juxtaposition] <a target="_blank" href="https://translate.google.com/#en/hy/juxtaposition">կողքկողքի դնելը</a></p>
 </section>
 </div>
 
