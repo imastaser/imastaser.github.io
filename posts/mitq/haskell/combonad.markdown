@@ -50,16 +50,9 @@ instance Error TestError where
 noMsg = TestError "<unknown error>"
 strMsg s = TestError s
 
--------------------------------------------------------------------------------
--- Lifted IO
-
-cout :: (MonadIO m) => String -> m ()
-cout = liftIO . hPutStr stdout
-
-coutLn :: (MonadIO m) => String -> m ()
-coutLn = liftIO . hPutStrLn stdout
-
--------------------------------------------------------------------------------
+```
+## Main
+``` haskell
 -- Main
 
 main :: IO ()
@@ -74,7 +67,20 @@ testErrorIO
 testStateErrorIO
 testErrorStateIO
 
--------------------------------------------------------------------------------
+```
+## Lifted IO
+``` haskell
+-- Lifted IO
+
+cout :: (MonadIO m) => String -> m ()
+cout = liftIO . hPutStr stdout
+
+coutLn :: (MonadIO m) => String -> m ()
+coutLn = liftIO . hPutStrLn stdout
+```
+
+## State
+``` haskell
 -- MONAD: State
 
 runState' :: State TestState ()
@@ -88,8 +94,9 @@ do
 putStrLn "-- State"
 r <- return $ runState runState' $ TestState 0
 putStrLn $ show r
-
--------------------------------------------------------------------------------
+```
+## StateState
+``` haskell
 -- COMBONAD: StateState
 
 type StateState a = StateT TestState (State TestState2) a
@@ -106,8 +113,9 @@ do
 putStrLn "-- StateState"
 r <- return $ runStateT (runState runStateState (TestState 0)) (TestState2 "")
 putStrLn $ show r
-
--------------------------------------------------------------------------------
+```
+## StateError
+``` haskell
 -- COMBONAD: StateError
 
 type StateError a = StateT TestState (Either TestError) a
@@ -133,8 +141,9 @@ r <- return $ runStateT runStateError1 $ TestState 0
 putStrLn $ show r
 r <- return $ runStateT runStateError2 $ TestState 0
 putStrLn $ show r
-
--------------------------------------------------------------------------------
+```
+## ErrorState
+``` haskell
 -- COMBONAD: ErrorState
 
 type ErrorState a = ErrorT TestError (State TestState) a
@@ -160,8 +169,9 @@ r <- return $ runState (runErrorT runErrorState1) $ TestState 0
 putStrLn $ show r
 r <- return $ runState (runErrorT runErrorState2) $ TestState 0
 putStrLn $ show r
-
--------------------------------------------------------------------------------
+```
+## StateIO
+``` haskell
 -- COMBONAD: StateIO
 
 type StateIO a = StateT TestState IO a
@@ -178,8 +188,9 @@ do
 putStrLn "-- StateIO"
 r <- runStateT runStateIO $ TestState 0
 putStrLn $ show r
-
--------------------------------------------------------------------------------
+```
+## ErrorIO
+``` haskell
 -- COMBONAD: ErrorIO
 
 type ErrorIO a = ErrorT TestError IO a
@@ -205,8 +216,9 @@ r <- runErrorT runErrorIO1
 putStrLn $ show r
 r <- runErrorT runErrorIO2
 putStrLn $ show r
-
--------------------------------------------------------------------------------
+```
+## StateErrorIO
+``` haskell
 -- COMBONAD: StateErrorIO
 
 type StateErrorIO a = StateT TestState (ErrorT TestError IO) a
@@ -234,8 +246,9 @@ r <- runErrorT $ runStateT runStateErrorIO1 $ TestState 0
 putStrLn $ show r
 r <- runErrorT $ runStateT runStateErrorIO2 $ TestState 0
 putStrLn $ show r
-
--------------------------------------------------------------------------------
+```
+## ErrorStateIO
+``` haskell
 -- COMBONAD: ErrorStateIO
 
 type ErrorStateIO a = ErrorT TestError (StateT TestState IO) a
