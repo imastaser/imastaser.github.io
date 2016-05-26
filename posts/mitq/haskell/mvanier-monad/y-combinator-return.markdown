@@ -1,6 +1,6 @@
 ---
 title: The Y Combinator (Slight Return)
-tags: ycombinator haskell
+tags: ycombinator, scheme 
 date: 2010-07-25
 author: Mike Vanier
 description: Mike Vanier's article about moands - part 1

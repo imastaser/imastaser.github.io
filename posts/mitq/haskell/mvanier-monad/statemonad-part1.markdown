@@ -9,7 +9,7 @@ toc: true
 ---
 [original article](http://mvanier.livejournal.com/1765.html)
 
-I found the concept of state monads in Haskell quite hard to grasp for a long time, so I thought I'd give a (hopefully) brief description of what they are, why they're useful, and how they work. In addition to being useful and interesting by themselves, understanding state monads will make it much easier to understand the IO monad, which is how input/output is done in Haskell (and which is thus one of the most useful monads).
+I found the concept of state monads in Haskell quite hard to grasp for a long time, so I thought I'd give a (hopefully) brief description of what they are, why they're useful, and how they work. In addition to being useful and interesting by themselves, understanding state monads will make it much easier to understand the ```IO``` monad, which is how input/output is done in Haskell (and which is thus one of the most useful monads).
 
 **First question:** Why do we need anything like state monads? Why not just handle state the way it's handled in most programming languages?
 

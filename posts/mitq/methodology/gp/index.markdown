@@ -32,7 +32,7 @@ toc: false
 8. Организационно-деятельностная игра. Сборник текстов. Том 9. Часть 1
 9. Организационно-деятельностная игра. Сборник текстов. Том 9. Часть 2
 
-# Видео
+# Видео ГП
  <iframe width="220" height="115"
 src="https://www.youtube.com/embed/iT1qBv1-zrA">
 </iframe>Щедровицкий Г.П.
@@ -53,3 +53,26 @@ src="https://www.youtube.com/embed/hPDgI4_xDD4">
 src="https://www.youtube.com/embed/Uf27-SkOhPk">
 </iframe>
 
+ <iframe width="220" height="115"
+src="https://www.youtube.com/embed/YcwjZjxSCMI">
+</iframe>Энергосетьпроект - 1
+
+ <iframe width="220" height="115"
+src="https://www.youtube.com/embed/m5_W0uDfqw4">
+</iframe>Энергосетьпроект - 2
+
+
+ <iframe width="220" height="115"
+src="https://www.youtube.com/embed/cSV0lenVpJo">
+</iframe>ОДИ в Сургуте (1990)
+
+
+# Видео про ГП
+
+ <iframe width="220" height="115"
+src="https://www.youtube.com/embed/lLWarzwYOi4">
+</iframe>Русская философия образования: Щедровицкий ч.1.
+
+ <iframe width="220" height="115"
+src="https://www.youtube.com/embed/Z_dzIPZvQWU">
+</iframe>Русская философия образования: Щедровицкий ч.2.
