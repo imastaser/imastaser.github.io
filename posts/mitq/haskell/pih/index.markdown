@@ -1,5 +1,5 @@
 ---
-title: Ձեռնարկել եմ ուսումնասիրել «Programming in Haskell(PiH)» գիրքը
+title: «Programming in Haskell(PiH)» 
 tags: ինքնուսուցում, PiH, haskell
 date: 2014-02-01
 description: DESCRIPTION

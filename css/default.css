@@ -246,3 +246,14 @@ ul {
 p .math {
     font-size: 110%;
 }
+
+
+/*table styles*/
+
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+   border: 1px solid black;
+}
