@@ -13,6 +13,10 @@ body {
 */
 }
 
+.list-description {
+    font-size: 10px;
+}
+
 .container {
     padding: 20px;
     width: 65%;
@@ -127,7 +131,7 @@ figure figcaption {
 }
 
 .post-content p {
-    text-align: justify;
+    /*text-align: justify;*/
 }
 
 .container p {

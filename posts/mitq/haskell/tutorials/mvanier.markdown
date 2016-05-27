@@ -25,8 +25,8 @@ toc: false
 | 17.03.09 | [Haskell is sandbox crack!](http://mvanier.livejournal.com/2009/03/17/)                                        |         |
 | 12.07.10 | [Why Scala Is Interesting](http://mvanier.livejournal.com/3395.html)                                           |                                                                                 |
 | 21.07.10 | [Stupid Haskell Trick: Factorials in the Type System](http://mvanier.livejournal.com/3820.html)                |                                                                                 |
-| 25.07.10 | [Yet Another Monad Tutorial (part 1: basics)](http://mvanier.livejournal.com/3917.html)                        | [Yet Another Monad Tutorial (part 1: basics)](../mvanier-monad/monad_1.html)                                 |
-| 25.07.10 | [Yet Another Monad Tutorial (part 2: >>= and return)](http://mvanier.livejournal.com/4305.html)                |                                                                                 |
+| 25.07.10 | [Yet Another Monad Tutorial (part 1: basics)](http://mvanier.livejournal.com/3917.html)                        | [Yet Another Monad Tutorial (part 1: basics)](../mvanier-monad/monad-1.html)                                 |
+| 25.07.10 | [Yet Another Monad Tutorial (part 2: >>= and return)](http://mvanier.livejournal.com/4305.html)                |  [Yet Another Monad Tutorial (part 2: >>= and return)](../mvanier-monad/monad-2.html)                                                                                |
 | 25.07.10 | [Yet Another Monad Tutorial (part 3: The Monad Laws)](http://mvanier.livejournal.com/4586.html)                |                                                                                 |
 | 25.07.10 | [Yet Another Monad Tutorial (part 4: The Maybe and List Monads)](http://mvanier.livejournal.com/4647.html)     |                                                                                 |
 | 16.08.10 | [Yet Another Monad Tutorial (part 5: error-handling monads)](http://mvanier.livejournal.com/5103.html)         |                                                                                 |

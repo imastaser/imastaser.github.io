@@ -22,15 +22,29 @@ toc: false
 
 
 # Книги
-1. [Программирование научных исследований и разработок. Том 1]()
-2. Психология и методология. Том 2. Часть 1
-3. Организация. Руководство. Управление. Том 4
-4. Организация. Руководство. Управление. Том 5
-5. Процессы и структуры в мышлении. Том 6
-6. Проблемы логики научного исследования и анализ структуры науки. Том 7
-7. Московский методологический кружок. Развитие идей и подходов. Том 8
-8. Организационно-деятельностная игра. Сборник текстов. Том 9. Часть 1
-9. Организационно-деятельностная игра. Сборник текстов. Том 9. Часть 2
+1. Программирование научных исследований и разработок. Том 1 <a target="_blank" href="https://drive.google.com/open?id=0B5_olWfL1-4xWUFNeFhhS2VudjA">doc</a> | <a target="_blank" href="https://drive.google.com/open?id=0B5_olWfL1-4xZDc0dGZYQWh5OFU">pdf</a>
+2. Психология и методология. Том 2. Часть 1 <a target="_blank" href="https://drive.google.com/open?id=0B5_olWfL1-4xbGxSUUtCajM5QjQ">djvu</a>
+3. Организация. Руководство. Управление. Том 4 <a target="_blank" href="https://drive.google.com/open?id=0B5_olWfL1-4xdWNjM3AxVTVrVUk">pdf</a>
+4. Организация. Руководство. Управление. Том 5 <a target="_blank" href="https://drive.google.com/open?id=0B5_olWfL1-4xd09fNjhLLXFsa3M">djvu</a>
+5. Процессы и структуры в мышлении. Том 6 <a target="_blank" href="https://drive.google.com/open?id=0B5_olWfL1-4xVHFFWXB6YndUTHM">doc</a> | <a target="_blank" href="https://drive.google.com/open?id=0B5_olWfL1-4xLXdHSFVMTXkzQjQ">pdf</a>
+6. Проблемы логики научного исследования и анализ структуры науки. Том 7 <a target="_blank" href="https://drive.google.com/open?id=0B5_olWfL1-4xWjJHQ0taLWlVOXM">djvu</a>
+7. Московский методологический кружок. Развитие идей и подходов. Том 8 <a target="_blank" href="https://drive.google.com/open?id=0B5_olWfL1-4xZWpGcjdNb2FVd2M">djvu</a>
+8. Организационно-деятельностная игра. Сборник текстов. Том 9. Часть 1 <a target="_blank" href="https://drive.google.com/open?id=0B5_olWfL1-4xVHM0azI1cEZFdGc">djvu</a>
+9. Организационно-деятельностная игра. Сборник текстов. Том 9. Часть 2 <a target="_blank" href="https://drive.google.com/open?id=0B5_olWfL1-4xZHg3Qm1lME1veXc">pdf</a>
+
+* Избранные труды <a target="_blank" href="https://drive.google.com/open?id=0B5_olWfL1-4xeU5Td2xTZFpBTG8">doc</a> | <a target="_blank" href="https://drive.google.com/open?id=0B5_olWfL1-4xT3RaZHNiYW90MVk">pdf</a>
+
+* Оргуправленческое мышление. Идеология, методология, технология. <a target="_blank" href="https://drive.google.com/open?id=0B5_olWfL1-4xWUQ4MDlKR1hBalk">djvu</a>
+
+* Я всегда был идеалистом. Беседы с Колей Щукиным <a target="_blank" href="https://drive.google.com/open?id=0B5_olWfL1-4xd0thYUVCZGdTVzA">pdf</a>
+
+# Аудиозаписи
+
+Проблемы педагогики
+
+1. <a target="_blank" href="https://drive.google.com/open?id=0B5_olWfL1-4xcGtrWEVXdjVrb1E">mp3</a>
+2. <a target="_blank" href="https://drive.google.com/open?id=0B5_olWfL1-4xTE5ibm0taHM0VTA">mp3</a>
+3. <a target="_blank" href="https://drive.google.com/open?id=0B5_olWfL1-4xSWRKSWdVQWVzNHc">mp3</a>
 
 # Видео ГП
  <iframe width="220" height="115"

@@ -43,8 +43,19 @@ $if(haskellPosts)$
 $endif$
 
 
-$if(restPosts)$
+$if(etcPosts)$
 <h3>Այլ</h3>
+    <ul>
+        $for(etcPosts)$
+            <li>
+                <a href="$url$">$title$</a> - $date$
+            </li>
+        $endfor$
+    </ul>
+$endif$
+
+$if(restPosts)$
+<h3>խառը</h3>
     <ul>
         $for(restPosts)$
             <li>

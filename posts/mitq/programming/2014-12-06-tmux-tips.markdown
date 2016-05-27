@@ -7,8 +7,6 @@ comments: true
 toc: true
 ---
 
-[Byobu](http://byobu.co/)
-
-[My Tmux “cheat sheet”](http://blog.niklasottosson.com/?p=574)
-
-[Good font for terminal](http://leonardo-m.livejournal.com/77079.html)
+* [Byobu](http://byobu.co/)
+* [My Tmux “cheat sheet”](http://blog.niklasottosson.com/?p=574)
+* [Good font for terminal](http://leonardo-m.livejournal.com/77079.html)

@@ -146,6 +146,7 @@ main = do
                 methodPosts <- recentFirst =<< loadAll ("posts/mitq/methodology/*" .||. "posts/mitq/methodology/*/*")
                 programmingPosts <- recentFirst =<< loadAll ("posts/mitq/programming/*" .||. "posts/mitq/programming/*/*")
                 haskellPosts <- recentFirst =<< loadAll ("posts/mitq/haskell/*" .||. "posts/mitq/haskell/*/*" )
+                etcPosts <- recentFirst =<< loadAll ("posts/mitq/etc/*" .||. "posts/mitq/etc/*/*" )
                 fpPosts <- recentFirst =<< loadAll ("posts/mitq/fp/*" .||. "posts/mitq/fp/*/*")
                 restPosts <- recentFirst =<< loadAll ("posts/mitq/*.markdown")
 
@@ -154,6 +155,7 @@ main = do
                         listField "programmingPosts" (postCtx tags) (if null programmingPosts then fail "No posts" else return programmingPosts) `mappend`
                         listField "haskellPosts" (postCtx tags) (if null haskellPosts then fail "No posts" else return haskellPosts) `mappend`
                         listField "fpPosts" (postCtx tags) (if null fpPosts then fail "No posts" else return fpPosts) `mappend`
+                        listField "etcPosts" (postCtx tags) (if null etcPosts then fail "No posts" else return etcPosts) `mappend`
                         listField "restPosts" (postCtx tags) (if null restPosts then fail "No posts" else return restPosts) `mappend`
                         defaultContext
                 getResourceBody

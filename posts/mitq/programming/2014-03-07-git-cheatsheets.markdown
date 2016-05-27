@@ -6,5 +6,6 @@ description: DESCRIPTION
 comments: true
 toc: true
 ---
-[[http://maryrosecook.com/blog/post/git-in-six-hundred-words][Git in six hundred words]]
-[[http://maryrosecook.com/blog/post/git-from-the-inside-out][Git from the inside out]]
+
+* [Git in six hundred words](http://maryrosecook.com/blog/post/git-in-six-hundred-words)
+* [Git from the inside out](http://maryrosecook.com/blog/post/git-from-the-inside-out)
