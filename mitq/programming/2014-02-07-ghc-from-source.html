@@ -57,58 +57,56 @@
                 </div>
 
                 <div class="post-content">
-<div id="toc"><h3>Table of contents</h3><ul>
-<li><a href="#ubuntu">Ubuntu</a></li>
-</ul></div>
 <section id="ubuntu" class="level3">
 <h3>Ubuntu</h3>
 <section id="soft-approach-from-learnhaskell" class="level4">
 <h4>1. Soft Approach (from <a href="https://github.com/bitemyapp/learnhaskell">learnhaskell</a>)</h4>
 <p>This PPA is excellent and is what I use on all my Linux dev and build machines: http://launchpad.net/~hvr/+archive/ghc</p>
 <p>Specifically:</p>
-<ul>
-<li><code>sudo apt-get update</code></li>
-<li><strong>12.04 and below</strong> -&gt; <code>sudo apt-get install python-software-properties</code></li>
-<li><strong>12.04 and above</strong> -&gt; <code>sudo apt-get install software-properties-common</code></li>
-<li><code>sudo add-apt-repository -y ppa:hvr/ghc</code></li>
-<li><code>sudo apt-get update</code></li>
-<li><code>sudo apt-get install cabal-install-1.20 ghc-7.8.3 happy-1.19.4 alex-3.1.3</code></li>
-</ul>
-<p>Then add <code>~/.cabal/bin:/opt/cabal/1.20/bin:/opt/ghc/7.8.3/bin:/opt/happy/1.19.4/bin:/opt/alex/3.1.3/bin</code> to your PATH (bash_profile, zshrc, bashrc, etc)</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sudo</span> apt-get update<span class="kw">`</span>
+<span class="co">#**12.04 and below** -&gt; </span>
+<span class="kw">sudo</span> apt-get install python-software-properties
+<span class="co">#**12.04 and above** -&gt; </span>
+<span class="kw">sudo</span> apt-get install software-properties-common
+<span class="kw">sudo</span> add-apt-repository -y ppa:hvr/ghc<span class="kw">`</span>
+<span class="kw">sudo</span> apt-get update<span class="kw">`</span>
+<span class="kw">sudo</span> apt-get install cabal-install-1.20 ghc-7.8.3 happy-1.19.4 alex-3.1.3<span class="kw">`</span></code></pre></div>
+<p>Then add <code>~/.cabal/bin:/opt/cabal/1.20/bin:/opt/ghc/7.8.3/bin:/opt/happy/1.19.4/bin:/opt/alex/3.1.3/bin</code> to your <code>PATH</code> (bash_profile, zshrc, bashrc, etc)</p>
 <p><em>Optional</em> You could also add <code>.cabal-sandbox/bin</code> to your path. Code that you are actively developing will be available to you from the command line. This only works when your current working directory is a cabal sandbox.</p>
 </section>
 <section id="ubuntu-prerequisites" class="level4">
 <h4>2. ubuntu prerequisites</h4>
-<ul>
-<li>sudo apt-get install libgmp-dev -y # Multiprecision arithmetic library developers tools</li>
-<li><p>sudo -K # ??</p></li>
-<li>Get ghc from http://www.haskell.org/ghc/ and install</li>
-<li>wget http://www.haskell.org/ghc/dist/7.8.3/ghc-7.8.3-i386-unknown-linux-deb7.tar.xz</li>
-<li>tar -xvf ghc-7.8.3-i386-unknown-linux-deb7.tar.xz</li>
-<li>cd ghc-7.8.3</li>
-<li>./configure –prefix=/opt/ghc-7.8.3</li>
-<li>make -j 2 install</li>
-<li>Open ~/.bashrc file and add:</li>
-<li>PATH=$PATH:/opt/ghc-7.8.3/bin</li>
-<li><p>source ~/.bashrc # reload bash</p></li>
-</ul>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sudo</span> apt-get install libgmp-dev -y  <span class="co"># Multiprecision arithmetic library developers tools</span>
+<span class="kw">sudo</span> -K  <span class="co"># ??</span>
+
+<span class="kw">Get</span> ghc from http://www.haskell.org/ghc/ and install
+<span class="kw">wget</span> http://www.haskell.org/ghc/dist/7.8.3/ghc-7.8.3-i386-unknown-linux-deb7.tar.xz
+<span class="kw">tar</span> -xvf ghc-7.8.3-i386-unknown-linux-deb7.tar.xz
+<span class="kw">cd</span> ghc-7.8.3
+<span class="kw">./configure</span> --prefix=/opt/ghc-7.8.3
+<span class="kw">make</span> -j 2 install
+<span class="kw">Open</span> ~/.bashrc file and add:
+<span class="ot">PATH=$PATH</span>:/opt/ghc-7.8.3/bin
+<span class="kw">source</span> ~/.bashrc <span class="co"># reload bash</span></code></pre></div>
 </section>
 <section id="if-you-have-only-ghc-but-not-cabal-installed" class="level4">
 <h4>3. if you have only GHC (but not cabal) installed:</h4>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">wget</span> http://www.haskell.org/cabal/release/cabal-install-1.20.0.3/cabal-install-1.20.0.3.tar.gz
+<span class="kw">tar</span> xvf cabal-install-1.20.0.3.tar.gz
+<span class="kw">cd</span> cabal-1.20.0.3
+<span class="kw">./bootstrap.sh</span> --user
+<span class="kw">runhaskell</span> Setup.hs configure --user
+<span class="kw">runhaskell</span> Setup.hs build
+<span class="kw">runhaskell</span> Setup.hs install
+<span class="kw">cd</span> ../cabal-install
+<span class="kw">sh</span> bootstrap.sh</code></pre></div>
 <ul>
-<li>wget http://www.haskell.org/cabal/release/cabal-install-1.20.0.3/cabal-install-1.20.0.3.tar.gz</li>
-<li>tar xvf cabal-install-1.20.0.3.tar.gz</li>
-<li>cd cabal-1.20.0.3</li>
-<li>./bootstrap.sh –user</li>
-<li>runhaskell Setup.hs configure –user</li>
-<li>runhaskell Setup.hs build</li>
-<li>runhaskell Setup.hs install</li>
-<li>cd ../cabal-install</li>
-<li><p>sh bootstrap.sh</p></li>
-<li><p>if error <command line>: can’t load .so/.DLL for: libgmp.so (libgmp.so: cannot open shared object file: No such file or directory) You either add /usr/local/lib and/or /usr/local/lib64 to $LD_LIBRARY_PATH, or add them to /etc/ld.so.conf, or (since you already have /usr/lib64/libgmp.so.3) add a missing symbolic link:</p></li>
+<li>if error <command line>: can’t load .so/.DLL for: libgmp.so (libgmp.so: cannot open shared object file: No such file or directory) You either add /usr/local/lib and/or /usr/local/lib64 to $LD_LIBRARY_PATH, or add them to /etc/ld.so.conf, or (since you already have /usr/lib64/libgmp.so.3) add a missing symbolic link:</li>
 </ul>
-<p>cd /usr/lib64 sudo ln -s libgmp.so.3 libgmp.so (and perhaps the same for /usr/lib).</p>
-<p>Note that /usr/lib64/libgmp.so.3 might be a different version from /usr/local/lib64/libgmp.so, make sure ghc can actually be used with the former.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span> /usr/lib64
+<span class="kw">sudo</span> ln -s libgmp.so.3 libgmp.so</code></pre></div>
+<p>(and perhaps the same for /usr/lib).</p>
+<p>Note that <code>/usr/lib64/libgmp.so.3</code> might be a different version from <code>/usr/local/lib64/libgmp.so</code>, make sure <code>ghc</code> can actually be used with the former.</p>
 <ul>
 <li>if error regarding Locals see</li>
 </ul>

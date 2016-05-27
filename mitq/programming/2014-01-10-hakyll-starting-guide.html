@@ -76,55 +76,47 @@
 <li>cd to folder</li>
 <li>hakyll-init my-site This creates a folder my-site in the current directory, with some example content and a generic configuration. 2.1 add “CNAME” file</li>
 </ol>
-<ul>
-<li><code>cabal update</code></li>
-<li><code>cabal init</code> – create config file and edit it to set up depends package if need, and set main-is:</li>
-<li><code>cabal sandbox init</code></li>
-<li><code>cabal install</code></li>
-<li><code>./site clean</code></li>
-<li><code>./site watch --port=5000</code></li>
-</ul>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cabal</span> update
+<span class="kw">cabal</span> init <span class="co">#create config file and edit it to set up depends package if need, and set main-is:</span>
+<span class="kw">cabal</span> sandbox init
+<span class="kw">cabal</span> install
+<span class="kw">./site</span> clean
+<span class="kw">./site</span> watch --port=5000</code></pre></div>
 </section>
 <section id="git-setup" class="level4">
 <h4>git setup</h4>
-<ul>
-<li><code>git config --system  --list</code> – show configs from /usr/etc/gitconfig</li>
-<li><code>git config --global  --list</code> – show configs from ~/.gitconfig</li>
-<li><code>git config --local   --list</code> – show configs from .git/config</li>
-<li><code>git config --list</code> – show</li>
-<li><code>git remote -v</code> – show remote repository address if exist</li>
-<li><code>git remote add origin https://github.comarthurvard/byurakn.git</code> –add address with alias origin</li>
-<li><code>git branch -a</code> – show branches</li>
-</ul>
-<ol start="3" type="1">
-<li><code>cd my-site</code></li>
-<li><code>git init</code></li>
-<li><code>git remote add origin https://github.comarthurvard/byurakn.git</code></li>
-<li><code>git pull origin master</code> *this step is required when repository is not empty, usually ther is READ.me file</li>
-<li>add .gitignore file for hakyll</li>
-<li><code>git add .</code></li>
-<li><code>git commit -m &quot;init commit&quot;</code></li>
-<li><code>git push -u origin master</code></li>
-</ol>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> config --system  --list  <span class="co">#show configs from  /usr/etc/gitconfig</span>
+<span class="kw">git</span> config --global  --list  <span class="co">#show configs from  ~/.gitconfig</span>
+<span class="kw">git</span> config --local   --list     <span class="co">#show configs from .git/config</span>
+<span class="kw">git</span> config --list         <span class="co"># show</span>
+<span class="kw">git</span> remote -v             <span class="co"># show remote repository address if exist</span>
+<span class="kw">git</span> remote add origin https://github.comarthurvard/byurakn.git <span class="co">#add address with alias origin</span>
+<span class="kw">git</span> branch -a <span class="co"># show branches</span>
+<span class="kw">cd</span> my-site
+<span class="kw">git</span> init
+<span class="kw">git</span> remote add origin https://github.comarthurvard/byurakn.git
+<span class="kw">git</span> pull origin master <span class="co">#this step is required when repository is not empty, usually ther is READ.me file</span>
+<span class="kw">touch</span> .gitignore <span class="co"># add .gitignore file for hakyll</span>
+<span class="kw">git</span> add .
+<span class="kw">git</span> commit -m <span class="st">&quot;init commit&quot;</span>
+<span class="kw">git</span> push -u origin master</code></pre></div>
 </section>
 <section id="github-pages" class="level4">
 <h4><a href>GitHub pages</a></h4>
-<ul>
-<li><code>cd my-site</code> – if need</li>
-<li><code>mkdir _publish</code></li>
-<li><code>cd _publish</code></li>
-<li><code>git init</code></li>
-<li><code>git remote -v</code></li>
-<li><code>git remote add origin https://github.com/ArthurVard/byurakn.am</code></li>
-<li><code>cp ../CNAME .</code></li>
-<li><code>git add CNAME</code></li>
-<li><code>git commit -m &quot;CNAME file&quot;</code></li>
-<li><code>git checkout --orphan gh-pages</code></li>
-<li><code>git push -u origin gh-pages</code> – create branch</li>
-<li><code>add publish.sh and rebuild.sh script files to current dir</code></li>
-<li><code>emcas publish.sh</code> – change hakyll-site dir and git repo address</li>
-<li><code>./publish.sh</code></li>
-</ul>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span> my-site <span class="co">#if needed</span>
+<span class="kw">mkdir</span> _publish
+<span class="kw">cd</span> _publish
+<span class="kw">git</span> init
+<span class="kw">git</span> remote -v
+<span class="kw">git</span> remote add origin https://github.com/ArthurVard/byurakn.am<span class="kw">```</span>
+<span class="kw">cp</span> ../CNAME .
+<span class="kw">git</span> add CNAME
+<span class="kw">git</span> commit -m <span class="st">&quot;CNAME file&quot;</span>
+<span class="kw">git</span> checkout --orphan gh-pages
+<span class="kw">git</span> push -u origin gh-pages <span class="co">#create branch</span>
+<span class="co"># add publish.sh and rebuild.sh script files to current dir</span>
+<span class="kw">emacs</span> publish.sh <span class="co">#change hakyll-site dir and git repo address</span>
+<span class="kw">./publish.sh</span></code></pre></div>
 </section>
 </section>
 </div>

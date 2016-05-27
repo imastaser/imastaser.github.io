@@ -24,15 +24,29 @@
 <section id="книги" class="level1">
 <h1>Книги</h1>
 <ol type="1">
-<li><a href="">Программирование научных исследований и разработок. Том 1</a></li>
-<li>Психология и методология. Том 2. Часть 1</li>
-<li>Организация. Руководство. Управление. Том 4</li>
-<li>Организация. Руководство. Управление. Том 5</li>
-<li>Процессы и структуры в мышлении. Том 6</li>
-<li>Проблемы логики научного исследования и анализ структуры науки. Том 7</li>
-<li>Московский методологический кружок. Развитие идей и подходов. Том 8</li>
-<li>Организационно-деятельностная игра. Сборник текстов. Том 9. Часть 1</li>
-<li>Организационно-деятельностная игра. Сборник текстов. Том 9. Часть 2</li>
+<li>Программирование научных исследований и разработок. Том 1 <a target="_blank" href="https://drive.google.com/open?id=0B5_olWfL1-4xWUFNeFhhS2VudjA">doc</a> | <a target="_blank" href="https://drive.google.com/open?id=0B5_olWfL1-4xZDc0dGZYQWh5OFU">pdf</a></li>
+<li>Психология и методология. Том 2. Часть 1 <a target="_blank" href="https://drive.google.com/open?id=0B5_olWfL1-4xbGxSUUtCajM5QjQ">djvu</a></li>
+<li>Организация. Руководство. Управление. Том 4 <a target="_blank" href="https://drive.google.com/open?id=0B5_olWfL1-4xdWNjM3AxVTVrVUk">pdf</a></li>
+<li>Организация. Руководство. Управление. Том 5 <a target="_blank" href="https://drive.google.com/open?id=0B5_olWfL1-4xd09fNjhLLXFsa3M">djvu</a></li>
+<li>Процессы и структуры в мышлении. Том 6 <a target="_blank" href="https://drive.google.com/open?id=0B5_olWfL1-4xVHFFWXB6YndUTHM">doc</a> | <a target="_blank" href="https://drive.google.com/open?id=0B5_olWfL1-4xLXdHSFVMTXkzQjQ">pdf</a></li>
+<li>Проблемы логики научного исследования и анализ структуры науки. Том 7 <a target="_blank" href="https://drive.google.com/open?id=0B5_olWfL1-4xWjJHQ0taLWlVOXM">djvu</a></li>
+<li>Московский методологический кружок. Развитие идей и подходов. Том 8 <a target="_blank" href="https://drive.google.com/open?id=0B5_olWfL1-4xZWpGcjdNb2FVd2M">djvu</a></li>
+<li>Организационно-деятельностная игра. Сборник текстов. Том 9. Часть 1 <a target="_blank" href="https://drive.google.com/open?id=0B5_olWfL1-4xVHM0azI1cEZFdGc">djvu</a></li>
+<li>Организационно-деятельностная игра. Сборник текстов. Том 9. Часть 2 <a target="_blank" href="https://drive.google.com/open?id=0B5_olWfL1-4xZHg3Qm1lME1veXc">pdf</a></li>
+</ol>
+<ul>
+<li><p>Избранные труды <a target="_blank" href="https://drive.google.com/open?id=0B5_olWfL1-4xeU5Td2xTZFpBTG8">doc</a> | <a target="_blank" href="https://drive.google.com/open?id=0B5_olWfL1-4xT3RaZHNiYW90MVk">pdf</a></p></li>
+<li><p>Оргуправленческое мышление. Идеология, методология, технология. <a target="_blank" href="https://drive.google.com/open?id=0B5_olWfL1-4xWUQ4MDlKR1hBalk">djvu</a></p></li>
+<li><p>Я всегда был идеалистом. Беседы с Колей Щукиным <a target="_blank" href="https://drive.google.com/open?id=0B5_olWfL1-4xd0thYUVCZGdTVzA">pdf</a></p></li>
+</ul>
+</section>
+<section id="аудиозаписи" class="level1">
+<h1>Аудиозаписи</h1>
+<p>Проблемы педагогики</p>
+<ol type="1">
+<li><a target="_blank" href="https://drive.google.com/open?id=0B5_olWfL1-4xcGtrWEVXdjVrb1E">mp3</a></li>
+<li><a target="_blank" href="https://drive.google.com/open?id=0B5_olWfL1-4xTE5ibm0taHM0VTA">mp3</a></li>
+<li><a target="_blank" href="https://drive.google.com/open?id=0B5_olWfL1-4xSWRKSWdVQWVzNHc">mp3</a></li>
 </ol>
 </section>
 <section id="видео-гп" class="level1">
@@ -162,12 +176,12 @@ src="https://www.youtube.com/embed/Z_dzIPZvQWU"> </iframe>Русская фил�
 <tr class="odd">
 <td style="text-align: left;">25.07.10</td>
 <td style="text-align: left;"><a href="http://mvanier.livejournal.com/3917.html">Yet Another Monad Tutorial (part 1: basics)</a></td>
-<td style="text-align: left;"><a href="../mvanier-monad/monad_1.html">Yet Another Monad Tutorial (part 1: basics)</a></td>
+<td style="text-align: left;"><a href="../mvanier-monad/monad-1.html">Yet Another Monad Tutorial (part 1: basics)</a></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">25.07.10</td>
 <td style="text-align: left;"><a href="http://mvanier.livejournal.com/4305.html">Yet Another Monad Tutorial (part 2: &gt;&gt;= and return)</a></td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../mvanier-monad/monad-2.html">Yet Another Monad Tutorial (part 2: &gt;&gt;= and return)</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">25.07.10</td>
@@ -215,6 +229,80 @@ src="https://www.youtube.com/embed/Z_dzIPZvQWU"> </iframe>Русская фил�
         </span>
         <span class="tags text-right" style="width: 100%">
             <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/mvanier.html">mvanier</a></li><li><a href="/tags/monads.html">monads</a></li><li><a href="/tags/tutorials.html">tutorials</a></li><li><a href="/tags/haskell.html">haskell</a></li></ul>
+        </span>
+</div>
+]]></summary>
+</entry>
+<entry>
+    <title>СоюзВузФильм</title>
+    <link href="http://imastaser.am/mitq/etc/soyuzfilm.html" />
+    <id>http://imastaser.am/mitq/etc/soyuzfilm.html</id>
+    <published>2016-05-27T00:00:00Z</published>
+    <updated>2016-05-27T00:00:00Z</updated>
+    <summary type="html"><![CDATA[<div class="post-content">
+<div id="toc"><h3>Table of contents</h3><ul>
+<li><a href="#научно-популярный">Научно-популярный</a></li>
+<li><a href="#великая-отечественная-война">Великая Отечественная Война</a></li>
+<li><a href="#хочу-всё-знать">Хочу всё знать</a></li>
+</ul></div>
+<section id="научно-популярный" class="level3">
+<h3>Научно-популярный</h3>
+<ul>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=3pnuf8fmlQw">Я и другие 1971</a></li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=8efJJ73bSjo">Математик и чёрт</a></li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=FTK2RhMWmAU">Маленькие зверюшки Антони ван Левенгука</a></li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=ByMQr1aDGto">Кто за стеной?</a></li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=Ue4z_w3XUnE">Физика в половине десятого</a></li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=RK8z66o6qLU">Что такое теория относительности?</a></li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=p7AzxLfcXMo">Мутации</a></li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=oNqBuDV7Jf0">Операция ‘Гелий’</a></li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=n7hIxYaBDas">У магнита есть секреты</a></li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=WF3rx4h9YlE">Этот правый, левый мир.</a></li>
+</ul>
+</section>
+<section id="великая-отечественная-война" class="level3">
+<h3>Великая Отечественная Война</h3>
+<p><small>Научфильм. История. </small></p>
+<ol type="1">
+<li><a target="_blank" href="https://www.youtube.com/watch?v=Buq_J0rx7X0">Советская страна накануне войны</a></li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=vsLU3Xwsxqk">Начало войны</a></li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=Mf1uCMDgp2k">Начало Великой Отечественной Войны</a></li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=UIxcMuuP5sg">Канун и начало II Мировой войны</a></li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=vn20oI_U-LA">Первые месяцы войны</a></li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=dCi1dGVlKcY">Советская страна единый военный лагерь</a></li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=fICEblmevmI">Героическая оборона Москвы</a></li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=H0Mn5te34cM">Разгром немецко-фашистских войск под Москвой</a></li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=I28bceHFvgQ">Партизанская война в тылу врага</a></li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=9Ymk8vglit4">Трудовой подвиг советского народа</a></li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=HVsu7AAOfHc">Оброна Сталинграда</a></li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=B4Sa-xCigXw">Коренной перелом</a></li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=GSS0_Pv8Z44">Наступление Красной Армии летом-осенью 1943 года</a></li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=9bUs1hFIVDY">Битва на Курской дуге</a></li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=0VKTnPGq18I">Победа под Ленинградом и Новгородом</a></li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=973-td40lZQ">Белорусская операция</a></li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=FAIcwePn-XM">Освобождение Крыма</a></li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=uVcbYnO82Lo">Полной освобождение Советской Родины</a></li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=z0C6NMU-3Oc"> Освобождение Польши</a></li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=T3HK6PBbXXc">Освобождение Венгрии</a></li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=hG_zGg6Sls0">Освобождение Юго-Восточной Европы</a></li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=WmPgyiXVNsA">Освобождение Чехословакии</a></li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=caHDV8rBxPY">На штурм Берлина</a></li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=42JDrJdaGC8">Победа</a></li>
+</ol>
+</section>
+<section id="хочу-всё-знать" class="level3">
+<h3>Хочу всё знать</h3>
+<p><a target="_blank" href=""></a> <a target="_blank" href=""></a> <a target="_blank" href=""></a> <a target="_blank" href=""></a> <a target="_blank" href=""></a> <a target="_blank" href=""></a> <a target="_blank" href=""></a></p>
+<p><a target="_blank" href=""></a> <a target="_blank" href=""></a> <a target="_blank" href=""></a></p>
+</section>
+</div>
+
+<div class="row">
+        <span class="date  text-right">
+            <i class="fa fa-calenda"></i> Posted on May 27, 2016
+        </span>
+        <span class="tags text-right" style="width: 100%">
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/%D0%A1%D0%A1%D0%A1%D0%A0.html">СССР</a></li></ul>
         </span>
 </div>
 ]]></summary>
@@ -383,7 +471,10 @@ Data from &lt;a target=’_blank’ style=‘text-decoration:none;’href=’htt
     <updated>2015-09-12T00:00:00Z</updated>
     <summary type="html"><![CDATA[<div class="post-content">
 
-<p>[[http://maryrosecook.com/blog/post/git-in-six-hundred-words][Git in six hundred words]][[http://maryrosecook.com/blog/post/git-from-the-inside-out][Git from the inside out]]</p>
+<ul>
+<li><a href="http://maryrosecook.com/blog/post/git-in-six-hundred-words">Git in six hundred words</a></li>
+<li><a href="http://maryrosecook.com/blog/post/git-from-the-inside-out">Git from the inside out</a></li>
+</ul>
 </div>
 
 <div class="row">
@@ -392,28 +483,6 @@ Data from &lt;a target=’_blank’ style=‘text-decoration:none;’href=’htt
         </span>
         <span class="tags text-right" style="width: 100%">
             <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/git.html">git</a></li></ul>
-        </span>
-</div>
-]]></summary>
-</entry>
-<entry>
-    <title>My pets</title>
-    <link href="http://imastaser.am/mitq/programming/2014-my-pets.html" />
-    <id>http://imastaser.am/mitq/programming/2014-my-pets.html</id>
-    <published>2014-12-09T00:00:00Z</published>
-    <updated>2014-12-09T00:00:00Z</updated>
-    <summary type="html"><![CDATA[<div class="post-content">
-
-<p>Scalare black Guppy gvozdika (Vahan) Popodenta furkatas (Vahan)</p>
-<p>October, 2014 Tetra minor - 5 Rodostomus - 7 neon blue - 3 nanostomus - 2 (December, fry) iriaterina werneri - 10 Prionobrama filigeri - 6 Apitogramma Altispinosa sp Bolivia (Suren) Apistogramma Ramirezi mix of gold and blue ram (Suren) Scalare koi Microrasbora galaxi Cardinal vual ancistrus</p>
-</div>
-
-<div class="row">
-        <span class="date  text-right">
-            <i class="fa fa-calenda"></i> Posted on December  9, 2014
-        </span>
-        <span class="tags text-right" style="width: 100%">
-            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/tmux.html">tmux</a></li></ul>
         </span>
 </div>
 ]]></summary>
