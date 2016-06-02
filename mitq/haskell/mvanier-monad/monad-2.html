@@ -58,7 +58,18 @@
 
                 <div class="post-content">
 <div id="toc"><h3>Table of contents</h3><ul>
-<li><a href="#the-two-fundamental-monadic-operations">The two fundamental monadic operations</a></li>
+<li><a href="#the-two-fundamental-monadic-operations">The two fundamental monadic operations</a><ul>
+<li><a href="#mcompose"><code>mcompose</code></a></li>
+<li><a href="#extract"><code>extract</code></a></li>
+<li><a href="#mapply"><code>mapply</code></a></li>
+<li><a href="#section"><code>&gt;&gt;=</code></a></li>
+<li><a href="#section-1"><code>&gt;=&gt;</code></a></li>
+<li><a href="#section-2"><code>=&lt;&lt;</code></a></li>
+<li><a href="#functiontomonadicfunction"><code>functionToMonadicFunction</code></a></li>
+<li><a href="#return"><code>return</code></a></li>
+<li><a href="#to-recap-this-section">To recap this section:</a></li>
+</ul></li>
+<li><a href="#what-do-monadic-application-and-composition-mean">What do monadic application and composition <em>mean</em>?</a></li>
 </ul></div>
 <p><a href="http://mvanier.livejournal.com/4305.html">original article</a></p>
 <p>In the <a href="monad-1.html">previous article</a> I gave the conceptual background necessary to understand what monads are. Now I’m going to get into more of the details.</p>
@@ -96,6 +107,8 @@ r <span class="fu">=</span> p <span class="fu">&gt;.&gt;</span> q</code></pre></
 <span class="ot">h ::</span> a <span class="ot">-&gt;</span> <span class="dt">IO</span> c
 g <span class="fu">.</span> f     <span class="fu">--&gt;</span> <span class="kw">type</span> error<span class="fu">!</span> mismatch between <span class="dt">IO</span> b and b
 f <span class="fu">&gt;.&gt;</span> g   <span class="fu">--&gt;</span> <span class="kw">type</span> error<span class="fu">!</span> mismatch between <span class="dt">IO</span> b and b</code></pre></div>
+<section id="mcompose" class="level3">
+<h3><code>mcompose</code></h3>
 <p>The point is, you can’t use a monadic value of type <code>IO b</code> when a type of <code>b</code> is needed. (This is a very common bug when writing monadic Haskell programs.) What we want is a special monadic composition function which I’ll call <code>mcompose</code> (standing for “monadic compose”) which has the following type signature:</p>
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">mcompose ::</span> (a <span class="ot">-&gt;</span> m b) <span class="ot">-&gt;</span> (b <span class="ot">-&gt;</span> m c) <span class="ot">-&gt;</span> (a <span class="ot">-&gt;</span> m c)</code></pre></div>
 <p>This will work for any monad <code>m</code>, including the <code>IO</code> monad. Specialized to the <code>IO</code> monad, it will have the following type signature:</p>
@@ -112,6 +125,9 @@ h <span class="fu">=</span> f <span class="ot">`mcompose`</span> g</code></pre><
 <li>take the value of type <code>IO b</code> output from <code>f</code> and extract the value of type <code>b</code> (this is what we couldn’t do before)</li>
 <li>take the value of type <code>b</code> and apply <code>g</code> to it (again, this is just normal function application) to get the value of type <code>IO c</code>, which is the result.</li>
 </ol>
+</section>
+<section id="extract" class="level3">
+<h3><code>extract</code></h3>
 <p>The only thing we can’t already do is step (3), extracting a value of type <code>b</code> from a value of type <code>IO b</code>. Now, we could do this if we had a function called <code>extract</code> with this type:</p>
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">extract ::</span> <span class="dt">IO</span> b <span class="ot">-&gt;</span> b</code></pre></div>
 <p>or more generally for arbitrary monads,</p>
@@ -132,7 +148,10 @@ hh <span class="fu">=</span> ff <span class="fu">&gt;.&gt;</span> extract <span 
 <p>So even though <code>hh</code> is never supposed to be doing I/O, if there was an <code>extract</code> function then you could build an <code>hh</code> function using normal function composition, it would have the type signature of a pure function, and yet it would do I/O. So much for separating I/O (and other monadic computations) from pure computations (recall that this was one of the main reasons for wanting monads in the first place). Note, by the way, that this is exactly the situation in most conventional programming languages, which is why the type systems of those languages can offer no guarantees that a function is pure. In Haskell we like pure functions and we use the type system to give us guarantees that pure functions are actually pure — and that means no <code>extract</code>function.</p>
 <p>There’s one slight problem with what I just said: technically, it’s a lie. There is a function called unsafePerformIO that has the type IO a -&gt; a i.e. it’s an extract function for the IO monad only. The word “unsafe” is a clue that tells you that you should avoid using it unless you know exactly what you’re doing and are prepared for weird failures. I myself have never needed to use unsafePerformIO, but there are legitimate uses for it (for instance, deep down in the implementation of Haskell compilers). Just forget I even brought this up, OK? It’s embarrassing. Excuse me while I go wash my hands.</p>
 <p>OK, I’m back. So far, we’ve established that (a) we want to be able to compose monadic functions, (b) we can’t do that with normal function composition in Haskell because we can’t convert monadic types into regular types, and (c) we can’t define an extract function to do that conversion, because that would screw up the purity of the rest of the language. So what do we do?</p>
-<p>Well, first of all, note that we can get by with something simpler than an mcompose function. Let’s say we had an mapply (monadic apply) function that had this type signature:</p>
+</section>
+<section id="mapply" class="level3">
+<h3><code>mapply</code></h3>
+<p>Well, first of all, note that we can get by with something simpler than an <code>mcompose</code> function. Let’s say we had an <code>mapply</code> (monadic apply) function that had this type signature:</p>
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">mapply ::</span> m b <span class="ot">-&gt;</span> (b <span class="ot">-&gt;</span> m c) <span class="ot">-&gt;</span> m c</code></pre></div>
 <p>or, more specifically for the IO monad:</p>
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">mapply ::</span> <span class="dt">IO</span> b <span class="ot">-&gt;</span> (b <span class="ot">-&gt;</span> <span class="dt">IO</span> c) <span class="ot">-&gt;</span> <span class="dt">IO</span> c</code></pre></div>
@@ -146,10 +165,114 @@ mcompose f g x <span class="fu">=</span> (f x) <span class="ot">`mapply`</span> 
 mcompose f g x <span class="fu">=</span> (f x) <span class="ot">`mapply`</span> g</code></pre></div>
 <p>This may be easier to understand than the previous version, but they are equivalent. Note that <code>x</code> has type <code>a</code> and the result has type <code>m c</code>. So what we’re doing here is applying <code>f</code> to <code>x</code> to get a value of type <code>m b</code>, and using <code>mapply</code> on the <code>m b</code> value and the <code>g</code> function to get a value of type <code>m c</code>. So the upshot is, we don’t need <code>mcompose</code> to be defined for us if we have <code>mapply</code>, because we can use <code>mapply</code> to define <code>mcompose</code> ourselves. And, in fact, <code>mapply</code> is one of the two fundamental monadic operations. It’s normally called “bind” and is written as an infix operator with the symbol <code>&gt;&gt;=</code> as follows:</p>
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">(&gt;&gt;=) ::</span> m a <span class="ot">-&gt;</span> (a <span class="ot">-&gt;</span> m b) <span class="ot">-&gt;</span> m b </code></pre></div>
+</section>
+<section id="section" class="level3">
+<h3><code>&gt;&gt;=</code></h3>
 <p>Note that I did a switch in the type signature, using <code>a</code> in place of <code>b</code> and <code>b</code> in place of <code>c</code>. It doesn’t matter since <code>a</code>, <code>b</code>, and <code>c</code> are type variables — they work for any types.</p>
 <p>I’d just like to point out here that <code>&gt;&gt;=</code> has an incredibly abstract type. Its first argument is a value of type <code>m a</code>, where <code>a</code> can be any type at all and <code>m</code> is any monadic type constructor whatsoever. The second argument is a function of type <code>a -&gt; m b</code>, where <code>a</code> and <code>b</code> can be any types at all and <code>m</code> is again any monadic type constructor. The return value has type <code>m b</code>, where again <code>b</code> can be any type and <code>m</code> is any monadic type constructor. When you program in Haskell for long enough, this kind of type signature becomes second nature, but it can be intimidating to new Haskell programmers. If you specialize it to the <code>IO</code> monad, you get:</p>
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">(&gt;&gt;=) ::</span> <span class="dt">IO</span> a <span class="ot">-&gt;</span> (a <span class="ot">-&gt;</span> <span class="dt">IO</span> b) <span class="ot">-&gt;</span> <span class="dt">IO</span> b</code></pre></div>
 <p>which, of course, is the type signature of an <code>IO</code>-specific monadic apply operator. We’ll see below that Haskell’s type class mechanism allows us to use the same operator name <code>&gt;&gt;=</code> for all the different specializations of this operator to different monads (how cool is that?).</p>
+<p>Assuming we have the <code>&gt;&gt;=</code> operator, we can now compose <code>f</code> and <code>g</code> to get <code>h</code> as follows:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"> <span class="co">-- assume we have:</span>
+<span class="ot">  f ::</span> a <span class="ot">-&gt;</span> m b
+<span class="ot">  g ::</span> b <span class="ot">-&gt;</span> m c
+
+  <span class="co">-- definition of h:</span>
+<span class="ot">  h ::</span> a <span class="ot">-&gt;</span> m c
+  h x <span class="fu">=</span> f x <span class="fu">&gt;&gt;=</span> g</code></pre></div>
+<p>We can also write <code>h</code> directly as:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">h <span class="fu">=</span> \x <span class="ot">-&gt;</span> f x <span class="fu">&gt;&gt;=</span> g</code></pre></div>
+<p>where the <code>\x -&gt; ...</code> is, as I mentioned above, Haskell’s notation for an anonymous function (in this case with a single argument <code>x</code>); both versions of <code>h</code> mean the same thing. Using <code>mcompose</code> we can write this as:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">h <span class="fu">=</span> f <span class="ot">`mcompose`</span> g <span class="fu">=</span> mcompose f g <span class="fu">=</span> \x <span class="ot">-&gt;</span> (f x <span class="fu">&gt;&gt;=</span> g)</code></pre></div>
+</section>
+<section id="section-1" class="level3">
+<h3><code>&gt;=&gt;</code></h3>
+<p>Our definition of <code>mcompose</code> is thus just:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">mcompose f g <span class="fu">=</span> \x <span class="ot">-&gt;</span> (f x <span class="fu">&gt;&gt;=</span> g)</code></pre></div>
+<p>and in fact, Haskell has a standard operator for monadic composition called &gt;=&gt;:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"> f <span class="fu">&gt;=&gt;</span> g <span class="fu">=</span> \x <span class="ot">-&gt;</span> (f x <span class="fu">&gt;&gt;=</span> g)  <span class="co">-- same as (f `mcompose` g) but more concise</span></code></pre></div>
+<p>So, assuming we have this monadic apply operator <code>&gt;&gt;=</code>, we can easily define the monadic composition operator <code>&gt;=&gt;</code>. So the monadic apply operator (the bind operator) is the important concept here. As we’ll see, each individual monad has to define its own specific version of this operator, which will be different from every other monad’s version. That’s where Haskell’s type classes will come in very handy. Incidentally, in the <a href="https://www.haskell.org/ghc/" target="_blank">ghc</a> Haskell compiler, the <code>&gt;=&gt;</code> operator is defined in the <code>Control.Monad</code> module.</p>
+</section>
+<section id="section-2" class="level3">
+<h3><code>=&lt;&lt;</code></h3>
+<p>Now remember that we could write the normal apply operator in two ways:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">  ($) ::</span> (a <span class="ot">-&gt;</span> b) <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> b</code></pre></div>
+<p>and</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">  (&gt;$&gt;) ::</span> a <span class="ot">-&gt;</span> (a <span class="ot">-&gt;</span> b) <span class="ot">-&gt;</span> b</code></pre></div>
+<p>depending on what order we wanted the arguments to be in. (Of course, it’s also fine to define both operators and use whichever one is most convenient in any given situation.) Similarly, we can write the monadic apply operator in two ways. The first way is as the bind operator <code>&gt;&gt;=</code> with type</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">  (&gt;&gt;=) ::</span> m a <span class="ot">-&gt;</span> (a <span class="ot">-&gt;</span> m b) <span class="ot">-&gt;</span> m b</code></pre></div>
+<p>which is analogous to the non-monadic <code>&gt;$&gt;</code> apply operator. We can also trivially define a monadic apply operator that takes its operands in the reverse order:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">  (=&lt;&lt;) ::</span> (a <span class="ot">-&gt;</span> m b) <span class="ot">-&gt;</span> m a <span class="ot">-&gt;</span> m b
+  f <span class="fu">=&lt;&lt;</span> x  <span class="fu">=</span>  x <span class="fu">&gt;&gt;=</span> f</code></pre></div>
+<p>You can also use the <code>flip</code> function, which takes a function of two arguments and returns a new function which is the same as the old one except that it takes the arguments in the reverse order:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">  flip ::</span> (a <span class="ot">-&gt;</span> b <span class="ot">-&gt;</span> c) <span class="ot">-&gt;</span> (b <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> c)
+  flip f <span class="fu">=</span> \x y <span class="ot">-&gt;</span> f y x</code></pre></div>
+<p>Then we can define <code>=&lt;&lt;</code> as follows:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"> (<span class="fu">=&lt;&lt;</span>) <span class="fu">=</span> flip (<span class="fu">&gt;&gt;=</span>)</code></pre></div>
+<p>You get extra points for functional coolness if you write concise definitions like this.</p>
+<p>Similarly again, we can define a monadic composition operator that takes its operands in the reverse order:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">(&gt;=&gt;) ::</span> (a <span class="ot">-&gt;</span> m b) <span class="ot">-&gt;</span> (b <span class="ot">-&gt;</span> m c) <span class="ot">-&gt;</span> (a <span class="ot">-&gt;</span> m c)  <span class="co">-- already defined</span>
+
+<span class="ot">(&lt;=&lt;) ::</span> (b <span class="ot">-&gt;</span> m c) <span class="ot">-&gt;</span> (a <span class="ot">-&gt;</span> m b) <span class="ot">-&gt;</span> (a <span class="ot">-&gt;</span> m c)
+(<span class="fu">&lt;=&lt;</span>) <span class="fu">=</span> flip (<span class="fu">&gt;=&gt;</span>)</code></pre></div>
+<p>So just as was the case for the regular (non-monadic) <code>apply</code> and <code>compose</code> operators, we can define monadic apply and compose operators which take their operands in whichever order we want. In practice, though, the monadic operator Haskell programmers seem to use the most is the <code>&gt;&gt;=</code> operator (or at least, it’s the one I use the most).</p>
+<p>If you’ve understood everything so far, congratulations! It’s all downhill from here. Or so I hope.</p>
+</section>
+<section id="functiontomonadicfunction" class="level3">
+<h3><code>functionToMonadicFunction</code></h3>
+<p>There is one more fundamental monadic operation I need to talk about. To motivate it, consider this scenario. You want to compose a monadic function with a non-monadic function. In other words, you have these functions</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">f ::</span> a <span class="ot">-&gt;</span> m b   <span class="co">-- monadic</span>
+<span class="ot">g ::</span> b <span class="ot">-&gt;</span> c     <span class="co">-- non-monadic</span></code></pre></div>
+<p>The problem is this: you can’t use regular function composition to compose <code>f</code> and <code>g</code>, because <code>m b</code> is not the same type as <code>b</code>. And you can’t use monadic function composition either, because <code>g</code> doesn’t have the type <code>b -&gt; m c</code>, which is what monadic composition would require. So what can you do?</p>
+<p>If we had the <code>extract</code> function I described above, you could compose the two functions the way I showed there:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">h ::</span> a <span class="ot">-&gt;</span> c
+h <span class="fu">=</span> f <span class="fu">&gt;.&gt;</span> extract <span class="fu">&gt;.&gt;</span> g</code></pre></div>
+<p>but as I mentioned, you’re not allowed to do this. In other words, you’re not allowed to compose a monadic function with a non-monadic function to get a non-monadic function (because that would screw up the functional purity of the language). What you are allowed to do is to compose a monadic function with a non-monadic function to get a monadic function, which would work like this:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">h ::</span> a <span class="ot">-&gt;</span> m c
+h <span class="fu">=</span> f [somehow composed with] g</code></pre></div>
+<p>Now, we know we can’t use our monadic composition operator for this, because <code>g</code> doesn’t have the right type (which would be <code>b -&gt; m c</code>). But we could use the monadic composition operator if we had some way to convert a non-monadic function to a monadic one. In other words, if we had a function <code>functionToMonadicFunction</code> with this type signature:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">functionToMonadicFunction ::</span> (b <span class="ot">-&gt;</span> c) <span class="ot">-&gt;</span> (b <span class="ot">-&gt;</span> m c)</code></pre></div>
+<p>then we could define <code>h</code> as:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">h ::</span> a <span class="ot">-&gt;</span> m c
+h <span class="fu">=</span> f <span class="fu">&gt;=&gt;</span> (functionToMonadicFunction g)</code></pre></div>
+<p>It turns out that all you need in order to define <code>functionToMonadicFunction</code> is an even simpler thing, which is a monadic function with the (possibly confusing) name of <code>return</code>. It has the following type signature:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">return<span class="ot"> ::</span> a <span class="ot">-&gt;</span> m a</code></pre></div>
+<p>for any type <code>a</code> and any monadic type constructor <code>m</code>. What <code>return</code> does is convert a regular value into the corresponding monadic value for a given monad <code>m</code>. We’ll see the specifics of this below.</p>
+<p>If you have <code>return</code>, then <code>functionToMonadicFunction</code> can trivially be defined as:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">  functionToMonadicFunction ::</span> (a <span class="ot">-&gt;</span> b) <span class="ot">-&gt;</span> (a <span class="ot">-&gt;</span> m b)
+  functionToMonadicFunction f <span class="fu">=</span> \x <span class="ot">-&gt;</span> return (f x)    </code></pre></div>
+<p>or, if I wanted to be cool and use function composition, as:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">  functionToMonadicFunction ::</span> (a <span class="ot">-&gt;</span> b) <span class="ot">-&gt;</span> (a <span class="ot">-&gt;</span> m b)
+  functionToMonadicFunction f <span class="fu">=</span> return <span class="fu">.</span> f</code></pre></div>
+<p>or even as:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">  functionToMonadicFunction ::</span> (a <span class="ot">-&gt;</span> b) <span class="ot">-&gt;</span> (a <span class="ot">-&gt;</span> m b)
+  functionToMonadicFunction <span class="fu">=</span> (return <span class="fu">.</span>)  </code></pre></div>
+<p>using a cool syntactic feature of Haskell called <em>operator sections</em>. All three functions are equivalent.</p>
+<p>Note that I once again switched <code>b</code> for <code>a</code> and <code>c</code> for <code>b</code> in the type signature of <code>functionToMonadicFunction</code>; again, it doesn’t matter. The point is, with this <code>return</code> function, we can now compose monadic functions with non-monadic ones to create new monadic functions. And <code>return</code> is the second fundamental monadic operation.</p>
+</section>
+<section id="return" class="level3">
+<h3><code>return</code></h3>
+<blockquote>
+<p><strong>Side note:</strong> If you’ve done a lot of imperative programming, you will probably find the name <code>return</code> more than a little annoying at first. Just remember that it is not a keyword in Haskell and it has nothing to do with returning from a function. So try to keep those ideas out of your head when dealing with return.</p>
+</blockquote>
+<p>Let’s put <code>return</code> to work composing our monadic function <code>f</code> with the non-monadic function <code>g</code> to get the monadic function <code>h</code>. Here’s the definition:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">  h <span class="fu">=</span> f <span class="fu">&gt;=&gt;</span> (return <span class="fu">.</span> g)</code></pre></div>
+<p>because, as we saw above, <code>return . g</code> will convert <code>g</code> into a monadic function.</p>
+<p>After all this, you might wonder how many more monadic operations we’re going to have to plow through before we’re done defining them all. As Professor Farnsworth would say: Good news, everybody! There are only two! There are also a couple of non-critical operations that we will eventually want to define for convenience, but <code>&gt;&gt;=</code> and <code>return</code> are the only ones that absolutely have to be there.</p>
+<p>There is one rather peculiar aspect of <code>return</code>. We say that <code>return</code> has the type <code>a -&gt; m a</code>, but when we say <em>e.g.</em> <code>return 10</code>, what is the type of the output? It could have the type <code>IO Int</code>, or <code>Maybe Int</code> or some other monadic type involving <code>Int</code>. How do we know which of the many possibilities is the correct one? Note, by the way, that the monadic value of type <code>IO Int</code> is a completely different value than the monadic value of type <code>Maybe Int</code>, so it’s not just about getting the right type — it’s not even obvious what kind of value return <code>10</code> <em>is!</em></p>
+<p>In Haskell, this is worked out by the context in which <code>return 10</code> is found. The type checker has to make sure that all the functions get the right type of input arguments, and so if <code>return 10</code> is the input to a function expecting a value of type <code>IO Int</code>, the type checker will decide that <code>return 10</code> has the type <code>IO Int</code> (and similarly for other monads). Put differently, the value computed by <code>return 10</code> depends on the type it has to have according to its context. If you want to, you can annotate <code>return 10</code> with the type you want it to have by writing <code>(return 10 :: IO Int)</code>, for instance, but this is rarely necessary.</p>
+</section>
+<section id="to-recap-this-section" class="level3">
+<h3>To recap this section:</h3>
+<ul>
+<li><p>There are two fundamental monadic operations, called <code>&quot;bind&quot;</code> (the <code>&gt;&gt;=</code> operator) and <code>return</code>.</p></li>
+<li><p>The bind (<code>&gt;&gt;=</code>) operator is a monadic apply operator. It can be used to define a monadic composition operator, which is written <code>&gt;=&gt;</code>.</p></li>
+<li><p>The <code>return</code> operator transforms regular values into monadic values. It can be used to define a function to convert regular functions into monadic functions.</p></li>
+</ul>
+</section>
+</section>
+<section id="what-do-monadic-application-and-composition-mean" class="level2">
+<h2>What do monadic application and composition <em>mean</em>?</h2>
 </section>
 </div>
 
