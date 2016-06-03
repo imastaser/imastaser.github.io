@@ -50,7 +50,8 @@ main = do
         let postPattern = ("posts/*"
                         .||. "posts/*/*/*"
                         .||. "posts/*/*.markdown"
-                        .||. "posts/*/*/*/*.markdown")
+                        .||. "posts/*/*/*/*.markdown"
+                        .||. "posts/*/*/*/*/*.markdown")
 
         match (foldr1 (.||.) assets) $ do
             route   idRoute
@@ -168,9 +169,11 @@ main = do
             route  $ customRoute $  (processPagesRoute "hogi") .  toFilePath
             compile $ do
                 mashalyanPosts <- recentFirst =<< loadAll ("posts/hogi/mashalyan/*.markdown" .||. "posts/hogi/mashalyan/*/*.markdown")
+                narekPosts <- recentFirst =<< loadAll ("posts/hogi/narek/*.markdown")
                 restPosts <- recentFirst =<< loadAll ("posts/hogi/*.markdown")
                 let indexCtx =
                         listField "mashalyanPosts" (postCtx tags) (if null mashalyanPosts then fail "No posts" else return mashalyanPosts) `mappend`
+                        listField "narekPosts" (postCtx tags) (if null narekPosts then fail "No posts" else return narekPosts) `mappend`
                         listField "restPosts" (postCtx tags) (if null restPosts then fail "No posts" else return restPosts) `mappend`
                         defaultContext
                 getResourceBody

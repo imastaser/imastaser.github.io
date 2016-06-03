@@ -4,8 +4,20 @@ date: 2013-12-05
 description: DESCRIPTION
 ---
 
+$if(narekPosts)$
+<h3>նարեկ</h3>
+<ul>
+    $for(narekPosts)$
+        <li>
+            <a href="$url$">$title$</a> - $date$
+        </li>
+    $endfor$
+</ul>
+$endif$
+
+
 $if(mashalyanPosts)$
-<h3>Մաշալյան</h3>
+<h3>Սահակ եպիսկոպոս Մաշալյան</h3>
 <ul>
     $for(mashalyanPosts)$
         <li>
