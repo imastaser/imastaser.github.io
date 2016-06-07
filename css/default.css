@@ -28,6 +28,12 @@ body {
     color: #99a;
 }
 
+.home-link{
+    font-size: 12px !important;
+    font-weight: normal !important;
+}
+
+
 #logo h1 {
     font-family: "PW Cactus", sans-serif;
     font-size: 300%;
