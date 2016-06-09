@@ -4,6 +4,18 @@ date: 2013-12-05
 description: DESCRIPTION
 ---
 
+$if(astuacashuncPosts)$
+<h3>Աստուածաշունչ</h3>
+<ul>
+    $for(astuacashuncPosts)$
+        <li>
+            <a href="$url$">$title$</a> - $date$
+        </li>
+    $endfor$
+</ul>
+$endif$
+
+
 $if(narekPosts)$
 <h3>նարեկ</h3>
 <ul>

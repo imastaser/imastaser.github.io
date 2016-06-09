@@ -168,13 +168,16 @@ main = do
         match ("posts/hogi/index.html") $ do
             route  $ customRoute $  (processPagesRoute "hogi") .  toFilePath
             compile $ do
+                astuacashuncPosts <- recentFirst =<< loadAll ("posts/hogi/astuatsashunch/*.markdown" .||. "posts/hogi/astuatsashunch/*/*.markdown")
                 mashalyanPosts <- recentFirst =<< loadAll ("posts/hogi/mashalyan/*.markdown" .||. "posts/hogi/mashalyan/*/*.markdown")
                 narekPosts <- recentFirst =<< loadAll ("posts/hogi/narek/*.markdown")
                 restPosts <- recentFirst =<< loadAll ("posts/hogi/*.markdown")
                 let indexCtx =
+                        listField "astuacashuncPosts" (postCtx tags) (if null astuacashuncPosts then fail "No posts" else return astuacashuncPosts) `mappend`
                         listField "mashalyanPosts" (postCtx tags) (if null mashalyanPosts then fail "No posts" else return mashalyanPosts) `mappend`
                         listField "narekPosts" (postCtx tags) (if null narekPosts then fail "No posts" else return narekPosts) `mappend`
                         listField "restPosts" (postCtx tags) (if null restPosts then fail "No posts" else return restPosts) `mappend`
+
                         defaultContext
                 getResourceBody
                     >>= applyAsTemplate indexCtx

@@ -1,5 +1,5 @@
 ---
-title: Քարոզխոսություններ
+title: Քարոզխոսութիւններ
 tags: քարոզ, Մաշալյան
 date: 2016-05-01
 description: DESCRIPTION
@@ -8,7 +8,7 @@ toc: true
 
 <br>
 
-## Ինչպես պատրաստել մկրտության (2009)
+## Ինչպես պատրաստել մկրտութեան (2009)
 * <a target="_blank" href="https://www.youtube.com/watch?v=6AtvcFeVXi4">Ա</a>
 * <a target="_blank" href="https://www.youtube.com/watch?v=6AtvcFeVXi4">Բ</a>
 * <a target="_blank" href="https://www.youtube.com/watch?v=6AtvcFeVXi4">Գ</a>
@@ -26,7 +26,7 @@ toc: true
 * <a target="_blank" href="https://www.youtube.com/watch?v=VjKYUR-kPlM">Քամ</a>
 
 
-### Բաբելոնյան աշտարակ
+### Բաբելոնեան աշտարակ
 * <a target="_blank" href="https://www.youtube.com/watch?v=A6r78QC5vGs">Աշտարակ</a>
 
 ### Աբրահամ և Սառա

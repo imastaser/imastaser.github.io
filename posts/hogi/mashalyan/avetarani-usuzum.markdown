@@ -1,12 +1,12 @@
 ---
-title: Ավետարանի ուսուցում
-tags: ավետարան, Մաշալյան
+title: Աւետարանի ուսուցում
+tags: աւետարան, Մաշալյան
 date: 2016-05-01
-description: «Ավետարանի ուսուցում» հաղորդաշարի թողարկումները
+description: «Աւետարանի ուսուցում» հաղորդաշարի թողարկումները
 toc: true
 ---
 
-## Ավետարանի ուսուցում
+## Աւետարանի ուսուցում
 
 
 ### Առակ
@@ -16,7 +16,7 @@ toc: true
 * <a target="_blank" href="https://www.youtube.com/watch?v=OoFpzsNu_14">Անիրավ տնտեսի առակը</a>
 * <a target="_blank" href="https://www.youtube.com/watch?v=cfrPdRoMmOA">Անիրավ դատավորի առակը</a>
 * <a target="_blank" href="https://www.youtube.com/watch?v=TXMKQClUPDc">Անառակ որդու վերադարձը</a>
-* <a target="_blank" href="https://www.youtube.com/watch?v=DApAxXGZ-I">Որոմների առակը</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=gxmVfNj4G2Y">Որոմների առակը</a>
 * <a target="_blank" href="https://www.youtube.com/watch?v=OO-2RNwnMAQ">Սերմնացանի առակը</a>
 * <a target="_blank" href="https://www.youtube.com/watch?v=-ICbGHhJ0LY">Մանանեխի հատիկի, թթխմորի առակները</a>
 * <a target="_blank" href="https://www.youtube.com/watch?v=6wL9DCgPUzE">Իմաստուն և հիմար կույսերի առակը</a>
@@ -56,7 +56,7 @@ toc: true
 
 ### Այլ
 * <a target="_blank" href="https://www.youtube.com/watch?v=CmxTCOdXmT8">72 առաքյալ</a>
-* <a target="_blank" href="https://www.youtube.com/watch?v=Nfb-RggRsSc">Աստվածային նախախնամություն</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=Nfb-RggRsSc">Աստվածային նախախնամություն (Հոգ մի արեք վաղվա օրվա համար)</a> | [txt](astvacain-naxaxnamutyun.html) 
 * <a target="_blank" href="https://www.youtube.com/watch?v=s22fSBUdl9Q">Աշխարհի վախճանը մաս Ա</a>
 * <a target="_blank" href="https://www.youtube.com/watch?v=U1IaR9QAB84">Աշխարհի վախճանը մաս Բ</a>
 * <a target="_blank" href="https://www.youtube.com/watch?v=tU_w3stzPgc">Ապաշխարություն</a>

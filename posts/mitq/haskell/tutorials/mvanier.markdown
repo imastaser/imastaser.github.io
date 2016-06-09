@@ -2,7 +2,7 @@
 title: Yet Another Monad Tutorial(Mike's World-O-Programming)
 tags: mvanier, monads, tutorials, haskell
 date: 2016-18-05
-description: DESCRIPTION
+description: Mike Vanier's blog posts with a bit formatting and easy navigation
 comments: true
 toc: false
 ---

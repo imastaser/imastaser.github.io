@@ -8,7 +8,19 @@ toc: true
 ---
 
 ## Manulas
-<a href="https://drive.google.com/open?id=0B5_olWfL1-4xbGFsQmk5OEo0Vkk" target="_blank">Ремонт и эксплуатация ISUZU Trooper 1984-91</a>
+<a href="https://drive.google.com/open?id=0B5_olWfL1-4xbGFsQmk5OEo0Vkk" target="_blank">Ремонт и эксплуатация ISUZU Bighorn 1984-91</a>
+
+## Forum
+<a href="http://forums.drom.ru/isuzu-bighorn/" target="_blank">drom.ru</a
+>
+<a href="http://www.4x4wire.com/isuzu/" target="_blank">Isuzu 4x4</a>
+
+
+
+
+## Articles
+<a href="http://www.toyota-club.net/files/lib/z_st/05-01-20_pub_bighorn.htm" target="_blank">Isuzu Bighorn. Уходящий в небытие</a>
+
 
 
 ## Part Numbers
@@ -20,6 +32,7 @@ toc: true
 * До 05.1995 года внешний и внутренний пыльники - OHNO FB-2060.
 * После 05.1995 года внешний OHNO FB-2199, внутренний OHNO FB-2148.
 * * <a href="http://forums.drom.ru/isuzu-bighorn/t1151257090.html" target="_blank">Пыльники ШРУСов (drom.ru)</a> 
+
 ### Смазки для ШРУСОВ
 * внутренний ШРУС - полимочевинные.
 * наружный ШРУС - молибден/литий и прочее. [Смазки литиевые.](https://www.emex.ru/catalog?8=42814&CAT_ID=25&page=1)  
