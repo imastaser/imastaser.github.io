@@ -21,6 +21,9 @@ toc: true
 ## Articles
 <a href="http://www.toyota-club.net/files/lib/z_st/05-01-20_pub_bighorn.htm" target="_blank">Isuzu Bighorn. Уходящий в небытие</a>
 
+<a href="http://www.itocuk.co.uk/forums/viewtopic.php?t=31318" target="_blank">Oils required for your Trooper.</a>
+
+
 
 
 ## Part Numbers
