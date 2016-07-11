@@ -13,6 +13,23 @@ toc: false
 
 
 ## video courses
+
+### Школа анализа данных
+1. <a target="_blank" href="https://yandexdataschool.ru/edu-process/courses/machine-learning#item-1">Машинное обучение</a>
+
+### Функциональное программирование
+<a target="_blank" href="https://compscicenter.ru/courses/func-prog/2012-spring/">origins</a>
+
+1. <a target="_blank" href="https://youtu.be/lTa3YFZGMTQ">Что такое функциональное программирование</a> <br>
+2. Списки. Функции высших порядков   <a target="_blank" href="https://youtu.be/_rXSyrAKAZs">Часть 1</a> , <a target="_blank" href="https://youtu.be/aaNmKADQHTs">Часть 2</a><br>
+3. Карринг и ленивые вычисления <a target="_blank" href="https://youtu.be/oFEalpQDsF4"> Часть 1</a> , <a target="_blank" href="https://youtu.be/KYaJ2_H0ijo">Часть 2</a><br>
+4. "Завязывание узлов". Классы <a target="_blank" href="https://youtu.be/e5pKVLQr7Mg">Часть 1</a> , <a target="_blank" href="https://youtu.be/SBfyT0XUdC0">Часть 2</a>
+5. Системы FP. Основы лямбда-исчисления <a target="_blank" href="https://youtu.be/PjLpTaEFfCo">Часть 1 </a> , <a target="_blank" href="https://youtu.be/MduuMOkHT_Y">Часть 2 </a>
+6. Чистое лямбда-исчисление <a target="_blank" href="https://youtu.be/x4QwlJ8nk_s">Часть 1</a> , <a target="_blank" href="https://youtu.be/Hm6kFJXCOv4">Часть 2</a>
+7. <a target="_blank" href="https://youtu.be/DwW8OHgvSk8">Интерпретация и компиляция функциональных программ </a>
+8. <a target="_blank" href="https://youtu.be/Ck9A_eycdJg">Введение в редукцию графов</a>
+9. <a target="_blank" href="https://youtu.be/yiKbqc4f5Uk">Комбинаторная редукция</a>
+
 ### Функциональное программирование на языке Haskell
 <a target="_blank" href="https://stepic.org/course/75">origins</a>
 
