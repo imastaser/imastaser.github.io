@@ -29,9 +29,20 @@ $endif$
 
 
 $if(mashalyanPosts)$
-<h3>Սահակ եպիսկոպոս Մաշալյան</h3>
+<h3>Սահակ եպիսկոպոս Մաշալեան</h3>
 <ul>
     $for(mashalyanPosts)$
+        <li>
+            <a href="$url$">$title$</a> - $date$
+        </li>
+    $endfor$
+</ul>
+$endif$
+
+$if(mashalyanPosts)$
+<h3>Գրաբար</h3>
+<ul>
+    $for(grabarPosts)$
         <li>
             <a href="$url$">$title$</a> - $date$
         </li>
@@ -42,12 +53,22 @@ $endif$
 
 $if(restPosts)$
 <h3>Այլ</h3>
-
 <ul>
     $for(restPosts)$
         <li>
             <a href="$url$">$title$</a> - $date$
         </li>
     $endfor$
+    $for(nshnorhaliPosts)$
+        <li>
+            <a href="$url$">$title$</a> - $date$
+        </li>
+    $endfor$
+    $for(tatevaciPosts)$
+        <li>
+            <a href="$url$">$title$</a> - $date$
+        </li>
+    $endfor$
+
 </ul>
 $endif$

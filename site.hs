@@ -112,8 +112,8 @@ main = do
 
         -- Post tags
         tagsRules tags $ \tag pattern -> do
-            let title = "Posts tagged " ++ tag
-
+           -- let title = "Posts tagged " ++ tag
+            let title = tag
             -- Copied from posts, need to refactor
             route idRoute
             compile $ do
@@ -171,11 +171,17 @@ main = do
                 astuacashuncPosts <- recentFirst =<< loadAll ("posts/hogi/astuatsashunch/*.markdown" .||. "posts/hogi/astuatsashunch/*/*.markdown")
                 mashalyanPosts <- recentFirst =<< loadAll ("posts/hogi/mashalyan/*.markdown" .||. "posts/hogi/mashalyan/*/*.markdown")
                 narekPosts <- recentFirst =<< loadAll ("posts/hogi/narek/*.markdown")
+                nshnorhaliPosts <- recentFirst =<< loadAll ("posts/hogi/nshnorhali/*.markdown")
+                grabarPosts <- recentFirst =<< loadAll ("posts/hogi/grabar/*.markdown")
+                tatevaciPosts <- recentFirst =<< loadAll ("posts/hogi/tatevaci/*.markdown")
                 restPosts <- recentFirst =<< loadAll ("posts/hogi/*.markdown")
                 let indexCtx =
                         listField "astuacashuncPosts" (postCtx tags) (if null astuacashuncPosts then fail "No posts" else return astuacashuncPosts) `mappend`
                         listField "mashalyanPosts" (postCtx tags) (if null mashalyanPosts then fail "No posts" else return mashalyanPosts) `mappend`
                         listField "narekPosts" (postCtx tags) (if null narekPosts then fail "No posts" else return narekPosts) `mappend`
+                        listField "nshnorhaliPosts" (postCtx tags) (if null nshnorhaliPosts then fail "No posts" else return nshnorhaliPosts) `mappend`
+                        listField "grabarPosts" (postCtx tags) (if null grabarPosts then fail "No posts" else return grabarPosts) `mappend`
+                        listField "tatevaciPosts" (postCtx tags) (if null tatevaciPosts then fail "No posts" else return tatevaciPosts) `mappend`
                         listField "restPosts" (postCtx tags) (if null restPosts then fail "No posts" else return restPosts) `mappend`
 
                         defaultContext

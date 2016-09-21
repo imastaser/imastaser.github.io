@@ -1,5 +1,5 @@
 ---
-title: courses on haskell
+title: How learn haskell resource collection
 tags: haskell, courses
 date: 2016-05-04
 description: video courses about functional programming
@@ -11,8 +11,38 @@ toc: false
 * <a href="https://compscicenter.ru/">compscicenter </a>
 * <a href="https://www.coursera.org/">coursera</a>
 
+## How learn haskell resource collection
+
+* [Haskell on zeef](https://haskell.zeef.com/konstantin.skipor)
+* [Haskell bookmarks](https://github.com/grsmv/haskell-bookmarks)
+* [Learn haskell](https://github.com/bitemyapp/learnhaskell)
+
 
 ## video courses
+
+### Brisbane Functional Programming Group 
+
+#### Misc
+<a target="_blank" href="https://www.youtube.com/watch?v=4MaaQmll8D0">Intro to Lens  </a>
+
+<a target="_blank" href="https://www.youtube.com/
+watch?v=pzouxmWiemg">Monad Transformers - Ben Kolera</a>
+
+<a target="_blank" href="https://www.youtube.com/watch?v=Ofz8zO8rjn0">Monads - Matt Peddie </a>
+
+#### FP in Scala
+<a target="_blank" href="https://www.youtube.com/
+watch?v=Sj12uS1Oc48">Chapters 1&2</a>
+
+<a target="_blank" href="https://www.youtube.com/watch?v=SIQHiTK5Qi8">Chapters 3&4</a>
+
+<a target="_blank" href="https://www.youtube.com/watch?v=VqJTaCOBlTw">Chapters 5&6</a>
+
+<a target="_blank" href="https://www.youtube.com/watch?v=ZSKeOZMoWUg">Chapters 7&8</a>
+
+<a target="_blank" href="https://www.youtube.com/watch?v=mt4Nl758DvM">Chapters 9&10</a>
+
+<a target="_blank" href="https://www.youtube.com/watch?v=AKH3LjGEN6U">Chapters 11&12</a>
 
 ### Школа анализа данных
 1. <a target="_blank" href="https://yandexdataschool.ru/edu-process/courses/machine-learning#item-1">Машинное обучение</a>
@@ -45,6 +75,10 @@ toc: false
 10. <a target="_blank" href="https://youtu.be/igqQxJdSDCk">Использование монад</a>
 11. <a target="_blank" href="https://youtu.be/xC_8HXkzNhg">Трансформеры монад</a>
 12. <a target="_blank" href="https://youtu.be/PjFl5dWSnF8">Вывод типов</a>
+
+
+## Various videos on haskell
+<div style='display: inline-block; width: 100%; min-height: 300px;'><div style='position: relative; padding-bottom: 100%; padding-top:25px; height: 0;'><iframe src="//fp.silk.co/s/embed/yz-R_zu" style="border:0;position: absolute; top:0; left:0; width: 100%;height:100%; min-height: 300px;"></iframe></div><div style='position:relative;margin-top:-33px;margin-bottom:10px;font-size:12px;color:gray;text-align:left;width:50%;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;'>Data from <a target='_blank' style='text-decoration:none;'href='http://fp.silk.co'>fp.silk.co</a></div></div>
 
 
 ## academic courses

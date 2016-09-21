@@ -1,6 +1,6 @@
 ---
 title: Քարոզխոսութիւններ
-tags: քարոզ, Մաշալյան
+tags: քարոզ, Մաշալեան
 date: 2016-05-01
 description: DESCRIPTION
 toc: true
@@ -9,10 +9,10 @@ toc: true
 <br>
 
 ## Ինչպես պատրաստել մկրտութեան (2009)
-* <a target="_blank" href="https://www.youtube.com/watch?v=6AtvcFeVXi4">Ա</a>
-* <a target="_blank" href="https://www.youtube.com/watch?v=6AtvcFeVXi4">Բ</a>
-* <a target="_blank" href="https://www.youtube.com/watch?v=6AtvcFeVXi4">Գ</a>
-* <a target="_blank" href="https://www.youtube.com/watch?v=6AtvcFeVXi4">Դ</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=H9Kq0vih_VY">Ա - Աստուած արարիչ</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=H9Kq0vih_VY">Բ</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=H9Kq0vih_VY">Գ</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=H9Kq0vih_VY">Դ</a>
 
 
 ## Հին կտակարան

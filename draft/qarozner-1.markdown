@@ -1,6 +1,6 @@
 ---
 title: Քարոզխոսություններ11
-tags: քարոզ, Մաշալյան
+tags: քարոզ, Մաշալեան
 date: 2016-05-01
 description: DESCRIPTION
 toc: true
