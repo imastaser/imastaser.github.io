@@ -87,8 +87,29 @@ src="https://www.youtube.com/embed/Z_dzIPZvQWU"> </iframe>Русская фил�
     <dc:creator>Arthur Vardanyan</dc:creator>
 </item>
 <item>
+    <title>The Haskell School of Expression(SoE)</title>
+    <link>http://imastaser.am/mitq/haskell/soe/index.html</link>
+    <description><![CDATA[<div class="post-content">
+<p><a href="http://www.cs.yale.edu/homes/hudak/SOE/">SoE web site</a></p>
+<p><a href="http://davidtran.doublegifts.com/blog/?page_id=28">David Tran’s SoE solutions</a></p>
+</div>
+
+<div class="row">
+        <span class="date  text-right">
+            <i class="fa fa-calenda"></i> Posted on December  5, 2016
+        </span>
+        <span class="tags text-right" style="width: 100%">
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/soe.html">soe</a></li><li><a href="/tags/haskell.html">haskell</a></li></ul>
+        </span>
+</div>
+]]></description>
+    <pubDate>Mon, 05 Dec 2016 00:00:00 UT</pubDate>
+    <guid>http://imastaser.am/mitq/haskell/soe/index.html</guid>
+    <dc:creator>Arthur Vardanyan</dc:creator>
+</item>
+<item>
     <title>Yet Another Monad Tutorial(Mike's World-O-Programming)</title>
-    <link>http://imastaser.am/mitq/haskell/tutorials/mvanier.html</link>
+    <link>http://imastaser.am/mitq/haskell/mvanier/index.html</link>
     <description><![CDATA[<div class="post-content">
 <section id="mikes-world-o-programming" class="level5">
 <h5><a target="_blank" href="http://mvanier.livejournal.com/?skip=10"> Mike’s World-O-Programming</a></h5>
@@ -122,7 +143,7 @@ src="https://www.youtube.com/embed/Z_dzIPZvQWU"> </iframe>Русская фил�
 <tr class="odd">
 <td style="text-align: left;">16.01.08</td>
 <td style="text-align: left;"><a href="http://mvanier.livejournal.com/1205.html">How not to explain Haskell monads</a></td>
-<td style="text-align: left;"><a href="../mvanier-monad/how-not-to-explain-haskell-monads.html">How not to explain Haskell monads</a></td>
+<td style="text-align: left;"><a href="../mvanier/posts/how-not-to-explain-haskell-monads.html">How not to explain Haskell monads</a></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">16.01.08</td>
@@ -132,12 +153,12 @@ src="https://www.youtube.com/embed/Z_dzIPZvQWU"> </iframe>Русская фил�
 <tr class="odd">
 <td style="text-align: left;">21.01,08</td>
 <td style="text-align: left;"><a href="http://mvanier.livejournal.com/1765.html">Haskell state monads, part 1</a></td>
-<td style="text-align: left;"><a href="../mvanier-monad/statemonad-part1.html">Haskell state monads, part 1</a>)</td>
+<td style="text-align: left;"><a href="../mvanier/posts/statemonad-part1.html">Haskell state monads, part 1</a>)</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">22.01.08</td>
 <td style="text-align: left;"><a href="http://mvanier.livejournal.com/1901.html">Haskell state monads, part 2</a></td>
-<td style="text-align: left;"><a href="../mvanier-monad/statemonad-part2.html">Haskell state monads, part 2</a>)</td>
+<td style="text-align: left;"><a href="../mvanier/posts/statemonad-part2.html">Haskell state monads, part 2</a>)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">10.04.08</td>
@@ -147,12 +168,12 @@ src="https://www.youtube.com/embed/Z_dzIPZvQWU"> </iframe>Русская фил�
 <tr class="even">
 <td style="text-align: left;">20.07.08</td>
 <td style="text-align: left;"><a href="http://mvanier.livejournal.com/2700.html">The Y Combinator</a></td>
-<td style="text-align: left;"><a href="../mvanier-monad/y-combinator.html">The Y Combinator</a></td>
+<td style="text-align: left;"><a href="../mvanier/posts/y-combinator.html">The Y Combinator</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">14.08.08</td>
 <td style="text-align: left;"><a href="http://mvanier.livejournal.com/2897.html">The Y Combinator (Slight Return)</a></td>
-<td style="text-align: left;"><a href="../mvanier-monad/y-combinator-return.html">The Y Combinator (Slight Return)</a></td>
+<td style="text-align: left;"><a href="../mvanier/posts/y-combinator-return.html">The Y Combinator (Slight Return)</a></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">17.03.09</td>
@@ -172,12 +193,12 @@ src="https://www.youtube.com/embed/Z_dzIPZvQWU"> </iframe>Русская фил�
 <tr class="odd">
 <td style="text-align: left;">25.07.10</td>
 <td style="text-align: left;"><a href="http://mvanier.livejournal.com/3917.html">Yet Another Monad Tutorial (part 1: basics)</a></td>
-<td style="text-align: left;"><a href="../mvanier-monad/monad-1.html">Yet Another Monad Tutorial (part 1: basics)</a></td>
+<td style="text-align: left;"><a href="../mvanier/posts/monad-1.html">Yet Another Monad Tutorial (part 1: basics)</a></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">25.07.10</td>
 <td style="text-align: left;"><a href="http://mvanier.livejournal.com/4305.html">Yet Another Monad Tutorial (part 2: &gt;&gt;= and return)</a></td>
-<td style="text-align: left;"><a href="../mvanier-monad/monad-2.html">Yet Another Monad Tutorial (part 2: &gt;&gt;= and return)</a></td>
+<td style="text-align: left;"><a href="../mvanier/posts/monad-2.html">Yet Another Monad Tutorial (part 2: &gt;&gt;= and return)</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">25.07.10</td>
@@ -229,28 +250,7 @@ src="https://www.youtube.com/embed/Z_dzIPZvQWU"> </iframe>Русская фил�
 </div>
 ]]></description>
     <pubDate>Mon, 05 Dec 2016 00:00:00 UT</pubDate>
-    <guid>http://imastaser.am/mitq/haskell/tutorials/mvanier.html</guid>
-    <dc:creator>Arthur Vardanyan</dc:creator>
-</item>
-<item>
-    <title>The Haskell School of Expression(SoE)</title>
-    <link>http://imastaser.am/mitq/haskell/soe/index.html</link>
-    <description><![CDATA[<div class="post-content">
-<p><a href="http://www.cs.yale.edu/homes/hudak/SOE/">SoE web site</a></p>
-<p><a href="http://davidtran.doublegifts.com/blog/?page_id=28">David Tran’s SoE solutions</a></p>
-</div>
-
-<div class="row">
-        <span class="date  text-right">
-            <i class="fa fa-calenda"></i> Posted on December  5, 2016
-        </span>
-        <span class="tags text-right" style="width: 100%">
-            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/soe.html">soe</a></li><li><a href="/tags/haskell.html">haskell</a></li></ul>
-        </span>
-</div>
-]]></description>
-    <pubDate>Mon, 05 Dec 2016 00:00:00 UT</pubDate>
-    <guid>http://imastaser.am/mitq/haskell/soe/index.html</guid>
+    <guid>http://imastaser.am/mitq/haskell/mvanier/index.html</guid>
     <dc:creator>Arthur Vardanyan</dc:creator>
 </item>
 <item>
