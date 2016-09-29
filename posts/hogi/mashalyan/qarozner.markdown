@@ -8,11 +8,11 @@ toc: true
 
 <br>
 
-## Ինչպես պատրաստել մկրտութեան (2009)
+## Ինչպես պատրաստել մկրտութեան (Առաջնորդարան 2009)
 * <a target="_blank" href="https://www.youtube.com/watch?v=H9Kq0vih_VY">Ա - Աստուած արարիչ</a>
-* <a target="_blank" href="https://www.youtube.com/watch?v=H9Kq0vih_VY">Բ</a>
-* <a target="_blank" href="https://www.youtube.com/watch?v=H9Kq0vih_VY">Գ</a>
-* <a target="_blank" href="https://www.youtube.com/watch?v=H9Kq0vih_VY">Դ</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=VsZWxu_cBlQ">Բ - Մարդ Աստուած հարաբերություն</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=WFqCHx25mX0">Գ - Քրիստոս, Հաղորդություն</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=D51LwvN2LAQ">Դ - Դրախտի, դժոխքի, մեղքի մասին</a>
 
 
 ## Հին կտակարան
@@ -41,42 +41,20 @@ toc: true
 * <a target="_blank" href="https://www.youtube.com/watch?v=tfnMVbaAjwk">Սառայի ծիծաղը</a>
 
 ### Սոդոմ-Գոմոր
-* <a target="_blank" href="https://www.youtube.com/watch?v=tVnO6ykKAcs">Սոդոմ-Գոմոր</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=tVnO6ykKAcs">Սոդոմ-Գոմոր - Ա</a>
+* <a target="_blank" href="https://www.youtube.com/embed/Uzm52rFXOjk">Սոդոմ-Գոմոր - Բ</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=4akBvYH4_zw">Կյանքում հայացքը ճիշտ ուղղությամբ ուղղելու մասին. Ղովտի կնոջ օրինակը - Գ</a>
 
-### անվերնագիր
- <iframe width="220" height="160"
- src="https://www.youtube.com/embed/Uzm52rFXOjk">
- </iframe><a target="_blank" href="https://www.youtube.com/watch?v=Uzm52rFXOjk">
- Քարոզ Ա</a>
- <iframe width="220" height="160"
- src="https://www.youtube.com/embed/s46zmMKqqQs">
- </iframe><a target="_blank" href="https://www.youtube.com/watch?v=s46zmMKqqQs">
- Քարոզ Բ</a>
- <iframe width="220" height="160"
- src="https://www.youtube.com/embed/4akBvYH4_zw">
- </iframe><a target="_blank" href="https://www.youtube.com/watch?v=4akBvYH4_zw">
- Քարոզ Գ</a>
- <iframe width="220" height="160"
- src="https://www.youtube.com/embed/xKjw935j2GA">
- </iframe><a target="_blank" href="https://www.youtube.com/watch?v=xKjw935j2GA">
- Քարոզ Դ</a>
- <iframe width="220" height="160"
- src="https://www.youtube.com/embed/MKcmoUFia8A">
- </iframe><a target="_blank" href="https://www.youtube.com/watch?v=MKcmoUFia8A">
- Քարոզ Ե</a>
- <iframe width="220" height="160"
- src="https://www.youtube.com/embed/mRkgXrHw_oU">
- </iframe><a target="_blank" href="https://www.youtube.com/watch?v=mRkgXrHw_oU">
- Քարոզ Զ</a>
- <iframe width="220" height="160"
- src="https://www.youtube.com/embed/lLw2-sXLNpc">
- </iframe><a target="_blank" href="https://www.youtube.com/watch?v=lLw2-sXLNpc">
- Քարոզ Թ</a>
- <iframe width="220" height="160"
- src="https://www.youtube.com/embed/WTpmq-nIOxk">
- </iframe><a target="_blank" href="https://www.youtube.com/watch?v=WTpmq-nIOxk">
- ???</a>
 
+### Չտեղավորված
+* <a target="_blank" href="https://www.youtube.com/watch?v=s46zmMKqqQs">Քարոզ Բ « Հովսեփի եւ մեղքին դիմակայելու մասին»</a>
+* <a target="_blank" href="https://www.youtube.com/
+watch?v=4akBvYH4_zw">Քարոզ Գ </a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=xKjw935j2GA">Քարոզ Դ «Մարդկային նկարագիրը. Աբրահամի օրինակը» </a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=MKcmoUFia8A">Քարոզ Ե «Զոհաբերության մասին. Աբրահամի եւ Իսահակի օրինակը»:</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=mRkgXrHw_oU">Քարոզ Զ «Ջրհեղեղի պատմությունը. չարիքի սահմանը»</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=lLw2-sXLNpc">Քարոզ Թ «Հակոբի մասին. Աստծո հետ մեր հարաբերությունը»</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=WTpmq-nIOxk">Ջրհեղեղի տրամաբանութիւնը</a>
 
 
 <div style='display: inline-block; width: 100%; min-height: 300px;'><div style='position: relative; padding-bottom: 100%; padding-top:25px; height: 0;'><iframe src="//hogi.silk.co/s/embed/ORwwQNy" style="border:0;position: absolute; top:0; left:0; width: 100%;height:100%; min-height: 300px;"></iframe></div><div style='position:relative;margin-top:-33px;margin-bottom:10px;font-size:12px;color:gray;text-align:left;width:50%;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;'>Data from <a target='_blank' style='text-decoration:none;'href='http://hogi.silk.co'>hogi.silk.co</a></div></div>
