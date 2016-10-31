@@ -47,15 +47,17 @@
                 </ul>
             </div>
             <div class="clear"></div>
-            
+            <!---->
 
   <div class="clear"></div>
+  <!-- <p style="font-size: 11px;"><strong>Ուշադրություն.</strong> <small>«իմաստասէր» բառը պետք է հասկանալ տառացի. ոչ որպէս փիլիսոփա իմաստով:</small></p> -->
             <div id="content">
-                <div class="title text-center">
-                    <h2>Haskell state monads, part 2</h2>
+
+<!--                 <div class="title text-center">
+                    <h4>Haskell state monads, part 2</h4>
                     <hr>
                 </div>
-                <div class="post-content">
+ -->                <div class="post-content">
 <p><a href="http://mvanier.livejournal.com/1901.html">original article</a></p>
 <p>In my <a href="statemonad_part1.html">previous post</a>, I described in general terms how state transformations are represented in functional languages like Haskell that don’t have the concept of mutable state (assignment to variables). There are different ways to do this, but the way that most closely simulates the way things work in imperative languages is by using state monads. This involves taking an imperative computation and breaking it down into very small subcomputations, each of which is a very simple state transformation. In this post, I’m going to expand on this, showing what I mean by “simple state transformation”. I’m going to try to explain not only how state monads work in Haskell, but why they work the way they do.</p>
 <p>To model an imperative computation in Haskell, you do this:</p>
