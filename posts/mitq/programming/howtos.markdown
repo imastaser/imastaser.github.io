@@ -1,16 +1,80 @@
 ---
-title: Install Haskell on Ubuntu
-tags: OS, ubuntu, ghc
+title: How to Notes
+tags: howto
 date: 2014-02-07
 description: DESCRIPTION
 comments: true
-toc: false
+toc: true
 ---
 
+# Hakyll, GitHub repository and GitHub pages set up
 
-### Ubuntu
+1. create git repository "byurakn"  - for holding source
+2. create git repository "byruakn.am" - for static generated stuff
 
-#### 1. Soft Approach (from [learnhaskell](https://github.com/bitemyapp/learnhaskell))
+##Hakyll Stuff
+
+#### Creating hakyll site
+
+
+1. cd to folder
+2. hakyll-init my-site
+    This creates a folder my-site in the current directory, with some example
+    content and a generic configuration.
+2.1 add "CNAME" file  
+
+``` bash
+cabal update
+cabal init #create config file and edit it to set up depends package if need, and set main-is:
+cabal sandbox init
+cabal install
+./site clean
+./site watch --port=5000
+```
+#### git setup
+
+``` bash
+git config --system  --list  #show configs from  /usr/etc/gitconfig
+git config --global  --list  #show configs from  ~/.gitconfig
+git config --local   --list     #show configs from .git/config
+git config --list         # show
+git remote -v             # show remote repository address if exist
+git remote add origin https://github.comarthurvard/byurakn.git #add address with alias origin
+git branch -a # show branches
+cd my-site
+git init
+git remote add origin https://github.comarthurvard/byurakn.git
+git pull origin master #this step is required when repository is not empty, usually ther is READ.me file
+touch .gitignore # add .gitignore file for hakyll
+git add .
+git commit -m "init commit"
+git push -u origin master
+```
+
+
+#### [GitHub pages]()
+
+``` bash
+cd my-site #if needed
+mkdir _publish
+cd _publish
+git init
+git remote -v
+git remote add origin https://github.com/ArthurVard/byurakn.am```
+cp ../CNAME .
+git add CNAME
+git commit -m "CNAME file"
+git checkout --orphan gh-pages
+git push -u origin gh-pages #create branch
+# add publish.sh and rebuild.sh script files to current dir
+emacs publish.sh #change hakyll-site dir and git repo address
+./publish.sh
+```
+
+
+# Install Haskell on Ubuntu
+
+### 1. Soft Approach (from [learnhaskell](https://github.com/bitemyapp/learnhaskell))
 
 This PPA is excellent and is what I use on all my Linux dev and build machines: http://launchpad.net/~hvr/+archive/ghc
 
@@ -32,7 +96,7 @@ Then add `~/.cabal/bin:/opt/cabal/1.20/bin:/opt/ghc/7.8.3/bin:/opt/happy/1.19.4/
 This only works when your current working directory is a cabal sandbox.
 
 
-#### 2. ubuntu prerequisites
+### 2. ubuntu prerequisites
 
 ``` bash
 sudo apt-get install libgmp-dev -y  # Multiprecision arithmetic library developers tools
@@ -50,7 +114,7 @@ source ~/.bashrc # reload bash
 ```
 
 
-#### 3. if you have only GHC (but not cabal) installed:
+### 3. if you have only GHC (but not cabal) installed:
 
 ``` bash
 wget http://www.haskell.org/cabal/release/cabal-install-1.20.0.3/cabal-install-1.20.0.3.tar.gz
@@ -99,3 +163,19 @@ see also: [Safer Haskell Install](http://yannesposito.com/Scratch/en/blog/Safer-
 
 
 [https://gist.github.com/yantonov/10083524](https://gist.github.com/yantonov/10083524)
+
+
+# Installing Python Pygments on Windows
+
+How install [Pygments](http://pygments.org/) syntax highlighter on Windows for use with hakyll site generator
+
+* Download and install Python 2.7.2
+* Add C:\\Python27\\Scripts and C:\\Python27 to the Windows path
+* Download [ez_setup.py](http://peak.telecommunity.com/dist/ez_setup.py)
+* Run ```python  ez_setup.py```
+* Downlad [Pygments-1.6-py2.7.egg](https://pypi.python.org/pypi/Pygments)
+* ```easy_install Pygments-1.6-py2.7.egg```
+
+And that's it.
+
+details from [Installing Python Pygments on Windows](http://zduck.com/2009/installing-python-pygments-on-windows/)

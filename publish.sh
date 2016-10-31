@@ -2,22 +2,22 @@
 
 sshGitHub="git@github.com:imastaser/imastaser.github.io.git"
 #hakylldir=/d/root/dev/web/hakyll/imastaser
-hakylldir=/r/imastaser
+hakylldir=/f/imastaser
 pubdir=$hakylldir/_publish
 
 # [[ ! -e $pubdir ]] && git clone -b master $sshGitHub --single-branch _publish
 
 cd $hakylldir       && \
 git pull            && \
-./rebuild.sh        && \
+#./rebuild.sh        && \
 cd $pubdir          && \
 # git checkout master && \
 echo -- "get latest modif from github" && \
 git pull origin master && \
 echo -- "Remove all files except .git" && \
-\rm -rf * && \
+#\rm -rf * && \
 echo -- "Copy _site" && \
-\cp -rf ../_site/* . && \
+#\cp -rf ../_site/* . && \
 echo -- "Adding files to repository" && \
 git add . && \
 git add -u && \

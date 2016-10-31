@@ -1,16 +1,6 @@
 ---
 title: Միտք
 ---
-$if(methodologyPosts)$
-<h3>Մեթոդաբանություն</h3>
-<ul>
-    $for(methodologyPosts)$
-        <li>
-            <a href="$url$">$title$</a> - $date$
-        </li>
-    $endfor$
-</ul>
-$endif$
 
 
 $if(programmingPosts)$
@@ -25,7 +15,7 @@ $if(programmingPosts)$
 $endif$
 
 $if(haskellPosts)$
-<h3>Haskell & FP</h3>
+<h3>Ֆունկցիոնալ Ծրագրավորում</h3>
 <ul>
   $for(haskellPosts)$
         <li>
@@ -39,6 +29,17 @@ $if(haskellPosts)$
           </li>
       $endfor$
     $endif$
+</ul>
+$endif$
+
+$if(methodologyPosts)$
+<h3>Մեթոդաբանություն</h3>
+<ul>
+    $for(methodologyPosts)$
+        <li>
+            <a href="$url$">$title$</a> - $date$
+        </li>
+    $endfor$
 </ul>
 $endif$
 
