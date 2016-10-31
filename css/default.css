@@ -184,8 +184,8 @@ hr {
 
 .title hr {
     width: 25% !important;
-    margin: 25px auto 36px;
-
+    margin: 15px auto 15px;
+    font-size: 14px;
 }
 
 .tagcloud hr {
@@ -267,3 +267,37 @@ table {
 table, th, td {
    border: 1px solid black;
 }
+
+
+.posts { list-style-type: none; }
+
+.posts li { margin-bottom: 8px; }
+
+.posts .post-link {
+  font-size: 1em;
+  letter-spacing: -1px;
+  line-height: 1;
+  text-decoration: none;
+  color: black;
+}
+
+.posts .post-date, .posts .post-author {
+  display: block;
+  font-size: 15px;
+  color: #818181;
+}
+
+.posts .post-date, .post-tag {
+  font-size: 0.8em;
+  /*opacity: 0.6;*/
+}
+
+.post-tag a, .post-tag a:visited {
+  color: #2a7ae2;
+  text-decoration: none;
+}
+
+.post-tag a:hover {
+ text-decoration: underline;
+}
+

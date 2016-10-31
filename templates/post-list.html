@@ -1,4 +1,19 @@
-<ul class="list-group">
+
+        <div class="class="list-group"">
+
+        
+          <ul class="posts">
+            $for(posts)$
+            <li>
+              <a class="post-link" href="$url$"">$title$</a>
+              <span class="post-date">$date$</span>
+              <div class="post-tag">$tags$</div>
+            </li>
+            $endfor$
+          </ul>
+        </div>
+
+<!--<ul class="list-group">
     $for(posts)$
     <li class="list-group-item">
         <div class="list-group-item-heading text-left">
@@ -6,9 +21,9 @@
                 $title$
             </a>
         </div>
-        <!--<p class="list-group-item-text">
+        <p class="list-group-item-text">
             $description$
-        </p>-->
+        </p>
         <div class="row">
             <span class="date col-md-5 text-left">
                 <i class="fa fa-calendar"></i> $date$
@@ -19,4 +34,4 @@
         </div>
     </li>
     $endfor$
-</ul>
+</ul>-->
