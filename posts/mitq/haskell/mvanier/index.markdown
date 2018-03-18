@@ -1,7 +1,7 @@
 ---
-title: Yet Another Monad Tutorial(Mike's World-O-Programming)
+title: Yet Another Monad Tutorial(Mike's "World-O-Programming")
 tags: mvanier, monads, tutorials, haskell
-date: 2016-18-05
+date: 2016-05-18T00:01:00
 description: Mike Vanier's blog posts with a bit formatting and easy navigation
 comments: true
 toc: false
@@ -34,5 +34,3 @@ toc: false
 | 25.08.10 | [Yet Another Monad Tutorial (part 7: state monads)](http://mvanier.livejournal.com/5406.html)                  |                                                                                 |
 | 25.08.10 | [Yet Another Monad Tutorial (part 8: more on state monads)](http://mvanier.livejournal.com/5846.html)          |                                                                                 |
 |          |                                                                                                                |                                                                                 |
-
-

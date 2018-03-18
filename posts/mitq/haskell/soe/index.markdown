@@ -1,7 +1,7 @@
 ---
 title: The Haskell School of Expression(SoE)
 tags: soe, haskell
-date: 2016-26-05
+date: 2016-05-26T00:01:00
 description: Learning Functional Programming through Multimedia - by Paul Hudak
 comments: true
 toc: false

@@ -1,5 +1,5 @@
 ---
-title: Yet Another Monad Tutorial (part 2: >>= and return)
+title: Yet Another Monad Tutorial (part 2":" >>= and return)
 tags: mvanier, monads, tutorials, haskell
 date: 2010-07-25
 author: Mike Vanier
@@ -21,7 +21,7 @@ Let's say that we have two monadic functions:
 ``` haskell
 f :: a -> m b
 g :: b -> m c
-```  
+```
 for some monad ```m```. If you want a more specific example, you can imagine that ```f``` and ```g``` are in the ```IO``` monad, so we'd have
 
 ``` haskell
@@ -38,21 +38,21 @@ h :: a -> IO c
 *i.e.* a function that takes a value of type ```a```, outputs a value of type ```c```, and possibly does some I/O along the way (with the I/O somehow being the combination of the I/O activity for functions ```f``` and ```g```). We can write this out as follows:
 
 ``` haskell
-compose: 
-  (f :: a -> IO b) 
-with: 
-  (g :: b -> IO c) 
-to get: 
+compose:
+  (f :: a -> IO b)
+with:
+  (g :: b -> IO c)
+to get:
   (h :: a -> IO c)
-```   
+```
 
 However, our normal Haskell function composition operators won't work for this purpose, because they don't want the ```IO``` in the types. Let's compare with similarly-typed pure functions ```p```, ```q```, and ```r``` that don't do I/O:
 
 ``` haskell
 p :: a -> b
 q :: b -> c
-r :: a -> c 
-```  
+r :: a -> c
+```
 
 Then we could compose them using either the ```(.)``` or the ```(>.>)``` operator as described above:
 
@@ -71,7 +71,7 @@ g :: b -> IO c
 h :: a -> IO c
 g . f     --> type error! mismatch between IO b and b
 f >.> g   --> type error! mismatch between IO b and b
-```  
+```
 
 ### `mcompose`
 The point is, you can't use a monadic value of type ```IO b``` when a type of ```b``` is needed. (This is a very common bug when writing monadic Haskell programs.) What we want is a special monadic composition function which I'll call `mcompose` (standing for "monadic compose") which has the following type signature:
@@ -83,7 +83,7 @@ This will work for any monad ```m```, including the ```IO``` monad. Specialized 
 
 ``` haskell
 mcompose :: (a -> IO b) -> (b -> IO c) -> (a -> IO c)
-```  
+```
 Then we could use it like this:
 
 
@@ -92,7 +92,7 @@ f :: a -> IO b
 g :: b -> IO c
 h :: a -> IO c
 h = f `mcompose` g
-```  
+```
 and `h` would have the correct type signature. (We're using a spiffy syntactic feature of Haskell here, whereby any two-argument function can be turned into an infix operator by putting backquotes around it. Remember, operators in Haskell are just functions which happen to be placed between their operands.) Somehow, through (currently) mysterious means, the `mcompose` function (or operator, if you like) is able to
 
 1. take the original input value of type `a`
@@ -112,7 +112,7 @@ or more generally for arbitrary monads,
 
 ``` haskell
 extract :: m b -> b
-```  
+```
 It turns out that such a function, if it existed, would destroy all the advantages of monads and pure functional programming! One of the reasons we wanted monads in the first place was to keep these special notions of computation (monadic functions) separate from normal (pure) functions, because otherwise there would be no way to guarantee that pure functions were in fact pure. This is an important point, so I'm going to spend a little bit of time on it, after which we'll return to monadic composition.
 
 > **Side note:** In fact, some monads do have the equivalent of an ```extract``` function, and for most of those monads it doesn't cause problems. All I'm saying is that a generic ```extract``` function that works for all monads is not allowed.
@@ -126,7 +126,7 @@ should never do (file or terminal) input/output, for instance, because if it did
 
 ``` haskell
 hh :: a -> IO c
-```  
+```
 
 instead. Guarantees like this, enforced by the type system, are one of the major strengths of Haskell. They allow us to glance at the type of a function and be 100% sure that that function doesn't do input/output, for instance.
 
@@ -152,7 +152,7 @@ mapply :: m b -> (b -> m c) -> m c
 or, more specifically for the IO monad:
 ``` haskell
 mapply :: IO b -> (b -> IO c) -> IO c
-```  
+```
 
 It's called ```mapply``` because it's very similar to the regular function application operators. For instance, recall the ```>$>``` operator we defined previously, which had this type signature (using ```b``` and ```c``` instead of ```a``` and ```b``` for type variables):
 
@@ -174,7 +174,7 @@ mcompose f g x = (f x) `mapply` g
 
 This may be easier to understand than the previous version, but they are equivalent. Note that `x` has type `a` and the result has type `m c`. So what we're doing here is applying `f` to `x` to get a value of type `m b`, and using `mapply` on the `m b` value and the `g` function to get a value of type `m c`. So the upshot is, we don't need `mcompose` to be defined for us if we have `mapply`, because we can use `mapply` to define `mcompose` ourselves. And, in fact, `mapply` is one of the two fundamental monadic operations. It's normally called "bind" and is written as an infix operator with the symbol `>>=` as follows:
 ``` haskell
-(>>=) :: m a -> (a -> m b) -> m b 
+(>>=) :: m a -> (a -> m b) -> m b
 ```
 
 ### `>>=`
@@ -196,7 +196,7 @@ Assuming we have the `>>=` operator, we can now compose `f` and `g` to get `h` a
   -- definition of h:
   h :: a -> m c
   h x = f x >>= g
-```  
+```
 We can also write `h` directly as:
 ``` haskell
 h = \x -> f x >>= g
@@ -222,15 +222,15 @@ So, assuming we have this monadic apply operator `>>=`, we can easily define the
 Now remember that we could write the normal apply operator in two ways:
 ``` haskell
   ($) :: (a -> b) -> a -> b
-```  
+```
 and
 ``` haskell
   (>$>) :: a -> (a -> b) -> b
-```  
+```
 depending on what order we wanted the arguments to be in. (Of course, it's also fine to define both operators and use whichever one is most convenient in any given situation.) Similarly, we can write the monadic apply operator in two ways. The first way is as the bind operator `>>=` with type
 ``` haskell
   (>>=) :: m a -> (a -> m b) -> m b
-```  
+```
 which is analogous to the non-monadic `>$>` apply operator. We can also trivially define a monadic apply operator that takes its operands in the reverse order:
 ``` haskell
   (=<<) :: (a -> m b) -> m a -> m b
@@ -241,7 +241,7 @@ You can also use the `flip` function, which takes a function of two arguments an
   flip :: (a -> b -> c) -> (b -> a -> c)
   flip f = \x y -> f y x
 ```
-Then we can define `=<<` as follows:  
+Then we can define `=<<` as follows:
 ``` haskell
  (=<<) = flip (>>=)
 ```
@@ -298,7 +298,7 @@ for any type `a` and any monadic type constructor `m`. What `return` does is con
 If you have `return`, then `functionToMonadicFunction` can trivially be defined as:
 ``` haskell
   functionToMonadicFunction :: (a -> b) -> (a -> m b)
-  functionToMonadicFunction f = \x -> return (f x)    
+  functionToMonadicFunction f = \x -> return (f x)
 ```
 or, if I wanted to be cool and use function composition, as:
 ``` haskell
@@ -308,9 +308,9 @@ or, if I wanted to be cool and use function composition, as:
 or even as:
 ``` haskell
   functionToMonadicFunction :: (a -> b) -> (a -> m b)
-  functionToMonadicFunction = (return .)  
+  functionToMonadicFunction = (return .)
 ````
-using a cool syntactic feature of Haskell called *operator sections*. All three functions are equivalent.  
+using a cool syntactic feature of Haskell called *operator sections*. All three functions are equivalent.
 
 Note that I once again switched `b` for `a` and `c` for `b` in the type signature of `functionToMonadicFunction`; again, it doesn't matter. The point is, with this `return` function, we can now compose monadic functions with non-monadic ones to create new monadic functions. And `return` is the second fundamental monadic operation.
 
@@ -320,7 +320,7 @@ Note that I once again switched `b` for `a` and `c` for `b` in the type signatur
 Let's put `return` to work composing our monadic function `f` with the non-monadic function `g` to get the monadic function `h`. Here's the definition:
 ``` haskell
   h = f >=> (return . g)
-```  
+```
 because, as we saw above, `return . g` will convert `g` into a monadic function.
 
 After all this, you might wonder how many more monadic operations we're going to have to plow through before we're done defining them all. As Professor Farnsworth would say: Good news, everybody! There are only two! There are also a couple of non-critical operations that we will eventually want to define for convenience, but `>>=` and `return` are the only ones that absolutely have to be there.
@@ -338,12 +338,3 @@ In Haskell, this is worked out by the context in which `return 10` is found. The
 * The `return` operator transforms regular values into monadic values. It can be used to define a function to convert regular functions into monadic functions.
 
 ## What do monadic application and composition *mean*?
-
-
-
-
-
-
-
-
-

@@ -1,5 +1,5 @@
 ---
-title: Yet Another Monad Tutorial (part 1: basics)
+title: Yet Another Monad Tutorial (part 1":" basics)
 tags: mvanier, monads, tutorials, haskell
 date: 2010-07-25
 author: Mike Vanier
@@ -18,9 +18,9 @@ It's a standing joke in the Haskell community that every Haskell programmer, as 
 
 ## Prerequisites
 
-Since I will be using the programming language **Haskell** in my examples, it would be very helpful if you, the reader, know Haskell up to and including 
+Since I will be using the programming language **Haskell** in my examples, it would be very helpful if you, the reader, know Haskell up to and including
 
-* polymorphic types 
+* polymorphic types
 * type classes
 
 If you don't, you may find the material in these articles to be hard to understand. There are lots of good introductory Haskell tutorials on the web and in print, so you might want to come back to this series of articles after reading one of them.
@@ -29,12 +29,12 @@ One prerequisite I will not be assuming is any knowledge of category theory, whi
 
 ## Disclaimer
 
-I'm not going to teach you everything there is to know about monads in these articles, for two reasons: **one**, it would take way too long, and **two**, I don't know everything there is to know about monads and probably never will. Instead, I want to give you **a clear conceptual understanding of** 
+I'm not going to teach you everything there is to know about monads in these articles, for two reasons: **one**, it would take way too long, and **two**, I don't know everything there is to know about monads and probably never will. Instead, I want to give you **a clear conceptual understanding of**
 
-1. what monads are, 
+1. what monads are,
 2. why they are useful,
 3. the essentials of how they work,
-4. what some of the most common monads in use are. 
+4. what some of the most common monads in use are.
 
 I'll give some references for further study at the end of the [last article](moand_8.html) in the series.
 
@@ -47,24 +47,24 @@ Finally, I warn you in advance that I am going to belabor the hell out of my mai
 To the best of my knowledge, the first use of monads in programming languages was in Haskell, based on <a target="_blank" href="http://www.disi.unige.it/person/MoggiE/ftp/ic91.pdf">the work</a> a of Eugenio Moggi and Philip Wadler (two giants whose shoes I am not fit to shine). Since then, they have appeared in some other programming languages (especially functional languages). But why should you, the reader (who I'm assuming is a programmer but who may not yet have drunk the functional kool-aid) care about monads?
 
 ### Pure Functions
-One of the main ideas in functional programming is **to use _pure_ functions as much as possible.** A pure function is a black box: it takes its input argument(s) and computes and returns a value, and that's it. It does not do any kind of side-effect in the process: 
+One of the main ideas in functional programming is **to use _pure_ functions as much as possible.** A pure function is a black box: it takes its input argument(s) and computes and returns a value, and that's it. It does not do any kind of side-effect in the process:
 
 * no reading or writing to files or sockets,
-* no printing to terminals, 
+* no printing to terminals,
 * no reading or altering global variables,
-* no throwing or catching exceptions, 
+* no throwing or catching exceptions,
 * etc.
 
 The benefit of this is that pure functions are well-behaved: *if you give a pure function a particular input, it will always generate the exact same output.* This makes pure functions very easy to:
 
-1. test, 
-2. completely predictable, 
-3. less prone to bugs. 
+1. test,
+2. completely predictable,
+3. less prone to bugs.
 
 In contrast, impure functions (those that have side-effects) do not necessarily compute the same answer given the same inputs (for instance, they may give a different answer if a global variable that they use has a different value, or if a file that they are reading from has different contents). Impure functions are therefore harder to test, more prone to bugs, and there are more ways in which they can fail. For this reason (and for others we'll see later), functional programming languages emphasize the use of pure functions as much as possible.
 
 
-### Side Effects 
+### Side Effects
 
 And yet, programming with only pure functions is too limiting. In some cases, side effects make certain programs much easier to write, though they still could be written (painfully) with pure functions only. In other cases, you absolutely need the ability to do side effects; without this the programs just can't be written. For instance, a program that copies a file from one part of a directory structure to another necessarily has to interact with the file system and change it; if your functions are not allowed to read or write files (which are side effects) they won't be able to do it. So we need some way to do side effecting computations, even in functional languages.
 
@@ -107,20 +107,20 @@ So pure functions are the simplest "notion of computation". What are some others
 and many more. Note: from now on, I'll use the phrase "input/output" (or "I/O" for short) to refer to file or terminal input/output (also known as side-effecting input/output); don't confuse this with the fact that a function maps an input *value* to a specific output *value*.
 
 ### In imperative language
-Think for a second about how you might want to deal with these alternative notions of computation in a conventional programming language like **C** or **Java.** 
+Think for a second about how you might want to deal with these alternative notions of computation in a conventional programming language like **C** or **Java.**
 
-* **I/O** - Computations that may do I/O. No problem! Any function in C or method in Java can do I/O. 
+* **I/O** - Computations that may do I/O. No problem! Any function in C or method in Java can do I/O.
 
-* **Exceptions** - 
-How about computations that may raise exceptions? In C this is a bit tricky, because the language doesn't have built-in support for exceptions. What you usually do is return an error code in the case of failure which specifies something about the failure condition (or you can use ```setjmp/longjmp``` if you're really hard-core). In Java you can just raise an exception and be done with it (hopefully, the exception will be caught somewhere else). 
+* **Exceptions** -
+How about computations that may raise exceptions? In C this is a bit tricky, because the language doesn't have built-in support for exceptions. What you usually do is return an error code in the case of failure which specifies something about the failure condition (or you can use ```setjmp/longjmp``` if you're really hard-core). In Java you can just raise an exception and be done with it (hopefully, the exception will be caught somewhere else).
 
-* **Shared State** - 
-How about reading and writing shared state? No problem — both C and Java let you read and write local and global variables, though the details are naturally somewhat different. 
+* **Shared State** -
+How about reading and writing shared state? No problem — both C and Java let you read and write local and global variables, though the details are naturally somewhat different.
 
-* **Computation that may Fail** - 
-Computations that may fail? These can be treated as a degenerate case of functions that can raise exceptions, so there's no problem there either. 
+* **Computation that may Fail** -
+Computations that may fail? These can be treated as a degenerate case of functions that can raise exceptions, so there's no problem there either.
 
-* **Nondeterminacy (computations with multiple results)** - 
+* **Nondeterminacy (computations with multiple results)** -
 How about computations that can produce multiple results? Actually, by this I don't mean returning multiple results as a single object (e.g.. in a **C** struct or a **Java** object); I mean functions that can return multiple single results "in parallel" (also known as **nondeterminacy**). It's not at all clear how to do this in **C** or **Java**.
 
 **The important thing to note is this:** in each case, we are no longer dealing with the traditional notion of function, since "something else" is happening along with the usual functional effect of mapping an input to a single output. Furthermore, there are multiple different kinds of "something else-ness" represented by all these different notions of computation. We usually don't think much about this when we write programs; we just accept that the functions that we are writing aren't "really" the same as the mathematical notion of function, because they can do **I/O**, raise **exceptions**, alter the state of **global variables**, etc. This doesn't bother most programmers until they run into a nasty bug that is caused by an unexpected change in a global variable, or an unexpected exception being thrown, or some other problem that relates to the non-function-ness of functions in these languages. So we'd like to use pure functions as much as possible, except that (as I mentioned above) there are many cases where this isn't practical, and we really have to do the "something else" *i.e.* the computations that have side-effects.
@@ -153,7 +153,7 @@ So ```f``` has type ```a -> b``` (pronounced "```a``` arrow ```b```" or just "``
 To do something with a function, we have to apply it to its argument (we're assuming one-argument functions here). This is usually done by simply juxtaposing the function name with the argument:
 ``` haskell
   f 2  --> has value 4
-```  
+```
 Note that in Haskell, unlike most computer languages, we don't have to surround a function's arguments with parentheses([see currying](#aside-currying)).
 
 #### ```$``` operator
@@ -169,10 +169,10 @@ This means that, for any types ```a``` and ```b```, this operator takes a functi
   f 2      --> has value 4
   f $ 2    --> also has value 4
   ($) f 2  --> also has value 4
-```  
+```
 These are just three different ways of writing the exact same thing.
 
-Now, using the ```$``` operator for function application isn't technically necessary because you can just juxtapose the function with its argument to apply the function to the argument (though there are actually some common uses for ```$``` involving operator precedence that we won't get into here). 
+Now, using the ```$``` operator for function application isn't technically necessary because you can just juxtapose the function with its argument to apply the function to the argument (though there are actually some common uses for ```$``` involving operator precedence that we won't get into here).
 
 #### ```>$>``` operator ("reverse apply")
 Interestingly, we can also define a "reverse apply" operator (which we'll call ```>$>```) that is like ```$``` but takes its arguments in the reverse order:
@@ -196,9 +196,9 @@ for some types ```a```, ```b```, and ```c```. One thing you might want to do wit
 
 ``` haskell
   g (f x)
-```  
+```
 
-Note that this will only work if the types of ```f``` and ```g``` are compatible, *i.e.* if the type of the output of ```f``` is also the type of the input of ```g``` (here, type ```b```). A different way of looking at this is that we are really taking the two functions ```f``` and ```g``` (of types ```a -> b``` and ```b -> c``` respectively), combining them into a function of type ```a -> c```, and applying that function to ```x``` (type ```a```) to get a value of type ```c```. 
+Note that this will only work if the types of ```f``` and ```g``` are compatible, *i.e.* if the type of the output of ```f``` is also the type of the input of ```g``` (here, type ```b```). A different way of looking at this is that we are really taking the two functions ```f``` and ```g``` (of types ```a -> b``` and ```b -> c``` respectively), combining them into a function of type ```a -> c```, and applying that function to ```x``` (type ```a```) to get a value of type ```c```.
 
 #### ```.``` operator
 This idea of taking two functions and generating a third one from them is called function composition, and it's very easy to define an operator for function composition (called ```.``` in Haskell):
@@ -206,7 +206,7 @@ This idea of taking two functions and generating a third one from them is called
 ``` haskell
 (.) :: (b -> c) -> (a -> b) -> (a -> c)
 g . f = \x -> g (f x)
-```  
+```
 Here, we're using the notation ```\x -> ...``` to mean a lambda expression (anonymous function) of one argument ```x```. So the function composition operator ```.``` takes two functions as its arguments and returns a single function. Again, in functional languages this kind of function is perfectly valid because functions are acceptable as arguments of, or as return values from, other functions.
 
 #### ```>.>``` operator ("reverse function composition")
@@ -215,7 +215,7 @@ One thing about the ```.``` operator that is a bit ugly is that the arguments ar
 ``` haskell
 (>.>) :: (a -> b) -> (b -> c) -> (a -> c)
 f >.> g = \x -> g (f x)
-```  
+```
 
 We could also define it using the ```>$>``` operator defined above as:
 
@@ -245,7 +245,7 @@ g y = 3 + y
 h :: Int -> Int
 h = g . f  -- or equivalently: f >.> g
 
-```  
+```
 
 What does ```h``` do here? It takes in an integer, multiplies it by 2, and adds 3 to it. So it's equivalent to:
 
@@ -271,7 +271,7 @@ Function composition may not seem like a big deal, but it's one of the keys to f
        x11 = f10 x10
      in
        x11
-```       
+```
 
 Pretty tedious, right? Now look at what we get when we use function composition:
 
@@ -284,7 +284,7 @@ or, equivalently:
 ``` haskell
 f11 = f1 >.> f2 >.> f3 >.> f4 >.> f5 >.> f6 >.> f7 >.> f8 >.> f9 >.> f10
 ```
-#### point-free style = argument-free style 
+#### point-free style = argument-free style
 This is not only shorter but more intuitive ("```f11``` is what you get when you first apply ```f1```, then ```f2```, then ```f3``` ..."). In fact, this way of writing functions using composition and without specifying the values that the functions act on is called "point-free style". (This name is extremely ironic given that the ```.``` (point) operator is actually used more in point-free code than in regular code — the word "point" in "point-free" really means "argument" so perhaps "argument-free style" would be a better name.)
 
 The take-home lessons from this section are:
@@ -297,7 +297,7 @@ The take-home lessons from this section are:
 
 So far, everything I've said has (I hope) been pretty straightforward. Now we're going to get into the more complicated stuff.
 
-I've said above that the point of monads is to generalize the notions of function application and function composition to notions of computation which are different from pure functions, and I've talked about what some of these notions are. 
+I've said above that the point of monads is to generalize the notions of function application and function composition to notions of computation which are different from pure functions, and I've talked about what some of these notions are.
 
 #### Extended function
 If we could write this down schematically in a pseudo-Haskell notation, we might want to write the type of one of these "extended functions" (functions that do something else besides take in an input value and compute and return an output value) as something like this:
@@ -315,20 +315,20 @@ Note that this notation with the ```--[something else]-->``` is not legal Haskel
 ``` haskell
   f :: a --[IO]--> b
 
-``` 
+```
     [In fact, the ```IO``` monad also has other uses which we'll see later.]
 
 2. Functions that may raise exceptions. This correspond to various kinds of error monads:
 
 ``` haskell
-  f :: a --[error]--> b    
-```  
+  f :: a --[error]--> b
+```
 
 3. Functions that can interact with global or local state. This corresponds to the ```State``` monad:
 
 ``` haskell
   f :: a --[State s]--> b
-```  
+```
 The ```s``` in (```State s```) is the type of the state that is being manipulated.
 
 4. Functions that can fail. This corresponds to the ```Maybe``` monad:
@@ -342,7 +342,7 @@ I didn't capitalize "list" because lists have special syntactic support in Haske
 
 ``` haskell
   f :: a --[list]--> b
-```  
+```
 
 #### Example of I/O
 
@@ -350,12 +350,12 @@ I'll give examples of all of these monads later in the series. For now, let's co
 
 ``` haskell
   f :: a --[IO]--> b
-```  
+```
 and so we could say that ```f``` is a function from ```a``` to ```b``` in the ```IO``` monad. As I said above, this is not legal Haskell syntax. In Haskell, you have to stuff the "monad-ness" of a monadic function into a type; in this case, you have to put it into either the input type or the output type. So, in principle, we might imagine that we could change our monadic function to have one of the following two type signatures:
 
 ``` haskell
   f :: IO a -> b
-```  
+```
 or
 ``` haskell
   f :: a -> IO b
@@ -365,7 +365,7 @@ It turns out that in Haskell, monadic functions always have the second form:
 
 ``` haskell
   f :: a -> m b
-```  
+```
 or some monad ```m``` (in this case, ```m``` is ```IO```). (Side note for the truly hard-core: there is a related notion called a "comonad" which uses functions like ```f :: c a -> b``` for some comonad ```c```. I'll leave that for a later article.)
 
 OK, then, what the heck does "```f :: a -> m b```" really mean? It means that ```f``` is a regular (pure) function which takes input values of type ```a```, and returns output values of type ```m b``` (whatever they are). So in Haskell, these monadic functions are represented as pure functions with a funky "monadic return type"; put differently, the pure function takes in regular values and returns funky "monadic values". But what does that mean?
@@ -380,7 +380,7 @@ What this says is that ```Maybe``` is a type constructor which takes as input on
 
 ``` haskell
   data Maybe Int = Nothing | Just Int
-```  
+```
 So ```Maybe``` itself is a function on types mapping one input type to one output type. There is a technical name for this: the type constructor ```Maybe``` has the kind   ```* -> *```. A "kind" is a type of types; primitive types have the kind *, which just means that they aren't type functions (i.e. type constructors). Don't worry if this seems confusing; it isn't particularly important in what follows.
 
 What is important is that monads, as represented in Haskell, are type constructors like this, turning an input type into a new type. So the ```IO``` monad described above is in fact a type constructor, and there are types like ```IO Bool```, ```IO Int```, ```IO Float```, ```IO Char```, ```IO String``` etc. which all represent valid Haskell types. Similarly, it will turn out that ```Maybe``` will be a monad, and types like ```Maybe Bool```, ```Maybe Int``` etc. are all valid Haskell types. I will refer to types that are made from a monadic type constructor to be "monadic types", so ```IO Bool```, ```Maybe Int```, etc. are all monadic types.
@@ -394,10 +394,10 @@ We have just hit on the crux of why monads are "hard to understand".
 ## Let's recap:
 1. There is a familiar notion of "pure function" *i.e.* a function which does nothing more than convert an input value of some type into an output value of a (possibly different) type.
 
-2. There are some special kinds of functions that do something else besides just converting input values into output values. That "something else" can be doing 
-    * terminal or file input/output, 
-    * raising exceptions, 
-    * interacting with global or local state, 
+2. There are some special kinds of functions that do something else besides just converting input values into output values. That "something else" can be doing
+    * terminal or file input/output,
+    * raising exceptions,
+    * interacting with global or local state,
     * possibly failing,
     * possibly returning more than one result,
     * or other things.
@@ -421,13 +421,13 @@ So even though thinking of monadic values is the wrong way to approach monads (a
 Let's take our (hopefully fairly intuitive) notion of a monadic function as our starting point:
 ``` haskell
   f :: a -> m b
-```  
+```
 
 Then ```f x```, where ```x``` has type ```a```, would have the type ```m b```:
 ``` haskell
   x :: a
   f x :: m b
-```  
+```
 
 Now ```f x``` is a "monadic value", which isn't very intuitive. Let's consider a new function:
 
@@ -435,7 +435,7 @@ Now ```f x``` is a "monadic value", which isn't very intuitive. Let's consider a
   g :: a -> () -> a
   g x () = x
 ```
-What ```g``` does is take a value (of any type ```a```) and wrap it into a function so that you can only retrieve the value by calling the function with a unit value. The ```unit type``` and ```value``` are both written as ```()``` in Haskell, and it's just a type/value that has no significance (the name "unit" just means that it's a type that has only one value, so the value can't mean anything in particular). So, for instance, we could have  
+What ```g``` does is take a value (of any type ```a```) and wrap it into a function so that you can only retrieve the value by calling the function with a unit value. The ```unit type``` and ```value``` are both written as ```()``` in Haskell, and it's just a type/value that has no significance (the name "unit" just means that it's a type that has only one value, so the value can't mean anything in particular). So, for instance, we could have
 
 ``` haskell
  h = g 10
@@ -447,7 +447,7 @@ So what is ```g (f x)```? It has the type:
 ``` haskell
   f x :: m b  -- see above
   g :: a -> () -> a
-  g (f x) :: () -> m b 
+  g (f x) :: () -> m b
 ```
 
 So ```g (f x)``` has the type ```() -> m b```. In other words, it's a function which takes a unit value as its argument and returns a monadic value. But looked at another way, it's a monadic function which converts a unit value (a value of no significance) into a value of type ```b```, also doing "something else" in the process (the "something else" depending on the monad). This should make sense.
@@ -459,7 +459,7 @@ At this point, a couple of examples won't kill us. I'll use the example of two i
 ``` haskell
   getLine  :: IO String
   putStrLn :: String -> IO ()
-```  
+```
 
 ```getLine``` is a "function" (really a monadic value AKA a monadic "action") which reads a line of text from the terminal, somehow returning the line of text read as a string. ```putStrLn``` is a function (a real function this time) which takes a string as input and displays it on the terminal, also outputting a newline character at the end.
 
@@ -476,7 +476,7 @@ This should be easy to understand: ```getLine``` takes a unit value (of no signi
  getLine  :: String
  putStrLn :: String
 ```
-which is clearly wrong — ```getLine``` isn't just a string; it's a function that has to be called with an argument and which returns a string. Similarly, ```putStrLn``` isn't a string, it's a function which takes a string as an argument and returns an unimportant value. In both cases, the unit types are there as placeholders to make sure that the functions have both inputs and outputs. 
+which is clearly wrong — ```getLine``` isn't just a string; it's a function that has to be called with an argument and which returns a string. Similarly, ```putStrLn``` isn't a string, it's a function which takes a string as an argument and returns an unimportant value. In both cases, the unit types are there as placeholders to make sure that the functions have both inputs and outputs.
 
 Let's go back to Haskell. We have:
 
@@ -510,21 +510,21 @@ Now, in practice, one-argument functions are not enough to do many things we mig
 
 ``` haskell
   q x y = x * x + y * y
-```  
+```
 but the type signature is odd. You might expect that it would look like this:
 
 ``` haskell
   q :: Int Int -> Int
-```  
+```
 or perhaps:
 
 ``` haskell
   q :: (Int, Int) -> Int
-```  
+```
 but in fact it looks like this:
 ``` haskell
   q :: Int -> Int -> Int
-```  
+```
 The ```->``` associates to the right, so this really means:
 ``` haskell
   q :: Int -> (Int -> Int)
