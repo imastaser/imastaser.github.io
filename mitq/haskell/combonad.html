@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>COMBONAD</title>
+        <link rel="alternate" type="application/rss+xml" title="AV notes" href="../../rss.xml" />
+        <link rel="shortcut icon" href="../../favicon.ico?v=2" type="image/x-icon" />
+        <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+        <link rel="stylesheet" href="../../css/bootstrap-theme.min.css" />
+        <link rel="stylesheet" href="../../css/default.css" />
+        <link rel="stylesheet" href="../../css/syntax.css" />
+          <link rel="stylesheet" href="../../css/quotes.css" />
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config( { tex2jax: { inlineMath: [ ["\\(", "\\)"] ]
+                                           , displayMath: [ ["\\[", "\\]" ] ]
+                                           , processEscapes: true
+                                           }
+                              });
+
+
+
+        </script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
+
+        <script type="text/javascript" src="../../js/jquery.min.js">
+        </script>
+        <script type="text/javascript" src="../../js/bootstrap.min.js">
+        </script>
+
+    </head>
+    <body>
+        <div class="container">
+
+
+            <div id="header">
+
+                <ul id="navigation" class="list-inline text-center">
+                    <li class="logo"><a href="../../" class="home-link">ԳԼԽԱՎՈՐ</a></i>
+                    <li><a href="../../hogi/">ՀՈԳԻ</a></li>
+                    <li><a href="../../mitq/">ՄԻՏՔ</a></li>
+                    <li><a href="../../marmin/">ՄԱՐՄԻՆ</a></li>
+                    <li><a href="../../rss.xml"><i class="fa fa-rss"></i></a></li>
+                    <!-- <li><a href="/atom.xml"><i class="fa fa-rss"></i></a></li> -->
+                </ul>
+            </div>
+            <div class="clear"></div>
+            <!---->
+
+  <div class="clear"></div>
+<!--  <p style="font-size: 11px;"><strong>Ուշադրություն.</strong> <small>«իմաստասէր» բառը պետք է հասկանալ տառացի. ոչ որպէս փիլիսոփա իմաստով:</small></p> -->
+            <div id="content">
+
+               <!-- <div class="title text-center">
+                    <h4>COMBONAD</h4>
+                    <hr>
+                </div> -->
+                <div class="post-content">
+
+<p>[original article](<a href="http://fpmatters.blogspot.am/2009/04/beware-monads.html" class="uri">http://fpmatters.blogspot.am/2009/04/beware-monads.html</a>)</p>
+<p>{- A demonstration of combining different permutations of State, Error, and IO monads. Shows the results of such combinations. -} ``` haskell module Main where</p>
+<p>import System.IO</p>
+<p>import Control.Monad.State import Control.Monad.Error</p>
+<p>– runErrorT :: (m (Either e a)) – runStateT :: (s -&gt; m (a, s))</p>
+<p>– The state for state monad examples</p>
+<p>data TestState = TestState { value :: Int } deriving (Show)</p>
+<p>data TestState2 = TestState2 { state2 :: String } deriving (Show)</p>
+<p>– Must use this form of signature rather than “State TestState ()” increment :: (MonadState TestState m) =&gt; m () increment = modify $ \ s -&gt; TestState (1 + (value s))</p>
+<p>increment2 :: (MonadState TestState2 m) =&gt; m () increment2 = modify $ \ s -&gt; TestState2 (‘x’ : (state2 s))</p>
+<p>– The error type for error monad examples</p>
+<p>data TestError = TestError String deriving (Show)</p>
+<p>instance Error TestError where noMsg = TestError “&lt;unknown error&gt;” strMsg s = TestError s</p>
+<p>``` ## Main ``` haskell – Main</p>
+<p>main :: IO () main = do testStateError testErrorState testStateState testState testStateIO testErrorIO testStateErrorIO testErrorStateIO</p>
+<p>``` ## Lifted IO ``` haskell – Lifted IO</p>
+<p>cout :: (MonadIO m) =&gt; String -&gt; m () cout = liftIO . hPutStr stdout</p>
+<p>coutLn :: (MonadIO m) =&gt; String -&gt; m () coutLn = liftIO . hPutStrLn stdout ```</p>
+<p>## State ``` haskell – MONAD: State</p>
+<p>runState’ :: State TestState () runState’ = do increment increment</p>
+<p>testState :: IO () testState = do putStrLn “– State” r &lt;- return $ runState runState’ $ TestState 0 putStrLn $ show r ``` ## StateState ``` haskell – COMBONAD: StateState</p>
+<p>type StateState a = StateT TestState (State TestState2) a</p>
+<p>runStateState :: StateState () runStateState = do increment –increment2</p>
+<p>testStateState :: IO () testStateState = do putStrLn “– StateState” r &lt;- return $ runStateT (runState runStateState (TestState 0)) (TestState2 “”) putStrLn $ show r ``` ## StateError ``` haskell – COMBONAD: StateError</p>
+<p>type StateError a = StateT TestState (Either TestError) a</p>
+<p>runStateError1 :: StateError () runStateError1 = do increment throwError $ noMsg increment</p>
+<p>runStateError2 :: StateError () runStateError2 = do increment increment</p>
+<p>testStateError :: IO () testStateError = do putStrLn “– StateError” r &lt;- return $ runStateT runStateError1 $ TestState 0 putStrLn $ show r r &lt;- return $ runStateT runStateError2 $ TestState 0 putStrLn $ show r ``` ## ErrorState ``` haskell – COMBONAD: ErrorState</p>
+<p>type ErrorState a = ErrorT TestError (State TestState) a</p>
+<p>runErrorState1 :: ErrorState () runErrorState1 = do increment throwError $ TestError “biffed” increment</p>
+<p>runErrorState2 :: ErrorState () runErrorState2 = do increment increment</p>
+<p>testErrorState :: IO () testErrorState = do putStrLn “– ErrorState” r &lt;- return $ runState (runErrorT runErrorState1) $ TestState 0 putStrLn $ show r r &lt;- return $ runState (runErrorT runErrorState2) $ TestState 0 putStrLn $ show r ``` ## StateIO ``` haskell – COMBONAD: StateIO</p>
+<p>type StateIO a = StateT TestState IO a</p>
+<p>runStateIO :: StateIO () runStateIO = do coutLn $ “hola, amigos” increment</p>
+<p>testStateIO :: IO () testStateIO = do putStrLn “– StateIO” r &lt;- runStateT runStateIO $ TestState 0 putStrLn $ show r ``` ## ErrorIO ``` haskell – COMBONAD: ErrorIO</p>
+<p>type ErrorIO a = ErrorT TestError IO a</p>
+<p>runErrorIO1 :: ErrorIO () runErrorIO1 = do coutLn $ “step 1” coutLn $ “step 2”</p>
+<p>runErrorIO2 :: ErrorIO () runErrorIO2 = do coutLn $ “step 1” throwError $ strMsg “biffed” coutLn $ “step 2”</p>
+<p>testErrorIO :: IO () testErrorIO = do putStrLn “– ErrorIO” r &lt;- runErrorT runErrorIO1 putStrLn $ show r r &lt;- runErrorT runErrorIO2 putStrLn $ show r ``` ## StateErrorIO ``` haskell – COMBONAD: StateErrorIO</p>
+<p>type StateErrorIO a = StateT TestState (ErrorT TestError IO) a</p>
+<p>runStateErrorIO1 :: StateErrorIO () runStateErrorIO1 = do coutLn $ “with error” increment throwError $ TestError “biffed” increment</p>
+<p>runStateErrorIO2 :: StateErrorIO () runStateErrorIO2 = do coutLn $ “without error” increment increment</p>
+<p>testStateErrorIO :: IO () testStateErrorIO = do putStrLn “– StateErrorIO” r &lt;- runErrorT $ runStateT runStateErrorIO1 $ TestState 0 putStrLn $ show r r &lt;- runErrorT $ runStateT runStateErrorIO2 $ TestState 0 putStrLn $ show r ``` ## ErrorStateIO ``` haskell – COMBONAD: ErrorStateIO</p>
+<p>type ErrorStateIO a = ErrorT TestError (StateT TestState IO) a</p>
+<p>runErrorStateIO1 :: ErrorStateIO () runErrorStateIO1 = do coutLn $ “with error” increment throwError $ TestError “biffed” increment</p>
+<p>runErrorStateIO2 :: ErrorStateIO () runErrorStateIO2 = do coutLn $ “without error” increment increment</p>
+<p>testErrorStateIO :: IO () testErrorStateIO = do putStrLn “– ErrorStateIO” r &lt;- runStateT (runErrorT runErrorStateIO1) $ TestState 0 putStrLn $ show r r &lt;- runStateT (runErrorT runErrorStateIO2) $ TestState 0 putStrLn $ show r ```</p>
+</div>
+
+<div class="row">
+        <span class="date  text-right">
+            <i class="fa fa-calenda"></i> Posted on April  9, 2009
+        </span>
+        <span class="tags text-right" style="width: 100%">
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="../../tags/monads.html">monads</a></li><li><a href="../../tags/tutorials.html">tutorials</a></li><li><a href="../../tags/haskell.html">haskell</a></li></ul>
+        </span>
+</div>
+
+            </div>
+            <div id="footer" class="col-md-12">
+                <div class="row"><hr /></div>
+
+                <div class="row text-center">
+                    powered by  <a href="http://jaspervdj.be/hakyll" target="_blank">Hakyll</a>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="../../js/quotes.js">
+        </script>
+    </body>
+</html>

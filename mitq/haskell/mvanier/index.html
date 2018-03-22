@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Yet Another Monad Tutorial(Mike's "World-O-Programming")</title>
+        <link rel="alternate" type="application/rss+xml" title="AV notes" href="../../../rss.xml" />
+        <link rel="shortcut icon" href="../../../favicon.ico?v=2" type="image/x-icon" />
+        <link rel="stylesheet" href="../../../css/bootstrap.min.css" />
+        <link rel="stylesheet" href="../../../css/bootstrap-theme.min.css" />
+        <link rel="stylesheet" href="../../../css/default.css" />
+        <link rel="stylesheet" href="../../../css/syntax.css" />
+          <link rel="stylesheet" href="../../../css/quotes.css" />
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config( { tex2jax: { inlineMath: [ ["\\(", "\\)"] ]
+                                           , displayMath: [ ["\\[", "\\]" ] ]
+                                           , processEscapes: true
+                                           }
+                              });
+
+
+
+        </script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
+
+        <script type="text/javascript" src="../../../js/jquery.min.js">
+        </script>
+        <script type="text/javascript" src="../../../js/bootstrap.min.js">
+        </script>
+
+    </head>
+    <body>
+        <div class="container">
+
+
+            <div id="header">
+
+                <ul id="navigation" class="list-inline text-center">
+                    <li class="logo"><a href="../../../" class="home-link">ԳԼԽԱՎՈՐ</a></i>
+                    <li><a href="../../../hogi/">ՀՈԳԻ</a></li>
+                    <li><a href="../../../mitq/">ՄԻՏՔ</a></li>
+                    <li><a href="../../../marmin/">ՄԱՐՄԻՆ</a></li>
+                    <li><a href="../../../rss.xml"><i class="fa fa-rss"></i></a></li>
+                    <!-- <li><a href="/atom.xml"><i class="fa fa-rss"></i></a></li> -->
+                </ul>
+            </div>
+            <div class="clear"></div>
+            <!---->
+
+  <div class="clear"></div>
+<!--  <p style="font-size: 11px;"><strong>Ուշադրություն.</strong> <small>«իմաստասէր» բառը պետք է հասկանալ տառացի. ոչ որպէս փիլիսոփա իմաստով:</small></p> -->
+            <div id="content">
+
+               <!-- <div class="title text-center">
+                    <h4>Yet Another Monad Tutorial(Mike's "World-O-Programming")</h4>
+                    <hr>
+                </div> -->
+                <div class="post-content">
+<section id="a-targetblank-hrefhttpmvanier.livejournal.comskip10-mikes-world-o-programminga" class="level2">
+<h2>&lt;a target=“<sub>blank</sub>” href=“<a href="http://mvanier.livejournal.com/?skip=10" class="uri">http://mvanier.livejournal.com/?skip=10</a>”&gt; Mike’s World-O-Programming&lt;/a&gt;</h2>
+</section>
+<section id="a-targetblank-hrefhttpusers.cms.caltech.edumvaniermike-vaniers-home-pagea" class="level2">
+<h2>&lt;a target=“<sub>blank</sub>” href=“<a href="http://users.cms.caltech.edu/~mvanier/" class="uri">http://users.cms.caltech.edu/~mvanier/</a>”&gt;Mike Vanier’s home page&lt;/a&gt;</h2>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>original</th>
+<th>local</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>15.01.08</td>
+<td>[Welcome to my blog!](<a href="http://mvanier.livejournal.com/519.htm" class="uri">http://mvanier.livejournal.com/519.htm</a>)</td>
+<td>Welcome to my blog!</td>
+</tr>
+<tr class="even">
+<td>15.01.08</td>
+<td>[“Foundational” programming languages](<a href="http://mvanier.livejournal.com/998.html" class="uri">http://mvanier.livejournal.com/998.html</a>)</td>
+<td>“Foundational” programming languages</td>
+</tr>
+<tr class="odd">
+<td>16.01.08</td>
+<td>[How not to explain Haskell monads](<a href="http://mvanier.livejournal.com/1205.html" class="uri">http://mvanier.livejournal.com/1205.html</a>)</td>
+<td>[How not to explain Haskell monads](../mvanier/posts/how-not-to-explain-haskell-monads.html)</td>
+</tr>
+<tr class="even">
+<td>16.01.08</td>
+<td>[Ruby critique, part 1](<a href="http://mvanier.livejournal.com/1351.html" class="uri">http://mvanier.livejournal.com/1351.html</a>)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>21.01,08</td>
+<td>[Haskell state monads, part 1](<a href="http://mvanier.livejournal.com/1765.html" class="uri">http://mvanier.livejournal.com/1765.html</a>)</td>
+<td>[Haskell state monads, part 1](../mvanier/posts/statemonad-part1.html))</td>
+</tr>
+<tr class="even">
+<td>22.01.08</td>
+<td>[Haskell state monads, part 2](<a href="http://mvanier.livejournal.com/1901.html" class="uri">http://mvanier.livejournal.com/1901.html</a>)</td>
+<td>[Haskell state monads, part 2](../mvanier/posts/statemonad-part2.html))</td>
+</tr>
+<tr class="odd">
+<td>10.04.08</td>
+<td>[Forth](<a href="http://mvanier.livejournal.com/2133.html" class="uri">http://mvanier.livejournal.com/2133.html</a>)</td>
+<td>Forth</td>
+</tr>
+<tr class="even">
+<td>20.07.08</td>
+<td>[The Y Combinator](<a href="http://mvanier.livejournal.com/2700.html" class="uri">http://mvanier.livejournal.com/2700.html</a>)</td>
+<td>[The Y Combinator](../mvanier/posts/y-combinator.html)</td>
+</tr>
+<tr class="odd">
+<td>14.08.08</td>
+<td>[The Y Combinator (Slight Return)](<a href="http://mvanier.livejournal.com/2897.html" class="uri">http://mvanier.livejournal.com/2897.html</a>)</td>
+<td>[The Y Combinator (Slight Return)](../mvanier/posts/y-combinator-return.html)</td>
+</tr>
+<tr class="even">
+<td>17.03.09</td>
+<td>[Haskell is sandbox crack!](<a href="http://mvanier.livejournal.com/2009/03/17/" class="uri">http://mvanier.livejournal.com/2009/03/17/</a>)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>12.07.10</td>
+<td>[Why Scala Is Interesting](<a href="http://mvanier.livejournal.com/3395.html" class="uri">http://mvanier.livejournal.com/3395.html</a>)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>21.07.10</td>
+<td>[Stupid Haskell Trick: Factorials in the Type System](<a href="http://mvanier.livejournal.com/3820.html" class="uri">http://mvanier.livejournal.com/3820.html</a>)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>25.07.10</td>
+<td>[Yet Another Monad Tutorial (part 1: basics)](<a href="http://mvanier.livejournal.com/3917.html" class="uri">http://mvanier.livejournal.com/3917.html</a>)</td>
+<td>[Yet Another Monad Tutorial (part 1: basics)](../mvanier/posts/monad-1.html)</td>
+</tr>
+<tr class="even">
+<td>25.07.10</td>
+<td>[Yet Another Monad Tutorial (part 2: &gt;&gt;= and return)](<a href="http://mvanier.livejournal.com/4305.html" class="uri">http://mvanier.livejournal.com/4305.html</a>)</td>
+<td>[Yet Another Monad Tutorial (part 2: &gt;&gt;= and return)](../mvanier/posts/monad-2.html)</td>
+</tr>
+<tr class="odd">
+<td>25.07.10</td>
+<td>[Yet Another Monad Tutorial (part 3: The Monad Laws)](<a href="http://mvanier.livejournal.com/4586.html" class="uri">http://mvanier.livejournal.com/4586.html</a>)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>25.07.10</td>
+<td>[Yet Another Monad Tutorial (part 4: The Maybe and List Monads)](<a href="http://mvanier.livejournal.com/4647.html" class="uri">http://mvanier.livejournal.com/4647.html</a>)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>16.08.10</td>
+<td>[Yet Another Monad Tutorial (part 5: error-handling monads)](<a href="http://mvanier.livejournal.com/5103.html" class="uri">http://mvanier.livejournal.com/5103.html</a>)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>16.08.10</td>
+<td>[Yet Another Monad Tutorial (part 6: more on error-handling monads)](<a href="http://mvanier.livejournal.com/5343.html" class="uri">http://mvanier.livejournal.com/5343.html</a>)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>25.08.10</td>
+<td>[Yet Another Monad Tutorial (part 7: state monads)](<a href="http://mvanier.livejournal.com/5406.html" class="uri">http://mvanier.livejournal.com/5406.html</a>)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>25.08.10</td>
+<td>[Yet Another Monad Tutorial (part 8: more on state monads)](<a href="http://mvanier.livejournal.com/5846.html" class="uri">http://mvanier.livejournal.com/5846.html</a>)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</div>
+
+<div class="row">
+        <span class="date  text-right">
+            <i class="fa fa-calenda"></i> Posted on May 18, 2016
+        </span>
+        <span class="tags text-right" style="width: 100%">
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="../../../tags/mvanier.html">mvanier</a></li><li><a href="../../../tags/monads.html">monads</a></li><li><a href="../../../tags/tutorials.html">tutorials</a></li><li><a href="../../../tags/haskell.html">haskell</a></li></ul>
+        </span>
+</div>
+
+            </div>
+            <div id="footer" class="col-md-12">
+                <div class="row"><hr /></div>
+
+                <div class="row text-center">
+                    powered by  <a href="http://jaspervdj.be/hakyll" target="_blank">Hakyll</a>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="../../../js/quotes.js">
+        </script>
+    </body>
+</html>
