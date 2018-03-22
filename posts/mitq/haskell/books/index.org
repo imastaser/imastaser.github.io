@@ -1,0 +1,12 @@
+---
+title: Haskell Books
+tags: haskell, e-books
+date: 2016-05-04
+description: DESCRIPTION
+comments: true
+toc: true
+---
+
+** The Haskell School of Expression
+  1. [[http://www.cs.yale.edu/homes/hudak/SOE/][SoE web site]]
+  2. [[./pih/index.html][PIH]]

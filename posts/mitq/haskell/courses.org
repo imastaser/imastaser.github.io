@@ -1,0 +1,75 @@
+---
+title: Functional Programming learning materials
+tags: haskell, courses, fp
+date: 2016-05-04
+description: video courses about functional programming
+comments: true
+toc: true
+---
+
+*
+
+ [Haskell on zeef](https://haskell.zeef.com/konstantin.skipor)
+ [Haskell bookmarks](https://github.com/grsmv/haskell-bookmarks)
+ [Learn haskell](https://github.com/bitemyapp/learnhaskell)
+
+
+* video courses
+
+** Brisbane Functional Programming Group
+ - a
+ - b
+
+** Misc
+ - [[https://www.youtube.com/watch?v=4MaaQmll8D0][Intro to Lens]]
+ - [[https://www.youtube.com/watch?v=pzouxmWiemg][Monad Transformers - Ben Kolera]]
+ - [[https://www.youtube.com/watch?v=Ofz8zO8rjn0][Monads - Matt Peddie]]
+
+**  FP in Scala
+ - https://www.youtube.com/watch?v=Sj12uS1Oc48 Chapters 1&2
+ - https://www.youtube.com/watch?v=SIQHiTK5Qi8 Chapters 3&4
+ - https://www.youtube.com/watch?v=VqJTaCOBlTw Chapters 5&6
+ - https://www.youtube.com/watch?v=ZSKeOZMoWUg Chapters 7&8
+ - https://www.youtube.com/watch?v=mt4Nl758DvM Chapters 9&10
+ - https://www.youtube.com/watch?v=AKH3LjGEN6U Chapters 11&12
+
+**  Школа анализа данных
+ - [[https://yandexdataschool.ru/edu-process/courses/machine-learning#item-1][Машинное обучение]]
+
+** Функциональное программирование - [[https://compscicenter.ru/courses/func-prog/2012-spring/][mooc]]
+ 1. Что такое функциональное программирование [[https://youtu.be/lTa3YFZGMTQ][video]]
+ 2. Списки. Функции высших порядков [[https://youtu.be/_rXSyrAKAZs][Часть 1]], [[https://youtu.be/aaNmKADQHTs][Часть 2]]
+ 3. Карринг и ленивые вычисления [[https://youtu.be/oFEalpQDsF4][Часть 1]], [[https://youtu.be/KYaJ2_H0ijo][Часть 2]]
+ 4. "Завязывание узлов". Классы [[https://youtu.be/e5pKVLQr7Mg][Часть 1]], [[https://youtu.be/SBfyT0XUdC0][Часть 2]]
+ 5. Системы FP. Основы лямбда-исчисления [[https://youtu.be/PjLpTaEFfCo][Часть 1]], [[https://youtu.be/MduuMOkHT_Y][Часть 2]]
+ 6. Чистое лямбда-исчисление [[https://youtu.be/x4QwlJ8nk_s][Часть 1]], [[https://youtu.be/Hm6kFJXCOv4][Часть 2]]
+ 7. [[https://youtu.be/DwW8OHgvSk8][Интерпретация и компиляция функциональных программ]]
+ 8. [[ttps://youtu.be/Ck9A_eycdJg][Введение в редукцию графов]]
+ 9. [[https://youtu.be/yiKbqc4f5Uk][Комбинаторная редукция]]
+
+** Функциональное программирование на языке Haskell
+ <a target="_blank" href="https://stepic.org/course/75">origins</a>
+
+ 1. <a target="_blank" href="https://youtu.be/iw3YMZ98LUs">Лямбда исчисление</a>
+ 2. <a target="_blank" href="https://youtu.be/0v8iWwU4YJ4">Рекурсия и редукция</a>
+ 3. <a target="_blank" href="https://youtu.be/sPIW0MwnKjA">Просто типизированное лямбда исчисление</a>
+ 4. <a target="_blank" href="https://youtu.be/QM3keoqG7gk">Введение в Haskell</a>
+ 5. <a target="_blank" href="https://youtu.be/FCuWYNv0bUI">Программирование на языке Haskell</a>
+ 6. <a target="_blank" href="https://youtu.be/-x9cX-rasY4">Классы типов</a>
+ 7. <a target="_blank" href="https://youtu.be/qYDP1cGpj3I">Свёртки</a>
+ 8. <a target="_blank" href="https://youtu.be/_egKidtCPwU">Аппликативные функторы</a>
+ 9. <a target="_blank" href="https://youtu.be/PyjAk3ATV-0">Монады</a>
+ 10. <a target="_blank" href="https://youtu.be/igqQxJdSDCk">Использование монад</a>
+ 11. <a target="_blank" href="https://youtu.be/xC_8HXkzNhg">Трансформеры монад</a>
+ 12. <a target="_blank" href="https://youtu.be/PjFl5dWSnF8">Вывод типов</a>
+
+
+** videos on haskell
+ silk links - not available
+** academic courses
+   - https://videoag.fsmpi.rwth-aachen.de/?course=12ss-funkprog Funktionale Programmierung
+
+* Moocs sites
+ - [[https://www.lektorium.tv/][lektoriumTV]]
+ - [[https://compscicenter.ru/][compscicenter]]
+ - [[https://www.coursera.org/][coursera]]
