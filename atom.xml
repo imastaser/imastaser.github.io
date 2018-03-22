@@ -1,185 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Arthur Vardanyan's blog</title>
-    <link href="http://imastaser.am/atom.xml" rel="self" />
-    <link href="http://imastaser.am" />
-    <id>http://imastaser.am/atom.xml</id>
+    <link href="http://imast.am/atom.xml" rel="self" />
+    <link href="http://imast.am" />
+    <id>http://imast.am/atom.xml</id>
     <author>
         <name>Arthur Vardanyan</name>
-        <email>artie.vard@gmail.com</email>
+        <email>arthur@imast.am</email>
     </author>
-    <updated>2016-12-05T00:00:00Z</updated>
+    <updated>2016-06-08T00:00:00Z</updated>
     <entry>
-    <title>The Haskell School of Expression(SoE)</title>
-    <link href="http://imastaser.am/mitq/haskell/soe/index.html" />
-    <id>http://imastaser.am/mitq/haskell/soe/index.html</id>
-    <published>2016-12-05T00:00:00Z</published>
-    <updated>2016-12-05T00:00:00Z</updated>
-    <summary type="html"><![CDATA[<div class="post-content">
-<p><a href="http://www.cs.yale.edu/homes/hudak/SOE/">SoE web site</a></p>
-<p><a href="http://davidtran.doublegifts.com/blog/?page_id=28">David Tran’s SoE solutions</a></p>
-</div>
-
-<div class="row">
-        <span class="date  text-right">
-            <i class="fa fa-calenda"></i> Posted on December  5, 2016
-        </span>
-        <span class="tags text-right" style="width: 100%">
-            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/soe.html">soe</a></li><li><a href="/tags/haskell.html">haskell</a></li></ul>
-        </span>
-</div>
-]]></summary>
-</entry>
-<entry>
-    <title>Yet Another Monad Tutorial(Mike's World-O-Programming)</title>
-    <link href="http://imastaser.am/mitq/haskell/mvanier/index.html" />
-    <id>http://imastaser.am/mitq/haskell/mvanier/index.html</id>
-    <published>2016-12-05T00:00:00Z</published>
-    <updated>2016-12-05T00:00:00Z</updated>
-    <summary type="html"><![CDATA[<div class="post-content">
-<section id="mikes-world-o-programming" class="level5">
-<h5><a target="_blank" href="http://mvanier.livejournal.com/?skip=10"> Mike’s World-O-Programming</a></h5>
-</section>
-<section id="mike-vaniers-home-page" class="level5">
-<h5><a target="_blank" href="http://users.cms.caltech.edu/~mvanier/">Mike Vanier’s home page</a></h5>
-<table style="width:100%;">
-<colgroup>
-<col style="width: 5%" />
-<col style="width: 54%" />
-<col style="width: 39%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: left;">original</th>
-<th style="text-align: left;">local</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">15.01.08</td>
-<td style="text-align: left;"><a href="http://mvanier.livejournal.com/519.htm">Welcome to my blog!</a></td>
-<td style="text-align: left;">Welcome to my blog!</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">15.01.08</td>
-<td style="text-align: left;"><a href="http://mvanier.livejournal.com/998.html">“Foundational” programming languages</a></td>
-<td style="text-align: left;">“Foundational” programming languages</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">16.01.08</td>
-<td style="text-align: left;"><a href="http://mvanier.livejournal.com/1205.html">How not to explain Haskell monads</a></td>
-<td style="text-align: left;"><a href="../mvanier/posts/how-not-to-explain-haskell-monads.html">How not to explain Haskell monads</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">16.01.08</td>
-<td style="text-align: left;"><a href="http://mvanier.livejournal.com/1351.html">Ruby critique, part 1</a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">21.01,08</td>
-<td style="text-align: left;"><a href="http://mvanier.livejournal.com/1765.html">Haskell state monads, part 1</a></td>
-<td style="text-align: left;"><a href="../mvanier/posts/statemonad-part1.html">Haskell state monads, part 1</a>)</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">22.01.08</td>
-<td style="text-align: left;"><a href="http://mvanier.livejournal.com/1901.html">Haskell state monads, part 2</a></td>
-<td style="text-align: left;"><a href="../mvanier/posts/statemonad-part2.html">Haskell state monads, part 2</a>)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">10.04.08</td>
-<td style="text-align: left;"><a href="http://mvanier.livejournal.com/2133.html">Forth</a></td>
-<td style="text-align: left;">Forth</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">20.07.08</td>
-<td style="text-align: left;"><a href="http://mvanier.livejournal.com/2700.html">The Y Combinator</a></td>
-<td style="text-align: left;"><a href="../mvanier/posts/y-combinator.html">The Y Combinator</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">14.08.08</td>
-<td style="text-align: left;"><a href="http://mvanier.livejournal.com/2897.html">The Y Combinator (Slight Return)</a></td>
-<td style="text-align: left;"><a href="../mvanier/posts/y-combinator-return.html">The Y Combinator (Slight Return)</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">17.03.09</td>
-<td style="text-align: left;"><a href="http://mvanier.livejournal.com/2009/03/17/">Haskell is sandbox crack!</a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">12.07.10</td>
-<td style="text-align: left;"><a href="http://mvanier.livejournal.com/3395.html">Why Scala Is Interesting</a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">21.07.10</td>
-<td style="text-align: left;"><a href="http://mvanier.livejournal.com/3820.html">Stupid Haskell Trick: Factorials in the Type System</a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">25.07.10</td>
-<td style="text-align: left;"><a href="http://mvanier.livejournal.com/3917.html">Yet Another Monad Tutorial (part 1: basics)</a></td>
-<td style="text-align: left;"><a href="../mvanier/posts/monad-1.html">Yet Another Monad Tutorial (part 1: basics)</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">25.07.10</td>
-<td style="text-align: left;"><a href="http://mvanier.livejournal.com/4305.html">Yet Another Monad Tutorial (part 2: &gt;&gt;= and return)</a></td>
-<td style="text-align: left;"><a href="../mvanier/posts/monad-2.html">Yet Another Monad Tutorial (part 2: &gt;&gt;= and return)</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">25.07.10</td>
-<td style="text-align: left;"><a href="http://mvanier.livejournal.com/4586.html">Yet Another Monad Tutorial (part 3: The Monad Laws)</a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">25.07.10</td>
-<td style="text-align: left;"><a href="http://mvanier.livejournal.com/4647.html">Yet Another Monad Tutorial (part 4: The Maybe and List Monads)</a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">16.08.10</td>
-<td style="text-align: left;"><a href="http://mvanier.livejournal.com/5103.html">Yet Another Monad Tutorial (part 5: error-handling monads)</a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">16.08.10</td>
-<td style="text-align: left;"><a href="http://mvanier.livejournal.com/5343.html">Yet Another Monad Tutorial (part 6: more on error-handling monads)</a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">25.08.10</td>
-<td style="text-align: left;"><a href="http://mvanier.livejournal.com/5406.html">Yet Another Monad Tutorial (part 7: state monads)</a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">25.08.10</td>
-<td style="text-align: left;"><a href="http://mvanier.livejournal.com/5846.html">Yet Another Monad Tutorial (part 8: more on state monads)</a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-</section>
-</div>
-
-<div class="row">
-        <span class="date  text-right">
-            <i class="fa fa-calenda"></i> Posted on December  5, 2016
-        </span>
-        <span class="tags text-right" style="width: 100%">
-            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/mvanier.html">mvanier</a></li><li><a href="/tags/monads.html">monads</a></li><li><a href="/tags/tutorials.html">tutorials</a></li><li><a href="/tags/haskell.html">haskell</a></li></ul>
-        </span>
-</div>
-]]></summary>
-</entry>
-<entry>
     <title>Աստուածային նախախնամութիւն (Հոգ մի արէք վաղուա օրուայ համար)</title>
-    <link href="http://imastaser.am/hogi/mashalyan/astvacain-naxaxnamutyun.html" />
-    <id>http://imastaser.am/hogi/mashalyan/astvacain-naxaxnamutyun.html</id>
+    <link href="http://imast.am/hogi/mashalyan/astvacain-naxaxnamutyun.html" />
+    <id>http://imast.am/hogi/mashalyan/astvacain-naxaxnamutyun.html</id>
     <published>2016-06-08T00:00:00Z</published>
     <updated>2016-06-08T00:00:00Z</updated>
     <summary type="html"><![CDATA[<div class="post-content">
@@ -253,75 +86,81 @@
 </entry>
 <entry>
     <title>Isuzu</title>
-    <link href="http://imastaser.am/mitq/etc/isuzu.html" />
-    <id>http://imastaser.am/mitq/etc/isuzu.html</id>
+    <link href="http://imast.am/mitq/etc/isuzu.html" />
+    <id>http://imast.am/mitq/etc/isuzu.html</id>
     <published>2016-06-07T00:00:00Z</published>
     <updated>2016-06-07T00:00:00Z</updated>
     <summary type="html"><![CDATA[<div class="post-content">
 <div id="toc"><h3>Table of contents</h3><ul>
-<li><a href="#manulas">Manulas</a></li>
-<li><a href="#forum">Forum</a></li>
-<li><a href="#articles">Articles</a></li>
-<li><a href="#part-numbers">Part Numbers</a><ul>
-<li><a href="#пыльники">Пыльники</a></li>
-<li><a href="#смазки-для-шрусов">Смазки для ШРУСОВ</a></li>
-<li><a href="#фильтр">фильтр</a></li>
-<li><a href="#atf">ATF</a></li>
-</ul></li>
+<li><a href="#a-hrefhttpswww.youtube.comwatchvkodp20lzqp8-targetblankзамена-пыльников-videoa">&lt;a href=“<a href="https://www.youtube.com/watch?v=KOdP20LzqP8" class="uri">https://www.youtube.com/watch?v=KOdP20LzqP8</a>” target=“<sub>blank</sub>”&gt;Замена Пыльников (video)&lt;/a&gt;</a></li>
+<li><a href="#пыльник-шруса-внутренний">8-97117-220-0 пыльник ШРУСа внутренний</a></li>
+<li><a href="#пыльник-шруса-внешний">8-97117-221-0 пыльник ШРУСа внешний</a></li>
+<li><a href="#до-05.1995-года-внешний-и-внутренний-пыльники---ohno-fb-2060.">До 05.1995 года внешний и внутренний пыльники - OHNO FB-2060.</a></li>
+<li><a href="#после-05.1995-года-внешний-ohno-fb-2199-внутренний-ohno-fb-2148.">После 05.1995 года внешний OHNO FB-2199, внутренний OHNO FB-2148.</a></li>
+<li><a href="#a-hrefhttpforums.drom.ruisuzu-bighornt1151257090.html-targetblankпыльники-шрусов-drom.rua">* &lt;a href=“<a href="http://forums.drom.ru/isuzu-bighorn/t1151257090.html" class="uri">http://forums.drom.ru/isuzu-bighorn/t1151257090.html</a>” target=“<sub>blank</sub>”&gt;Пыльники ШРУСов (drom.ru)&lt;/a&gt;</a></li>
+<li><a href="#внутренний-шрус---полимочевинные.">внутренний ШРУС - полимочевинные.</a></li>
+<li><a href="#наружный-шрус---молибденлитий-и-прочее.-смазки-литиевые.httpswww.emex.rucatalog842814cat_id25page1">наружный ШРУС - молибден/литий и прочее. [Смазки литиевые.](<a href="https://www.emex.ru/catalog?8=42814&amp;CAT_ID=25&amp;page=1" class="uri">https://www.emex.ru/catalog?8=42814&amp;CAT_ID=25&amp;page=1</a>)</a></li>
+<li><a href="#фильтр-масляный">8-94456-741-2 фильтр масляный</a></li>
+<li><a href="#blue-print-ads72101-фильтр-масляный-неоригинал">Blue print ADS72101 фильтр масляный (неоригинал)</a></li>
+<li><a href="#фильтр-топливный-в-раме-a-hrefhttpswww.youtube.comwatchvkobnfwauslq-targetblankfuel-filter-replacement-videoa">8-98021-510-0 фильтр топливный (в раме) &lt;a href=“<a href="https://www.youtube.com/watch?v=koBnfwaUSlQ" class="uri">https://www.youtube.com/watch?v=koBnfwaUSlQ</a>” target=“<sub>blank</sub>”&gt;Fuel Filter Replacement (video)&lt;/a&gt;</a></li>
+<li><a href="#фильтр-воздушный">8-97035-303-0 фильтр воздушный</a></li>
+<li><a href="#фильтр-акпп">8-96015-062-0 фильтр АКПП</a></li>
+<li><a href="#прокладка-поддона-акпп-1">8-96014-234-0 прокладка поддона АКПП 1</a></li>
+<li><a href="#прокладка-поддона-акпп-2">8-96014-235-0 прокладка поддона АКПП 2</a></li>
 </ul></div>
-<section id="manulas" class="level2">
-<h2>Manulas</h2>
-<p><a href="https://drive.google.com/open?id=0B5_olWfL1-4xbGFsQmk5OEo0Vkk" target="_blank">Ремонт и эксплуатация ISUZU Bighorn 1984-91</a></p>
+<p>## Manulas &lt;a href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xbGFsQmk5OEo0Vkk" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xbGFsQmk5OEo0Vkk</a>” target=“<sub>blank</sub>”&gt;Ремонт и эксплуатация ISUZU Bighorn 1984-91&lt;/a&gt;</p>
+<p>## Forum &lt;a href=“<a href="http://forums.drom.ru/isuzu-bighorn/" class="uri">http://forums.drom.ru/isuzu-bighorn/</a>” target=“<sub>blank</sub>”&gt;drom.ru&lt;/a &gt; &lt;a href=“<a href="http://www.4x4wire.com/isuzu/" class="uri">http://www.4x4wire.com/isuzu/</a>” target=“<sub>blank</sub>”&gt;Isuzu 4x4&lt;/a&gt;</p>
+<p>## Articles &lt;a href=“<a href="http://www.toyota-club.net/files/lib/z_st/05-01-20_pub_bighorn.htm" class="uri">http://www.toyota-club.net/files/lib/z_st/05-01-20_pub_bighorn.htm</a>” target=“<sub>blank</sub>”&gt;Isuzu Bighorn. Уходящий в небытие&lt;/a&gt;</p>
+<p>&lt;a href=“<a href="http://www.itocuk.co.uk/forums/viewtopic.php?t=31318" class="uri">http://www.itocuk.co.uk/forums/viewtopic.php?t=31318</a>” target=“<sub>blank</sub>”&gt;Oils required for your Trooper.&lt;/a&gt;</p>
+<p>## Part Numbers</p>
+<p>### Пыльники</p>
+<section id="a-hrefhttpswww.youtube.comwatchvkodp20lzqp8-targetblankзамена-пыльников-videoa" class="level1">
+<h1>&lt;a href=“<a href="https://www.youtube.com/watch?v=KOdP20LzqP8" class="uri">https://www.youtube.com/watch?v=KOdP20LzqP8</a>” target=“<sub>blank</sub>”&gt;Замена Пыльников (video)&lt;/a&gt;</h1>
 </section>
-<section id="forum" class="level2">
-<h2>Forum</h2>
-<p><a href="http://forums.drom.ru/isuzu-bighorn/" target="_blank">drom.ru</a
-> <a href="http://www.4x4wire.com/isuzu/" target="_blank">Isuzu 4x4</a></p>
+<section id="пыльник-шруса-внутренний" class="level1">
+<h1>8-97117-220-0 пыльник ШРУСа внутренний</h1>
 </section>
-<section id="articles" class="level2">
-<h2>Articles</h2>
-<p><a href="http://www.toyota-club.net/files/lib/z_st/05-01-20_pub_bighorn.htm" target="_blank">Isuzu Bighorn. Уходящий в небытие</a></p>
-<p><a href="http://www.itocuk.co.uk/forums/viewtopic.php?t=31318" target="_blank">Oils required for your Trooper.</a></p>
+<section id="пыльник-шруса-внешний" class="level1">
+<h1>8-97117-221-0 пыльник ШРУСа внешний</h1>
 </section>
-<section id="part-numbers" class="level2">
-<h2>Part Numbers</h2>
-<section id="пыльники" class="level3">
-<h3>Пыльники</h3>
-<ul>
-<li><a href="https://www.youtube.com/watch?v=KOdP20LzqP8" target="_blank">Замена Пыльников (video)</a></li>
-<li>8-97117-220-0 пыльник ШРУСа внутренний</li>
-<li>8-97117-221-0 пыльник ШРУСа внешний</li>
-<li>До 05.1995 года внешний и внутренний пыльники - OHNO FB-2060.</li>
-<li>После 05.1995 года внешний OHNO FB-2199, внутренний OHNO FB-2148.</li>
-<li><ul>
-<li><a href="http://forums.drom.ru/isuzu-bighorn/t1151257090.html" target="_blank">Пыльники ШРУСов (drom.ru)</a></li>
-</ul></li>
-</ul>
+<section id="до-05.1995-года-внешний-и-внутренний-пыльники---ohno-fb-2060." class="level1">
+<h1>До 05.1995 года внешний и внутренний пыльники - OHNO FB-2060.</h1>
 </section>
-<section id="смазки-для-шрусов" class="level3">
-<h3>Смазки для ШРУСОВ</h3>
-<ul>
-<li>внутренний ШРУС - полимочевинные.</li>
-<li>наружный ШРУС - молибден/литий и прочее. <a href="https://www.emex.ru/catalog?8=42814&amp;CAT_ID=25&amp;page=1">Смазки литиевые.</a></li>
-</ul>
+<section id="после-05.1995-года-внешний-ohno-fb-2199-внутренний-ohno-fb-2148." class="level1">
+<h1>После 05.1995 года внешний OHNO FB-2199, внутренний OHNO FB-2148.</h1>
 </section>
-<section id="фильтр" class="level3">
-<h3>фильтр</h3>
-<ul>
-<li>8-94456-741-2 фильтр масляный</li>
-<li>Blue print ADS72101 фильтр масляный (неоригинал)</li>
-<li>8-98021-510-0 фильтр топливный (в раме) <a href="https://www.youtube.com/watch?v=koBnfwaUSlQ" target="_blank">Fuel Filter Replacement (video)</a></li>
-<li>8-97035-303-0 фильтр воздушный</li>
-</ul>
+<section id="a-hrefhttpforums.drom.ruisuzu-bighornt1151257090.html-targetblankпыльники-шрусов-drom.rua" class="level1">
+<h1>* &lt;a href=“<a href="http://forums.drom.ru/isuzu-bighorn/t1151257090.html" class="uri">http://forums.drom.ru/isuzu-bighorn/t1151257090.html</a>” target=“<sub>blank</sub>”&gt;Пыльники ШРУСов (drom.ru)&lt;/a&gt;</h1>
+<p>### Смазки для ШРУСОВ</p>
 </section>
-<section id="atf" class="level3">
-<h3>ATF</h3>
-<ul>
-<li>8-96015-062-0 фильтр АКПП</li>
-<li>8-96014-234-0 прокладка поддона АКПП 1</li>
-<li>8-96014-235-0 прокладка поддона АКПП 2</li>
-</ul>
+<section id="внутренний-шрус---полимочевинные." class="level1">
+<h1>внутренний ШРУС - полимочевинные.</h1>
 </section>
+<section id="наружный-шрус---молибденлитий-и-прочее.-смазки-литиевые.httpswww.emex.rucatalog842814cat_id25page1" class="level1">
+<h1>наружный ШРУС - молибден/литий и прочее. [Смазки литиевые.](<a href="https://www.emex.ru/catalog?8=42814&amp;CAT_ID=25&amp;page=1" class="uri">https://www.emex.ru/catalog?8=42814&amp;CAT_ID=25&amp;page=1</a>)</h1>
+<p>### фильтр</p>
+</section>
+<section id="фильтр-масляный" class="level1">
+<h1>8-94456-741-2 фильтр масляный</h1>
+</section>
+<section id="blue-print-ads72101-фильтр-масляный-неоригинал" class="level1">
+<h1>Blue print ADS72101 фильтр масляный (неоригинал)</h1>
+</section>
+<section id="фильтр-топливный-в-раме-a-hrefhttpswww.youtube.comwatchvkobnfwauslq-targetblankfuel-filter-replacement-videoa" class="level1">
+<h1>8-98021-510-0 фильтр топливный (в раме) &lt;a href=“<a href="https://www.youtube.com/watch?v=koBnfwaUSlQ" class="uri">https://www.youtube.com/watch?v=koBnfwaUSlQ</a>” target=“<sub>blank</sub>”&gt;Fuel Filter Replacement (video)&lt;/a&gt;</h1>
+</section>
+<section id="фильтр-воздушный" class="level1">
+<h1>8-97035-303-0 фильтр воздушный</h1>
+<p>### ATF</p>
+</section>
+<section id="фильтр-акпп" class="level1">
+<h1>8-96015-062-0 фильтр АКПП</h1>
+</section>
+<section id="прокладка-поддона-акпп-1" class="level1">
+<h1>8-96014-234-0 прокладка поддона АКПП 1</h1>
+</section>
+<section id="прокладка-поддона-акпп-2" class="level1">
+<h1>8-96014-235-0 прокладка поддона АКПП 2</h1>
 </section>
 </div>
 
@@ -337,8 +176,8 @@
 </entry>
 <entry>
     <title>Հաւատով Խոստովանիմ</title>
-    <link href="http://imastaser.am/hogi/nshnorhali/havatov.html" />
-    <id>http://imastaser.am/hogi/nshnorhali/havatov.html</id>
+    <link href="http://imast.am/hogi/nshnorhali/havatov.html" />
+    <id>http://imast.am/hogi/nshnorhali/havatov.html</id>
     <published>2016-06-06T00:00:00Z</published>
     <updated>2016-06-06T00:00:00Z</updated>
     <summary type="html"><![CDATA[<div class="post-content">
@@ -482,8 +321,8 @@
 </entry>
 <entry>
     <title>Աստուածաշունչ</title>
-    <link href="http://imastaser.am/hogi/astuatsashunch/index.html" />
-    <id>http://imastaser.am/hogi/astuatsashunch/index.html</id>
+    <link href="http://imast.am/hogi/astuatsashunch/index.html" />
+    <id>http://imast.am/hogi/astuatsashunch/index.html</id>
     <published>2016-06-06T00:00:00Z</published>
     <updated>2016-06-06T00:00:00Z</updated>
     <summary type="html"><![CDATA[<div class="post-content">
@@ -513,81 +352,455 @@
 ]]></summary>
 </entry>
 <entry>
-    <title>Բան Ա (Մ. Խերանյան)</title>
-    <link href="http://imastaser.am/hogi/narek/matean/xeranean/%D4%B1.html" />
-    <id>http://imastaser.am/hogi/narek/matean/xeranean/%D4%B1.html</id>
-    <published>2016-06-03T00:00:00Z</published>
-    <updated>2016-06-03T00:00:00Z</updated>
+    <title>СоюзВузФильм</title>
+    <link href="http://imast.am/mitq/etc/soyuzfilm.html" />
+    <id>http://imast.am/mitq/etc/soyuzfilm.html</id>
+    <published>2016-05-27T00:00:00Z</published>
+    <updated>2016-05-27T00:00:00Z</updated>
     <summary type="html"><![CDATA[<div class="post-content">
-
+<div id="toc"><h3>Table of contents</h3><ul>
+<li><a href="#a-targetblank-hrefhttpswww.youtube.comwatchv3pnuf8fmlqwя-и-другие-1971a">&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=3pnuf8fmlQw" class="uri">https://www.youtube.com/watch?v=3pnuf8fmlQw</a>”&gt;Я и другие 1971&lt;/a&gt;</a></li>
+<li><a href="#a-targetblank-hrefhttpswww.youtube.comwatchv8efjj73bsjoматематик-и-чёртa">&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=8efJJ73bSjo" class="uri">https://www.youtube.com/watch?v=8efJJ73bSjo</a>”&gt;Математик и чёрт&lt;/a&gt;</a></li>
+<li><a href="#a-targetblank-hrefhttpswww.youtube.comwatchvftk2rhmwmauмаленькие-зверюшки-антони-ван-левенгукаa">&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=FTK2RhMWmAU" class="uri">https://www.youtube.com/watch?v=FTK2RhMWmAU</a>”&gt;Маленькие зверюшки Антони ван Левенгука&lt;/a&gt;</a></li>
+<li><a href="#a-targetblank-hrefhttpswww.youtube.comwatchvbymqr1adgtoкто-за-стенойa">&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=ByMQr1aDGto" class="uri">https://www.youtube.com/watch?v=ByMQr1aDGto</a>”&gt;Кто за стеной?&lt;/a&gt;</a></li>
+<li><a href="#a-targetblank-hrefhttpswww.youtube.comwatchvue4z_w3xuneфизика-в-половине-десятогоa">&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=Ue4z_w3XUnE" class="uri">https://www.youtube.com/watch?v=Ue4z_w3XUnE</a>”&gt;Физика в половине десятого&lt;/a&gt;</a></li>
+<li><a href="#a-targetblank-hrefhttpswww.youtube.comwatchvrk8z66o6qluчто-такое-теория-относительностиa">&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=RK8z66o6qLU" class="uri">https://www.youtube.com/watch?v=RK8z66o6qLU</a>”&gt;Что такое теория относительности?&lt;/a&gt;</a></li>
+<li><a href="#a-targetblank-hrefhttpswww.youtube.comwatchvp7azxlfcxmoмутацииa">&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=p7AzxLfcXMo" class="uri">https://www.youtube.com/watch?v=p7AzxLfcXMo</a>”&gt;Мутации&lt;/a&gt;</a></li>
+<li><a href="#a-targetblank-hrefhttpswww.youtube.comwatchvonqbudv7jf0операция-гелийa">&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=oNqBuDV7Jf0" class="uri">https://www.youtube.com/watch?v=oNqBuDV7Jf0</a>”&gt;Операция ‘Гелий’&lt;/a&gt;</a></li>
+<li><a href="#a-targetblank-hrefhttpswww.youtube.comwatchvn7hixyabdasу-магнита-есть-секретыa">&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=n7hIxYaBDas" class="uri">https://www.youtube.com/watch?v=n7hIxYaBDas</a>”&gt;У магнита есть секреты&lt;/a&gt;</a></li>
+<li><a href="#a-targetblank-hrefhttpswww.youtube.comwatchvwf3rx4h9yleэтот-правый-левый-мир.a">&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=WF3rx4h9YlE" class="uri">https://www.youtube.com/watch?v=WF3rx4h9YlE</a>”&gt;Этот правый, левый мир.&lt;/a&gt;</a></li>
+</ul></div>
+<p>### Научно-популярный</p>
+<section id="a-targetblank-hrefhttpswww.youtube.comwatchv3pnuf8fmlqwя-и-другие-1971a" class="level1">
+<h1>&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=3pnuf8fmlQw" class="uri">https://www.youtube.com/watch?v=3pnuf8fmlQw</a>”&gt;Я и другие 1971&lt;/a&gt;</h1>
+</section>
+<section id="a-targetblank-hrefhttpswww.youtube.comwatchv8efjj73bsjoматематик-и-чёртa" class="level1">
+<h1>&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=8efJJ73bSjo" class="uri">https://www.youtube.com/watch?v=8efJJ73bSjo</a>”&gt;Математик и чёрт&lt;/a&gt;</h1>
+</section>
+<section id="a-targetblank-hrefhttpswww.youtube.comwatchvftk2rhmwmauмаленькие-зверюшки-антони-ван-левенгукаa" class="level1">
+<h1>&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=FTK2RhMWmAU" class="uri">https://www.youtube.com/watch?v=FTK2RhMWmAU</a>”&gt;Маленькие зверюшки Антони ван Левенгука&lt;/a&gt;</h1>
+</section>
+<section id="a-targetblank-hrefhttpswww.youtube.comwatchvbymqr1adgtoкто-за-стенойa" class="level1">
+<h1>&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=ByMQr1aDGto" class="uri">https://www.youtube.com/watch?v=ByMQr1aDGto</a>”&gt;Кто за стеной?&lt;/a&gt;</h1>
+</section>
+<section id="a-targetblank-hrefhttpswww.youtube.comwatchvue4z_w3xuneфизика-в-половине-десятогоa" class="level1">
+<h1>&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=Ue4z_w3XUnE" class="uri">https://www.youtube.com/watch?v=Ue4z_w3XUnE</a>”&gt;Физика в половине десятого&lt;/a&gt;</h1>
+</section>
+<section id="a-targetblank-hrefhttpswww.youtube.comwatchvrk8z66o6qluчто-такое-теория-относительностиa" class="level1">
+<h1>&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=RK8z66o6qLU" class="uri">https://www.youtube.com/watch?v=RK8z66o6qLU</a>”&gt;Что такое теория относительности?&lt;/a&gt;</h1>
+</section>
+<section id="a-targetblank-hrefhttpswww.youtube.comwatchvp7azxlfcxmoмутацииa" class="level1">
+<h1>&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=p7AzxLfcXMo" class="uri">https://www.youtube.com/watch?v=p7AzxLfcXMo</a>”&gt;Мутации&lt;/a&gt;</h1>
+</section>
+<section id="a-targetblank-hrefhttpswww.youtube.comwatchvonqbudv7jf0операция-гелийa" class="level1">
+<h1>&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=oNqBuDV7Jf0" class="uri">https://www.youtube.com/watch?v=oNqBuDV7Jf0</a>”&gt;Операция ‘Гелий’&lt;/a&gt;</h1>
+</section>
+<section id="a-targetblank-hrefhttpswww.youtube.comwatchvn7hixyabdasу-магнита-есть-секретыa" class="level1">
+<h1>&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=n7hIxYaBDas" class="uri">https://www.youtube.com/watch?v=n7hIxYaBDas</a>”&gt;У магнита есть секреты&lt;/a&gt;</h1>
+</section>
+<section id="a-targetblank-hrefhttpswww.youtube.comwatchvwf3rx4h9yleэтот-правый-левый-мир.a" class="level1">
+<h1>&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=WF3rx4h9YlE" class="uri">https://www.youtube.com/watch?v=WF3rx4h9YlE</a>”&gt;Этот правый, левый мир.&lt;/a&gt;</h1>
+<p>### Великая Отечественная Война &lt;small&gt;Научфильм. История. &lt;/small&gt;</p>
+<ol>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=Buq_J0rx7X0" class="uri">https://www.youtube.com/watch?v=Buq_J0rx7X0</a>”&gt;Советская страна накануне войны&lt;/a&gt;</li>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=vsLU3Xwsxqk" class="uri">https://www.youtube.com/watch?v=vsLU3Xwsxqk</a>”&gt;Начало войны&lt;/a&gt;</li>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=Mf1uCMDgp2k" class="uri">https://www.youtube.com/watch?v=Mf1uCMDgp2k</a>”&gt;Начало Великой Отечественной Войны&lt;/a&gt;</li>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=UIxcMuuP5sg" class="uri">https://www.youtube.com/watch?v=UIxcMuuP5sg</a>”&gt;Канун и начало II Мировой войны&lt;/a&gt;</li>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=vn20oI_U-LA" class="uri">https://www.youtube.com/watch?v=vn20oI_U-LA</a>”&gt;Первые месяцы войны&lt;/a&gt;</li>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=dCi1dGVlKcY" class="uri">https://www.youtube.com/watch?v=dCi1dGVlKcY</a>”&gt;Советская страна единый военный лагерь&lt;/a&gt;</li>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=fICEblmevmI" class="uri">https://www.youtube.com/watch?v=fICEblmevmI</a>”&gt;Героическая оборона Москвы&lt;/a&gt;</li>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=H0Mn5te34cM" class="uri">https://www.youtube.com/watch?v=H0Mn5te34cM</a>”&gt;Разгром немецко-фашистских войск под Москвой&lt;/a&gt;</li>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=I28bceHFvgQ" class="uri">https://www.youtube.com/watch?v=I28bceHFvgQ</a>”&gt;Партизанская война в тылу врага&lt;/a&gt;</li>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=9Ymk8vglit4" class="uri">https://www.youtube.com/watch?v=9Ymk8vglit4</a>”&gt;Трудовой подвиг советского народа&lt;/a&gt;</li>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=HVsu7AAOfHc" class="uri">https://www.youtube.com/watch?v=HVsu7AAOfHc</a>”&gt;Оброна Сталинграда&lt;/a&gt;</li>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=B4Sa-xCigXw" class="uri">https://www.youtube.com/watch?v=B4Sa-xCigXw</a>”&gt;Коренной перелом&lt;/a&gt;</li>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=GSS0_Pv8Z44" class="uri">https://www.youtube.com/watch?v=GSS0_Pv8Z44</a>”&gt;Наступление Красной Армии летом-осенью 1943 года&lt;/a&gt;</li>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=9bUs1hFIVDY" class="uri">https://www.youtube.com/watch?v=9bUs1hFIVDY</a>”&gt;Битва на Курской дуге&lt;/a&gt;</li>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=0VKTnPGq18I" class="uri">https://www.youtube.com/watch?v=0VKTnPGq18I</a>”&gt;Победа под Ленинградом и Новгородом&lt;/a&gt;</li>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=973-td40lZQ" class="uri">https://www.youtube.com/watch?v=973-td40lZQ</a>”&gt;Белорусская операция&lt;/a&gt;</li>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=FAIcwePn-XM" class="uri">https://www.youtube.com/watch?v=FAIcwePn-XM</a>”&gt;Освобождение Крыма&lt;/a&gt;</li>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=uVcbYnO82Lo" class="uri">https://www.youtube.com/watch?v=uVcbYnO82Lo</a>”&gt;Полной освобождение Советской Родины&lt;/a&gt;</li>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=z0C6NMU-3Oc" class="uri">https://www.youtube.com/watch?v=z0C6NMU-3Oc</a>”&gt; Освобождение Польши&lt;/a&gt;</li>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=T3HK6PBbXXc" class="uri">https://www.youtube.com/watch?v=T3HK6PBbXXc</a>”&gt;Освобождение Венгрии&lt;/a&gt;</li>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=hG_zGg6Sls0" class="uri">https://www.youtube.com/watch?v=hG_zGg6Sls0</a>”&gt;Освобождение Юго-Восточной Европы&lt;/a&gt;</li>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=WmPgyiXVNsA" class="uri">https://www.youtube.com/watch?v=WmPgyiXVNsA</a>”&gt;Освобождение Чехословакии&lt;/a&gt;</li>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=caHDV8rBxPY" class="uri">https://www.youtube.com/watch?v=caHDV8rBxPY</a>”&gt;На штурм Берлина&lt;/a&gt;</li>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://www.youtube.com/watch?v=42JDrJdaGC8" class="uri">https://www.youtube.com/watch?v=42JDrJdaGC8</a>”&gt;Победа&lt;/a&gt;</li>
+</ol>
+<p>### Хочу всё знать</p>
+<p>&lt;a target=“<sub>blank</sub>” href=“”&gt;&lt;/a&gt; &lt;a target=“<sub>blank</sub>” href=“”&gt;&lt;/a&gt; &lt;a target=“<sub>blank</sub>” href=“”&gt;&lt;/a&gt; &lt;a target=“<sub>blank</sub>” href=“”&gt;&lt;/a&gt; &lt;a target=“<sub>blank</sub>” href=“”&gt;&lt;/a&gt; &lt;a target=“<sub>blank</sub>” href=“”&gt;&lt;/a&gt; &lt;a target=“<sub>blank</sub>” href=“”&gt;&lt;/a&gt;</p>
+<p>&lt;a target=“<sub>blank</sub>” href=“”&gt;&lt;/a&gt; &lt;a target=“<sub>blank</sub>” href=“”&gt;&lt;/a&gt; &lt;a target=“<sub>blank</sub>” href=“”&gt;&lt;/a&gt;</p>
+<p>### центрнаучфильм ### НаучФильм</p>
+</section>
 </div>
 
 <div class="row">
         <span class="date  text-right">
-            <i class="fa fa-calenda"></i> Posted on June  3, 2016
+            <i class="fa fa-calenda"></i> Posted on May 27, 2016
         </span>
         <span class="tags text-right" style="width: 100%">
-            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/%D5%B4%D5%A1%D5%BF%D5%A5%D5%A1%D5%B6.html">մատեան</a></li><li><a href="/tags/%D5%B6%D5%A1%D6%80%D5%A5%D5%AF.html">նարեկ</a></li></ul>
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/%D0%A1%D0%A1%D0%A1%D0%A0.html">СССР</a></li></ul>
         </span>
 </div>
 ]]></summary>
 </entry>
 <entry>
-    <title>Բան Ա</title>
-    <link href="http://imastaser.am/hogi/narek/matean/grabar/%D4%B1.html" />
-    <id>http://imastaser.am/hogi/narek/matean/grabar/%D4%B1.html</id>
-    <published>2016-06-03T00:00:00Z</published>
-    <updated>2016-06-03T00:00:00Z</updated>
+    <title>Մատեան Ողբերգութեան</title>
+    <link href="http://imast.am/hogi/narek/matean.html" />
+    <id>http://imast.am/hogi/narek/matean.html</id>
+    <published>2016-05-25T00:00:00Z</published>
+    <updated>2016-05-25T00:00:00Z</updated>
     <summary type="html"><![CDATA[<div class="post-content">
-
+<section id="բան-ա" class="level2">
+<h2>Բան Ա</h2>
+<p><a href="matean/grabar/Ա.html">Գրաբար</a> | <a href="matean/xeranean/Ա.html">Մ. Խերանեան 1960թ.</a> | <a href="matean/gevorgean/Ա.html">Վ. Գեւորգեան(1923-2002) 1979թ.</a></p>
+<ul>
+<li><a href="https://hy.wikipedia.org/wiki/%D5%84%D5%AF%D6%80%D5%BF%D5%AB%D5%B9_%D4%BD%D5%A5%D6%80%D5%A1%D5%B6%D5%B5%D5%A1%D5%B6" target="_blank"> Մկրտիչ Խերանյան</a></li>
+<li><a target="_blank" href="http://www.ysu.am/persons/hy/Vazgen-Gevorgyan">Վազգեն Գևորգյան</a></li>
+</ul>
+</section>
 </div>
 
 <div class="row">
         <span class="date  text-right">
-            <i class="fa fa-calenda"></i> Posted on June  3, 2016
+            <i class="fa fa-calenda"></i> Posted on May 25, 2016
         </span>
         <span class="tags text-right" style="width: 100%">
-            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/%D5%B4%D5%A1%D5%BF%D5%A5%D5%A1%D5%B6.html">մատեան</a></li><li><a href="/tags/%D5%B6%D5%A1%D6%80%D5%A5%D5%AF.html">նարեկ</a></li></ul>
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/%D5%B6%D5%A1%D6%80%D5%A5%D5%AF.html">նարեկ</a></li></ul>
         </span>
 </div>
 ]]></summary>
 </entry>
 <entry>
-    <title>Բան Ա (Վ. Գեւորգեան)</title>
-    <link href="http://imastaser.am/hogi/narek/matean/gevorgean/%D4%B1.html" />
-    <id>http://imastaser.am/hogi/narek/matean/gevorgean/%D4%B1.html</id>
-    <published>2016-06-03T00:00:00Z</published>
-    <updated>2016-06-03T00:00:00Z</updated>
+    <title>Կյանքի ճշմարիտ իմաստը</title>
+    <link href="http://imast.am/hogi/mashalyan/kyanqi_imast.html" />
+    <id>http://imast.am/hogi/mashalyan/kyanqi_imast.html</id>
+    <published>2016-05-25T00:00:00Z</published>
+    <updated>2016-05-25T00:00:00Z</updated>
     <summary type="html"><![CDATA[<div class="post-content">
-
+<iframe width="420" height="315" src="https://www.youtube.com/embed/Tk-UbtDKq5w">
+</iframe>
 </div>
 
 <div class="row">
         <span class="date  text-right">
-            <i class="fa fa-calenda"></i> Posted on June  3, 2016
+            <i class="fa fa-calenda"></i> Posted on May 25, 2016
         </span>
         <span class="tags text-right" style="width: 100%">
-            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/%D5%B4%D5%A1%D5%BF%D5%A5%D5%A1%D5%B6.html">մատեան</a></li><li><a href="/tags/%D5%B6%D5%A1%D6%80%D5%A5%D5%AF.html">նարեկ</a></li></ul>
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/%D6%84%D5%A1%D6%80%D5%B8%D5%A6.html">քարոզ</a></li><li><a href="/tags/%D5%84%D5%A1%D5%B7%D5%A1%D5%AC%D5%A5%D5%A1%D5%B6.html">Մաշալեան</a></li></ul>
         </span>
 </div>
 ]]></summary>
 </entry>
 <entry>
-    <title>Ա</title>
-    <link href="http://imastaser.am/hogi/astuatsashunch/avetaran/matheos/%D4%B1.html" />
-    <id>http://imastaser.am/hogi/astuatsashunch/avetaran/matheos/%D4%B1.html</id>
-    <published>2016-06-03T00:00:00Z</published>
-    <updated>2016-06-03T00:00:00Z</updated>
+    <title>Yet Another Monad Tutorial(Mike's "World-O-Programming")</title>
+    <link href="http://imast.am/mitq/haskell/mvanier/index.html" />
+    <id>http://imast.am/mitq/haskell/mvanier/index.html</id>
+    <published>2016-05-18T00:01:00Z</published>
+    <updated>2016-05-18T00:01:00Z</updated>
     <summary type="html"><![CDATA[<div class="post-content">
-
+<section id="a-targetblank-hrefhttpmvanier.livejournal.comskip10-mikes-world-o-programminga" class="level2">
+<h2>&lt;a target=“<sub>blank</sub>” href=“<a href="http://mvanier.livejournal.com/?skip=10" class="uri">http://mvanier.livejournal.com/?skip=10</a>”&gt; Mike’s World-O-Programming&lt;/a&gt;</h2>
+</section>
+<section id="a-targetblank-hrefhttpusers.cms.caltech.edumvaniermike-vaniers-home-pagea" class="level2">
+<h2>&lt;a target=“<sub>blank</sub>” href=“<a href="http://users.cms.caltech.edu/~mvanier/" class="uri">http://users.cms.caltech.edu/~mvanier/</a>”&gt;Mike Vanier’s home page&lt;/a&gt;</h2>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>original</th>
+<th>local</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>15.01.08</td>
+<td>[Welcome to my blog!](<a href="http://mvanier.livejournal.com/519.htm" class="uri">http://mvanier.livejournal.com/519.htm</a>)</td>
+<td>Welcome to my blog!</td>
+</tr>
+<tr class="even">
+<td>15.01.08</td>
+<td>[“Foundational” programming languages](<a href="http://mvanier.livejournal.com/998.html" class="uri">http://mvanier.livejournal.com/998.html</a>)</td>
+<td>“Foundational” programming languages</td>
+</tr>
+<tr class="odd">
+<td>16.01.08</td>
+<td>[How not to explain Haskell monads](<a href="http://mvanier.livejournal.com/1205.html" class="uri">http://mvanier.livejournal.com/1205.html</a>)</td>
+<td>[How not to explain Haskell monads](../mvanier/posts/how-not-to-explain-haskell-monads.html)</td>
+</tr>
+<tr class="even">
+<td>16.01.08</td>
+<td>[Ruby critique, part 1](<a href="http://mvanier.livejournal.com/1351.html" class="uri">http://mvanier.livejournal.com/1351.html</a>)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>21.01,08</td>
+<td>[Haskell state monads, part 1](<a href="http://mvanier.livejournal.com/1765.html" class="uri">http://mvanier.livejournal.com/1765.html</a>)</td>
+<td>[Haskell state monads, part 1](../mvanier/posts/statemonad-part1.html))</td>
+</tr>
+<tr class="even">
+<td>22.01.08</td>
+<td>[Haskell state monads, part 2](<a href="http://mvanier.livejournal.com/1901.html" class="uri">http://mvanier.livejournal.com/1901.html</a>)</td>
+<td>[Haskell state monads, part 2](../mvanier/posts/statemonad-part2.html))</td>
+</tr>
+<tr class="odd">
+<td>10.04.08</td>
+<td>[Forth](<a href="http://mvanier.livejournal.com/2133.html" class="uri">http://mvanier.livejournal.com/2133.html</a>)</td>
+<td>Forth</td>
+</tr>
+<tr class="even">
+<td>20.07.08</td>
+<td>[The Y Combinator](<a href="http://mvanier.livejournal.com/2700.html" class="uri">http://mvanier.livejournal.com/2700.html</a>)</td>
+<td>[The Y Combinator](../mvanier/posts/y-combinator.html)</td>
+</tr>
+<tr class="odd">
+<td>14.08.08</td>
+<td>[The Y Combinator (Slight Return)](<a href="http://mvanier.livejournal.com/2897.html" class="uri">http://mvanier.livejournal.com/2897.html</a>)</td>
+<td>[The Y Combinator (Slight Return)](../mvanier/posts/y-combinator-return.html)</td>
+</tr>
+<tr class="even">
+<td>17.03.09</td>
+<td>[Haskell is sandbox crack!](<a href="http://mvanier.livejournal.com/2009/03/17/" class="uri">http://mvanier.livejournal.com/2009/03/17/</a>)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>12.07.10</td>
+<td>[Why Scala Is Interesting](<a href="http://mvanier.livejournal.com/3395.html" class="uri">http://mvanier.livejournal.com/3395.html</a>)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>21.07.10</td>
+<td>[Stupid Haskell Trick: Factorials in the Type System](<a href="http://mvanier.livejournal.com/3820.html" class="uri">http://mvanier.livejournal.com/3820.html</a>)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>25.07.10</td>
+<td>[Yet Another Monad Tutorial (part 1: basics)](<a href="http://mvanier.livejournal.com/3917.html" class="uri">http://mvanier.livejournal.com/3917.html</a>)</td>
+<td>[Yet Another Monad Tutorial (part 1: basics)](../mvanier/posts/monad-1.html)</td>
+</tr>
+<tr class="even">
+<td>25.07.10</td>
+<td>[Yet Another Monad Tutorial (part 2: &gt;&gt;= and return)](<a href="http://mvanier.livejournal.com/4305.html" class="uri">http://mvanier.livejournal.com/4305.html</a>)</td>
+<td>[Yet Another Monad Tutorial (part 2: &gt;&gt;= and return)](../mvanier/posts/monad-2.html)</td>
+</tr>
+<tr class="odd">
+<td>25.07.10</td>
+<td>[Yet Another Monad Tutorial (part 3: The Monad Laws)](<a href="http://mvanier.livejournal.com/4586.html" class="uri">http://mvanier.livejournal.com/4586.html</a>)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>25.07.10</td>
+<td>[Yet Another Monad Tutorial (part 4: The Maybe and List Monads)](<a href="http://mvanier.livejournal.com/4647.html" class="uri">http://mvanier.livejournal.com/4647.html</a>)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>16.08.10</td>
+<td>[Yet Another Monad Tutorial (part 5: error-handling monads)](<a href="http://mvanier.livejournal.com/5103.html" class="uri">http://mvanier.livejournal.com/5103.html</a>)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>16.08.10</td>
+<td>[Yet Another Monad Tutorial (part 6: more on error-handling monads)](<a href="http://mvanier.livejournal.com/5343.html" class="uri">http://mvanier.livejournal.com/5343.html</a>)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>25.08.10</td>
+<td>[Yet Another Monad Tutorial (part 7: state monads)](<a href="http://mvanier.livejournal.com/5406.html" class="uri">http://mvanier.livejournal.com/5406.html</a>)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>25.08.10</td>
+<td>[Yet Another Monad Tutorial (part 8: more on state monads)](<a href="http://mvanier.livejournal.com/5846.html" class="uri">http://mvanier.livejournal.com/5846.html</a>)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
 </div>
 
 <div class="row">
         <span class="date  text-right">
-            <i class="fa fa-calenda"></i> Posted on June  3, 2016
+            <i class="fa fa-calenda"></i> Posted on May 18, 2016
         </span>
         <span class="tags text-right" style="width: 100%">
-            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/%D5%84%D5%A1%D5%BF%D5%A9%D5%A7%D5%B8%D5%BD.html">Մատթէոս</a></li><li><a href="/tags/%D4%B1%D6%82%D5%A5%D5%BF%D5%A1%D6%80%D5%A1%D5%B6.html">Աւետարան</a></li></ul>
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/mvanier.html">mvanier</a></li><li><a href="/tags/monads.html">monads</a></li><li><a href="/tags/tutorials.html">tutorials</a></li><li><a href="/tags/haskell.html">haskell</a></li></ul>
+        </span>
+</div>
+]]></summary>
+</entry>
+<entry>
+    <title>Георгий Петрович Щедровицкий</title>
+    <link href="http://imast.am/mitq/methodology/gp/index.html" />
+    <id>http://imast.am/mitq/methodology/gp/index.html</id>
+    <published>2016-05-13T00:00:00Z</published>
+    <updated>2016-05-13T00:00:00Z</updated>
+    <summary type="html"><![CDATA[<div class="post-content">
+<p>&lt;div&gt; &lt;img style=“float:left;display:inline-block; margin-right: 20px;” title=“Георгий Петрович Щедровицкий (1929—1994)” alt=“Г.П.(1929—1994)” src=“../../../images/gp.jpg”&gt;</p>
+<p>&lt;span style=“display:block;font-size: 15pt; margin-left: 10px;”&gt; Георгий Петрович Щедровицкий (1929—1994) — философ, методолог, педагог, общественный и культурный деятель. &lt;br&gt;&lt;br&gt; В нем редким образом сочетались любовь к чистому мышлению и всепоглощающая страсть к активной деятельности. Недаром он ввел в оборот слово мыследеятельность, к которому прибегал, размышляя об окружающем ли мире или о самом себе. &lt;/span&gt; &lt;/div&gt;</p>
+<p>&lt;br&gt; &lt;br&gt;</p>
+<ol>
+<li>Программирование научных исследований и разработок. Том 1 &lt;a target=“<sub>blank</sub>” href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xWUFNeFhhS2VudjA" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xWUFNeFhhS2VudjA</a>”&gt;doc&lt;/a&gt; | &lt;a target=“<sub>blank</sub>” href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xZDc0dGZYQWh5OFU" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xZDc0dGZYQWh5OFU</a>”&gt;pdf&lt;/a&gt;</li>
+<li>Психология и методология. Том 2. Часть 1 &lt;a target=“<sub>blank</sub>” href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xbGxSUUtCajM5QjQ" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xbGxSUUtCajM5QjQ</a>”&gt;djvu&lt;/a&gt;</li>
+<li>Организация. Руководство. Управление. Том 4 &lt;a target=“<sub>blank</sub>” href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xdWNjM3AxVTVrVUk" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xdWNjM3AxVTVrVUk</a>”&gt;pdf&lt;/a&gt;</li>
+<li>Организация. Руководство. Управление. Том 5 &lt;a target=“<sub>blank</sub>” href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xd09fNjhLLXFsa3M" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xd09fNjhLLXFsa3M</a>”&gt;djvu&lt;/a&gt;</li>
+<li>Процессы и структуры в мышлении. Том 6 &lt;a target=“<sub>blank</sub>” href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xVHFFWXB6YndUTHM" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xVHFFWXB6YndUTHM</a>”&gt;doc&lt;/a&gt; | &lt;a target=“<sub>blank</sub>” href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xLXdHSFVMTXkzQjQ" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xLXdHSFVMTXkzQjQ</a>”&gt;pdf&lt;/a&gt;</li>
+<li>Проблемы логики научного исследования и анализ структуры науки. Том 7 &lt;a target=“<sub>blank</sub>” href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xWjJHQ0taLWlVOXM" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xWjJHQ0taLWlVOXM</a>”&gt;djvu&lt;/a&gt;</li>
+<li>Московский методологический кружок. Развитие идей и подходов. Том 8 &lt;a target=“<sub>blank</sub>” href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xZWpGcjdNb2FVd2M" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xZWpGcjdNb2FVd2M</a>”&gt;djvu&lt;/a&gt;</li>
+<li>Организационно-деятельностная игра. Сборник текстов. Том 9. Часть 1 &lt;a target=“<sub>blank</sub>” href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xVHM0azI1cEZFdGc" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xVHM0azI1cEZFdGc</a>”&gt;djvu&lt;/a&gt;</li>
+<li>Организационно-деятельностная игра. Сборник текстов. Том 9. Часть 2 &lt;a target=“<sub>blank</sub>” href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xZHg3Qm1lME1veXc" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xZHg3Qm1lME1veXc</a>”&gt;pdf&lt;/a&gt;</li>
+</ol>
+<section id="избранные-труды-a-targetblank-hrefhttpsdrive.google.comopenid0b5_olwfl1-4xeu5td2xtzfpbtg8doca-a-targetblank-hrefhttpsdrive.google.comopenid0b5_olwfl1-4xt3razhniyw90mvkpdfa" class="level1">
+<h1>Избранные труды &lt;a target=“<sub>blank</sub>” href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xeU5Td2xTZFpBTG8" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xeU5Td2xTZFpBTG8</a>”&gt;doc&lt;/a&gt; | &lt;a target=“<sub>blank</sub>” href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xT3RaZHNiYW90MVk" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xT3RaZHNiYW90MVk</a>”&gt;pdf&lt;/a&gt;</h1>
+</section>
+<section id="оргуправленческое-мышление.-идеология-методология-технология.-a-targetblank-hrefhttpsdrive.google.comopenid0b5_olwfl1-4xwuq4mdlkr1hbalkdjvua" class="level1">
+<h1>Оргуправленческое мышление. Идеология, методология, технология. &lt;a target=“<sub>blank</sub>” href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xWUQ4MDlKR1hBalk" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xWUQ4MDlKR1hBalk</a>”&gt;djvu&lt;/a&gt;</h1>
+</section>
+<section id="я-всегда-был-идеалистом.-беседы-с-колей-щукиным-a-targetblank-hrefhttpsdrive.google.comopenid0b5_olwfl1-4xd0thyuvczgdtvzapdfa" class="level1">
+<h1>Я всегда был идеалистом. Беседы с Колей Щукиным &lt;a target=“<sub>blank</sub>” href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xd0thYUVCZGdTVzA" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xd0thYUVCZGdTVzA</a>”&gt;pdf&lt;/a&gt;</h1>
+<p>Проблемы педагогики</p>
+<ol>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xcGtrWEVXdjVrb1E" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xcGtrWEVXdjVrb1E</a>”&gt;mp3&lt;/a&gt;</li>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xTE5ibm0taHM0VTA" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xTE5ibm0taHM0VTA</a>”&gt;mp3&lt;/a&gt;</li>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xSWRKSWdVQWVzNHc" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xSWRKSWdVQWVzNHc</a>”&gt;mp3&lt;/a&gt;</li>
+</ol>
+<p>&lt;iframe width=“220” height=“115” src=“<a href="https://www.youtube.com/embed/iT1qBv1-zrA" class="uri">https://www.youtube.com/embed/iT1qBv1-zrA</a>”&gt; &lt;/iframe&gt;Щедровицкий Г.П.</p>
+<p>&lt;iframe width=“220” height=“115” src=“<a href="https://www.youtube.com/embed/MyAwovIsz-w" class="uri">https://www.youtube.com/embed/MyAwovIsz-w</a>”&gt; &lt;/iframe&gt;Щедровицкий Г.П.</p>
+<p>&lt;iframe width=“220” height=“115” src=“<a href="https://www.youtube.com/embed/zk2L2e_Evsw" class="uri">https://www.youtube.com/embed/zk2L2e_Evsw</a>”&gt; &lt;/iframe&gt;“На досках”</p>
+<p>&lt;iframe width=“220” height=“115” src=“<a href="https://www.youtube.com/embed/hPDgI4_xDD4" class="uri">https://www.youtube.com/embed/hPDgI4_xDD4</a>”&gt; &lt;/iframe&gt;Я философ.</p>
+<p>&lt;iframe width=“220” height=“115” src=“<a href="https://www.youtube.com/embed/Uf27-SkOhPk" class="uri">https://www.youtube.com/embed/Uf27-SkOhPk</a>”&gt; &lt;/iframe&gt;</p>
+<p>&lt;iframe width=“220” height=“115” src=“<a href="https://www.youtube.com/embed/YcwjZjxSCMI" class="uri">https://www.youtube.com/embed/YcwjZjxSCMI</a>”&gt; &lt;/iframe&gt;Энергосетьпроект - 1</p>
+<p>&lt;iframe width=“220” height=“115” src=“<a href="https://www.youtube.com/embed/m5_W0uDfqw4" class="uri">https://www.youtube.com/embed/m5_W0uDfqw4</a>”&gt; &lt;/iframe&gt;Энергосетьпроект - 2</p>
+<p>&lt;iframe width=“220” height=“115” src=“<a href="https://www.youtube.com/embed/cSV0lenVpJo" class="uri">https://www.youtube.com/embed/cSV0lenVpJo</a>”&gt; &lt;/iframe&gt;ОДИ в Сургуте (1990)</p>
+<p>&lt;iframe width=“220” height=“115” src=“<a href="https://www.youtube.com/embed/lLWarzwYOi4" class="uri">https://www.youtube.com/embed/lLWarzwYOi4</a>”&gt; &lt;/iframe&gt;Русская философия образования: Щедровицкий ч.1.</p>
+<p>&lt;iframe width=“220” height=“115” src=“<a href="https://www.youtube.com/embed/Z_dzIPZvQWU" class="uri">https://www.youtube.com/embed/Z_dzIPZvQWU</a>”&gt; &lt;/iframe&gt;Русская философия образования: Щедровицкий ч.2.</p>
+</section>
+</div>
+
+<div class="row">
+        <span class="date  text-right">
+            <i class="fa fa-calenda"></i> Posted on May 13, 2016
+        </span>
+        <span class="tags text-right" style="width: 100%">
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/%D0%93.%D0%9F..html">Г.П.</a></li><li><a href="/tags/%D5%B4%D5%A5%D5%A9%D5%B8%D5%A4%D5%A1%D5%A2%D5%A1%D5%B6%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6.html">մեթոդաբանություն</a></li><li><a href="/tags/%D5%B4%D5%AB%D5%BF%D6%84.html">միտք</a></li></ul>
+        </span>
+</div>
+]]></summary>
+</entry>
+<entry>
+    <title>Functional Programming learning materials</title>
+    <link href="http://imast.am/mitq/haskell/courses.html" />
+    <id>http://imast.am/mitq/haskell/courses.html</id>
+    <published>2016-05-04T00:00:00Z</published>
+    <updated>2016-05-04T00:00:00Z</updated>
+    <summary type="html"><![CDATA[<div class="post-content">
+<div id="toc"><h3>Table of contents</h3><ul>
+<li><a href="#video-courses">video courses</a><ul>
+<li><a href="#brisbane-functional-programming-group">Brisbane Functional Programming Group</a></li>
+<li><a href="#misc">Misc</a></li>
+<li><a href="#fp-in-scala">FP in Scala</a></li>
+<li><a href="#школа-анализа-данных">Школа анализа данных</a></li>
+<li><a href="#функциональное-программирование---mooc">Функциональное программирование - <a href="https://compscicenter.ru/courses/func-prog/2012-spring/">mooc</a></a></li>
+<li><a href="#функциональное-программирование-на-языке-haskell">Функциональное программирование на языке Haskell</a></li>
+<li><a href="#videos-on-haskell">videos on haskell</a></li>
+<li><a href="#academic-courses">academic courses</a></li>
+</ul></li>
+<li><a href="#moocs-sites">Moocs sites</a></li>
+</ul></div>
+<p>*</p>
+<p>[Haskell on zeef](<a href="https://haskell.zeef.com/konstantin.skipor" class="uri">https://haskell.zeef.com/konstantin.skipor</a>) [Haskell bookmarks](<a href="https://github.com/grsmv/haskell-bookmarks" class="uri">https://github.com/grsmv/haskell-bookmarks</a>) [Learn haskell](<a href="https://github.com/bitemyapp/learnhaskell" class="uri">https://github.com/bitemyapp/learnhaskell</a>)</p>
+<section id="video-courses" class="level1">
+<h1>video courses</h1>
+<section id="brisbane-functional-programming-group" class="level2">
+<h2>Brisbane Functional Programming Group</h2>
+<ul>
+<li>a</li>
+<li>b</li>
+</ul>
+</section>
+<section id="misc" class="level2">
+<h2>Misc</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=4MaaQmll8D0">Intro to Lens</a></li>
+<li><a href="https://www.youtube.com/watch?v=pzouxmWiemg">Monad Transformers - Ben Kolera</a></li>
+<li><a href="https://www.youtube.com/watch?v=Ofz8zO8rjn0">Monads - Matt Peddie</a></li>
+</ul>
+</section>
+<section id="fp-in-scala" class="level2">
+<h2>FP in Scala</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=Sj12uS1Oc48" class="uri">https://www.youtube.com/watch?v=Sj12uS1Oc48</a> Chapters 1&amp;2</li>
+<li><a href="https://www.youtube.com/watch?v=SIQHiTK5Qi8" class="uri">https://www.youtube.com/watch?v=SIQHiTK5Qi8</a> Chapters 3&amp;4</li>
+<li><a href="https://www.youtube.com/watch?v=VqJTaCOBlTw" class="uri">https://www.youtube.com/watch?v=VqJTaCOBlTw</a> Chapters 5&amp;6</li>
+<li><a href="https://www.youtube.com/watch?v=ZSKeOZMoWUg" class="uri">https://www.youtube.com/watch?v=ZSKeOZMoWUg</a> Chapters 7&amp;8</li>
+<li><a href="https://www.youtube.com/watch?v=mt4Nl758DvM" class="uri">https://www.youtube.com/watch?v=mt4Nl758DvM</a> Chapters 9&amp;10</li>
+<li><a href="https://www.youtube.com/watch?v=AKH3LjGEN6U" class="uri">https://www.youtube.com/watch?v=AKH3LjGEN6U</a> Chapters 11&amp;12</li>
+</ul>
+</section>
+<section id="школа-анализа-данных" class="level2">
+<h2>Школа анализа данных</h2>
+<ul>
+<li><a href="https://yandexdataschool.ru/edu-process/courses/machine-learning#item-1">Машинное обучение</a></li>
+</ul>
+</section>
+<section id="функциональное-программирование---mooc" class="level2">
+<h2>Функциональное программирование - <a href="https://compscicenter.ru/courses/func-prog/2012-spring/">mooc</a></h2>
+<ol>
+<li>Что такое функциональное программирование <a href="https://youtu.be/lTa3YFZGMTQ">video</a></li>
+<li>Списки. Функции высших порядков <a href="https://youtu.be/_rXSyrAKAZs">Часть 1</a>, <a href="https://youtu.be/aaNmKADQHTs">Часть 2</a></li>
+<li>Карринг и ленивые вычисления <a href="https://youtu.be/oFEalpQDsF4">Часть 1</a>, <a href="https://youtu.be/KYaJ2_H0ijo">Часть 2</a></li>
+<li>“Завязывание узлов”. Классы <a href="https://youtu.be/e5pKVLQr7Mg">Часть 1</a>, <a href="https://youtu.be/SBfyT0XUdC0">Часть 2</a></li>
+<li>Системы FP. Основы лямбда-исчисления <a href="https://youtu.be/PjLpTaEFfCo">Часть 1</a>, <a href="https://youtu.be/MduuMOkHT_Y">Часть 2</a></li>
+<li>Чистое лямбда-исчисление <a href="https://youtu.be/x4QwlJ8nk_s">Часть 1</a>, <a href="https://youtu.be/Hm6kFJXCOv4">Часть 2</a></li>
+<li><a href="https://youtu.be/DwW8OHgvSk8">Интерпретация и компиляция функциональных программ</a></li>
+<li><a href="ttps://youtu.be/Ck9A_eycdJg">Введение в редукцию графов</a></li>
+<li><a href="https://youtu.be/yiKbqc4f5Uk">Комбинаторная редукция</a></li>
+</ol>
+</section>
+<section id="функциональное-программирование-на-языке-haskell" class="level2">
+<h2>Функциональное программирование на языке Haskell</h2>
+<p>&lt;a target=“<sub>blank</sub>” href=“<a href="https://stepic.org/course/75" class="uri">https://stepic.org/course/75</a>”&gt;origins&lt;/a&gt;</p>
+<ol>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://youtu.be/iw3YMZ98LUs" class="uri">https://youtu.be/iw3YMZ98LUs</a>”&gt;Лямбда исчисление&lt;/a&gt;</li>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://youtu.be/0v8iWwU4YJ4" class="uri">https://youtu.be/0v8iWwU4YJ4</a>”&gt;Рекурсия и редукция&lt;/a&gt;</li>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://youtu.be/sPIW0MwnKjA" class="uri">https://youtu.be/sPIW0MwnKjA</a>”&gt;Просто типизированное лямбда исчисление&lt;/a&gt;</li>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://youtu.be/QM3keoqG7gk" class="uri">https://youtu.be/QM3keoqG7gk</a>”&gt;Введение в Haskell&lt;/a&gt;</li>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://youtu.be/FCuWYNv0bUI" class="uri">https://youtu.be/FCuWYNv0bUI</a>”&gt;Программирование на языке Haskell&lt;/a&gt;</li>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://youtu.be/-x9cX-rasY4" class="uri">https://youtu.be/-x9cX-rasY4</a>”&gt;Классы типов&lt;/a&gt;</li>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://youtu.be/qYDP1cGpj3I" class="uri">https://youtu.be/qYDP1cGpj3I</a>”&gt;Свёртки&lt;/a&gt;</li>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://youtu.be/_egKidtCPwU" class="uri">https://youtu.be/_egKidtCPwU</a>”&gt;Аппликативные функторы&lt;/a&gt;</li>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://youtu.be/PyjAk3ATV-0" class="uri">https://youtu.be/PyjAk3ATV-0</a>”&gt;Монады&lt;/a&gt;</li>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://youtu.be/igqQxJdSDCk" class="uri">https://youtu.be/igqQxJdSDCk</a>”&gt;Использование монад&lt;/a&gt;</li>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://youtu.be/xC_8HXkzNhg" class="uri">https://youtu.be/xC_8HXkzNhg</a>”&gt;Трансформеры монад&lt;/a&gt;</li>
+<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://youtu.be/PjFl5dWSnF8" class="uri">https://youtu.be/PjFl5dWSnF8</a>”&gt;Вывод типов&lt;/a&gt;</li>
+</ol>
+</section>
+<section id="videos-on-haskell" class="level2">
+<h2>videos on haskell</h2>
+<p>silk links - not available</p>
+</section>
+<section id="academic-courses" class="level2">
+<h2>academic courses</h2>
+<ul>
+<li><a href="https://videoag.fsmpi.rwth-aachen.de/?course=12ss-funkprog" class="uri">https://videoag.fsmpi.rwth-aachen.de/?course=12ss-funkprog</a> Funktionale Programmierung</li>
+</ul>
+</section>
+</section>
+<section id="moocs-sites" class="level1">
+<h1>Moocs sites</h1>
+<ul>
+<li><a href="https://www.lektorium.tv/">lektoriumTV</a></li>
+<li><a href="https://compscicenter.ru/">compscicenter</a></li>
+<li><a href="https://www.coursera.org/">coursera</a></li>
+</ul>
+</section>
+</div>
+
+<div class="row">
+        <span class="date  text-right">
+            <i class="fa fa-calenda"></i> Posted on May  4, 2016
+        </span>
+        <span class="tags text-right" style="width: 100%">
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/haskell.html">haskell</a></li><li><a href="/tags/courses.html">courses</a></li><li><a href="/tags/fp.html">fp</a></li></ul>
         </span>
 </div>
 ]]></summary>
