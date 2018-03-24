@@ -7,75 +7,68 @@ comments: true
 toc: true
 ---
 
-[David, who is also working through PiH](http://davidtran.doublegifts.com/blog/?cat=7)
+* Ներածություն
 
-
-#Ներածություն
-
-##Ֆունկցիաներ
+** Ֆունկցիաներ
 
 Ֆունկցիան կարող է սահմանվել հետևյալ հավասարությամբ՝
 
-~~~~ {.haskell}
+#+BEGIN_SRC haskell
 double x = x + x
-~~~~
+#+END_SRC
+
 Երբ ֆունկցիան կիրառվում է կոնկրետ արգումենտի վրա, ապա ֆունկցիայի մարմնի արգումենտի փոփոխականները
 փոխարինվում են արգումենտի արժեքով և պարզեցնում է ստացված արտահայտությունը։
 
 Օրինակ՝
 
-~~~~ {.haskell}
+#+BEGIN_SRC haskell
 double 3
-~~~~
+#+END_SRC
+
 դեպքում կատարվում է հետևյալը հաշվարկները.
 
-~~~~ {.haskell}
+#+BEGIN_SRC haskell
     double 3
  =    {-- double կիրառում --}
     3 + 3
- =    {-- + կիրառում --}  
-    6     
-~~~~
+ =    {-- + կիրառում --}
+    6
+#+END_SRC
 
 
-##Features of Haskell
-* **Concise Programs - Հակիրճություն**
-
-* **Powerful type System – Հզոր տիպային համակարգ**
-
-* **List Comprehension ցուցակների**
-
-* **Recursive functions Ռեկուրսիա**
-
-* **Higher-order functions Բարձր կարգի ֆունկցիաներ**
-
-* **Monadic effects Մոնադներ**
-
-* **Lazy evolution**
-
-* **Reasoning about programs**
+** Haskell լեզվի հատկությունները
+ - **Հակիրճություն** (Concise Programs)
+ - Powerful type System – Հզոր տիպային համակարգ
+ - List Comprehension ցուցակների
+ - Recursive functions Ռեկուրսիա
+ - Higher-order functions Բարձր կարգի ֆունկցիաներ
+ - Monadic effects Մոնադներ
+ - Lazy evolution
+ - Reasoning about programs
 
 
 
-#Վարժությունները
+* Վարժությունները
+ 1. Give another possible calculation for the result of ~double (double 2)~.
+ 2. Show that sum ~[x]=x~ for any number ~x~.
+ 3. Define a function product that produces the product of a list of numbers, and show using your definition that ~product [ 2, 3, 4 ] = 24~.
+ 4. How should the definition of the function ~qsort~ be modified so that it produces a reverse sorted version of a list?
+ 5. What would be the effect of replacing ~≤~ by ~<~ in the definition of qsort? Hint: consider the example ~qsort [ 2, 2, 3, 1, 1 ]~.
 
-1. Give another possible calculation for the result of double (double 2).
-2. Showthatsum [x]=x foranynumberx.
-3. Define a function product that produces the product of a list of numbers, and show using your definition that product [ 2, 3, 4 ] = 24.
-4. How should the definition of the function qsort be modified so that it produces a reverse sorted version of a list?
-5. What would be the effect of replacing ≤ by < in the definition of qsort? Hint: consider the example qsort [ 2, 2, 3, 1, 1 ].
+
+* Լուծումներ
+
+*** վարժ. 1.1
 
 
-#Լուծումներ
-
-#####**վարժ. 1.1**
-
-~~~~ {.haskell}
+#+BEGIN_SRC haskell
  double x = x + x
 
  double (double 2) -- պարզեցման հնարավոր տարբերակները
-~~~~
-~~~~ {.haskell}
+#+END_SRC
+
+#+BEGIN_SRC haskell
 a)
  double (double 2)
 =    {-- ներսի double կիրառում --}
@@ -88,9 +81,7 @@ a)
   4 + 4
 =    {-- + կիրառում --}
   8
-~~~~
 
-~~~~ {.haskell}
 b)
   double (double 2)
 =    {-- ներսի double կիրառում --}
@@ -102,9 +93,6 @@ b)
 =    {-- + կիրառում --}
   8
 
-~~~~
-
-~~~ {.haskell}
 c)
   double (double 2)
 =    {-- ներսի double կիրառում --}
@@ -119,11 +107,13 @@ c)
   4 + 4
 =    {-- + կիրառում --}
   8
-~~~
+#+END_SRC
 
-#####**վարժ. 1.2**
+*** վարժ. 1.2
 
-~~~~ {.haskell}
+
+#+BEGIN_SRC haskell
+
 sum :: (Num a) => [a] -> a
 sum []     = 0
 sum (x:xs) = x + sum xs
@@ -135,12 +125,12 @@ sum (x:xs) = x + sum xs
   x + 0
 =    {-- + կիրառում --}
   x
-~~~~
+#+END_SRC
 
 
-#####**վարժ. 1.3**
+*** վարժ. 1.3
 
-~~~~ {.haskell}
+#+BEGIN_SRC haskell
 product :: (Num a) => [a] -> a
 product []     = 1
 product (x:xs) = x * product xs
@@ -160,11 +150,11 @@ product (x:xs) = x * product xs
   2 * 12)
 =    {-- * կիրառում --}
   24
-~~~~
+#+END_SRC
 
 ռեալ աշխատող տարբերակ՝
 
-~~~~ {.haskell}
+#+BEGIN_SRC haskell
 import Prelude hiding (product)
 
 product :: Num a => [a] -> a
@@ -176,10 +166,11 @@ product' = foldr (*) 1
 
 main = do
   putStrLn $ show $ product[2,3,4]
-~~~~
+#+END_SRC
 
-#####**վարժ. 1.4**
-~~~~ {.haskell}
+*** վարժ. 1.4
+
+#+BEGIN_SRC haskell
 rQsort :: Ord a => [a] -> [a]
 rQsort []     = []
 rQsort (x:xs) = rQsort larger ++ [x] ++ rQsrot smaller
@@ -195,13 +186,14 @@ qsort (x:xs) = qsort smaller ++ [x] ++ qsort larger
                      smaller = [a | a <- xs, a <= x]
                      larger  = [b | b <- xs, b > x]
 
-rQsort' :: Ord a => [a] -> [a]  
-rQsort' = reverse . qsort      
+rQsort' :: Ord a => [a] -> [a]
+rQsort' = reverse . qsort
+#+END_SRC
 
-~~~~
 
-#####**վարժ. 1.5**
-~~~ {lang="haskell"}
+*** վարժ. 1.5
+
+#+BEGIN_SRC haskell
 -- Եթե <= փոխարինենք խիստ անհավասարի նղանով <,
 -- ապա կստանանք կարգավորված ցուցակ որտեղ կբացակայեն
 -- կրկնվող տարերը։
@@ -216,16 +208,16 @@ qsort' (x:xs) = qsort' smaller ++ [x] ++ qsort' larger
 
 -- Ցույց տանք, որ կամայական x-ի համար qsort [x] = [x]
 
-  qsort [x]  
+  qsort [x]
 =    {-- qsort կիրառում --}
   qsort [] ++ [x] ++ qsort []
 =    {-- qsort կիրառում --}
   [] ++ [x] ++ []
 =    {-- ++ կիրառում --}
   [x]
-~~~
+#+END_SRC
 
-~~~~ {.haskell}
+#+BEGIN_SRC haskell
   qsort' [2,2,3,1,1]  -- qsort' (2:[2,3,1,1])
 =    {-- qsort' կիրառում --}
   qsort' [1,1] ++ [2] ++ qsort' [3]
@@ -238,4 +230,4 @@ qsort' (x:xs) = qsort' smaller ++ [x] ++ qsort' larger
 =    {-- ++ կիրառում --}
   [1,2,3]
 
-~~~~
+#+END_SRC

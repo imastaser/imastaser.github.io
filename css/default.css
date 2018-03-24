@@ -1,48 +1,43 @@
 @font-face {
     font-family: "PW Cactus";
-    src: url('/css/PWCactus.ttf');
+    src: url('/css/PWCactus.ttf')
 }
 
 body {
     background-color: #fafafa;
-    /* background-color: #ffffff; */
     color: black;
     font-size: 16px;
-    min-width: 800px;
-/*    font-family: 'arian_amuregular', 'Arian AMU', 'georgia', 'Futura','Lucida Sans','Helvetica','Arial';
-*/
+    min-width: 800px
 }
 
 .list-description {
-    font-size: 10px;
+    font-size: 10px
 }
 
 .container {
     padding: 20px;
     width: 65%;
-    height: auto;
+    height: auto
 }
 
-/*minimalist styles for navigation*/
 #logo div {
-    color: #99a;
+    color: #99a
 }
 
-.home-link{
+.home-link {
     font-size: 12px !important;
-    font-weight: normal !important;
+    font-weight: normal !important
 }
-
 
 #logo h1 {
     font-family: "PW Cactus", sans-serif;
     font-size: 300%;
-    text-shadow:1px 10px 10px #ddd;
+    text-shadow: 1px 10px 10px #ddd
 }
 
 .logo {
     color: black;
-    float: left;
+    float: left
 }
 
 div#logo a {
@@ -50,111 +45,98 @@ div#logo a {
     float: left;
     font-size: 18px;
     font-weight: bold;
-    text-decoration: none;
+    text-decoration: none
 }
 
 div#header #navigation a {
     color: black;
     font-size: 18px;
     font-weight: bold;
-    /*margin-left: 12px;*/
     text-decoration: none;
-    text-transform: uppercase;
+    text-transform: uppercase
 }
-
-/*end of minimiliast style*/
 
 div#header #navigation {
-    text-align: right;
+    text-align: right
 }
-
 
 #navigation {
     width: 100%;
     margin: 0px 0;
-    /*border-top: 1px solid #444;*/
     border-bottom: 1px solid #444;
-    padding: 8px 0;
+    padding: 8px 0
 }
 
 #navigation a, #navigation a:visited, #navigation a:hover {
-    /* font-variant: small-caps; */
     font-size: 15px;
-  /*argin-left: 10px;*/
     margin-right: 5px;
     font-family: Arial, sans-serif;
     letter-spacing: 2px;
-
-    /* color: #00499C */
-    color: #428bca;
+    color: #428bca
 }
 
 figure {
     width: 50%;
-    margin: 32px auto;
+    margin: 32px auto
 }
 
 figure img {
     margin: 16px auto;
-    max-width: 400px;
+    max-width: 400px
 }
 
 figure figcaption {
     text-align: center;
-    font-style: oblique;
+    font-style: oblique
 }
 
 .info, .date {
-    /*font-style: oblique;*/
     font-family: arial, sans-serif;
     font-size: 16px;
-    color: #bbb;
+    color: #bbb
 }
 
 .list-group .date {
-    font-size: 12px;
-    /*padding-left: 32px;*/
+    font-size: 12px
 }
 
 .post-content h1, .page-content h1 {
-    font-size: 32px;
+    font-size: 32px
 }
 
 .post-content h2, .page-content h2 {
-    font-size: 24px;
+    font-size: 24px
 }
 
-#toc h2, #toc h1 {
-    font-size: 32px !important;
+#TOC h2, #TOC h1 {
+    font-size: 32px !important
 }
 
 .post-content h3, .page-content h3 {
-    font-size: 20px;
+    font-size: 20px
 }
 
 .post-content ul, .page-content ul {
-    list-style-type: square;
+    list-style-type: square
 }
 
 .post-content p {
-    /*text-align: justify;*/
 }
 
 .container p {
     margin-left: 12px;
     margin-top: 12px;
-    margin-bottom: 12px;
+    margin-bottom: 12px
 }
 
 pre {
-    width: 90%;
-    margin: 12px auto;
+  /*  width: 90%;*/
+    margin: 12px auto
 }
 
 code {
     background-color: #e8e8e9;
-    /* background-color: #fafafa; */
-    color: #333388;
+    color: #333388
 }
 
 hr {
@@ -162,7 +144,7 @@ hr {
     color: #aaa;
     height: 1px;
     width: 100%;
-    margin: 16px auto;
+    margin: 16px auto
 }
 
 #footer {
@@ -170,134 +152,159 @@ hr {
     font-size: 14px;
     margin-top: 2px;
     width: 100%;
-    font-family: 'arian_amuregular', 'Arian AMU', 'georgia', 'Futura','Lucida Sans','Helvetica','Arial';
-
+    font-family: 'arian_amuregular', 'Arian AMU', 'georgia', 'Futura','Lucida Sans','Helvetica','Arial'
 }
 
 #footer a {
-    color: #446;
+    color: #446
 }
 
 #footer hr {
-    width: 100%;
+    width: 100%
 }
 
 .title hr {
     width: 25% !important;
     margin: 15px auto 15px;
-    font-size: 14px;
+    font-size: 14px
 }
 
 .tagcloud hr {
-    width: 25% !important;
+    width: 25% !important
 }
 
 .centerize {
-    margin: 0 auto;
+    margin: 0 auto
 }
 
 ul {
-    list-style: none;
+    list-style: none
 }
 
 .tags li a:hover {
     background-color: #428bca;
-    /* background-color: #efefef; */
     color: #fff;
     width: 100%;
     text-decoration: none;
-    font-size: 12px;
+    font-size: 12px
 }
 
 .tags li a {
     background-color: #fff;
     color: #428bca;
-    /* text-decoration: underline; */
     border: 1px solid #428bca;
     font-size: 12px;
-    padding: 2px;
+    padding: 2px
 }
 
 .list-group-item-heading {
-    width: 100%;
+    width: 100%
 }
 
 .list-group-item-heading a {
     font-size: 110%;
-    color: #00499C;
+    color: #00499C
 }
 
 .tagcloud {
-    /*width:80%;*/
-    margin: 0 auto 6px;
+    margin: 0 auto 6px
 }
 
 .fa-rss {
-    color: #a45;
+    color: #a45
 }
 
-#toc {
+#TOC {
     float: right;
     margin-left: 16px;
-    width: 300px;
+    width: 300px
 }
 
-#toc ul {
-    list-style-type: upper-roman;
+#TOC ul {
+    list-style-type: upper-roman
 }
 
-#toc li > ul {
-    list-style-type: decimal;
+#TOC li > ul {
+    list-style-type: decimal
 }
 
-#toc h3 {
-    text-align: center;
+#TOC h3 {
+    text-align: center
 }
+
 p .math {
-    font-size: 110%;
+    font-size: 110%
 }
-
-
-/*table styles*/
 
 table {
-    border-collapse: collapse;
+    border-collapse: collapse
 }
 
 table, th, td {
-   border: 1px solid black;
+    border: 1px solid black
 }
 
+.posts {
+    list-style-type: none;
+    margin-top: 20px
+}
 
-.posts { list-style-type: none; }
-
-.posts li { margin-bottom: 8px; }
+.posts li {
+    margin-bottom: 2px
+}
 
 .posts .post-link {
-  font-size: 1em;
-  letter-spacing: -1px;
-  line-height: 1;
-  text-decoration: none;
-  color: black;
+    font-size: 1.3em;
+    letter-spacing: -1px;
+    line-height: 1;
+    text-decoration: none;
+    color: black;
+    margin-left: -25px
 }
 
 .posts .post-date, .posts .post-author {
-  display: block;
-  font-size: 15px;
-  color: #818181;
+    display: block;
+    font-size: 15px;
+    color: #818181
 }
 
-.posts .post-date, .post-tag {
-  font-size: 0.8em;
-  /*opacity: 0.6;*/
+.posts .post-date {
+    opacity: 0.6;
+    margin-left: 15px;
+    font-size: 0.7em;
+    display: inline
+}
+
+.posts .post-tag {
+    font-size: 0.9em;
+    margin-left: -10px
 }
 
 .post-tag a, .post-tag a:visited {
-  color: #2a7ae2;
-  text-decoration: none;
+    color: #2a7ae2;
+    text-decoration: none
 }
 
 .post-tag a:hover {
- text-decoration: underline;
+    text-decoration: underline
 }
 
+.tag-title {
+    display: block;
+    font-size: 1.5em;
+    -webkit-margin-before: 0.83em;
+    -webkit-margin-after: 0.83em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold
+}
+
+
+article section {
+ /*   display: inline-block;*/
+    vertical-align: top;
+}
+
+article>:not(section), article section>:not(section) {
+    overflow: auto;
+}

@@ -1,19 +1,21 @@
 ---
 title: Միտք
 ---
-
-
-$if(programmingPosts)$
-<h3>Ծրագրավորում և Մաթեմատիկա </h3>
-<ul>
+<article>
+<section>
+  $if(programmingPosts)$
+  <h3>Ծրագրավորում և Մաթեմատիկա </h3>
+  <ul>
     $for(programmingPosts)$
-        <li>
-            <a href="$url$">$title$</a> - $date$
-        </li>
+    <li>
+      <a href="$url$">$title$</a> - $date$
+    </li>
     $endfor$
-</ul>
-$endif$
+  </ul>
+  $endif$
+</section>
 
+<section>
 $if(haskellPosts)$
 <h3>Ֆունկցիոնալ Ծրագրավորում</h3>
 <ul>
@@ -31,6 +33,7 @@ $if(haskellPosts)$
     $endif$
 </ul>
 $endif$
+</section>
 
 $if(methodologyPosts)$
 <h3>Մեթոդաբանություն</h3>
@@ -67,3 +70,5 @@ $if(restPosts)$
 $else$
     <!-- <p>There are no posts.</p> -->
 $endif$
+
+    </article>

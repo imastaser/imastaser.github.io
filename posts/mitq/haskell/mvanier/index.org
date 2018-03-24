@@ -1,0 +1,37 @@
+---
+title: Yet Another Monad Tutorial(Mike's "World-O-Programming")
+tags: mvanier, monads, tutorials, haskell
+date: 2016-05-18T00:01:00
+description: Mike Vanier's blog posts with a bit formatting and easy navigation
+comments: true
+toc: false
+---
+
+
+ - [[http://mvanier.livejournal.com/?skip=10][Mike's World-O-Programming]]
+ - [[http://users.cms.caltech.edu/~mvanier/][Mike Vanier's home page]]
+
+
+|------------+--------------------------------------------------------------------+-----------------------------------------------------|
+|            | original                                                           | local                                               |
+|------------+--------------------------------------------------------------------+-----------------------------------------------------|
+| 15.01.2008 | [[http://mvanier.livejournal.com/519.htm][Welcome to my blog!]]                                                | Welcome to my blog!                                 |
+| 15.01.2008 | [[http://mvanier.livejournal.com/998.html]["Foundational" programming languages]]                               | "Foundational" programming languages                |
+| 16.01.2008 | [[http://mvanier.livejournal.com/1205.html][How not to explain Haskell monads]]                                  | [[../mvanier/posts/how-not-to-explain-haskell-monads.html][How not to explain Haskell monads]]                   |
+| 16.01.2008 | [[http://mvanier.livejournal.com/1351.html][Ruby critique, part 1]]                                              |                                                     |
+| 21.01.2008 | [[http://mvanier.livejournal.com/1765.html][Haskell state monads, part 1]]                                       | [[../mvanier/posts/statemonad-part1.html][Haskell state monads, part 1]]                        |
+| 22.01.2008 | [[http://mvanier.livejournal.com/1901.html][Haskell state monads, part 2]]                                       | [[../mvanier/posts/statemonad-part2.html][Haskell state monads, part 2]]                        |
+| 10.04.2008 | [[http://mvanier.livejournal.com/2133.html][Forth]]                                                              | Forth                                               |
+| 20.07.2008 | [[http://mvanier.livejournal.com/2700.html][The Y Combinator]]                                                   | [[../mvanier/posts/y-combinator.html][The Y Combinator]]                                    |
+| 14.08.2008 | [[http://mvanier.livejournal.com/2897.html][The Y Combinator (Slight Return)]]                                   | [[../mvanier/posts/y-combinator-return.html][The Y Combinator (Slight Return)]]                    |
+| 17.03.2009 | [[http://mvanier.livejournal.com/2009/03/17/][Haskell is sandbox crack!]]                                          |                                                     |
+| 12.07.2010 | [[http://mvanier.livejournal.com/3395.html][Why Scala Is Interesting]]                                           |                                                     |
+| 21.07.2010 | [[http://mvanier.livejournal.com/3820.html][Stupid Haskell Trick: Factorials in the Type System]]                |                                                     |
+| 25.07.2010 | [[http://mvanier.livejournal.com/3917.html][Yet Another Monad Tutorial (part 1: basics)]]                        | [[../mvanier/posts/monad-1.html][Yet Another Monad Tutorial (part 1: basics)]]         |
+| 25.07.2010 | [[http://mvanier.livejournal.com/4305.html][Yet Another Monad Tutorial (part 2: >>= and return)]]                | [[../mvanier/posts/monad-2.html][Yet Another Monad Tutorial (part 2: >>= and return)]] |
+| 25.07.2010 | [[http://mvanier.livejournal.com/4586.html][Yet Another Monad Tutorial (part 3: The Monad Laws)]]                |                                                     |
+| 25.07.2010 | [[http://mvanier.livejournal.com/4647.html][Yet Another Monad Tutorial (part 4: The Maybe and List Monads)]]     |                                                     |
+| 16.08.2010 | [[http://mvanier.livejournal.com/5103.html][Yet Another Monad Tutorial (part 5: error-handling monads)]]         |                                                     |
+| 16.08.2010 | [[http://mvanier.livejournal.com/5343.html][Yet Another Monad Tutorial (part 6: more on error-handling monads)]] |                                                     |
+| 25.08.2010 | [[http://mvanier.livejournal.com/5406.html][Yet Another Monad Tutorial (part 7: state monads)]]                  |                                                     |
+| 25.08.2010 | [[http://mvanier.livejournal.com/5846.html][Yet Another Monad Tutorial (part 8: more on state monads)]]          |                                                     |

@@ -5,35 +5,34 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE FlexibleContexts #-}
 
-import Control.Applicative ((<$>))
-import Data.Char
-import Data.Maybe (catMaybes)
-import Data.Monoid (mappend, (<>), mconcat, mempty)
-import Data.Time.Format (formatTime)
-import Data.Time.Clock (getCurrentTime)
-import Hakyll ((.||.), (.&&.), hakyllWith, match, idRoute, route,
-               applyTemplateList, buildTags, compile,  compressCssCompiler,
-               pandocCompilerWith, deployCommand, modificationTimeField,
-               recentFirst, relativizeUrls, field, applyAsTemplate, listField,
-               copyFileCompiler, dateField, defaultContext, toUrl, makeItem, loadAndApplyTemplate,
-               defaultHakyllWriterOptions, getUnderlying, getMetadataField, defaultConfiguration,
-               loadAll, loadBody, getResourceBody, create, setExtension, saveSnapshot,
-               FeedConfiguration(..), fromCapture, loadAllSnapshots, composeRoutes, templateCompiler,
-               constField, gsubRoute, defaultHakyllReaderOptions, bodyField, customRoute, toFilePath,
-               Compiler, Context, Item, Pattern, Tags, Configuration, renderRss, renderAtom, Routes)
-
-import Hakyll.Web.Tags
-import System.Locale (defaultTimeLocale)
-import Text.Blaze.Html (toHtml, toValue, (!))
-import Text.Blaze.Html.Renderer.String (renderHtml)
-import qualified Text.Blaze.Html5                as H
-import qualified Text.Blaze.Html5.Attributes     as A
-import Text.Pandoc
-import Text.Pandoc.Options
-import GHC.IO.Encoding(utf8, setLocaleEncoding, setFileSystemEncoding, setForeignEncoding)
-import System.FilePath.Posix  (takeBaseName, splitDirectories, (</>)
-                             , addExtension, addExtension
-                             , replaceExtension, dropExtension)
+import           Control.Applicative ((<$>))
+import           Data.Char
+import           Data.Maybe (catMaybes)
+import           Data.Monoid (mappend, (<>), mconcat, mempty)
+import           Data.Time.Clock (getCurrentTime, UTCTime(..))
+import Data.Time.Calendar (toGregorian)
+import           Data.Time.Format (formatTime)
+import           GHC.IO.Encoding (utf8, setLocaleEncoding, setFileSystemEncoding, setForeignEncoding)
+import           Hakyll ( (.||.), (.&&.), hakyllWith, match, idRoute, route
+                        , applyTemplateList, buildTags, compile,  compressCssCompiler
+                        , pandocCompilerWith, deployCommand, previewHost,  modificationTimeField
+                        , recentFirst, relativizeUrls, field, applyAsTemplate, listField
+                        , copyFileCompiler, dateField, defaultContext, toUrl, makeItem, loadAndApplyTemplate
+                        , defaultHakyllWriterOptions, getUnderlying, getMetadataField, defaultConfiguration
+                        , loadAll, loadBody, getResourceBody, create, setExtension, saveSnapshot
+                        , FeedConfiguration(..), fromCapture, loadAllSnapshots, composeRoutes, templateCompiler
+                        , constField, gsubRoute, defaultHakyllReaderOptions, bodyField, customRoute, toFilePath
+                        , Compiler, Context, Item, Pattern, Tags, Configuration, renderRss, renderAtom, Routes)
+import           Hakyll.Web.Tags
+import           System.FilePath.Posix (takeBaseName, splitDirectories, (</>)
+                                       , addExtension, addExtension
+                                       , replaceExtension, dropExtension)
+import           System.Locale (defaultTimeLocale)
+import           Text.Blaze.Html (toHtml, toValue, (!))
+import           Text.Blaze.Html.Renderer.String (renderHtml)
+import qualified Text.Blaze.Html5 as H
+import qualified Text.Blaze.Html5.Attributes as A
+import           Text.Pandoc.Options
 
 main :: IO ()
 main = do
@@ -49,9 +48,10 @@ main = do
 
         let postPattern = ("posts/*"
                         .||. "posts/*/*/*"
-                        .||. "posts/*/*.markdown"
-                        .||. "posts/*/*/*/*.markdown"
-                        .||. "posts/*/*/*/*/*.markdown")
+                        .||. "posts/*/*.org"
+                        .||. "posts/*/*/*/*.org"
+                        .||. "posts/*/*/*/*/*.org"
+                        .||. "posts/*/*/*/*/*/*.org")
 
         match (foldr1 (.||.) assets) $ do
             route   idRoute
@@ -129,7 +129,8 @@ main = do
         match "index.html" $ do
             route idRoute
             compile $ do
-                posts <- fmap (take 3) . recentFirst =<< loadAll postPattern --  ((++) <$> loadAll "posts/*" <*> loadAll "posts/*/*")
+                posts <- fmap (take 6) . recentFirst =<< loadAll postPattern --  ((++) <$> loadAll "posts/*" <*> loadAll "posts/*/*")
+
                 let indexCtx =
                       listField "posts" (postCtx tags) (return posts) <>
                       field "tagcloud" (\_ -> myTagCloud tags) <>
@@ -144,12 +145,16 @@ main = do
         match ("posts/mitq/index.html") $ do
             route  $ customRoute $  (processPagesRoute "mitq") .  toFilePath
             compile $ do
-                methodPosts <- recentFirst =<< loadAll ("posts/mitq/methodology/*" .||. "posts/mitq/methodology/*/*")
-                programmingPosts <- recentFirst =<< loadAll ("posts/mitq/programming/*" .||. "posts/mitq/programming/*/*")
-                haskellPosts <- recentFirst =<< loadAll ("posts/mitq/haskell/*" .||. "posts/mitq/haskell/*/*" )
+                methodPosts <- recentFirst =<< loadAll ("posts/mitq/methodology/*"
+                                                        .||. "posts/mitq/methodology/*/*")
+                programmingPosts <- recentFirst =<< loadAll ("posts/mitq/programming/*"
+                                                             .||. "posts/mitq/programming/*/*")
+                haskellPosts <- recentFirst =<< loadAll ( "posts/mitq/haskell/*"
+                                                        .||. "posts/mitq/haskell/*/*"
+                                                        )
                 etcPosts <- recentFirst =<< loadAll ("posts/mitq/etc/*" .||. "posts/mitq/etc/*/*" )
                 fpPosts <- recentFirst =<< loadAll ("posts/mitq/fp/*" .||. "posts/mitq/fp/*/*")
-                restPosts <- recentFirst =<< loadAll ("posts/mitq/*.markdown")
+                restPosts <- recentFirst =<< loadAll ("posts/mitq/*.org")
 
                 let indexCtx =
                         listField "methodologyPosts" (postCtx tags) (if null methodPosts then fail "No posts" else return methodPosts) `mappend`
@@ -168,8 +173,10 @@ main = do
         match ("posts/hogi/index.html") $ do
             route  $ customRoute $  (processPagesRoute "hogi") .  toFilePath
             compile $ do
-                astuacashuncPosts <- recentFirst =<< loadAll ("posts/hogi/astuatsashunch/*.markdown" .||. "posts/hogi/astuatsashunch/*/*.markdown")
-                mashalyanPosts <- recentFirst =<< loadAll ("posts/hogi/mashalyan/*.markdown" .||. "posts/hogi/mashalyan/*/*.markdown")
+                astuacashuncPosts <- recentFirst =<< loadAll ("posts/hogi/astuatsashunch/*.markdown"
+                                                              .||. "posts/hogi/astuatsashunch/*/*.markdown")
+                mashalyanPosts <- recentFirst =<< loadAll ("posts/hogi/mashalyan/*.markdown"
+                                                           .||. "posts/hogi/mashalyan/*/*.markdown")
                 narekPosts <- recentFirst =<< loadAll ("posts/hogi/narek/*.markdown")
                 nshnorhaliPosts <- recentFirst =<< loadAll ("posts/hogi/nshnorhali/*.markdown")
                 grabarPosts <- recentFirst =<< loadAll ("posts/hogi/grabar/*.markdown")
@@ -243,8 +250,8 @@ myFeedConfiguration = FeedConfiguration
     { feedTitle       = "Arthur Vardanyan's blog"
     , feedDescription = ""
     , feedAuthorName  = "Arthur Vardanyan"
-    , feedAuthorEmail = "artie.vard@gmail.com"
-    , feedRoot        = "http://imastaser.am"
+    , feedAuthorEmail = "arthur@imast.am"
+    , feedRoot        = "http://imast.am"
     }
 
 -- -----------------------------------------------------------------------------
@@ -265,17 +272,23 @@ postList pattern postCtx sortFilter = do
 -- * Helpers
 --
 getCurrentYear :: IO String
-getCurrentYear = return "2016" -- formatTime defaultTimeLocale "%Y" <$> getCurrentTime
+getCurrentYear = do
+  -- getCurrentTime >>= return . toGregorian . utctDay
+  now <- getCurrentTime
+  let (year, _, _) = toGregorian $ utctDay now
+  return $ show year
+
 
 myTagCloud :: Tags -> Compiler String
-myTagCloud tags =
-    renderTagCloud 80 250 tags
+myTagCloud tags =  renderTagList tags  -- show tag posts count in parns e.g haskell(3)
+--  renderTagCloud 80 250 tags -- tag posts count feed to tag font size
 
 myTagsField :: String -> Tags -> Context a
 myTagsField =
     tagsFieldWith getTags renderOneTag $ \tagLinks -> do
         H.ul ! A.class_ "list-inline" $ do
             H.li $ H.i ! A.class_ "fa fa-tags" $ mempty
+            -- H.li . H.i $ mempty
             sequence_ tagLinks
 
 
@@ -289,7 +302,8 @@ renderOneTag tag (Just filepath) =
 config :: Configuration
 config = defaultConfiguration
     { deployCommand = "rsync -avz -e ssh ./_site/ \
-                       \ alp@alpmestan.com:public_html/"
+                       \ a@a.com:public_html/"
+    , previewHost = "0.0.0.0"
     }
 
 
@@ -310,7 +324,7 @@ myPandocCompiler' withToc =
                            }
           writerWithToc =
             writerOpts { writerTableOfContents = True
-                       , writerTemplate = Just "$if(toc)$<div id=\"toc\"><h3>Table of contents</h3>$toc$</div>$endif$\n$body$"
+                       , writerTemplate = Just "$if(toc)$<div id=\"TOC\">$toc$</div>$endif$\n$body$"
                     --   , writerStandalone = True
                        }
 
@@ -343,12 +357,28 @@ processRoute n root path =  root </> (foldl (</>) (fp "") rs) </>  (replaceExten
                                               fp :: FilePath -> FilePath
                                               fp a = a
 
-
-
-
-
 niceRoute :: String -> Routes
 niceRoute prefix = customRoute $ \ident -> prefix ++ (takeBaseName . toFilePath $ ident) ++ "/index.html"
 
 -- niceRoute' :: Routes
 -- niceRoute' =  \ident -> (takeBaseName . toFilePath $ ident) ++ "/index.html"
+
+-- Megaparsec
+{-
+org :: Parser (Title, Date)
+org = (,) <$> title <*> date <* takeRest
+
+title :: Parser Title
+title = Title . pack <$> (string "#+TITLE: " *> someTill anyChar newline)
+
+date :: Parser Date
+date = do
+  string "#+DATE: "
+  year  <- L.decimal <* char '-'
+  month <- fmap (toEnum . pred) L.decimal <* char '-'
+  day   <- L.decimal
+  pure $ Date year month day
+
+parseOrg :: Text -> Text -> Either Text (Title, Date)
+parseOrg fp t = first (pack . parseErrorPretty) $ parse org (unpack fp) t
+-}

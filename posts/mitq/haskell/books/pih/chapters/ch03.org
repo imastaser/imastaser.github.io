@@ -7,95 +7,88 @@ date: 2014-02-01
 toc: true
 ---
 
-#Տիպեր և Դասեր(class)
+* Տիպեր և Դասեր(class)
 
-##Հիմնական Հասկացությունները
-*Տիպը* դա նույնանման, իրար առնչվող արժեքների հավաքածուն է։
-Օրինակ՝
-Bool տիպը պարունակում է երկու տրամաբանական արժեք **False** և **True**,
-Իսկ **Bool → Bool** տիպը պարունակում է բոլոր այն ֆունկցիաները որոնք արտապատկերում են **Bool** պազմությունե **Bool** բազմության,
-ինչպիսին է տրամաբական ժխտում ֆունկցիան՝ **¬**։  
+** Հիմնական Հասկացությունները
+   *Տիպը* դա նույնանման, իրար առնչվող արժեքների հավաքածուն է։
+ Օրինակ՝
+~Bool~ տիպը պարունակում է երկու տրամաբանական արժեք ~False~ և ~True~,
+Իսկ ~Bool → Bool~ տիպը պարունակում է բոլոր այն ֆունկցիաները որոնք արտապատկերում
+են ~Bool~ պազմությունե ~Bool~ բազմության,
+ինչպիսին է տրամաբական ժխտում ֆունկցիան՝ ~¬~։
 
-Մենք կգործածենք **v :: T** գրելաձևը, հայտարարելու համար, որ  v արժեքի տիպը T է, օրինակ՝
+Մենք կգործածենք ~v :: T~ գրելաձևը, հայտարարելու համար, որ  ~v~ արժեքի տիպը ~T~
+է, օրինակ՝
+#+BEGIN_SRC haskell
+  False :: Bool
+  True :: Bool
+  ¬ :: Bool → Bool
+#+END_SRC
 
-* *False :: Bool*
-* *True :: Bool*
-* *¬ :: Bool → Bool*
+** Տիպի Արտածում (type inference)
+   Haskell ծրգրավորման լեզվում յուրաքանչյուր արտահայտություն պետք է ունենա տիպ, որը հաշվվում է նախքան
+   արտահայտության պարզեցնելը(evaluating the expression) դա իրականացնում է *տիպի արտածման*
+   գործընթացը (type inference)։
 
-#### Տիպի հետեվություն (type inference)
-Haskell ծրգրավորման լեզվում յուրաքանչյուր արտահայտություն պետք է ունենա տիպ, որը հաշվվում է նախքան
-արտահայտության պարզեցնելը(evaluating the expression) դա իրականացնում է *տիպի հետեվություն*
-գործընթացը (type inference)։
-
-####3.2 Հիմնական տիպեր
+*** 3.2 Հիմնական տիպեր
 Haskell լեզվում նկարագրվաղ են որոշակի հիմնական տիպեր, հաճախ օգտագործվողներհետևյլաներն են՝
+ ~Bool~ – տրամաբանական տիպ (logical values)
+ պարունկաում է երկու տրամաբանական արժեք՝ ~False~ և ~True~
 
-#####Bool – տրամաբանական տիպ (logical values)
-պարունկաում է երկու տրամաբանական արժեք՝ False և True
-
-#####Char – մեկ տառ (single characters)
-Այս տիպ պարունակում է բոլոր տառերը, որոնք առկա են ստեղնաշարի վրա, ինչպիսիք են՝ ’a’, ’A’, ’3’
-, ’_’, և մի շարք կառավարող նշաններ որոնք ունեն հատուկ նշանակություն ինչպիսիք են՝ ’\n’ (տեղափոխել նոր
-տող) և ’\t’ (տեղափոխել հաջորդ tab stop).    
-
-
-#####
+ ~Char~ – մեկ տառ (single characters)
+Այս տիպ պարունակում է բոլոր տառերը, որոնք առկա են ստեղնաշարի վրա, ինչպիսիք են՝ ~’a’, ’A’, ’3’~
+, ~’_’~, և մի շարք կառավարող նշաններ որոնք ունեն հատուկ նշանակություն ինչպիսիք են՝ ~’\n’~ (տեղափոխել նոր
+տող) և ~’\t’~ (տեղափոխել հաջորդ tab stop).
 
 
-#####
+*** 3.11 Վարժությունները
+ 1. Որո՞նք են հետևյալ արժեքների *տիպերը*։
+ #+BEGIN_SRC haskell
+ [’a’,’b’,’c’]
+ (’a’, ’b’, ’c’)
+ [(False , ’O’), (True , ’1’)]
+ ([False,True],[’0’,’1’])
+ [tail , init , reverse]
+ #+END_SRC
+ 2. Որո՞նք են հետևյալ ֆունկցիաների *տիպերը*։
+ #+BEGIN_SRC haskell
+ second xs     = head (tail xs)
 
-#####
-#3.11 Վարժությունները
+ swap (x,y)    = (y,x)
 
-1. Որո՞նք են հետևյալ արժեքների *տիպերը*։
+ pair x y      = (x,y)
 
-~~~~ {.haskell}
-[’a’,’b’,’c’]
-(’a’, ’b’, ’c’)
-[(False , ’O’), (True , ’1’)]
-([False,True],[’0’,’1’])
-[tail , init , reverse]
-~~~~
-2. Որո՞նք են հետևյալ ֆունկցիաների *տիպերը*։
+ double x      = x * 2
 
-~~~~ {.haskell}
-second xs     = head (tail xs)
+ palindrome xs = reverse xs == xs
 
-swap (x,y)    = (y,x)
+ twice f x     = f (f x)
 
-pair x y      = (x,y)
+ #+END_SRC
+ **Hint**: take care to include the necessary class constraints if the functions are defined using overloaded operators.~
 
-double x      = x * 2
+ 3. Check your answers to the preceding two questions using Hugs.
+ 4. Why is it not feasible in general for function types to be instances of the *Eq* class?
+ When is it feasible?
 
-palindrome xs = reverse xs == xs
+ **Hint:** two functions of the same type are equal if they always return equal results for equal arguments.
 
-twice f x     = f (f x)
-~~~~
-  Hint: take care to include the necessary class constraints
-        if the functions are defined using overloaded operators.
+*** Լուծումներ
 
-3. Check your answers to the preceding two questions using Hugs.
-4. Why is it not feasible in general for function types to be instances of the *Eq* class?
-When is it feasible?
-**Hint:** two functions of the same type are equal if they always
-return equal results for equal arguments.
+**** վարժ. 3.1
 
-#Լուծումներ
-
-#####**վարժ. 3.1**
-
-~~~~ {.haskell}
+#+BEGIN_SRC haskell
 [’a’,’b’,’c’] :: [Char]
 (’a’, ’b’, ’c’) :: (Char, Char, Char)
 [ (False , ’O’), (True , ’1’) ] :: [(Bool, Char)]
 ([False,True],[’0’,’1’]) :: ([Bool], [Char])
 [ tail , init , reverse ] :: [[a] -> [a]]
-~~~~
+#+END_SRC
 
 
-#####**վարժ. 3.2**
+**** վարժ. 3.2
 
-~~~~ {.haskell}
+#+BEGIN_SRC haskell
 second :: [a] -> a
 second xs     = head (tail xs)
 
@@ -114,18 +107,14 @@ palindrome xs = reverse xs == xs
 twice :: (a -> a) -> a -> a
 twice f x     = f (f x)
 
-~~~~
+#+END_SRC
 
 
 
-#####**վարժ. 3.3**
-~~~~ {.haskell}
+**** վարժ. 3.3
+#+BEGIN_SRC haskell
+#+END_SRC
 
-
-~~~~
-
-#####**վարժ. 3.4**
-~~~~ {.haskell}
-
-
-~~~~
+**** վարժ. 3.4
+#+BEGIN_SRC haskell
+#+END_SRC

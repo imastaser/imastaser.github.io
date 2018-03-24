@@ -7,10 +7,14 @@ comments: true
 toc: true
 ---
 
-Մեկ անգամ ևս անցնելու եմ [[http://fp.silk.co/page/graham-haskell-book][Programming in Haskell (PiH)]] գրքով,
+* 2014
+Մեկ անգամ ևս անցնելու եմ [[http://www.cs.nott.ac.uk/~pszgmh/book-old.html][Programming in Haskell (PiH)]] գրքով,
 բայց այս անգամ նշումներով և վարժությունները գրի առնելով։
 
 
  - [[./chapters/ch01.html][Գլուխ Ա]]
- - [Գլուխ Բ](./chapters/ch02.html)
- - [Գլուխ Գ](./chapters/ch03.html)
+ - [[./chapters/ch02.html][Գլուխ Բ]]
+ - [[./chapters/ch03.html][Գլուխ Գ]]
+
+* 2018
+ Շարունակենք [[http://www.cs.nott.ac.uk/~pszgmh/pih.html][Programming in Haskell (PiH)]] գրքի երկրորդ հրատարակությունով

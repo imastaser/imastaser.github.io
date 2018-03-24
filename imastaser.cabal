@@ -27,3 +27,4 @@ executable imastaser
                 , time
                 , blaze-html
                 , old-locale
+                , megaparsec
