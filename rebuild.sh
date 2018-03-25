@@ -6,4 +6,3 @@
 echo -- "Compiling and building"
 stack exec imastaser clean && \
 stack exec imastaser build
-stack exec imastaser build
