@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Գլուխ Ա - Programming in Haskell(PiH)</title>
+        <link rel="alternate" type="application/rss+xml" title="AV notes" href="../../../../../rss.xml" />
+        <link rel="shortcut icon" href="../../../../../favicon.ico?v=2" type="image/x-icon" />
+        <link rel="stylesheet" href="../../../../../css/bootstrap.min.css" />
+        <link rel="stylesheet" href="../../../../../css/bootstrap-theme.min.css" />
+        <link rel="stylesheet" href="../../../../../css/default.css" />
+        <link rel="stylesheet" href="../../../../../css/syntax.css" />
+          <link rel="stylesheet" href="../../../../../css/quotes.css" />
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config( { tex2jax: { inlineMath: [ ["\\(", "\\)"] ]
+                                           , displayMath: [ ["\\[", "\\]" ] ]
+                                           , processEscapes: true
+                                           }
+                              });
+
+
+
+        </script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
+
+        <script type="text/javascript" src="../../../../../js/jquery.min.js">
+        </script>
+        <script type="text/javascript" src="../../../../../js/bootstrap.min.js">
+        </script>
+
+    </head>
+    <body>
+        <div class="container">
+
+
+            <div id="header">
+
+                <ul id="navigation" class="list-inline text-center">
+                    <li class="logo"><a href="../../../../../" class="home-link">ԳԼԽԱՎՈՐ</a></i>
+                    <li><a href="../../../../../hogi/">ՀՈԳԻ</a></li>
+                    <li><a href="../../../../../mitq/">ՄԻՏՔ</a></li>
+                    <li><a href="../../../../../marmin/">ՄԱՐՄԻՆ</a></li>
+                    <li><a href="../../../../../rss.xml"><i class="fa fa-rss"></i></a></li>
+                    <!-- <li><a href="/atom.xml"><i class="fa fa-rss"></i></a></li> -->
+                </ul>
+            </div>
+            <div class="clear"></div>
+            <!---->
+
+  <div class="clear"></div>
+<!--  <p style="font-size: 11px;"><strong>Ուշադրություն.</strong> <small>«իմաստասէր» բառը պետք է հասկանալ տառացի. ոչ որպէս փիլիսոփա իմաստով:</small></p> -->
+            <div id="content">
+
+               <!-- <div class="title text-center">
+                    <h4>Գլուխ Ա - Programming in Haskell(PiH)</h4>
+                    <hr>
+                </div> -->
+                <div class="post-content">
+<div id="TOC"><ul>
+<li><a href="#ներածություն">Ներածություն</a><ul>
+<li><a href="#ֆունկցիաներ">Ֆունկցիաներ</a></li>
+<li><a href="#haskell-լեզվի-հատկությունները">Haskell լեզվի հատկությունները</a></li>
+</ul></li>
+<li><a href="#վարժությունները">Վարժությունները</a></li>
+<li><a href="#լուծումներ">Լուծումներ</a><ul>
+<li><a href="#վարժ.-1.1">վարժ. 1.1</a></li>
+<li><a href="#վարժ.-1.2">վարժ. 1.2</a></li>
+<li><a href="#վարժ.-1.3">վարժ. 1.3</a></li>
+<li><a href="#վարժ.-1.4">վարժ. 1.4</a></li>
+<li><a href="#վարժ.-1.5">վարժ. 1.5</a></li>
+</ul></li>
+</ul></div>
+<section id="ներածություն" class="level1">
+<h1>Ներածություն</h1>
+<section id="ֆունկցիաներ" class="level2">
+<h2>Ֆունկցիաներ</h2>
+<p>Ֆունկցիան կարող է սահմանվել հետևյալ հավասարությամբ՝</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><a class="sourceLine" id="cb1-1" data-line-number="1">double x <span class="fu">=</span> x <span class="fu">+</span> x</a></code></pre></div>
+<p>Երբ ֆունկցիան կիրառվում է կոնկրետ արգումենտի վրա, ապա ֆունկցիայի մարմնի արգումենտի փոփոխականները փոխարինվում են արգումենտի արժեքով և պարզեցնում է ստացված արտահայտությունը։</p>
+<p>Օրինակ՝</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode haskell"><code class="sourceCode haskell"><a class="sourceLine" id="cb2-1" data-line-number="1">double <span class="dv">3</span></a></code></pre></div>
+<p>դեպքում կատարվում է հետևյալը հաշվարկները.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode haskell"><code class="sourceCode haskell"><a class="sourceLine" id="cb3-1" data-line-number="1">   double <span class="dv">3</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="fu">=</span>    <span class="co">{-- double կիրառում --}</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">   <span class="dv">3</span> <span class="fu">+</span> <span class="dv">3</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="fu">=</span>    <span class="co">{-- + կիրառում --}</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">   <span class="dv">6</span></a></code></pre></div>
+</section>
+<section id="haskell-լեզվի-հատկությունները" class="level2">
+<h2>Haskell լեզվի հատկությունները</h2>
+<ul>
+<li><strong><strong>Հակիրճություն</strong></strong> (Concise Programs)</li>
+<li>Powerful type System – Հզոր տիպային համակարգ</li>
+<li>List Comprehension ցուցակների</li>
+<li>Recursive functions Ռեկուրսիա</li>
+<li>Higher-order functions Բարձր կարգի ֆունկցիաներ</li>
+<li>Monadic effects Մոնադներ</li>
+<li>Lazy evolution</li>
+<li>Reasoning about programs</li>
+</ul>
+</section>
+</section>
+<section id="վարժությունները" class="level1">
+<h1>Վարժությունները</h1>
+<ol>
+<li>Give another possible calculation for the result of <code>double (double 2)</code>.</li>
+<li>Show that sum <code>[x]=x</code> for any number <code>x</code>.</li>
+<li>Define a function product that produces the product of a list of numbers, and show using your definition that <code>product [ 2, 3, 4 ] = 24</code>.</li>
+<li>How should the definition of the function <code>qsort</code> be modified so that it produces a reverse sorted version of a list?</li>
+<li>What would be the effect of replacing <code>≤</code> by <code>&lt;</code> in the definition of qsort? Hint: consider the example <code>qsort [ 2, 2, 3, 1, 1 ]</code>.</li>
+</ol>
+</section>
+<section id="լուծումներ" class="level1">
+<h1>Լուծումներ</h1>
+<section id="վարժ.-1.1" class="level3">
+<h3>վարժ. 1.1</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode haskell"><code class="sourceCode haskell"><a class="sourceLine" id="cb4-1" data-line-number="1">double x <span class="fu">=</span> x <span class="fu">+</span> x</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">double (double <span class="dv">2</span>) <span class="co">-- պարզեցման հնարավոր տարբերակները</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode haskell"><code class="sourceCode haskell"><a class="sourceLine" id="cb5-1" data-line-number="1">a)</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"> double (double <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="fu">=</span>    <span class="co">{-- ներսի double կիրառում --}</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">  double (<span class="dv">2</span> <span class="fu">+</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="fu">=</span>    <span class="co">{-- double կիրառում --}</span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">  (<span class="dv">2</span> <span class="fu">+</span> <span class="dv">2</span>) <span class="fu">+</span> (<span class="dv">2</span> <span class="fu">+</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="fu">=</span>    <span class="co">{-- առաջին + կիրառում --}</span></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8">  <span class="dv">4</span> <span class="fu">+</span> (<span class="dv">2</span> <span class="fu">+</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="fu">=</span>    <span class="co">{-- երկրորդ + կիրառում --}</span></a>
+<a class="sourceLine" id="cb5-10" data-line-number="10">  <span class="dv">4</span> <span class="fu">+</span> <span class="dv">4</span></a>
+<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="fu">=</span>    <span class="co">{-- + կիրառում --}</span></a>
+<a class="sourceLine" id="cb5-12" data-line-number="12">  <span class="dv">8</span></a>
+<a class="sourceLine" id="cb5-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb5-14" data-line-number="14">b)</a>
+<a class="sourceLine" id="cb5-15" data-line-number="15">  double (double <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb5-16" data-line-number="16"><span class="fu">=</span>    <span class="co">{-- ներսի double կիրառում --}</span></a>
+<a class="sourceLine" id="cb5-17" data-line-number="17">  double (<span class="dv">2</span> <span class="fu">+</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb5-18" data-line-number="18"><span class="fu">=</span>    <span class="co">{-- + կիրառում --}</span></a>
+<a class="sourceLine" id="cb5-19" data-line-number="19">  double <span class="dv">4</span></a>
+<a class="sourceLine" id="cb5-20" data-line-number="20"><span class="fu">=</span>    <span class="co">{-- double կիրառում --}</span></a>
+<a class="sourceLine" id="cb5-21" data-line-number="21">  <span class="dv">4</span> <span class="fu">+</span> <span class="dv">4</span></a>
+<a class="sourceLine" id="cb5-22" data-line-number="22"><span class="fu">=</span>    <span class="co">{-- + կիրառում --}</span></a>
+<a class="sourceLine" id="cb5-23" data-line-number="23">  <span class="dv">8</span></a>
+<a class="sourceLine" id="cb5-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb5-25" data-line-number="25">c)</a>
+<a class="sourceLine" id="cb5-26" data-line-number="26">  double (double <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb5-27" data-line-number="27"><span class="fu">=</span>    <span class="co">{-- ներսի double կիրառում --}</span></a>
+<a class="sourceLine" id="cb5-28" data-line-number="28">  double <span class="dv">2</span> <span class="fu">+</span> double <span class="dv">2</span></a>
+<a class="sourceLine" id="cb5-29" data-line-number="29"><span class="fu">=</span>    <span class="co">{-- առաջին double կիրառում --}</span></a>
+<a class="sourceLine" id="cb5-30" data-line-number="30">  (<span class="dv">2</span> <span class="fu">+</span> <span class="dv">2</span>) <span class="fu">+</span> double <span class="dv">2</span></a>
+<a class="sourceLine" id="cb5-31" data-line-number="31"><span class="fu">=</span>    <span class="co">{-- առաջին + կիրառում --}</span></a>
+<a class="sourceLine" id="cb5-32" data-line-number="32">  <span class="dv">4</span> <span class="fu">+</span> double <span class="dv">2</span></a>
+<a class="sourceLine" id="cb5-33" data-line-number="33"><span class="fu">=</span>    <span class="co">{-- double կիրառում --}</span></a>
+<a class="sourceLine" id="cb5-34" data-line-number="34">  <span class="dv">4</span> <span class="fu">+</span> (<span class="dv">2</span> <span class="fu">+</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb5-35" data-line-number="35"><span class="fu">=</span>    <span class="co">{-- երկրորդ + կիրառում --}</span></a>
+<a class="sourceLine" id="cb5-36" data-line-number="36">  <span class="dv">4</span> <span class="fu">+</span> <span class="dv">4</span></a>
+<a class="sourceLine" id="cb5-37" data-line-number="37"><span class="fu">=</span>    <span class="co">{-- + կիրառում --}</span></a>
+<a class="sourceLine" id="cb5-38" data-line-number="38">  <span class="dv">8</span></a></code></pre></div>
+</section>
+<section id="վարժ.-1.2" class="level3">
+<h3>վարժ. 1.2</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode haskell"><code class="sourceCode haskell"><a class="sourceLine" id="cb6-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">sum<span class="ot"> ::</span> (<span class="dt">Num</span> a) <span class="ot">=&gt;</span> [a] <span class="ot">-&gt;</span> a</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">sum []     <span class="fu">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">sum (x<span class="fu">:</span>xs) <span class="fu">=</span> x <span class="fu">+</span> sum xs</a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6">  sum [x]</a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="fu">=</span>    <span class="co">{-- sum կիրառում --}</span></a>
+<a class="sourceLine" id="cb6-8" data-line-number="8">  x <span class="fu">+</span> sum []</a>
+<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="fu">=</span>    <span class="co">{-- sum կիրառում --}</span></a>
+<a class="sourceLine" id="cb6-10" data-line-number="10">  x <span class="fu">+</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="fu">=</span>    <span class="co">{-- + կիրառում --}</span></a>
+<a class="sourceLine" id="cb6-12" data-line-number="12">  x</a></code></pre></div>
+</section>
+<section id="վարժ.-1.3" class="level3">
+<h3>վարժ. 1.3</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode haskell"><code class="sourceCode haskell"><a class="sourceLine" id="cb7-1" data-line-number="1">product<span class="ot"> ::</span> (<span class="dt">Num</span> a) <span class="ot">=&gt;</span> [a] <span class="ot">-&gt;</span> a</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">product []     <span class="fu">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">product (x<span class="fu">:</span>xs) <span class="fu">=</span> x <span class="fu">*</span> product xs</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">  product [<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]</a>
+<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="fu">=</span>    <span class="co">{-- product կիրառում --}</span></a>
+<a class="sourceLine" id="cb7-7" data-line-number="7">  <span class="dv">2</span> <span class="fu">*</span> product [<span class="dv">3</span>,<span class="dv">4</span>]</a>
+<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="fu">=</span>    <span class="co">{-- product կիրառում --}</span></a>
+<a class="sourceLine" id="cb7-9" data-line-number="9">  <span class="dv">2</span> <span class="fu">*</span> (<span class="dv">3</span> <span class="fu">*</span> product [<span class="dv">4</span>])</a>
+<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="fu">=</span>    <span class="co">{-- product կիրառում --}</span></a>
+<a class="sourceLine" id="cb7-11" data-line-number="11">  <span class="dv">2</span> <span class="fu">*</span> (<span class="dv">3</span> <span class="fu">*</span> (<span class="dv">4</span> <span class="fu">*</span> product []))</a>
+<a class="sourceLine" id="cb7-12" data-line-number="12"><span class="fu">=</span>    <span class="co">{-- product կիրառում --}</span></a>
+<a class="sourceLine" id="cb7-13" data-line-number="13">  <span class="dv">2</span> <span class="fu">*</span> (<span class="dv">3</span> <span class="fu">*</span> (<span class="dv">4</span> <span class="fu">*</span> <span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb7-14" data-line-number="14"><span class="fu">=</span>    <span class="co">{-- * կիրառում --}</span></a>
+<a class="sourceLine" id="cb7-15" data-line-number="15">  <span class="dv">2</span> <span class="fu">*</span> (<span class="dv">3</span> <span class="fu">*</span> <span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb7-16" data-line-number="16"><span class="fu">=</span>    <span class="co">{-- * կիրառում --}</span></a>
+<a class="sourceLine" id="cb7-17" data-line-number="17">  <span class="dv">2</span> <span class="fu">*</span> <span class="dv">12</span>)</a>
+<a class="sourceLine" id="cb7-18" data-line-number="18"><span class="fu">=</span>    <span class="co">{-- * կիրառում --}</span></a>
+<a class="sourceLine" id="cb7-19" data-line-number="19">  <span class="dv">24</span></a></code></pre></div>
+<p>ռեալ աշխատող տարբերակ՝</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode haskell"><code class="sourceCode haskell"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">import</span> <span class="dt">Prelude</span> <span class="kw">hiding</span> (product)</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">product<span class="ot"> ::</span> <span class="dt">Num</span> a <span class="ot">=&gt;</span> [a] <span class="ot">-&gt;</span> a</a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">product []      <span class="fu">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">product (x<span class="fu">:</span>xs)  <span class="fu">=</span> x <span class="fu">*</span> product xs</a>
+<a class="sourceLine" id="cb8-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="ot">product' ::</span> <span class="dt">Num</span> a <span class="ot">=&gt;</span> [a] <span class="ot">-&gt;</span> a</a>
+<a class="sourceLine" id="cb8-8" data-line-number="8">product' <span class="fu">=</span> foldr (<span class="fu">*</span>) <span class="dv">1</span></a>
+<a class="sourceLine" id="cb8-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb8-10" data-line-number="10">main <span class="fu">=</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb8-11" data-line-number="11">  putStrLn <span class="fu">$</span> show <span class="fu">$</span> product[<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]</a></code></pre></div>
+</section>
+<section id="վարժ.-1.4" class="level3">
+<h3>վարժ. 1.4</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode haskell"><code class="sourceCode haskell"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="ot">rQsort ::</span> <span class="dt">Ord</span> a <span class="ot">=&gt;</span> [a] <span class="ot">-&gt;</span> [a]</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">rQsort []     <span class="fu">=</span> []</a>
+<a class="sourceLine" id="cb9-3" data-line-number="3">rQsort (x<span class="fu">:</span>xs) <span class="fu">=</span> rQsort larger <span class="fu">++</span> [x] <span class="fu">++</span> rQsrot smaller</a>
+<a class="sourceLine" id="cb9-4" data-line-number="4">                <span class="kw">where</span></a>
+<a class="sourceLine" id="cb9-5" data-line-number="5">                     smaller <span class="fu">=</span> [a <span class="fu">|</span> a <span class="ot">&lt;-</span> xs, a <span class="fu">&lt;=</span> x]</a>
+<a class="sourceLine" id="cb9-6" data-line-number="6">                     larger  <span class="fu">=</span> [b <span class="fu">|</span> b <span class="ot">&lt;-</span> xs, b <span class="fu">&gt;</span> x]</a>
+<a class="sourceLine" id="cb9-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb9-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb9-9" data-line-number="9"><span class="ot">qsort ::</span> <span class="dt">Ord</span> a <span class="ot">=&gt;</span> [a] <span class="ot">-&gt;</span> [a]</a>
+<a class="sourceLine" id="cb9-10" data-line-number="10">qsort []     <span class="fu">=</span> []</a>
+<a class="sourceLine" id="cb9-11" data-line-number="11">qsort (x<span class="fu">:</span>xs) <span class="fu">=</span> qsort smaller <span class="fu">++</span> [x] <span class="fu">++</span> qsort larger</a>
+<a class="sourceLine" id="cb9-12" data-line-number="12">                <span class="kw">where</span></a>
+<a class="sourceLine" id="cb9-13" data-line-number="13">                     smaller <span class="fu">=</span> [a <span class="fu">|</span> a <span class="ot">&lt;-</span> xs, a <span class="fu">&lt;=</span> x]</a>
+<a class="sourceLine" id="cb9-14" data-line-number="14">                     larger  <span class="fu">=</span> [b <span class="fu">|</span> b <span class="ot">&lt;-</span> xs, b <span class="fu">&gt;</span> x]</a>
+<a class="sourceLine" id="cb9-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb9-16" data-line-number="16"><span class="ot">rQsort' ::</span> <span class="dt">Ord</span> a <span class="ot">=&gt;</span> [a] <span class="ot">-&gt;</span> [a]</a>
+<a class="sourceLine" id="cb9-17" data-line-number="17">rQsort' <span class="fu">=</span> reverse <span class="fu">.</span> qsort</a></code></pre></div>
+</section>
+<section id="վարժ.-1.5" class="level3">
+<h3>վարժ. 1.5</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode haskell"><code class="sourceCode haskell"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co">-- Եթե &lt;= փոխարինենք խիստ անհավասարի նղանով &lt;,</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="co">-- ապա կստանանք կարգավորված ցուցակ որտեղ կբացակայեն</span></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="co">-- կրկնվող տարերը։</span></a>
+<a class="sourceLine" id="cb10-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="ot">qsort' ::</span> <span class="dt">Ord</span> a <span class="ot">=&gt;</span> [a] <span class="ot">-&gt;</span> [a]</a>
+<a class="sourceLine" id="cb10-6" data-line-number="6">qsort' []     <span class="fu">=</span> []</a>
+<a class="sourceLine" id="cb10-7" data-line-number="7">qsort' (x<span class="fu">:</span>xs) <span class="fu">=</span> qsort' smaller <span class="fu">++</span> [x] <span class="fu">++</span> qsort' larger</a>
+<a class="sourceLine" id="cb10-8" data-line-number="8">                <span class="kw">where</span></a>
+<a class="sourceLine" id="cb10-9" data-line-number="9">                     smaller <span class="fu">=</span> [a <span class="fu">|</span> a <span class="ot">&lt;-</span> xs, a <span class="fu">&lt;</span> x]</a>
+<a class="sourceLine" id="cb10-10" data-line-number="10">                     larger  <span class="fu">=</span> [b <span class="fu">|</span> b <span class="ot">&lt;-</span> xs, b <span class="fu">&gt;</span> x]</a>
+<a class="sourceLine" id="cb10-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb10-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb10-13" data-line-number="13"><span class="co">-- Ցույց տանք, որ կամայական x-ի համար qsort [x] = [x]</span></a>
+<a class="sourceLine" id="cb10-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb10-15" data-line-number="15">  qsort [x]</a>
+<a class="sourceLine" id="cb10-16" data-line-number="16"><span class="fu">=</span>    <span class="co">{-- qsort կիրառում --}</span></a>
+<a class="sourceLine" id="cb10-17" data-line-number="17">  qsort [] <span class="fu">++</span> [x] <span class="fu">++</span> qsort []</a>
+<a class="sourceLine" id="cb10-18" data-line-number="18"><span class="fu">=</span>    <span class="co">{-- qsort կիրառում --}</span></a>
+<a class="sourceLine" id="cb10-19" data-line-number="19">  [] <span class="fu">++</span> [x] <span class="fu">++</span> []</a>
+<a class="sourceLine" id="cb10-20" data-line-number="20"><span class="fu">=</span>    <span class="co">{-- ++ կիրառում --}</span></a>
+<a class="sourceLine" id="cb10-21" data-line-number="21">  [x]</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode haskell"><code class="sourceCode haskell"><a class="sourceLine" id="cb11-1" data-line-number="1">  qsort' [<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">1</span>]  <span class="co">-- qsort' (2:[2,3,1,1])</span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="fu">=</span>    <span class="co">{-- qsort' կիրառում --}</span></a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">  qsort' [<span class="dv">1</span>,<span class="dv">1</span>] <span class="fu">++</span> [<span class="dv">2</span>] <span class="fu">++</span> qsort' [<span class="dv">3</span>]</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="fu">=</span>    <span class="co">{-- qsort' կիրառում --}</span></a>
+<a class="sourceLine" id="cb11-5" data-line-number="5">  (qsort' [] <span class="fu">++</span> [<span class="dv">1</span>] <span class="fu">++</span> qsort' []) <span class="fu">++</span> [<span class="dv">2</span>] <span class="fu">++</span> qsort' [<span class="dv">3</span>]</a>
+<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="fu">=</span>    <span class="co">{-- qsort'-ի վերը ապացուցված հատկության կիրառում --}</span></a>
+<a class="sourceLine" id="cb11-7" data-line-number="7">  ([] <span class="fu">++</span> [<span class="dv">1</span>] <span class="fu">++</span> []) <span class="fu">++</span> [<span class="dv">2</span>] <span class="fu">++</span> [<span class="dv">3</span>]</a>
+<a class="sourceLine" id="cb11-8" data-line-number="8"><span class="fu">=</span>    <span class="co">{-- ++ կիրառում --}</span></a>
+<a class="sourceLine" id="cb11-9" data-line-number="9">  [<span class="dv">1</span>] <span class="fu">++</span> [<span class="dv">2</span>,<span class="dv">3</span>]</a>
+<a class="sourceLine" id="cb11-10" data-line-number="10"><span class="fu">=</span>    <span class="co">{-- ++ կիրառում --}</span></a>
+<a class="sourceLine" id="cb11-11" data-line-number="11">  [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</a>
+<a class="sourceLine" id="cb11-12" data-line-number="12"></a></code></pre></div>
+</section>
+</section>
+</div>
+
+<div class="row">
+        <span class="date  text-right">
+            <i class="fa fa-calenda"></i> Posted on February  1, 2014
+        </span>
+        <span class="tags text-right" style="width: 100%">
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="../../../../../tags/PiH.html">PiH</a></li><li><a href="../../../../../tags/haskell.html">haskell</a></li></ul>
+        </span>
+</div>
+
+            </div>
+            <div id="footer" class="col-md-12">
+                <div class="row"><hr /></div>
+
+                <div class="row text-center">
+                    powered by  <a href="http://jaspervdj.be/hakyll" target="_blank">Hakyll</a>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="../../../../../js/quotes.js">
+        </script>
+    </body>
+</html>

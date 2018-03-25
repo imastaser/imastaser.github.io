@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Գլուխ Գ - Programming in Haskell</title>
+        <link rel="alternate" type="application/rss+xml" title="AV notes" href="../../../../../rss.xml" />
+        <link rel="shortcut icon" href="../../../../../favicon.ico?v=2" type="image/x-icon" />
+        <link rel="stylesheet" href="../../../../../css/bootstrap.min.css" />
+        <link rel="stylesheet" href="../../../../../css/bootstrap-theme.min.css" />
+        <link rel="stylesheet" href="../../../../../css/default.css" />
+        <link rel="stylesheet" href="../../../../../css/syntax.css" />
+          <link rel="stylesheet" href="../../../../../css/quotes.css" />
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config( { tex2jax: { inlineMath: [ ["\\(", "\\)"] ]
+                                           , displayMath: [ ["\\[", "\\]" ] ]
+                                           , processEscapes: true
+                                           }
+                              });
+
+
+
+        </script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
+
+        <script type="text/javascript" src="../../../../../js/jquery.min.js">
+        </script>
+        <script type="text/javascript" src="../../../../../js/bootstrap.min.js">
+        </script>
+
+    </head>
+    <body>
+        <div class="container">
+
+
+            <div id="header">
+
+                <ul id="navigation" class="list-inline text-center">
+                    <li class="logo"><a href="../../../../../" class="home-link">ԳԼԽԱՎՈՐ</a></i>
+                    <li><a href="../../../../../hogi/">ՀՈԳԻ</a></li>
+                    <li><a href="../../../../../mitq/">ՄԻՏՔ</a></li>
+                    <li><a href="../../../../../marmin/">ՄԱՐՄԻՆ</a></li>
+                    <li><a href="../../../../../rss.xml"><i class="fa fa-rss"></i></a></li>
+                    <!-- <li><a href="/atom.xml"><i class="fa fa-rss"></i></a></li> -->
+                </ul>
+            </div>
+            <div class="clear"></div>
+            <!---->
+
+  <div class="clear"></div>
+<!--  <p style="font-size: 11px;"><strong>Ուշադրություն.</strong> <small>«իմաստասէր» բառը պետք է հասկանալ տառացի. ոչ որպէս փիլիսոփա իմաստով:</small></p> -->
+            <div id="content">
+
+               <!-- <div class="title text-center">
+                    <h4>Գլուխ Գ - Programming in Haskell</h4>
+                    <hr>
+                </div> -->
+                <div class="post-content">
+<div id="TOC"><ul>
+<li><a href="#տիպեր-և-դասերclass">Տիպեր և Դասեր(class)</a><ul>
+<li><a href="#հիմնական-հասկացությունները">Հիմնական Հասկացությունները</a></li>
+<li><a href="#տիպի-արտածում-type-inference">Տիպի Արտածում (type inference)</a><ul>
+<li><a href="#հիմնական-տիպեր">3.2 Հիմնական տիպեր</a></li>
+<li><a href="#վարժությունները">3.11 Վարժությունները</a></li>
+<li><a href="#լուծումներ">Լուծումներ</a></li>
+</ul></li>
+</ul></li>
+</ul></div>
+<section id="տիպեր-և-դասերclass" class="level1">
+<h1>Տիպեր և Դասեր(class)</h1>
+<section id="հիմնական-հասկացությունները" class="level2">
+<h2>Հիմնական Հասկացությունները</h2>
+<p><strong>Տիպը</strong> դա նույնանման, իրար առնչվող արժեքների հավաքածուն է։ Օրինակ՝ <code>Bool</code> տիպը պարունակում է երկու տրամաբանական արժեք <code>False</code> և <code>True</code>, Իսկ <code>Bool → Bool</code> տիպը պարունակում է բոլոր այն ֆունկցիաները որոնք արտապատկերում են <code>Bool</code> պազմությունե <code>Bool</code> բազմության, ինչպիսին է տրամաբական ժխտում ֆունկցիան՝ ~¬~։</p>
+<p>Մենք կգործածենք <code>v :: T</code> գրելաձևը, հայտարարելու համար, որ <code>v</code> արժեքի տիպը <code>T</code> է, օրինակ՝</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="dt">False</span><span class="ot"> ::</span> <span class="dt">Bool</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="dt">True</span><span class="ot"> ::</span> <span class="dt">Bool</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">¬<span class="ot"> ::</span> <span class="dt">Bool</span> <span class="ot">→</span> <span class="dt">Bool</span></a></code></pre></div>
+</section>
+<section id="տիպի-արտածում-type-inference" class="level2">
+<h2>Տիպի Արտածում (type inference)</h2>
+<p>Haskell ծրգրավորման լեզվում յուրաքանչյուր արտահայտություն պետք է ունենա տիպ, որը հաշվվում է նախքան արտահայտության պարզեցնելը(evaluating the expression) դա իրականացնում է <strong>տիպի արտածման</strong> գործընթացը (type inference)։</p>
+<section id="հիմնական-տիպեր" class="level3">
+<h3>3.2 Հիմնական տիպեր</h3>
+<p>Haskell լեզվում նկարագրվաղ են որոշակի հիմնական տիպեր, հաճախ օգտագործվողներհետևյլաներն են՝ <code>Bool</code> – տրամաբանական տիպ (logical values) պարունկաում է երկու տրամաբանական արժեք՝ <code>False</code> և <code>True</code></p>
+<p><code>Char</code> – մեկ տառ (single characters) Այս տիպ պարունակում է բոլոր տառերը, որոնք առկա են ստեղնաշարի վրա, ինչպիսիք են՝ <code>’a’, ’A’, ’3’</code> , <code>’_’</code>, և մի շարք կառավարող նշաններ որոնք ունեն հատուկ նշանակություն ինչպիսիք են՝ <code>’\n’</code> (տեղափոխել նոր տող) և <code>’\t’</code> (տեղափոխել հաջորդ tab stop).</p>
+</section>
+<section id="վարժությունները" class="level3">
+<h3>3.11 Վարժությունները</h3>
+<ol>
+<li>Որո՞նք են հետևյալ արժեքների *տիպերը*։</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode haskell"><code class="sourceCode haskell"><a class="sourceLine" id="cb2-1" data-line-number="1">[’a’,’b’,’c’]</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">(’a’, ’b’, ’c’)</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">[(<span class="dt">False</span> , ’<span class="dt">O</span>’), (<span class="dt">True</span> , ’1’)]</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">([<span class="dt">False</span>,<span class="dt">True</span>],[’0’,’1’])</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">[tail , init , reverse]</a></code></pre></div>
+<ol>
+<li>Որո՞նք են հետևյալ ֆունկցիաների *տիպերը*։</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode haskell"><code class="sourceCode haskell"><a class="sourceLine" id="cb3-1" data-line-number="1">second xs     <span class="fu">=</span> head (tail xs)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">swap (x,y)    <span class="fu">=</span> (y,x)</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">pair x y      <span class="fu">=</span> (x,y)</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">double x      <span class="fu">=</span> x <span class="fu">*</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">palindrome xs <span class="fu">=</span> reverse xs <span class="fu">==</span> xs</a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">twice f x     <span class="fu">=</span> f (f x)</a>
+<a class="sourceLine" id="cb3-12" data-line-number="12"></a></code></pre></div>
+<p><strong><strong>Hint</strong></strong>: take care to include the necessary class constraints if the functions are defined using overloaded operators.~</p>
+<ol>
+<li>Check your answers to the preceding two questions using Hugs.</li>
+<li>Why is it not feasible in general for function types to be instances of the <strong>Eq</strong> class?</li>
+</ol>
+<p>When is it feasible?</p>
+<p><strong><strong>Hint:</strong></strong> two functions of the same type are equal if they always return equal results for equal arguments.</p>
+</section>
+<section id="լուծումներ" class="level3">
+<h3>Լուծումներ</h3>
+<ol>
+<li><p>վարժ. 3.1</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode haskell"><code class="sourceCode haskell"><a class="sourceLine" id="cb4-1" data-line-number="1">[’a’,’b’,’c’]<span class="ot"> ::</span> [<span class="dt">Char</span>]</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">(’a’, ’b’, ’c’)<span class="ot"> ::</span> (<span class="dt">Char</span>, <span class="dt">Char</span>, <span class="dt">Char</span>)</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">[ (<span class="dt">False</span> , ’<span class="dt">O</span>’), (<span class="dt">True</span> , ’1’) ]<span class="ot"> ::</span> [(<span class="dt">Bool</span>, <span class="dt">Char</span>)]</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">([<span class="dt">False</span>,<span class="dt">True</span>],[’0’,’1’])<span class="ot"> ::</span> ([<span class="dt">Bool</span>], [<span class="dt">Char</span>])</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">[ tail , init , reverse ]<span class="ot"> ::</span> [[a] <span class="ot">-&gt;</span> [a]]</a></code></pre></div></li>
+<li><p>վարժ. 3.2</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode haskell"><code class="sourceCode haskell"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="ot">second ::</span> [a] <span class="ot">-&gt;</span> a</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">second xs     <span class="fu">=</span> head (tail xs)</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="ot">swap ::</span> (a, b) <span class="ot">-&gt;</span> (b, a)</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">swap (x,y)    <span class="fu">=</span> (y,x)</a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="ot">pair ::</span> a b <span class="ot">-&gt;</span> (a, b)</a>
+<a class="sourceLine" id="cb5-8" data-line-number="8">pair x y      <span class="fu">=</span> (x,y)</a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="ot">double ::</span> <span class="dt">Num</span> a <span class="ot">=&gt;</span> a <span class="ot">-&gt;</span> a</a>
+<a class="sourceLine" id="cb5-11" data-line-number="11">double x      <span class="fu">=</span> x <span class="fu">*</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb5-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb5-13" data-line-number="13"><span class="ot">palindrome ::</span> <span class="dt">Eq</span> a <span class="ot">=&gt;</span> [a] <span class="ot">-&gt;</span> <span class="dt">Bool</span></a>
+<a class="sourceLine" id="cb5-14" data-line-number="14">palindrome xs <span class="fu">=</span> reverse xs <span class="fu">==</span> xs</a>
+<a class="sourceLine" id="cb5-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb5-16" data-line-number="16"><span class="ot">twice ::</span> (a <span class="ot">-&gt;</span> a) <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> a</a>
+<a class="sourceLine" id="cb5-17" data-line-number="17">twice f x     <span class="fu">=</span> f (f x)</a>
+<a class="sourceLine" id="cb5-18" data-line-number="18"></a></code></pre></div></li>
+<li><p>վարժ. 3.3</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode haskell"><code class="sourceCode haskell"></code></pre></div></li>
+<li><p>վարժ. 3.4</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode haskell"><code class="sourceCode haskell"></code></pre></div></li>
+</ol>
+</section>
+</section>
+</section>
+</div>
+
+<div class="row">
+        <span class="date  text-right">
+            <i class="fa fa-calenda"></i> Posted on February  1, 2014
+        </span>
+        <span class="tags text-right" style="width: 100%">
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="../../../../../tags/PiH.html">PiH</a></li><li><a href="../../../../../tags/haskell.html">haskell</a></li></ul>
+        </span>
+</div>
+
+            </div>
+            <div id="footer" class="col-md-12">
+                <div class="row"><hr /></div>
+
+                <div class="row text-center">
+                    powered by  <a href="http://jaspervdj.be/hakyll" target="_blank">Hakyll</a>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="../../../../../js/quotes.js">
+        </script>
+    </body>
+</html>

@@ -58,27 +58,32 @@
                     <hr>
                 </div> -->
                 <div class="post-content">
-<div id="toc"><h3>Table of contents</h3><ul>
-<li><a href="#hakyll-github-repository-and-github-pages-set-up">Hakyll, GitHub repository and GitHub pages set up</a></li>
+<div id="TOC"><ul>
+<li><a href="#hakyll-and-github-pages">Hakyll and github pages</a></li>
 <li><a href="#install-haskell-on-ubuntu">Install Haskell on Ubuntu</a><ul>
-<li><a href="#soft-approach-from-learnhaskell">1. Soft Approach (from <a href="https://github.com/bitemyapp/learnhaskell">learnhaskell</a>)</a></li>
+<li><a href="#soft-approach-from-learnhaskellhttpsgithub.combitemyapplearnhaskell">1. Soft Approach (from [learnhaskell](<a href="https://github.com/bitemyapp/learnhaskell" class="uri">https://github.com/bitemyapp/learnhaskell</a>))</a></li>
 <li><a href="#ubuntu-prerequisites">2. ubuntu prerequisites</a></li>
 <li><a href="#if-you-have-only-ghc-but-not-cabal-installed">3. if you have only GHC (but not cabal) installed:</a></li>
+<li><a href="#if-error">if error</a></li>
+<li><a href="#if-error-regarding-locals-see">if error regarding Locals see</a><ul>
+<li><a href="#links-regarding-cabal-and-ghc">Links regarding cabal and ghc</a></li>
 </ul></li>
-<li><a href="#installing-python-pygments-on-windows">Installing Python Pygments on Windows</a></li>
+</ul></li>
+<li><a href="#installing-python-pygments-on-windows">Installing Python Pygments on Windows</a><ul>
+<li><a href="#easyinstall-pygments-1.6-py2.7.egg">```easy<sub>install</sub> Pygments-1.6-py2.7.egg```</a></li>
+</ul></li>
 </ul></div>
-<section id="hakyll-github-repository-and-github-pages-set-up" class="level1">
-<h1>Hakyll, GitHub repository and GitHub pages set up</h1>
-<ol type="1">
-<li>create git repository “byurakn” - for holding source</li>
-<li>create git repository “byruakn.am” - for static generated stuff</li>
+<section id="hakyll-and-github-pages" class="level1">
+<h1>Hakyll and github pages</h1>
+<ol>
+<li>create git repository “my-site” - for holding source</li>
+<li>create git repository “my-site.am” - for static generated stuff</li>
 </ol>
-<p>##Hakyll Stuff</p>
-<section id="creating-hakyll-site" class="level4">
-<h4>Creating hakyll site</h4>
-<ol type="1">
+<p>Creating hakyll site</p>
+<ol>
 <li>cd to folder</li>
-<li>hakyll-init my-site This creates a folder my-site in the current directory, with some example content and a generic configuration. 2.1 add “CNAME” file</li>
+<li>hakyll-init my-site This creates a folder my-site in the current directory, with some example content and a generic configuration.</li>
+<li>add “CNAME” file</li>
 </ol>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="ex">cabal</span> update</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="ex">cabal</span> init <span class="co">#create config file and edit it to set up depends package if need, and set main-is:</span></a>
@@ -86,33 +91,29 @@
 <a class="sourceLine" id="cb1-4" data-line-number="4"><span class="ex">cabal</span> install</a>
 <a class="sourceLine" id="cb1-5" data-line-number="5"><span class="ex">./site</span> clean</a>
 <a class="sourceLine" id="cb1-6" data-line-number="6"><span class="ex">./site</span> watch --port=5000</a></code></pre></div>
-</section>
-<section id="git-setup" class="level4">
-<h4>git setup</h4>
+<p><strong><strong>git setup</strong></strong></p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="fu">git</span> config --system  --list  #show configs from  /usr/etc/gitconfig</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"><span class="fu">git</span> config --global  --list  #show configs from  ~/.gitconfig</a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="fu">git</span> config --local   --list     #show configs from .git/config</a>
 <a class="sourceLine" id="cb2-4" data-line-number="4"><span class="fu">git</span> config --list         # show</a>
 <a class="sourceLine" id="cb2-5" data-line-number="5"><span class="fu">git</span> remote -v             # show remote repository address if exist</a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="fu">git</span> remote add origin https://github.comarthurvard/byurakn.git <span class="co">#add address with alias origin</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="fu">git</span> remote add origin https://github.comarthurvard/my-site.git <span class="co">#add address with alias origin</span></a>
 <a class="sourceLine" id="cb2-7" data-line-number="7"><span class="fu">git</span> branch -a <span class="co"># show branches</span></a>
 <a class="sourceLine" id="cb2-8" data-line-number="8"><span class="bu">cd</span> my-site</a>
 <a class="sourceLine" id="cb2-9" data-line-number="9"><span class="fu">git</span> init</a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="fu">git</span> remote add origin https://github.comarthurvard/byurakn.git</a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="fu">git</span> remote add origin https://github.comarthurvard/muy-site.git</a>
 <a class="sourceLine" id="cb2-11" data-line-number="11"><span class="fu">git</span> pull origin master <span class="co">#this step is required when repository is not empty, usually ther is READ.me file</span></a>
 <a class="sourceLine" id="cb2-12" data-line-number="12"><span class="fu">touch</span> .gitignore <span class="co"># add .gitignore file for hakyll</span></a>
 <a class="sourceLine" id="cb2-13" data-line-number="13"><span class="fu">git</span> add .</a>
 <a class="sourceLine" id="cb2-14" data-line-number="14"><span class="fu">git</span> commit -m <span class="st">&quot;init commit&quot;</span></a>
 <a class="sourceLine" id="cb2-15" data-line-number="15"><span class="fu">git</span> push -u origin master</a></code></pre></div>
-</section>
-<section id="github-pages" class="level4">
-<h4><a href>GitHub pages</a></h4>
+<p>[GitHub pages]</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="bu">cd</span> my-site <span class="co">#if needed</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"><span class="fu">mkdir</span> _publish</a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"><span class="bu">cd</span> _publish</a>
 <a class="sourceLine" id="cb3-4" data-line-number="4"><span class="fu">git</span> init</a>
 <a class="sourceLine" id="cb3-5" data-line-number="5"><span class="fu">git</span> remote -v</a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="fu">git</span> remote add origin https://github.com/ArthurVard/byurakn.am<span class="kw">```</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="fu">git</span> remote add origin https://github.com/ArthurVard/my-site.am</a>
 <a class="sourceLine" id="cb3-7" data-line-number="7"><span class="fu">cp</span> ../CNAME .</a>
 <a class="sourceLine" id="cb3-8" data-line-number="8"><span class="fu">git</span> add CNAME</a>
 <a class="sourceLine" id="cb3-9" data-line-number="9"><span class="fu">git</span> commit -m <span class="st">&quot;CNAME file&quot;</span></a>
@@ -122,23 +123,22 @@
 <a class="sourceLine" id="cb3-13" data-line-number="13"><span class="ex">emacs</span> publish.sh <span class="co">#change hakyll-site dir and git repo address</span></a>
 <a class="sourceLine" id="cb3-14" data-line-number="14"><span class="ex">./publish.sh</span></a></code></pre></div>
 </section>
-</section>
 <section id="install-haskell-on-ubuntu" class="level1">
 <h1>Install Haskell on Ubuntu</h1>
-<section id="soft-approach-from-learnhaskell" class="level3">
-<h3>1. Soft Approach (from <a href="https://github.com/bitemyapp/learnhaskell">learnhaskell</a>)</h3>
-<p>This PPA is excellent and is what I use on all my Linux dev and build machines: http://launchpad.net/~hvr/+archive/ghc</p>
+<section id="soft-approach-from-learnhaskellhttpsgithub.combitemyapplearnhaskell" class="level3">
+<h3>1. Soft Approach (from [learnhaskell](<a href="https://github.com/bitemyapp/learnhaskell" class="uri">https://github.com/bitemyapp/learnhaskell</a>))</h3>
+<p>This PPA is excellent and is what I use on all my Linux dev and build machines: <a href="http://launchpad.net/~hvr/+archive/ghc" class="uri">http://launchpad.net/~hvr/+archive/ghc</a></p>
 <p>Specifically:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="fu">sudo</span> apt-get update<span class="kw">`</span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#**12.04 and below** -&gt; </span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#**12.04 and below** -&gt;</span></a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"><span class="fu">sudo</span> apt-get install python-software-properties</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#**12.04 and above** -&gt; </span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#**12.04 and above** -&gt;</span></a>
 <a class="sourceLine" id="cb4-5" data-line-number="5"><span class="fu">sudo</span> apt-get install software-properties-common</a>
 <a class="sourceLine" id="cb4-6" data-line-number="6"><span class="fu">sudo</span> add-apt-repository -y ppa:hvr/ghc<span class="kw">`</span></a>
 <a class="sourceLine" id="cb4-7" data-line-number="7"><span class="fu">sudo</span> apt-get update<span class="kw">`</span></a>
 <a class="sourceLine" id="cb4-8" data-line-number="8"><span class="fu">sudo</span> apt-get install cabal-install-1.20 ghc-7.8.3 happy-1.19.4 alex-3.1.3<span class="kw">`</span></a></code></pre></div>
-<p>Then add <code>~/.cabal/bin:/opt/cabal/1.20/bin:/opt/ghc/7.8.3/bin:/opt/happy/1.19.4/bin:/opt/alex/3.1.3/bin</code> to your <code>PATH</code> (bash_profile, zshrc, bashrc, etc)</p>
-<p><em>Optional</em> You could also add <code>.cabal-sandbox/bin</code> to your path. Code that you are actively developing will be available to you from the command line. This only works when your current working directory is a cabal sandbox.</p>
+<p>Then add `~/.cabal/bin:/opt/cabal/1.20/bin:/opt/ghc/7.8.3/bin:/opt/happy/1.19.4/bin:/opt/alex/3.1.3/bin` to your `PATH` (bash<sub>profile</sub>, zshrc, bashrc, etc)</p>
+<p><strong>Optional</strong> You could also add `.cabal-sandbox/bin` to your path. Code that you are actively developing will be available to you from the command line. This only works when your current working directory is a cabal sandbox.</p>
 </section>
 <section id="ubuntu-prerequisites" class="level3">
 <h3>2. ubuntu prerequisites</h3>
@@ -166,39 +166,37 @@
 <a class="sourceLine" id="cb6-7" data-line-number="7"><span class="ex">runhaskell</span> Setup.hs install</a>
 <a class="sourceLine" id="cb6-8" data-line-number="8"><span class="bu">cd</span> ../cabal-install</a>
 <a class="sourceLine" id="cb6-9" data-line-number="9"><span class="fu">sh</span> bootstrap.sh</a></code></pre></div>
-<ul>
-<li>if error <command line>: can’t load .so/.DLL for: libgmp.so (libgmp.so: cannot open shared object file: No such file or directory) You either add /usr/local/lib and/or /usr/local/lib64 to $LD_LIBRARY_PATH, or add them to /etc/ld.so.conf, or (since you already have /usr/lib64/libgmp.so.3) add a missing symbolic link:</li>
-</ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="bu">cd</span> /usr/lib64</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="fu">sudo</span> ln -s libgmp.so.3 libgmp.so</a></code></pre></div>
-<p>(and perhaps the same for /usr/lib).</p>
-<p>Note that <code>/usr/lib64/libgmp.so.3</code> might be a different version from <code>/usr/local/lib64/libgmp.so</code>, make sure <code>ghc</code> can actually be used with the former.</p>
-<ul>
-<li>if error regarding Locals see</li>
-</ul>
-<p><a href="http://www.thomas-krenn.com/en/wiki/Configure_Locales_in_Ubuntu">Configure Locales in Ubuntu</a></p>
-<p><a href="http://ppenzin.github.io/haskell/quickcheck/freebsd/2014/06/25/tf-random-invalid-byte-sequence/">ERROR: ‘invalid byte sequence’</a></p>
-<p>see also: <a href="http://yannesposito.com/Scratch/en/blog/Safer-Haskell-Install/index.html">Safer Haskell Install</a> ### Links regarding cabal and ghc</p>
-<p><a href="http://hyperpolyglot.org/" class="uri">http://hyperpolyglot.org/</a></p>
-<p><a href="https://gist.github.com/Dexyne/5791465">Install Haskell on Ubuntu from source</a></p>
-<p><a href="https://gist.github.com/wting/8498731" class="uri">https://gist.github.com/wting/8498731</a></p>
-<p><a href="http://coldwa.st/e/blog/2013-08-20-Cabal-sandbox.html" class="uri">http://coldwa.st/e/blog/2013-08-20-Cabal-sandbox.html</a></p>
-<p><a href="https://gist.github.com/yantonov/10083524" class="uri">https://gist.github.com/yantonov/10083524</a></p>
+</section>
+<section id="if-error" class="level2">
+<h2>if error</h2>
+<p>&lt;command line&gt;: can’t load .so/.DLL for: libgmp.so (libgmp.so: cannot open shared object file: No such file or directory) You either add /usr/local/lib and/or /usr/local/lib64 to $LD<sub>LIBRARYPATH</sub>, or add them to /etc/ld.so.conf, or (since you already have /usr/lib64/libgmp.so.3) add a missing symbolic link:</p>
+<p>``` bash cd /usr/lib64 sudo ln -s libgmp.so.3 libgmp.so ``` (and perhaps the same for /usr/lib).</p>
+<p>Note that ```/usr/lib64/libgmp.so.3``` might be a different version from ```/usr/local/lib64/libgmp.so```, make sure ```ghc``` can actually be used with the former.</p>
+</section>
+<section id="if-error-regarding-locals-see" class="level2">
+<h2>if error regarding Locals see</h2>
+<p>[Configure Locales in Ubuntu](<a href="http://www.thomas-krenn.com/en/wiki/Configure_Locales_in_Ubuntu" class="uri">http://www.thomas-krenn.com/en/wiki/Configure_Locales_in_Ubuntu</a>) [ERROR: ‘invalid byte sequence’](<a href="http://ppenzin.github.io/haskell/quickcheck/freebsd/2014/06/25/tf-random-invalid-byte-sequence/" class="uri">http://ppenzin.github.io/haskell/quickcheck/freebsd/2014/06/25/tf-random-invalid-byte-sequence/</a>) see also: [Safer Haskell Install](<a href="http://yannesposito.com/Scratch/en/blog/Safer-Haskell-Install/index.html" class="uri">http://yannesposito.com/Scratch/en/blog/Safer-Haskell-Install/index.html</a>)</p>
+<section id="links-regarding-cabal-and-ghc" class="level3">
+<h3>Links regarding cabal and ghc</h3>
+<p>[<a href="http://hyperpolyglot.org/" class="uri">http://hyperpolyglot.org/</a>](<a href="http://hyperpolyglot.org/" class="uri">http://hyperpolyglot.org/</a>) [Install Haskell on Ubuntu from source](<a href="https://gist.github.com/Dexyne/5791465" class="uri">https://gist.github.com/Dexyne/5791465</a>) [<a href="https://gist.github.com/wting/8498731" class="uri">https://gist.github.com/wting/8498731</a>](<a href="https://gist.github.com/wting/8498731" class="uri">https://gist.github.com/wting/8498731</a>) [<a href="http://coldwa.st/e/blog/2013-08-20-Cabal-sandbox.html" class="uri">http://coldwa.st/e/blog/2013-08-20-Cabal-sandbox.html</a>](<a href="http://coldwa.st/e/blog/2013-08-20-Cabal-sandbox.html" class="uri">http://coldwa.st/e/blog/2013-08-20-Cabal-sandbox.html</a>) [<a href="https://gist.github.com/yantonov/10083524" class="uri">https://gist.github.com/yantonov/10083524</a>](<a href="https://gist.github.com/yantonov/10083524" class="uri">https://gist.github.com/yantonov/10083524</a>)</p>
+</section>
 </section>
 </section>
 <section id="installing-python-pygments-on-windows" class="level1">
 <h1>Installing Python Pygments on Windows</h1>
-<p>How install <a href="http://pygments.org/">Pygments</a> syntax highlighter on Windows for use with hakyll site generator</p>
+<p>How install [Pygments](<a href="http://pygments.org/" class="uri">http://pygments.org/</a>) syntax highlighter on Windows for use with hakyll site generator</p>
 <ul>
 <li>Download and install Python 2.7.2</li>
-<li>Add C:\Python27\Scripts and C:\Python27 to the Windows path</li>
-<li>Download <a href="http://peak.telecommunity.com/dist/ez_setup.py">ez_setup.py</a></li>
-<li>Run <code>python  ez_setup.py</code></li>
-<li>Downlad <a href="https://pypi.python.org/pypi/Pygments">Pygments-1.6-py2.7.egg</a></li>
-<li><code>easy_install Pygments-1.6-py2.7.egg</code></li>
+<li>Add C:\27\ and C:\27 to the Windows path</li>
+<li>Download [ez<sub>setup</sub>.py](<a href="http://peak.telecommunity.com/dist/ez_setup.py" class="uri">http://peak.telecommunity.com/dist/ez_setup.py</a>)</li>
+<li>Run ```python ez<sub>setup</sub>.py```</li>
+<li>Downlad [Pygments-1.6-py2.7.egg](<a href="https://pypi.python.org/pypi/Pygments" class="uri">https://pypi.python.org/pypi/Pygments</a>)</li>
 </ul>
+<section id="easyinstall-pygments-1.6-py2.7.egg" class="level2">
+<h2>```easy<sub>install</sub> Pygments-1.6-py2.7.egg```</h2>
+<p>details from [Installing Python Pygments on Windows](<a href="http://zduck.com/2009/installing-python-pygments-on-windows/" class="uri">http://zduck.com/2009/installing-python-pygments-on-windows/</a>)</p>
 <p>And that’s it.</p>
-<p>details from <a href="http://zduck.com/2009/installing-python-pygments-on-windows/">Installing Python Pygments on Windows</a></p>
+</section>
 </section>
 </div>
 
