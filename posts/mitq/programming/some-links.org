@@ -7,30 +7,22 @@ comments: true
 toc: true
 ---
 
-### Tmux
-* [Byobu](http://byobu.co/)
-* [My Tmux “cheat sheet”](http://blog.niklasottosson.com/?p=574)
-* [Good font for terminal](http://leonardo-m.livejournal.com/77079.html)
+* Tmux
+ - [[http://byobu.co/][Byobu]]
+ - [[http://blog.niklasottosson.com/?p=574][My Tmux “cheat sheet”]]
+ - [[http://leonardo-m.livejournal.com/77079.html][Good font for terminal]]
 
-### Git
+* Git
+ - [[http://maryrosecook.com/blog/post/git-in-six-hundred-words][Git in six hundred words]]
+ - [[http://maryrosecook.com/blog/post/git-from-the-inside-out][Git from the inside out]]
 
-* [Git in six hundred words](http://maryrosecook.com/blog/post/git-in-six-hundred-words)
-* [Git from the inside out](http://maryrosecook.com/blog/post/git-from-the-inside-out)
+* Emacs
+ - [[http://lib.ru/unixhelp/emacs.txt][Шпаргалка по редактору "Emacs"]]
+ - [[http://sean.wenzel.net/docs/emacs/quick_reference/][Emacs Quick Reference]]
+ - [[http://www.math.uh.edu/~bgb/emacs_keys.html][Emacs Key Combinations]]
+ - [[http://www.cs.duke.edu/courses/spring01/cps100/emacs.html][Emacs Shortcuts]]
+ - [[http://wttools.sourceforge.net/emacs-stuff/emacs-keybindings.html][Table 1. emacs-keybindings table.]]
 
-### Emacs 
-[Шпаргалка по редактору "Emacs"](http://lib.ru/unixhelp/emacs.txt)
-
-[Emacs Quick Reference](http://sean.wenzel.net/docs/emacs/quick_reference/)
-
-[Emacs Key Combinations](http://www.math.uh.edu/~bgb/emacs_keys.html)
-
-[Emacs Shortcuts](http://www.cs.duke.edu/courses/spring01/cps100/emacs.html)
-
-[Table 1. emacs-keybindings table.](http://wttools.sourceforge.net/emacs-stuff/emacs-keybindings.html)
-
-
-### Other resources
-
-[My Week in Emacs](https://www.youtube.com/watch?v=Q8AqHdZTgNI)
-
-[Hack Emacs - An Overview of Org Mode](https://www.youtube.com/watch?v=6W82EdwQhxU)
+* Other resources
+ - [[https://www.youtube.com/watch?v=Q8AqHdZTgNI][My Week in Emacs]]
+ - [[https://www.youtube.com/watch?v=6W82EdwQhxU][Hack Emacs - An Overview of Org Mode]]

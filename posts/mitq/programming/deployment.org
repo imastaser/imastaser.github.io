@@ -8,34 +8,36 @@ toc: true
 ---
 
 * TODO
-** Backup Letsencrypt folder
-** backup config files move to shared folder
+- Backup Letsencrypt folder
+- backup config files move to shared folder
 * server fingerprint changes
 #+BEGIN_SRC bash
-  > ssh-keygen -f "/home/arthur/.ssh/known_hosts" -R <ip_address>
-  > ssh-keygen -f "/home/arthur/.ssh/known_hosts" -R <domain_name>
+  ssh-keygen -f "/home/arthur/.ssh/known_hosts" -R <ip_address>
+  ssh-keygen -f "/home/arthur/.ssh/known_hosts" -R <domain_name>
 #+END_SRC
 * create user
 #+BEGIN_SRC bash
-  > adduser deployer
-  > sudo usermod -aG sudo deployer
-  > mkdir /home/deployer/.ssh
-  > cp .ssh/authorized_keys /home/deployer/.ssh/
-  > sudo chown -R deployer:deployer /home/deployer/.ssh/
+ adduser deployer
+ sudo usermod -aG sudo deployer
+ mkdir /home/deployer/.ssh
+ cp .ssh/authorized_keys /home/deployer/.ssh/
+ sudo chown -R deployer:deployer /home/deployer/.ssh/
 
-  # edit /etc/ssh/sshd_config
-  ...
-  PasswordAuthentication no
-  ...
-  # allow from some hosts
-  # Settings that override the global settings for matching IP addresses only
-  Match address 192.0.2.0/24
-    PasswordAuthentication yes
-  > service ssh reload
+ # edit /etc/ssh/sshd_config
+ ...
+ PasswordAuthentication no
+ ...
+ # allow from some hosts
+ # Settings that override the global settings for matching IP addresses only
+ Match address 192.0.2.0/24
+   PasswordAuthentication yes
+ service ssh reload
 
-  # on remote server check permission and set to if needed
-  # chmod 700 .ssh
-  # chmod 600 .ssh/authorized_keys
+ # on remote server check permission and set to if needed
+ # chmod 700 .ssh
+ # chmod 600 .ssh/authorized_keys
+ logout
+ ssh deployer@<ip_adddress>
 #+END_SRC
 * Nginx
 #+BEGIN_SRC bash
@@ -67,7 +69,8 @@ toc: true
 > sudo apt update -y
 > sudo apt install -y python-certbot-nginx
 > sudo systemctl reload nginx
-> sudo nginx -t # verify the syntax of configurations
+# verify the syntax of configurations
+> sudo nginx -t
 > sudo certbot certonly --dry-run --nginx -d <domain_name> -d www.<domain_name>
 
 # TODO: backup /etc/letsencrypt fodler
@@ -79,7 +82,7 @@ toc: true
 # at first comment ssl parts from nginx config for the site we want to get  certificate
 # TODO: generate pre-certifiacation config for site
 # enter email address, c - is canceling all process.
-> sudo certbot --nginx -d taxicenter.am -d www.taxicenter.am
+> sudo certbot --nginx -d <domain_name> -d www.<domain_name>
 
 > sudo certbot renew --dry-run
 #+END_SRC
@@ -88,13 +91,13 @@ toc: true
 > curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 > curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 > echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-> sudo apt-get -y update
-> sudo apt-get -y  install git-core curl zlib1g-dev build-essential libssl-dev
+> sudo apt -y update
+> sudo apt -y  install git-core curl zlib1g-dev build-essential libssl-dev
 > sudo apt -y install  libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev
 > sudo apt -y install  libcurl4-openssl-dev python-software-properties libffi-dev nodejs yarn
 #+END_SRC
 
-** Installing rbenv
+Installing rbenv
 #+BEGIN_SRC bash
    > cd
    > git clone https://github.com/rbenv/rbenv.git ~/.rbenv
@@ -130,24 +133,121 @@ toc: true
   > sudo apt -y install postgresql postgresql-contrib libpq-dev
   # add user auth
   > sudo vi /etc/postgresql/10//main/pg_hba.conf
-    local   iot iothub_production peer
+    local   <db_role> <db_name> peer
   > sudo systemctl status  postgresql
   > sudo systemctl enable  postgresql
   > sudo systemctl restart postgresql
 #+END_SRC
-** create db user, set postgres password
+
+create db user, set postgres password
 #+BEGIN_SRC bash
   > sudo su postgres
   > psql
   # \password -- set password for psotgres
-  Welcome*99
-  > create user iot with password 'yourpass' createdb;
+  <your_password for super user>
+  > create user iot with password 'yourpass' createdb superuser;
   # \du -- list users
+  # \q
 #+END_SRC
 ** postgresql hacks
 #+BEGIN_SRC bash
    > SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity
      WHERE pg_stat_activity.datname = 'iothub_production;
+#+END_SRC
+* Redis
+#+BEGIN_SRC bash
+---------Install build and test dependencies: ------
+sudo apt -y update
+sudo apt -y full-upgrade
+# make test required tcl to run
+sudo apt-get -y install build-essential tcl
+
+---------Set up redis: -------
+#Download latest copy via this link or with this
+mkdir Downloads
+cd Downloads
+curl -O http://download.redis.io/redis-stable.tar.gz
+tar xzvf redis-stable.tar.gz
+
+cd redis-stable
+make
+make test
+sudo make install
+
+------ Configure redis: -------
+#Create configuration directory:
+sudo mkdir /etc/redis
+# Move sample redis configuration file:
+sudo cp ~/Downloads/redis-stable/redis.conf /etc/redis
+sudo vi /etc/redis/redis.conf
+#set dir for persistent data dump, for log
+supervised systemd
+dir /var/redis
+logfile /var/redis/redis.log
+
+------ Set up the systemd unit file:------
+#create file
+sudo vi /etc/systemd/system/redis.service
+
+# add to file
+[Unit]
+Description=Redis In-Memory Data Store
+After=network.target
+
+[Service]
+User=redis
+Group=redis
+ExecStart=/usr/local/bin/redis-server /etc/redis/redis.conf
+ExecStop=/usr/local/bin/redis-cli shutdown
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+-----––––-----–– Set up redis user, groups and directories: –––
+# if /etc/systemd/system/redis.service cahnged
+sudo systemctl daemon-reload
+# create redis user and group with same ID but no home directory:
+
+sudo adduser --system --group --no-create-home redis
+sudo mkdir /var/redis   # create directory
+sudo chown redis:redis /var/redis   # make redis own /var/redis
+sudo chmod 770 /var/redis   # adjust permission
+
+sudo systemctl enable redis # Enable redis to start at boot:
+sudo systemctl start redis
+
+#other commands
+systemctl status redis
+sudo systemctl restart redis
+
+------- Enable redis to start at boot:------
+sudo systemctl enable redis
+
+----------------- Test instance: ------------
+redis-cli
+ping
+set test "It's working!"
+get test
+exit
+sudo systemctl restart redis
+--–– FIX Warnings ––-
+
+--- WARNING overcommit_memory is set to 0
+sudo nano /etc/sysctl.conf
+vm.overcommit_memory=1  #add this line to press wornix
+
+# run on trminal as well
+sudo sysctl vm.overcommit_memory=1
+
+--- The TCP backlog setting of 511 cannot be enforced because
+---- /proc/sys/net/core/somaxconn is set to the lower value of 128
+
+sudo nano /etc/rc.local
+sysctl -w net.core.somaxconn=65535 # add this line
+
+# run on trminal as well
+sudo sysctl -w net.core.somaxconn=65535
 #+END_SRC
 * Mina
 ** install mina gem
@@ -156,15 +256,23 @@ toc: true
 #+END_SRC
 ** some commands with no password
 #+BEGIN_SRC bash
-   sudo visudo
-   ՈՒշադրություն, գրել վերջում
-   # IMPORTANT!!!  add at the end
-   deployer ALL=(ALL) NOPASSWD: /bin/ln
-   deployer ALL=(ALL) NOPASSWD: /bin/chmod
-   deployer ALL=(ALL) NOPASSWD: /bin/cp
-   https://github.com/mina-deploy/mina/issues/234#issuecomment-57242061
+ > sudo visudo
+ or
+ > sudo vi /etc/sudoers
+ shift+G
+ ՈՒշադրություն, գրել վերջում
+ # IMPORTANT!!!  add at the end
+ deployer ALL=(ALL) NOPASSWD: /bin/ln
+ deployer ALL=(ALL) NOPASSWD: /bin/chmod
+ deployer ALL=(ALL) NOPASSWD: /bin/cp
 
+ :wq!
+ #https://github.com/mina-deploy/mina/issues/234#issuecomment-57242061
 > sudo service ssh reload
+#+END_SRC
+
+** deploy with mina
+#+BEGIN_SRC bash
 > mina test setup
 # at frist time uncomment schema_load, then comment
 > mina test deploy
