@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>The Algebra of Algebraic Data Types</title>
+        <link rel="alternate" type="application/rss+xml" title="AV notes" href="../../rss.xml" />
+        <link rel="shortcut icon" href="../../favicon.ico?v=2" type="image/x-icon" />
+        <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+        <link rel="stylesheet" href="../../css/bootstrap-theme.min.css" />
+        <link rel="stylesheet" href="../../css/default.css" />
+        <link rel="stylesheet" href="../../css/syntax.css" />
+          <link rel="stylesheet" href="../../css/quotes.css" />
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config( { tex2jax: { inlineMath: [ ["\\(", "\\)"] ]
+                                           , displayMath: [ ["\\[", "\\]" ] ]
+                                           , processEscapes: true
+                                           }
+                              });
+
+
+
+        </script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
+
+        <script type="text/javascript" src="../../js/jquery.min.js">
+        </script>
+        <script type="text/javascript" src="../../js/bootstrap.min.js">
+        </script>
+
+    </head>
+    <body>
+        <div class="container">
+
+
+            <div id="header">
+
+                <ul id="navigation" class="list-inline text-center">
+                    <li class="logo"><a href="../../" class="home-link">ԳԼԽԱՎՈՐ</a></i>
+                    <li><a href="../../hogi/">ՀՈԳԻ</a></li>
+                    <li><a href="../../mitq/">ՄԻՏՔ</a></li>
+                    <li><a href="../../marmin/">ՄԱՐՄԻՆ</a></li>
+                    <li><a href="../../rss.xml"><i class="fa fa-rss"></i></a></li>
+                    <!-- <li><a href="/atom.xml"><i class="fa fa-rss"></i></a></li> -->
+                </ul>
+            </div>
+            <div class="clear"></div>
+            <!---->
+
+  <div class="clear"></div>
+<!--  <p style="font-size: 11px;"><strong>Ուշադրություն.</strong> <small>«իմաստասէր» բառը պետք է հասկանալ տառացի. ոչ որպէս փիլիսոփա իմաստով:</small></p> -->
+            <div id="content">
+
+               <!-- <div class="title text-center">
+                    <h4>The Algebra of Algebraic Data Types</h4>
+                    <hr>
+                </div> -->
+                <div class="post-content">
+<div id="TOC"><ul>
+<li><a href="#algebra">Algebra</a><ul>
+<li><a href="#haskell-types-are-algebra">Haskell types are Algebra</a></li>
+</ul></li>
+<li><a href="#type-calculus">Type Calculus</a><ul>
+<li><a href="#deriviative-of-list-recursive-type">Deriviative of List recursive type</a></li>
+</ul></li>
+</ul></div>
+<p><a href="https://www.youtube.com/watch?v=YScIPA8RbVE">video</a> <a href="https://stackoverflow.com/questions/9190352/abusing-the-algebra-of-algebraic-data-types-why-does-this-work">Abusing the algebra of algebraic data types - why does this work?</a></p>
+<p>initial algebra in category thoery</p>
+<section id="algebra" class="level1">
+<h1>Algebra</h1>
+<ul>
+<li>Symbols: Things</li>
+<li>Operations: Ways to make new things</li>
+<li>Laws: Rules the things follow</li>
+</ul>
+<section id="haskell-types-are-algebra" class="level2">
+<h2>Haskell types are Algebra</h2>
+<ul>
+<li>Symbols - Types ((), Int, Bool)</li>
+<li>Operations - Type Constructors (Maybe, Either, [])</li>
+<li>Laws - ?</li>
+</ul>
+</section>
+</section>
+<section id="type-calculus" class="level1">
+<h1>Type Calculus</h1>
+<p>δ1 = 0 δx = 1 δ(f+g) = δf + δg δ(f*g) = δf * g + f * δg δ(f(g)) = δf(g) * δg</p>
+<section id="deriviative-of-list-recursive-type" class="level2">
+<h2>Deriviative of List recursive type</h2>
+<p>L(x) = 1 / (1 - x) δL(x) = 1 / (1 - x)<sup>2</sup></p>
+</section>
+</section>
+</div>
+
+<div class="row">
+        <span class="date  text-right">
+            <i class="fa fa-calenda"></i> Posted on April  9, 2009
+        </span>
+        <span class="tags text-right" style="width: 100%">
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="../../tags/haskell.html">haskell</a></li><li><a href="../../tags/adt.html">adt</a></li></ul>
+        </span>
+</div>
+
+            </div>
+            <div id="footer" class="col-md-12">
+                <div class="row"><hr /></div>
+
+                <div class="row text-center">
+                    powered by  <a href="http://jaspervdj.be/hakyll" target="_blank">Hakyll</a>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="../../js/quotes.js">
+        </script>
+    </body>
+</html>

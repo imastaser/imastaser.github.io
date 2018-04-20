@@ -8,8 +8,29 @@
         <name>Arthur Vardanyan</name>
         <email>arthur@imast.am</email>
     </author>
-    <updated>2018-03-24T00:00:00Z</updated>
+    <updated>2018-04-20T00:00:00Z</updated>
     <entry>
+    <title>Logics</title>
+    <link href="http://imast.am/mitq/logic/logics.html" />
+    <id>http://imast.am/mitq/logic/logics.html</id>
+    <published>2018-04-20T00:00:00Z</published>
+    <updated>2018-04-20T00:00:00Z</updated>
+    <summary type="html"><![CDATA[<div class="post-content">
+
+
+</div>
+
+<div class="row">
+        <span class="date  text-right">
+            <i class="fa fa-calenda"></i> Posted on April 20, 2018
+        </span>
+        <span class="tags text-right" style="width: 100%">
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/logic.html">logic</a></li><li><a href="/tags/math.html">math</a></li></ul>
+        </span>
+</div>
+]]></summary>
+</entry>
+<entry>
     <title>Rail+NGinx+PostgreSQL+Redis setup</title>
     <link href="http://imast.am/mitq/programming/deployment.html" />
     <id>http://imast.am/mitq/programming/deployment.html</id>
@@ -932,64 +953,6 @@
         </span>
         <span class="tags text-right" style="width: 100%">
             <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/mvanier.html">mvanier</a></li><li><a href="/tags/monads.html">monads</a></li><li><a href="/tags/tutorials.html">tutorials</a></li><li><a href="/tags/haskell.html">haskell</a></li></ul>
-        </span>
-</div>
-]]></summary>
-</entry>
-<entry>
-    <title>Георгий Петрович Щедровицкий</title>
-    <link href="http://imast.am/mitq/methodology/gp/index.html" />
-    <id>http://imast.am/mitq/methodology/gp/index.html</id>
-    <published>2016-05-13T00:00:00Z</published>
-    <updated>2016-05-13T00:00:00Z</updated>
-    <summary type="html"><![CDATA[<div class="post-content">
-<p>&lt;div&gt; &lt;img style=“float:left;display:inline-block; margin-right: 20px;” title=“Георгий Петрович Щедровицкий (1929—1994)” alt=“Г.П.(1929—1994)” src=“../../../images/gp.jpg”&gt;</p>
-<p>&lt;span style=“display:block;font-size: 15pt; margin-left: 10px;”&gt; Георгий Петрович Щедровицкий (1929—1994) — философ, методолог, педагог, общественный и культурный деятель. &lt;br&gt;&lt;br&gt; В нем редким образом сочетались любовь к чистому мышлению и всепоглощающая страсть к активной деятельности. Недаром он ввел в оборот слово мыследеятельность, к которому прибегал, размышляя об окружающем ли мире или о самом себе. &lt;/span&gt; &lt;/div&gt;</p>
-<p>&lt;br&gt; &lt;br&gt;</p>
-<ol>
-<li>Программирование научных исследований и разработок. Том 1 &lt;a target=“<sub>blank</sub>” href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xWUFNeFhhS2VudjA" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xWUFNeFhhS2VudjA</a>”&gt;doc&lt;/a&gt; | &lt;a target=“<sub>blank</sub>” href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xZDc0dGZYQWh5OFU" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xZDc0dGZYQWh5OFU</a>”&gt;pdf&lt;/a&gt;</li>
-<li>Психология и методология. Том 2. Часть 1 &lt;a target=“<sub>blank</sub>” href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xbGxSUUtCajM5QjQ" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xbGxSUUtCajM5QjQ</a>”&gt;djvu&lt;/a&gt;</li>
-<li>Организация. Руководство. Управление. Том 4 &lt;a target=“<sub>blank</sub>” href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xdWNjM3AxVTVrVUk" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xdWNjM3AxVTVrVUk</a>”&gt;pdf&lt;/a&gt;</li>
-<li>Организация. Руководство. Управление. Том 5 &lt;a target=“<sub>blank</sub>” href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xd09fNjhLLXFsa3M" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xd09fNjhLLXFsa3M</a>”&gt;djvu&lt;/a&gt;</li>
-<li>Процессы и структуры в мышлении. Том 6 &lt;a target=“<sub>blank</sub>” href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xVHFFWXB6YndUTHM" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xVHFFWXB6YndUTHM</a>”&gt;doc&lt;/a&gt; | &lt;a target=“<sub>blank</sub>” href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xLXdHSFVMTXkzQjQ" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xLXdHSFVMTXkzQjQ</a>”&gt;pdf&lt;/a&gt;</li>
-<li>Проблемы логики научного исследования и анализ структуры науки. Том 7 &lt;a target=“<sub>blank</sub>” href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xWjJHQ0taLWlVOXM" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xWjJHQ0taLWlVOXM</a>”&gt;djvu&lt;/a&gt;</li>
-<li>Московский методологический кружок. Развитие идей и подходов. Том 8 &lt;a target=“<sub>blank</sub>” href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xZWpGcjdNb2FVd2M" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xZWpGcjdNb2FVd2M</a>”&gt;djvu&lt;/a&gt;</li>
-<li>Организационно-деятельностная игра. Сборник текстов. Том 9. Часть 1 &lt;a target=“<sub>blank</sub>” href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xVHM0azI1cEZFdGc" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xVHM0azI1cEZFdGc</a>”&gt;djvu&lt;/a&gt;</li>
-<li>Организационно-деятельностная игра. Сборник текстов. Том 9. Часть 2 &lt;a target=“<sub>blank</sub>” href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xZHg3Qm1lME1veXc" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xZHg3Qm1lME1veXc</a>”&gt;pdf&lt;/a&gt;</li>
-</ol>
-<section id="избранные-труды-a-targetblank-hrefhttpsdrive.google.comopenid0b5_olwfl1-4xeu5td2xtzfpbtg8doca-a-targetblank-hrefhttpsdrive.google.comopenid0b5_olwfl1-4xt3razhniyw90mvkpdfa" class="level1">
-<h1>Избранные труды &lt;a target=“<sub>blank</sub>” href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xeU5Td2xTZFpBTG8" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xeU5Td2xTZFpBTG8</a>”&gt;doc&lt;/a&gt; | &lt;a target=“<sub>blank</sub>” href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xT3RaZHNiYW90MVk" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xT3RaZHNiYW90MVk</a>”&gt;pdf&lt;/a&gt;</h1>
-</section>
-<section id="оргуправленческое-мышление.-идеология-методология-технология.-a-targetblank-hrefhttpsdrive.google.comopenid0b5_olwfl1-4xwuq4mdlkr1hbalkdjvua" class="level1">
-<h1>Оргуправленческое мышление. Идеология, методология, технология. &lt;a target=“<sub>blank</sub>” href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xWUQ4MDlKR1hBalk" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xWUQ4MDlKR1hBalk</a>”&gt;djvu&lt;/a&gt;</h1>
-</section>
-<section id="я-всегда-был-идеалистом.-беседы-с-колей-щукиным-a-targetblank-hrefhttpsdrive.google.comopenid0b5_olwfl1-4xd0thyuvczgdtvzapdfa" class="level1">
-<h1>Я всегда был идеалистом. Беседы с Колей Щукиным &lt;a target=“<sub>blank</sub>” href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xd0thYUVCZGdTVzA" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xd0thYUVCZGdTVzA</a>”&gt;pdf&lt;/a&gt;</h1>
-<p>Проблемы педагогики</p>
-<ol>
-<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xcGtrWEVXdjVrb1E" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xcGtrWEVXdjVrb1E</a>”&gt;mp3&lt;/a&gt;</li>
-<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xTE5ibm0taHM0VTA" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xTE5ibm0taHM0VTA</a>”&gt;mp3&lt;/a&gt;</li>
-<li>&lt;a target=“<sub>blank</sub>” href=“<a href="https://drive.google.com/open?id=0B5_olWfL1-4xSWRKSWdVQWVzNHc" class="uri">https://drive.google.com/open?id=0B5_olWfL1-4xSWRKSWdVQWVzNHc</a>”&gt;mp3&lt;/a&gt;</li>
-</ol>
-<p>&lt;iframe width=“220” height=“115” src=“<a href="https://www.youtube.com/embed/iT1qBv1-zrA" class="uri">https://www.youtube.com/embed/iT1qBv1-zrA</a>”&gt; &lt;/iframe&gt;Щедровицкий Г.П.</p>
-<p>&lt;iframe width=“220” height=“115” src=“<a href="https://www.youtube.com/embed/MyAwovIsz-w" class="uri">https://www.youtube.com/embed/MyAwovIsz-w</a>”&gt; &lt;/iframe&gt;Щедровицкий Г.П.</p>
-<p>&lt;iframe width=“220” height=“115” src=“<a href="https://www.youtube.com/embed/zk2L2e_Evsw" class="uri">https://www.youtube.com/embed/zk2L2e_Evsw</a>”&gt; &lt;/iframe&gt;“На досках”</p>
-<p>&lt;iframe width=“220” height=“115” src=“<a href="https://www.youtube.com/embed/hPDgI4_xDD4" class="uri">https://www.youtube.com/embed/hPDgI4_xDD4</a>”&gt; &lt;/iframe&gt;Я философ.</p>
-<p>&lt;iframe width=“220” height=“115” src=“<a href="https://www.youtube.com/embed/Uf27-SkOhPk" class="uri">https://www.youtube.com/embed/Uf27-SkOhPk</a>”&gt; &lt;/iframe&gt;</p>
-<p>&lt;iframe width=“220” height=“115” src=“<a href="https://www.youtube.com/embed/YcwjZjxSCMI" class="uri">https://www.youtube.com/embed/YcwjZjxSCMI</a>”&gt; &lt;/iframe&gt;Энергосетьпроект - 1</p>
-<p>&lt;iframe width=“220” height=“115” src=“<a href="https://www.youtube.com/embed/m5_W0uDfqw4" class="uri">https://www.youtube.com/embed/m5_W0uDfqw4</a>”&gt; &lt;/iframe&gt;Энергосетьпроект - 2</p>
-<p>&lt;iframe width=“220” height=“115” src=“<a href="https://www.youtube.com/embed/cSV0lenVpJo" class="uri">https://www.youtube.com/embed/cSV0lenVpJo</a>”&gt; &lt;/iframe&gt;ОДИ в Сургуте (1990)</p>
-<p>&lt;iframe width=“220” height=“115” src=“<a href="https://www.youtube.com/embed/lLWarzwYOi4" class="uri">https://www.youtube.com/embed/lLWarzwYOi4</a>”&gt; &lt;/iframe&gt;Русская философия образования: Щедровицкий ч.1.</p>
-<p>&lt;iframe width=“220” height=“115” src=“<a href="https://www.youtube.com/embed/Z_dzIPZvQWU" class="uri">https://www.youtube.com/embed/Z_dzIPZvQWU</a>”&gt; &lt;/iframe&gt;Русская философия образования: Щедровицкий ч.2.</p>
-</section>
-</div>
-
-<div class="row">
-        <span class="date  text-right">
-            <i class="fa fa-calenda"></i> Posted on May 13, 2016
-        </span>
-        <span class="tags text-right" style="width: 100%">
-            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/%D0%93.%D0%9F..html">Г.П.</a></li><li><a href="/tags/%D5%B4%D5%A5%D5%A9%D5%B8%D5%A4%D5%A1%D5%A2%D5%A1%D5%B6%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6.html">մեթոդաբանություն</a></li><li><a href="/tags/%D5%B4%D5%AB%D5%BF%D6%84.html">միտք</a></li></ul>
         </span>
 </div>
 ]]></summary>
