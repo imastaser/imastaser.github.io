@@ -54,25 +54,23 @@
 <ul>
 <li><p>AWS (or other cloud providers) Using S3, Route53 Testing to use IBM Cloud Iot platform to store device configs(first backend)</p></li>
 <li><p>Automating builds and deployments</p>
-<p>I have automate my deployment with <a href="http://nadarei.co/mina/">mina</a>, i use for both backend and for web application, it is DSL to descripe deployment, it allow to generate generate on fly ngxin, logrotate and more configuration based on deployment environments {Production, Test, Staging}, then mina translate to bash script and run it on remote server. <a href="#samples">mina config smaple</a></p>
+<p>I have automate my deployment with <a href="http://nadarei.co/mina/">mina</a>, i use for both backend and for web application, it is DSL to describe deployment, it allow to generate on fly ngxin, logrotate and more configuration based on deployment environments {Production, Test, Staging}, then mina translate to bash script and run it on remote server. <a href="#samples">mina config smaple</a></p>
 <p>using <a href="https://backup.github.io/backup/v4/installation/">backup gem</a> to make and store db backups to S3</p>
 <p>I know about CI, not set up yet.</p></li>
 <li><p>Unix/Linux environments, including the ability to analyze and troubleshoot potential networking issues</p>
-<p>As i say all my app live in linux, I enable firewall, open close ports, check which program listem for given ports, ping, set domain name. these ussually what i am doing related to networking on Linux environments.</p></li>
+<p>As i say all my app live in linux, I enable firewall, open close ports, check which program listen for given ports, ping, set domain name. these usually what i am doing related to networking on Linux environments.</p></li>
 <li><p>Containerization technologies</p>
-I set up docker and configure to run my web app on it, i know about ~ Kubernetes and Docker Swarm~ Next what i should do to move use full dockerized deployemnt is: Build containers for:
+I set up docker and configure to run my web app on it, i know about ~ Kubernetes and Docker Swarm~ Next steps if i want to move use full dockerized deployment are: Build containers for:
 <ul>
 <li>postgreSQL</li>
 <li>Redis</li>
 <li>nginx</li>
 <li>backend</li>
 <li>web application</li>
-</ul></li>
 </ul>
-<p>Configure Docker Orchestration</p>
-<ul>
+<p>Configure Docker Orchestration</p></li>
 <li><p>Coding in Rust</p>
-<p>I hear about Rust that it has something similar we have for Type classes in Haskell, also that it can be laoded into Rasberry pi and good for system programming, something that come to replace <code>C</code>, this all what I know about Rust. I never try it, but languag Featuring looks promising.</p></li>
+<p>I hear about Rust that it has something similar we have for Type classes in Haskell, also that it can be use to program for Rasberry pi and good for system programming, something that come to replace <code>C</code>, this all what I know about Rust. I never try it, but languag Featuring looks promising.</p></li>
 </ul>
 </section>
 </section>
