@@ -1,6 +1,3 @@
-
-$("#toc ul").children("li").children("a").preprend('<i class="fa fa-chevron-right></i>');
-
 window.onload = function() {
     var anchors = document.getElementsByClassName('sourceLine');
     for(var i = 0; i < anchors.length; i++) {

@@ -29,6 +29,8 @@
         </script>
         <script type="text/javascript" src="../../js/bootstrap.min.js">
         </script>
+        <script type="text/javascript" src="../../js/codeCopy.js">
+        </script>
 
     </head>
     <body>
@@ -58,8 +60,232 @@
                     <hr>
                 </div> -->
                 <div class="post-content">
-
-
+<div id="TOC"><ul>
+<li><a href="#mathematical-logic">Mathematical Logic</a><ul>
+<li><a href="#brings-mathematics-to-logic---boole-did">brings mathematics to logic - (Boole did)</a></li>
+<li><a href="#brings-logic-to-mathematics">brings logic to mathematics</a><ul>
+<li><a href="#getting-closer-to-leibnizs-dream">Getting Closer to Leibniz’s Dream</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#paul-snively-talk">Paul Snively talk</a></li>
+<li><a href="#type-theory">Type theory</a><ul>
+<li><a href="#origins-of-type-theory">Origins of type theory</a></li>
+<li><a href="#type-systems">Type systems</a><ul>
+<li><a href="#hindley-milner-type-system">HIndley-Milner Type System</a></li>
+<li><a href="#wadler-blott">Wadler-Blott</a></li>
+</ul></li>
+</ul></li>
+</ul></div>
+<p><a href="https://www.youtube.com/watch?v=9YmEFCWlNLI&amp;list=PLTn74Qx5mPsQ1KbuGMHcK4q9odtR7Htdp&amp;index=7&amp;utm_medium=referral&amp;utm_campaign=ZEEF&amp;utm_source=https%3A%2F%2Ffp.zeef.com%2Farthur">From Aristotle to the iPhone Moshe Y. Vardi</a></p>
+<ul>
+<li>propositions is potentialy <code>true</code> or <code>false</code> statements.</li>
+</ul>
+<section id="mathematical-logic" class="level1">
+<h1>Mathematical Logic</h1>
+<section id="brings-mathematics-to-logic---boole-did" class="level2">
+<h2>brings mathematics to logic - (Boole did)</h2>
+<p>Aristotle (384-322 BC) - Syllogism - Forms of reasoning</p>
+<p>Ramon Lull (1232-1315)</p>
+<p>Gottfried Wilhelm Leibniz (1646-1716) - Invent binary notation, bits</p>
+<ul>
+<li>“When I was young, I found pleasure in the Lullian art”</li>
+<li>Leibniz Dream a universal mathematical language, lingua characteristica universalis, in which all human knowledge can be expressed, and calculational rules, calclulus rationator, carried out by machines, to derive all logical relationships.</li>
+<li>Leibniz’s wheel, 1671</li>
+</ul>
+<p>George Boole(1815-1864) - represent logic as algebra, literally <code>True=1</code>, <code>False=0</code> Boole’s insight: Aristotle’s syllogism are about classes of objects, which cab be treated algebraically.</p>
+<ul>
+<li>Boolean Algebra New axiom: x = x * x, logical conjaction is idempotic operation then:
+<ul>
+<li>x = x &amp; x</li>
+<li>x - x &amp; x = 0</li>
+<li>x(1-x) = 0, expresses the principle of contradiction, which Aristotle has described as the most fundamental axiom of all philosophy.</li>
+</ul></li>
+</ul>
+<p>William Stanley Jevons(1835-1882) - Economist and Logician, develop “Boolean Algebra”, also interested in Mechanizing logical reasoning, and the actually he built the logical machine in 1870 “Logical Piano”. Augustus De Morgan(1806-1871) - De Morgan’s Laws: conjunction and disjunction can be expressed in terms of negation of each other.</p>
+<p>Claude Elwood Shannon(1916-2001) - on 1937 Master’s thesis on boolean algebra and electrical circuit analogy.</p>
+<p>Charles Sanders Peirce(1839-1914) -</p>
+<ul>
+<li>1889 … Calculating machines are specialized logical macines.</li>
+<li>1887 …</li>
+</ul>
+</section>
+<section id="brings-logic-to-mathematics" class="level2">
+<h2>brings logic to mathematics</h2>
+<p>E.P. Wigner (1960)</p>
+<ul>
+<li>1960 “On the unreasonable Effectivness fo Mathematis in the Natural Sciences”
+<ul>
+<li>Euclid: “The laws of nature are but the mathematical thoughts of God”</li>
+<li>Galileo:</li>
+<li>Descartes:</li>
+<li>The empirical law of epistemology:</li>
+</ul></li>
+</ul>
+<p>Mario Livio: “Is God a mathematican?”</p>
+<p>Question: What makes mathematics so certain? Answer: Proofs - the high road to truth!</p>
+<p>The Most influential Mathematican is Euclid (325-265 BC)</p>
+<p>Dichotomy:</p>
+<ul>
+<li>Geometry: logically perfect science
+<ul>
+<li>On the gates of his academy, Plato has inscribed: “Let no ungeometrical person enter here.”</li>
+</ul></li>
+<li>Algebra and calculus: shaky faoundations</li>
+</ul>
+<p>19th century Reversal:</p>
+<p>Bolyai and Lobachevsky: non-Euclidean geometry Bolzano, Cauchy, Cantor, Dedekind and Weierstrass: formalization of calclulus in terms of infinity - the role iof inifinte is controversial</p>
+<p>Central Issue: What is a rigorous proof?</p>
+<p>The infinite Old Controversary: Aristotle: “Infinitum Actu Non Datur” - there is no actual infinity. St. Augustine</p>
+<p>Amir Aczel, “The Mystery of the Aleph” - Aleph the simbol of inifinte</p>
+<p>Infinitely Contraversial</p>
+<ul>
+<li><p>Contor’s Theorem, 1874: There are infinitely many inifinties! (Proof uses self-reference) - now the phylosophical debate become mathematical debate</p></li>
+<li>Mathematical Controversy:
+<ul>
+<li>Leibniz</li>
+<li>Gauss</li>
+<li>Kronecher</li>
+<li>Hilbert</li>
+<li>Frege</li>
+</ul></li>
+</ul>
+<p>The most important Logic after Aristotle (1848-1925)</p>
+<section id="getting-closer-to-leibnizs-dream" class="level3">
+<h3>Getting Closer to Leibniz’s Dream</h3>
+<ol>
+<li><p>Frege</p>
+<p>Frege’s Contribution, book Begriffsschrift, “Langugage of concept” 1879: want to answer the question what is the language of mathematics, first step to metamatematics. Central to Frege’s Work: sets, i.e. collections of objects.</p>
+<ul>
+<li>Objects, 2</li>
+<li>Predicates(relationships), 2 &lt; 3</li>
+<li>Operations(functions), 2 + 3</li>
+<li>Logical operations (a la Boole), “and”</li>
+<li>Quantifiers, “for all”, “most”</li>
+</ul>
+<p>Frege show that you can take the old Arsitotle logic and write it formally. Back to Aristotle</p>
+<ul>
+<li>All men are mortal</li>
+<li>“For all <code>x</code>, if <code>x</code> is a man, then <code>x</code> is mortal”</li>
+<li>(∀x)(Man(x) -&gt; Mortal(x)): First-Order Logic</li>
+</ul>
+<p>van Heijenoort, From Frege to Godel, 1967, say about Frege work- “perhaps the most important single work ever written in logic”</p></li>
+<li><p>Russel</p>
+<p>Russell’s Letter A letter from Russell to Frege, June 16, 1902 … miner disagreement - Russel paradox show that Frege system is inconsistent.</p>
+<p>Appendinx to Frege 1903 volume:</p>
+<p>Despair:</p>
+<p>Russell itself understood the problem - was the concept Central to Frege’s Work: sets, i.e. collections of objects. in Boole work called classes of objects, now more precise we call them set of objects.</p>
+<p>Principia Mathemaca, by Russel 1910-1927, page 2000</p>
+<ul>
+<li>systematic derivation of mathematics from logic</li>
+<li>avoided obvious paradox</li>
+<li>attempt to derive all mathematical truths</li>
+<li>Uses an elaborate system of types</li>
+<li>the prove of 1+1=2, vol 1, page 397</li>
+</ul>
+<p>show how to base mathematics on Logic, called Logicism - basic mathematics on logic</p>
+<p>At first people think that problem is solved, then realized that: Frege has a small book and Russell found a paradox, now we have 3 volumes and 2000 pages, hwo know how many paradox are lurking betwwen the lines of Principia Mathemaca.</p>
+<p>The crises has not been resolved and into that crices stepped the David Hilbert (1862-1943), king of mathemacs.</p>
+<p>Mathematical logic as based on the theory of types (1908)</p>
+<ul>
+<li>Hierarchy of types</li>
+<li>No totality can contain members defined in terms of itself</li>
+</ul></li>
+<li><p>Hilbert’s Program (1922-1930)</p>
+<p>Formalize mathemacs and establish that:</p>
+<ul>
+<li>Mathemacs is consistent: a mathematical statement and its negation cannot even both be proved.</li>
+<li>Mathemacs is complete: all true mathematical statements can be proved</li>
+<li>Mathemacs is decidable: there is a mechanical way to determine whether a given mathematical statement is true or false.</li>
+</ul></li>
+<li><p>The Demiise of Hilbert’s Program</p>
+<p>K. Godel (1930-1933)</p>
+<ul>
+<li>Incompleteness of ordinary arithmetic
+<ul>
+<li>there is no systematic way of resolving all mathematical questions.</li>
+</ul></li>
+<li>Impossibility of proving consistency of mathemacs. (cannot prove consistency mathemacs mathematicaly)</li>
+<li>“This statement cannot be proved”</li>
+<li>Any sufficient powerful system cannot be both consistent and complete</li>
+<li>Arithmetic cannot prove its own consistency</li>
+<li>End of Hilbert’s program</li>
+</ul>
+<p>A. Church and A. Turing (1936-1937)</p>
+<ul>
+<li>Undecidability of first-order logic.
+<ul>
+<li>The set of all true firs-order logic formulas is not computable -there is no systematic computational way to decide the truth of first-order logic formulas.</li>
+</ul></li>
+</ul></li>
+<li><p>The Death of Program</p>
+<p>Koninsberg, September 7, 1930: Conference on The Epistemology of The Exact Sciences.</p></li>
+<li><p>Birth of Computer Science</p>
+<p>Church, Godel, Kleene, Post, Turing: Mathematical proofs have to be “machine checkable” - computation lies at the heart of mathematics!</p>
+<p>Fundamental Question: What is “machine checkable”</p></li>
+<li><p>ENIAC</p>
+<p>Feb 14, 1946 18000 vacuum tubes 30 tons 150KW</p>
+<p>von Neumann joind the project in August 1944</p>
+<ul>
+<li>Design base on Boole’s and Turing’s ideas - von Neumann architecture</li>
+</ul></li>
+<li><p>Closing the Circle</p>
+<p>By the early 1950s dozens of “” by the early 1950 dozens of “johniacs”, reasoning machines, have been built around the world.</p>
+<p>Leibniz’s dream came truth! From reasoning to patterns of reasoning to logic to computers to computers that</p></li>
+<li><p>Logic in Computer science</p>
+<p>M. Davis (1988) Influences of Mathematical logic on Computer Science Christos H. Papadimitruou (2001)</p></li>
+</ol>
+</section>
+</section>
+</section>
+<section id="paul-snively-talk" class="level1">
+<h1>Paul Snively talk</h1>
+<p>Charles Lutwidge Dodgson(1832-1898) = Lewis Caroll - Brilliant teacher of formal logic via literary nonsense</p>
+<p>Bertrand Russell - “Principia Mathematica” (“P M”) - all posible mathematics in formal logic. 1+1=2 takes 450 pages to prove. there is a gap in “P M” - substitution of variables was not treated fomrally</p>
+<p>Alonzo Church - look at “P M” and said. “I can do better”.</p>
+<ul>
+<li>Wanted to put “Principia Mathematica” on an even more formal logical footing.</li>
+<li>Created a new logical formalism including substitution, abstraction, application - Called λ calculus</li>
+<li>λ calculus very few rule logic. Untyped λ calculus was and is a Logic. It was designed as a Logic, it was developed as a Logic and it suppose to lay a new Foundation just like “Principia Mathematica” was for all Mathemacs. And it suppose to replace the “Principia Mathemaca”. That was Church goal.</li>
+</ul>
+<p>Alnozo Church’s Student</p>
+<ul>
+<li><p>Raymond Smullyan - puzzle Knightes and Knaves</p></li>
+<li>Stephen Cole Kleene, John Barkley Rosser, Sr.
+<ul>
+<li>proved untyped λ calculus inconsistent (Kleene-Rosser Paradox, 1936), and the proove called Y-combinator: <code>λ f.(λ x.(f (x x)) λ x.(f (x x)))</code>, and this is a the rule how we do general recusriosn in the untyped λ called, turns out that general recursion is logical inconsistency. You cannot reason about your code in the presence of the general recursion. And this is that we say that λ calculus was a Logic from day one,was formal Logic from day one. It was proven incosistent and that is why <code>Types</code>. And in fact even the simplke typed λ calculus inforces consistency in λ calculus</li>
+</ul></li>
+</ul>
+<p>Takeaways: f : A -&gt; B(function from A to B) means ∀ a:A E b:B such that b = f(a) e.g. factorial : Int -&gt; Int, what is wrong with this function? factorial function is not defined for all integers, for example negative integer passing to factorial cause loop forever, exception… the is a logical inconsistency. So, Either we have to make the Domain smaller, we can do on <code>Nat</code> types. If your function is not defined for every value in the Domain, which is called a partial function (oposite total functions), then you run the risk of Logical incosistency. You run the risk introdcuing inconsistency that reveal by throwing exception or going into infinite loop or crashing, When we advocate the functional programming should be also be clear that we advocateing the total functional programming: no parital functions. If you want to readon about your code Logically then your functions do need to be the total.</p>
+</section>
+<section id="type-theory" class="level1">
+<h1>Type theory</h1>
+<section id="origins-of-type-theory" class="level2">
+<h2>Origins of type theory</h2>
+<ul>
+<li>type theory began as part of a failed program to prove the consistency of arithmetic</li>
+</ul>
+</section>
+<section id="type-systems" class="level2">
+<h2>Type systems</h2>
+<section id="hindley-milner-type-system" class="level3">
+<h3>HIndley-Milner Type System</h3>
+<p>Moses Schonfinkel - Combinatory logic</p>
+<ul>
+<li>On the building blocks of mathematical logic(1924)
+<ul>
+<li>Currying
+<ul>
+<li>fa()</li>
+</ul></li>
+<li>Combinatory logic</li>
+</ul></li>
+</ul>
+</section>
+<section id="wadler-blott" class="level3">
+<h3>Wadler-Blott</h3>
+</section>
+</section>
+</section>
 </div>
 
 <div class="row">
