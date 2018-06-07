@@ -215,7 +215,6 @@ I set up docker and configure to run my web app on it, i know about ~ Kubernetes
 <a class="sourceLine" id="cb2-93" data-line-number="93">  <span class="kw">end</span></a>
 <a class="sourceLine" id="cb2-94" data-line-number="94"><span class="kw">end</span></a>
 <a class="sourceLine" id="cb2-95" data-line-number="95"></a></code></pre></div>
-<p>_</p>
 </section>
 <section id="changelog" class="level2">
 <h2>Changelog</h2>
@@ -279,8 +278,7 @@ I set up docker and configure to run my web app on it, i know about ~ Kubernetes
 <a class="sourceLine" id="cb3-58" data-line-number="58"></a>
 <a class="sourceLine" id="cb3-59" data-line-number="59">0.0.0</a>
 <a class="sourceLine" id="cb3-60" data-line-number="60">• Expose necessary endpoints for pro-prototyping.</a>
-<a class="sourceLine" id="cb3-61" data-line-number="61"></a>
-<a class="sourceLine" id="cb3-62" data-line-number="62"></a></code></pre></div>
+<a class="sourceLine" id="cb3-61" data-line-number="61"></a></code></pre></div>
 </section>
 </section>
 </div>
