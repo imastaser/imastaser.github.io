@@ -23,7 +23,7 @@
 <h1>Requirements</h1>
 <section id="excited-about-designing-building-and-running-distributed-and-scalable-systems" class="level2">
 <h2>*Excited about designing, building, and running distributed and scalable systems</h2>
-<p>I have manage to set up hetzner’s virtual linux machines for development, testing and prodcution, my <a href="http://imast.am/mitq/programming/deployment.html">set up notes</a> (by looking to move use ansible to automate set up process). I design the backend scalability in mind, each device know about two backends, first backend’s address(will be moved on the AWS or IBC cloud) is burned into firmware this backend the devices uses to get configuration with second backend address which uses send data, for login, to auth to get commands and etc. Set up nginx.</p>
+<p>I have manage to set up hetzner’s virtual linux machines for development, testing and production, my <a href="http://imast.am/mitq/programming/deployment.html">set up notes</a> (by looking to move use ansible to automate set up process). I design the backend scalability in mind, each device know about two backends, first backend’s address(will be moved on the AWS or IBC cloud) is burned into firmware this backend the devices uses to get configuration with second backend address which uses send data, for login, to auth to get commands and etc. Set up nginx.</p>
 <p><strong>TODO:</strong></p>
 <ul>
 <li>investigate and use floating IPs that hetzner provide.</li>
@@ -33,14 +33,21 @@
 <section id="interest-in-statically-typed-functional-languages-is-a-big-plus" class="level2">
 <h2>*Interest in statically-typed functional languages is a big plus</h2>
 <p>I love to let the language to validate my program at compile time, I am very excited about GHC’s <code>GADTs, DataKinds, TypeFamilies,
-   TypeOperators</code> language extensions that brings Dependent type elements to haskell. Also I found also Elm language, which helps me to avoid writing code in JavaScript as much as possible. You can relax on code refactoring; the deep refactoring is not pain anymore.</p>
+   TypeOperators</code> language extensions that brings Dependent type elements to haskell. Also I found also Elm language, which helps me to avoid writing code in JavaScript as much as possible. You can relax on code refactoring; the deep refactoring is not pain anymore. <strong>TODO:</strong></p>
+<ul>
+<li>try <a href="http://www.purescript.org/">purescript</a></li>
+</ul>
 </section>
 <section id="passion-for-clean-code-and-elegant-solutions-continuously-improving-current-ones" class="level2">
 <h2>*Passion for clean code and elegant solutions (continuously improving current ones)</h2>
-<p>I periodically re-wording and formatting my comments to help haddock generate better documents. I try to apply Haskell abstraction which make code shorter, also i like the dependently typed languages concepts and looking forward to use them. I think I have found and implemented some elegant solutionsin in my current project: how to send commands to device, how to scale easily without any magic when there will be many devices.</p>
-<p>Have written several tests for backend, need more.</p>
-<p><strong>TODO:</strong></p>
+<p>I periodically re-wording and formatting my comments to help haddock generate better documents. I try to apply Haskell abstraction which make code shorter, also i like the dependently typed languages concepts and looking forward to use them. I think I have found and implemented some elegant solutionsin in my current project: how to send commands to device, how to scale easily without any magic when there will be many devices. I use <a href="https://www.pivotaltracker.com/">pivotaltracker</a> to track my stories and tasks, there is a “Epic” section. Have written several tests for backend, need more.</p>
+<p><strong>TODO:</strong> mostly from “Epics” section</p>
 <ul>
+<li>view for log files</li>
+<li>encrypt all communication, use hardware encryptors on device side</li>
+<li>move device configs to cloud</li>
+<li>use web sockets for all, avoid ajax pooling from front end as much as possible.</li>
+<li>audit database changes</li>
 <li>move to use MQTT protocol in the device side.</li>
 <li>set up swagger document page for endpoints.</li>
 <li>write more tests</li>
