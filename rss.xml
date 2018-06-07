@@ -51,8 +51,8 @@
 <ul>
 <li><p>AWS (or other cloud providers) Using S3, Route53 Testing to use IBM Cloud Iot platform to store device configs(first backend)</p></li>
 <li><p>Automating builds and deployments</p>
-<p>I have automated my deployment with <a href="http://nadarei.co/mina/">mina</a>, i use for both backend and for web application, it is DSL to describe deployment, it allows to generate on fly ngxin, logrotate and more configuration based on deployment environments {Production, Test, Staging}, then mina translates to bash script and runs it on remote server. <a href="#samples">mina config smaple</a></p>
-<p>using <a href="https://backup.github.io/backup/v4/installation/">backup gem</a> to make and store db backups to S3</p>
+<p>I have automated my deployment with <a href="http://nadarei.co/mina/">mina</a>, i use for both backend and for web application, it is DSL to describe deployment, it allows to generate on fly ngxin, logrotate and other configuration based on deployment environments {Production, Test, Staging}, then mina translates to bash script and runs it on remote server. <a href="#samples">mina config smaple</a></p>
+<p>set up cron job for <a href="https://backup.github.io/backup/v4/installation/">backup gem</a> to make and store db backups to S3</p>
 <p>I know about CI, have not set it up yet.</p></li>
 <li><p>Unix/Linux environments, including the ability to analyze and troubleshoot potential networking issues</p>
 <p>As I said all my app live in linux, I enable firewall, open close ports, check which program listens for given port, ping, set domain name. These usually what I have done related to networking on Linux environments.</p></li>
