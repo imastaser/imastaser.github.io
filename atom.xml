@@ -26,7 +26,7 @@
 <h1>Requirements</h1>
 <section id="excited-about-designing-building-and-running-distributed-and-scalable-systems" class="level2">
 <h2>*Excited about designing, building, and running distributed and scalable systems</h2>
-<p>From scratch I have learned to set up hetzner’s virtual linux machine for development, testing and prodcution, my <a href="http://195.201.22.161:8000/mitq/programming/deployment.html">set up notes</a>(looking to move use ansible to automate set up process). I design the backend scalability in mind, each device know about two backends, first backend’s address(this will be moved on the AWS or IBC cloud) is burned into firmware this backend a device uses to get configuration where set up the second backend address which uses send data, to log in, to auth to get commands and etc. Set nginx.</p>
+<p>From scratch I have learned to set up hetzner’s virtual linux machine for development, testing and prodcution, my <a href="http://imast.am/mitq/programming/deployment.html">set up notes</a> (looking to move use ansible to automate set up process). I design the backend scalability in mind, each device know about two backends, first backend’s address(this will be moved on the AWS or IBC cloud) is burned into firmware this backend a device uses to get configuration where set up the second backend address which uses send data, to log in, to auth to get commands and etc. Set nginx.</p>
 <p><strong>TODO:</strong></p>
 <ul>
 <li>investigate and use floating IPs that hetzner provide.</li>
