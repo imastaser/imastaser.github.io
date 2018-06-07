@@ -14,15 +14,16 @@
     <description><![CDATA[<div class="post-content">
 <section id="cover-letter" class="level1">
 <h1>Cover Letter</h1>
-<p>I am excited about the opportunity to join a team that does functional programming, uses open source tools and makes open source software. I’m actively developing my side project that utilizes a few popular open source tools and the FP languages (Haskell, Elm) that I’m very interested in.</p>
+<p>Hi,</p>
+<p>I am excited about the opportunity to join a team that does functional programming, uses open source tools and makes open source software. I’m actively developing my side project that utilizes a few popular open source tools and the FP languages (Haskell, Elm) which interest me a lot.</p>
 <p>I work in the team who use only Microsoft languages, tools and all on Windows OS.</p>
-<p>In general, I learn FP concepts continuously using <strong>Haskell</strong>, <strong>Racket</strong>. On 2017 I decided to use Haskell to develop backend to serve IoT devices. Let me structure my cover letter trying to answer the <a href="https://wire.softgarden.io/job/2105535?l=en">requirements</a> section reflecting on what I have done and what I am going to do so far. All work was done single-handedly with zero experience in linux and all tools i have used, I will do my best working with experts of FP and distributed and scalable systems.</p>
+<p>In general, I learn FP concepts continuously using <strong>Haskell</strong>, <strong>Racket</strong>. On 2017 I decided to use Haskell to develop backend to serve IoT devices. I’m going to build my cover letter by answering to the <a href="https://wire.softgarden.io/job/2105535?l=en">requirements</a> section concerning what I have done and what I’m going to do in the future. All work was done single-handedly with zero experience in linux and all tools i have used, I will do my best if i have change to work with experts of FP, distributed and scalable systems.</p>
 </section>
 <section id="requirements" class="level1">
 <h1>Requirements</h1>
 <section id="excited-about-designing-building-and-running-distributed-and-scalable-systems" class="level2">
 <h2>*Excited about designing, building, and running distributed and scalable systems</h2>
-<p>I have manage to set up hetzner’s virtual linux machines for development, testing and prodcution, my <a href="http://imast.am/mitq/programming/deployment.html">set up notes</a> (looking to move use ansible to automate set up process). I design the backend scalability in mind, each device know about two backends, first backend’s address(will be moved on the AWS or IBC cloud) is burned into firmware this backend the devices uses to get configuration with second backend address which uses send data, for login, to auth to get commands and etc. Set up nginx nginx.</p>
+<p>I have manage to set up hetzner’s virtual linux machines for development, testing and prodcution, my <a href="http://imast.am/mitq/programming/deployment.html">set up notes</a> (by looking to move use ansible to automate set up process). I design the backend scalability in mind, each device know about two backends, first backend’s address(will be moved on the AWS or IBC cloud) is burned into firmware this backend the devices uses to get configuration with second backend address which uses send data, for login, to auth to get commands and etc. Set up nginx nginx.</p>
 <p><strong>TODO:</strong></p>
 <ul>
 <li>investigate and use floating IPs that hetzner provide.</li>
@@ -31,12 +32,12 @@
 </section>
 <section id="interest-in-statically-typed-functional-languages-is-a-big-plus" class="level2">
 <h2>*Interest in statically-typed functional languages is a big plus</h2>
-<p>I love to let the language to validate my program at compile time, I am very exciting about GHC’s <code>GADTs, DataKinds, TypeFamilies,
-   TypeOperators</code> language extensions that brings Dependent type elements to haskell. Also I found Elm language, which helps me to avoid writing code in JavaScript as much as possible.</p>
+<p>I love to let the language to validate my program at compile time, I am very excited about GHC’s <code>GADTs, DataKinds, TypeFamilies,
+   TypeOperators</code> language extensions that brings Dependent type elements to haskell. Also I found also Elm language, which helps me to avoid writing code in JavaScript as much as possible.</p>
 </section>
 <section id="passion-for-clean-code-and-elegant-solutions-continuously-improving-current-ones" class="level2">
 <h2>*Passion for clean code and elegant solutions (continuously improving current ones)</h2>
-<p>I periodically re-wording and formatting my comments to help haddock generate nicer and useful documents. I like the dependently type languages concepts and looking forward to use them. I think I have found and implemented elegant solutionsin my current project, how to send commands to device, how to scale easily without any magic when I have have many devices. Haskell like math, there is not limit of improvements.</p>
+<p>I periodically re-wording and formatting my comments to help haddock generate better documents. I like the dependently typed languages concepts and looking forward to use them. I think I have found and implemented elegant solutionsin my current project, how to send commands to device, how to scale easily without any magic when there will be many devices. Haskell like math, there is no limit of improvements.</p>
 <p>Have written several tests for backend, need more.</p>
 <p><strong>TODO:</strong></p>
 <ul>
@@ -51,11 +52,11 @@
 <ul>
 <li><p>AWS (or other cloud providers) Using S3, Route53 Testing to use IBM Cloud Iot platform to store device configs(first backend)</p></li>
 <li><p>Automating builds and deployments</p>
-<p>I have automated my deployment with <a href="http://nadarei.co/mina/">mina</a>, i use for both backend and for web application, it is DSL to describe deployment, it allows to generate on fly ngxin, logrotate and other configuration based on deployment environments {Production, Test, Staging}, then mina translates to bash script and runs it on remote server. <a href="#samples">mina config smaple</a></p>
+<p>I have automated my deployment with <a href="http://nadarei.co/mina/">mina</a>, i use for both backend and for web application, it is DSL to describe deployment, which allows to generate on fly ngxin, logrotate and other configuration based on deployment environments {Production, Test, Staging}, then mina translates to bash script and runs it on remote server. <a href="#samples">mina config smaple</a></p>
 <p>set up cron job for <a href="https://backup.github.io/backup/v4/installation/">backup gem</a> to make and store db backups to S3</p>
 <p>I know about CI, have not set it up yet.</p></li>
 <li><p>Unix/Linux environments, including the ability to analyze and troubleshoot potential networking issues</p>
-<p>As I said all my app live in linux, I enable firewall, open close ports, check which program listens for given port, ping, set domain name. These usually what I have done related to networking on Linux environments.</p></li>
+<p>As I told already all my app live in linux, I enable firewall, open close ports, check which program listens for given port, ping, set domain name. These are usually what I have done related to the networking on Linux environments.</p></li>
 <li><p>Containerization technologies</p>
 I set up docker and configure to run my web app on it, i know about ~ Kubernetes and Docker Swarm~ Next steps of migration to full dockerized deployment are:
 <ol>
@@ -70,7 +71,7 @@ I set up docker and configure to run my web app on it, i know about ~ Kubernetes
 <li>Configure Docker Orchestration</li>
 </ol></li>
 <li><p>Coding in Rust</p>
-<p>I heard about Rust that it has something similar we have for Type classes in Haskell, also that it can be used to program for Rasberry pi and good for system programming, something that come to replace <code>C</code>, this all what I know about Rust. I have never tried it, but language featuring looks promising.</p></li>
+<p>I heard about Rust that it has something similar which we have for Type classes in Haskell, also that it can be used to program for Rasberry pi and is good for system programming, something that come to replace <code>C</code>, this all what I know about Rust. I have never tried it, but language featuring looks promising.</p></li>
 </ul>
 </section>
 </section>
