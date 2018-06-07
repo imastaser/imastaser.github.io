@@ -209,11 +209,8 @@ I set up docker and configure to run my web app on it, i know about ~ Kubernetes
 <a class="sourceLine" id="cb2-91" data-line-number="91">        invoke :<span class="st">&#39;puma:phased_restart&#39;</span></a>
 <a class="sourceLine" id="cb2-92" data-line-number="92">    <span class="kw">end</span></a>
 <a class="sourceLine" id="cb2-93" data-line-number="93">  <span class="kw">end</span></a>
-<a class="sourceLine" id="cb2-94" data-line-number="94"></a>
-<a class="sourceLine" id="cb2-95" data-line-number="95">  <span class="co"># you can use `run :local` to run tasks on local machine before of after the deploy scripts</span></a>
-<a class="sourceLine" id="cb2-96" data-line-number="96">  <span class="co"># run(:local){ say &#39;done&#39; }</span></a>
-<a class="sourceLine" id="cb2-97" data-line-number="97"><span class="kw">end</span></a>
-<a class="sourceLine" id="cb2-98" data-line-number="98"></a></code></pre></div>
+<a class="sourceLine" id="cb2-94" data-line-number="94"><span class="kw">end</span></a>
+<a class="sourceLine" id="cb2-95" data-line-number="95"></a></code></pre></div>
 <p>_</p>
 </section>
 </section>
