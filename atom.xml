@@ -88,133 +88,198 @@ I set up docker and configure to run my web app on it, i know about ~ Kubernetes
 </section>
 <section id="samples" class="level1">
 <h1>samples</h1>
+<section id="changelog" class="level2">
+<h2>Changelog</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb1-1" data-line-number="1">Change Log / Release Notes</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">0.0.8</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">• add device_log table in migration, add log.db end point.</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">• fix lng &amp; lat invalid format parsing exception, &quot;Prelude.read: no parse&quot;</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">• publish data to redis channel, to feed websocket on front-end.</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">• reset device activity key in redis when checking for auth.</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">0.0.7</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">• add patvers</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">0.0.6</a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">• verbose error for auth token.</a>
+<a class="sourceLine" id="cb1-14" data-line-number="14">• remove debugMsg for development as well, from response.</a>
+<a class="sourceLine" id="cb1-15" data-line-number="15">• parse imei value from auth header, add flockLog function.</a>
+<a class="sourceLine" id="cb1-16" data-line-number="16">• add AuthTokenDBError type constructor</a>
+<a class="sourceLine" id="cb1-17" data-line-number="17">• add imei to command reponse as well.</a>
+<a class="sourceLine" id="cb1-18" data-line-number="18">• deal with patvers, get patver status update from device</a>
+<a class="sourceLine" id="cb1-19" data-line-number="19">• handle not registered device case</a>
+<a class="sourceLine" id="cb1-20" data-line-number="20"></a>
+<a class="sourceLine" id="cb1-21" data-line-number="21">0.0.5</a>
+<a class="sourceLine" id="cb1-22" data-line-number="22">• log to slack all errors</a>
+<a class="sourceLine" id="cb1-23" data-line-number="23">• firmware download row by row</a>
+<a class="sourceLine" id="cb1-24" data-line-number="24">• create firmware tables and seeds for testing.</a>
+<a class="sourceLine" id="cb1-25" data-line-number="25">• add taxi specific field to trip</a>
+<a class="sourceLine" id="cb1-26" data-line-number="26">• DeviceData: remove temp, add angle</a>
+<a class="sourceLine" id="cb1-27" data-line-number="27">• add endpoints to get tariff by id, by number.</a>
+<a class="sourceLine" id="cb1-28" data-line-number="28">• add endpoints to get tariff group tariffs id array, get all tariffs.</a>
+<a class="sourceLine" id="cb1-29" data-line-number="29">• add command endpoints to get device command or commands list</a>
+<a class="sourceLine" id="cb1-30" data-line-number="30">• add taxi.order endpoints, start, stop collect order data and save to db</a>
+<a class="sourceLine" id="cb1-31" data-line-number="31">• use redis heavily</a>
+<a class="sourceLine" id="cb1-32" data-line-number="32">• set taxi_id, taxometer_id and shift_id to taxi_order when order created.</a>
+<a class="sourceLine" id="cb1-33" data-line-number="33"></a>
+<a class="sourceLine" id="cb1-34" data-line-number="34">0.0.4</a>
+<a class="sourceLine" id="cb1-35" data-line-number="35">• add expire key to redis for device activity tracking</a>
+<a class="sourceLine" id="cb1-36" data-line-number="36">• parse trip status</a>
+<a class="sourceLine" id="cb1-37" data-line-number="37">• add redis to handle trip creation, collect trip points.</a>
+<a class="sourceLine" id="cb1-38" data-line-number="38">• rename device property, make shorter, add new fields.</a>
+<a class="sourceLine" id="cb1-39" data-line-number="39">• add script for deploying to remote via ssh, 80% done.</a>
+<a class="sourceLine" id="cb1-40" data-line-number="40"></a>
+<a class="sourceLine" id="cb1-41" data-line-number="41">0.0.3</a>
+<a class="sourceLine" id="cb1-42" data-line-number="42">• parse latitude and longitude from NMEA coords format</a>
+<a class="sourceLine" id="cb1-43" data-line-number="43">• convert lat and lng to degrees</a>
+<a class="sourceLine" id="cb1-44" data-line-number="44">• make staging error more verbos, DebugMsg option</a>
+<a class="sourceLine" id="cb1-45" data-line-number="45">• add logging of request and response to file, formatted as json.</a>
+<a class="sourceLine" id="cb1-46" data-line-number="46">• add api/info, do not remove &quot;Content-Type&quot; Header for this /api/info path, TODO: dev more sophisticate mechanism to remove header</a>
+<a class="sourceLine" id="cb1-47" data-line-number="47"></a>
+<a class="sourceLine" id="cb1-48" data-line-number="48">0.0.2</a>
+<a class="sourceLine" id="cb1-49" data-line-number="49">• make response json more simple, for easy parse in device side, reduce nesting level in json</a>
+<a class="sourceLine" id="cb1-50" data-line-number="50">• change /api/device.data accept json where numeric types represent as text. the numeric type in the device side loss precision, and for device it is easy send text. Develop the json parser that accept numbers or string without fail.</a>
+<a class="sourceLine" id="cb1-51" data-line-number="51">• alt, speed, angle can access string, int, rational, empty</a>
+<a class="sourceLine" id="cb1-52" data-line-number="52"></a>
+<a class="sourceLine" id="cb1-53" data-line-number="53">0.0.1</a>
+<a class="sourceLine" id="cb1-54" data-line-number="54">• change Response format</a>
+<a class="sourceLine" id="cb1-55" data-line-number="55">• run sql scripts as migration</a>
+<a class="sourceLine" id="cb1-56" data-line-number="56">• Add some tests</a>
+<a class="sourceLine" id="cb1-57" data-line-number="57">• Improved Rest API, separate Lib module, improve exception catching</a>
+<a class="sourceLine" id="cb1-58" data-line-number="58"></a>
+<a class="sourceLine" id="cb1-59" data-line-number="59">0.0.0</a>
+<a class="sourceLine" id="cb1-60" data-line-number="60">• Expose necessary endpoints for pro-prototyping.</a>
+<a class="sourceLine" id="cb1-61" data-line-number="61"></a>
+<a class="sourceLine" id="cb1-62" data-line-number="62"></a></code></pre></div>
+</section>
 <section id="deployment-code-sample-mina" class="level2">
 <h2>Deployment code sample (mina)</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb1-1" data-line-number="1">desc <span class="st">&quot;Populate logrotote&quot;</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">task :<span class="st">&#39;setup:logrotate_config&#39;</span> =&gt; <span class="st">:remote_environment</span> <span class="kw">do</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">  logrotate_conf = &lt;&lt;-<span class="kw">LOGR</span><span class="ot">.dedent</span></a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="ot">    #{</span>fetch(<span class="st">:deploy_to</span>)<span class="ot">}/shared/Backup/log/*.log</span></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="ot">    #{</span>fetch(<span class="st">:deploy_to</span>)<span class="ot">}/shared/log/*.log</span></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="ot">    #{</span>fetch(<span class="st">:deploy_to</span>)<span class="ot">}/shared/log/*/*.log {</span></a>
-<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="ot">                daily</span></a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="ot">                dateext</span></a>
-<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="ot">                dateformat -%d.%m.%Y</span></a>
-<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="ot">                missingok</span></a>
-<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="ot">                rotate 5</span></a>
-<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="ot">                compress</span></a>
-<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="ot">                delaycompress</span></a>
-<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="ot">                notifempty</span></a>
-<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="ot">                sharedscripts</span></a>
-<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="ot">                copytruncate</span></a>
-<a class="sourceLine" id="cb1-17" data-line-number="17"><span class="ot">                }</span></a>
-<a class="sourceLine" id="cb1-18" data-line-number="18"><span class="ot">    LOGR</span></a>
-<a class="sourceLine" id="cb1-19" data-line-number="19"></a>
-<a class="sourceLine" id="cb1-20" data-line-number="20"><span class="ot">  command %{</span></a>
-<a class="sourceLine" id="cb1-21" data-line-number="21"><span class="ot">      echo &quot;-----&gt; Populating log rotation config&quot;</span></a>
-<a class="sourceLine" id="cb1-22" data-line-number="22"><span class="ot">      echo &quot;#{</span>logrotate_conf<span class="ot">}&quot; &gt; #{</span>fetch(<span class="st">:deploy_to</span>)<span class="ot">}/shared/config/log_rotation.conf</span></a>
-<a class="sourceLine" id="cb1-23" data-line-number="23"><span class="ot">      sudo chmod 644 #{</span>fetch(<span class="st">:deploy_to</span>)<span class="ot">}/shared/config/log_rotation.conf</span></a>
-<a class="sourceLine" id="cb1-24" data-line-number="24"><span class="ot">      # sudo ln -nfs #{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}/config/log_rotation.conf /etc/logrotate.d/#{</span>fetch(<span class="st">:application_name</span>)<span class="ot">}</span></a>
-<a class="sourceLine" id="cb1-25" data-line-number="25"><span class="ot">      sudo cp #{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}/config/log_rotation.conf /etc/logrotate.d/#{</span>fetch(<span class="st">:application_name</span>)<span class="ot">}</span></a>
-<a class="sourceLine" id="cb1-26" data-line-number="26"><span class="ot">      echo &quot;-----&gt; Done&quot;</span></a>
-<a class="sourceLine" id="cb1-27" data-line-number="27"><span class="ot">  }</span></a>
-<a class="sourceLine" id="cb1-28" data-line-number="28"></a>
-<a class="sourceLine" id="cb1-29" data-line-number="29"><span class="ot"> end</span></a>
-<a class="sourceLine" id="cb1-30" data-line-number="30"></a></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb2-1" data-line-number="1"></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">task <span class="st">:test</span> <span class="kw">do</span></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">  set <span class="st">:deploy_to</span>, <span class="st">&quot;</span><span class="ot">#{</span>fetch(<span class="st">:deploy_to</span>)<span class="ot">}</span><span class="st">&quot;</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">  set <span class="st">:rails_env</span>, <span class="st">&#39;production&#39;</span></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5">  set <span class="st">:domain</span>, <span class="st">&#39;test.taxicenter.am&#39;</span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">  set <span class="st">:www_domain</span>, <span class="st">&#39;test.taxicenter.am&#39;</span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="kw">end</span></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9">task <span class="st">:staging</span> <span class="kw">do</span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10">  set <span class="st">:deploy_to</span>, <span class="st">&quot;</span><span class="ot">#{</span>fetch(<span class="st">:deploy_to</span>)<span class="ot">}</span><span class="st">-staging&quot;</span></a>
-<a class="sourceLine" id="cb2-11" data-line-number="11">  set <span class="st">:rails_env</span>, <span class="st">&#39;staging&#39;</span></a>
-<a class="sourceLine" id="cb2-12" data-line-number="12">  set <span class="st">:domain</span>, <span class="st">&#39;staging.taxicenter.am&#39;</span></a>
-<a class="sourceLine" id="cb2-13" data-line-number="13">  set <span class="st">:www_domain</span>, <span class="st">&#39;staging.taxicenter.am&#39;</span></a>
-<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#  set :branch, &#39;develop&#39;</span></a>
-<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="kw">end</span></a>
-<a class="sourceLine" id="cb2-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb2-17" data-line-number="17">task <span class="st">:production</span> <span class="kw">do</span></a>
-<a class="sourceLine" id="cb2-18" data-line-number="18">  set <span class="st">:rails_env</span>, <span class="st">&#39;production&#39;</span></a>
-<a class="sourceLine" id="cb2-19" data-line-number="19">  set <span class="st">:branch</span>, <span class="st">&#39;master&#39;</span></a>
-<a class="sourceLine" id="cb2-20" data-line-number="20">  set <span class="st">:domain</span>, <span class="st">&#39;taxicenter.am&#39;</span></a>
-<a class="sourceLine" id="cb2-21" data-line-number="21">  set <span class="st">:www_domain</span>, <span class="st">&#39;www.taxicenter.am&#39;</span></a>
-<a class="sourceLine" id="cb2-22" data-line-number="22"><span class="kw">end</span></a>
-<a class="sourceLine" id="cb2-23" data-line-number="23"></a>
-<a class="sourceLine" id="cb2-24" data-line-number="24"></a>
-<a class="sourceLine" id="cb2-25" data-line-number="25">task <span class="st">:setup</span> =&gt; <span class="st">:remote_environment</span> <span class="kw">do</span></a>
-<a class="sourceLine" id="cb2-26" data-line-number="26"></a>
-<a class="sourceLine" id="cb2-27" data-line-number="27">  <span class="co"># Puma needs a place to store its pid file and socket file.</span></a>
-<a class="sourceLine" id="cb2-28" data-line-number="28">  command <span class="ot">%(</span><span class="st">mkdir -p &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/tmp/&quot;</span><span class="ot">)</span></a>
-<a class="sourceLine" id="cb2-29" data-line-number="29">  command <span class="ot">%(</span><span class="st">chmod g+rx,u+rwx &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/tmp&quot;</span><span class="ot">)</span></a>
-<a class="sourceLine" id="cb2-30" data-line-number="30"></a>
-<a class="sourceLine" id="cb2-31" data-line-number="31">  command <span class="ot">%(</span><span class="st">mkdir -p &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/log/&quot;</span><span class="ot">)</span></a>
-<a class="sourceLine" id="cb2-32" data-line-number="32">  command <span class="ot">%(</span><span class="st">chmod g+rx,u+rwx &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/log&quot;</span><span class="ot">)</span></a>
-<a class="sourceLine" id="cb2-33" data-line-number="33">  command <span class="ot">%(</span><span class="st">mkdir -p &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/log/puma&quot;</span><span class="ot">)</span></a>
-<a class="sourceLine" id="cb2-34" data-line-number="34">    command <span class="ot">%(</span><span class="st">chmod g+rx,u+rwx &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/log/puma&quot;</span><span class="ot">)</span></a>
-<a class="sourceLine" id="cb2-35" data-line-number="35">  command <span class="ot">%(</span><span class="st">mkdir -p &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/log/nginx&quot;</span><span class="ot">)</span></a>
-<a class="sourceLine" id="cb2-36" data-line-number="36">  command <span class="ot">%(</span><span class="st">chmod g+rx,u+rwx &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/log/nginx&quot;</span><span class="ot">)</span></a>
-<a class="sourceLine" id="cb2-37" data-line-number="37"></a>
-<a class="sourceLine" id="cb2-38" data-line-number="38">  command <span class="ot">%(</span><span class="st">mkdir -p &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/tmp/sockets&quot;</span><span class="ot">)</span></a>
-<a class="sourceLine" id="cb2-39" data-line-number="39">  command <span class="ot">%(</span><span class="st">chmod g+rx,u+rwx &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/tmp/sockets&quot;</span><span class="ot">)</span></a>
-<a class="sourceLine" id="cb2-40" data-line-number="40"></a>
-<a class="sourceLine" id="cb2-41" data-line-number="41">  command <span class="ot">%(</span><span class="st">mkdir -p &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/backup&quot;</span><span class="ot">)</span></a>
-<a class="sourceLine" id="cb2-42" data-line-number="42">  command <span class="ot">%(</span><span class="st">chmod g+rx,u+rwx &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/backup&quot;</span><span class="ot">)</span></a>
-<a class="sourceLine" id="cb2-43" data-line-number="43"></a>
-<a class="sourceLine" id="cb2-44" data-line-number="44">  command <span class="ot">%(</span><span class="st">mkdir -p &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/tmp/pids&quot;</span><span class="ot">)</span></a>
-<a class="sourceLine" id="cb2-45" data-line-number="45">  command <span class="ot">%(</span><span class="st">chmod g+rx,u+rwx &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/tmp/pids&quot;</span><span class="ot">)</span></a>
-<a class="sourceLine" id="cb2-46" data-line-number="46"></a>
-<a class="sourceLine" id="cb2-47" data-line-number="47">  invoke :<span class="st">&#39;setup:db:database_yml&#39;</span></a>
-<a class="sourceLine" id="cb2-48" data-line-number="48">  invoke :<span class="st">&#39;setup:db:redis_yml&#39;</span></a>
-<a class="sourceLine" id="cb2-49" data-line-number="49">  invoke :<span class="st">&#39;setup:puma_config&#39;</span></a>
-<a class="sourceLine" id="cb2-50" data-line-number="50">  invoke :<span class="st">&#39;setup:secrets_yml&#39;</span></a>
-<a class="sourceLine" id="cb2-51" data-line-number="51">  invoke :<span class="st">&#39;setup:nginx_config&#39;</span></a>
-<a class="sourceLine" id="cb2-52" data-line-number="52">  invoke :<span class="st">&#39;setup:logrotate_config&#39;</span></a>
-<a class="sourceLine" id="cb2-53" data-line-number="53"></a>
-<a class="sourceLine" id="cb2-54" data-line-number="54"><span class="kw">end</span></a>
-<a class="sourceLine" id="cb2-55" data-line-number="55"></a>
-<a class="sourceLine" id="cb2-56" data-line-number="56">desc <span class="st">&quot;Deploys the current version to the server.&quot;</span></a>
-<a class="sourceLine" id="cb2-57" data-line-number="57">task <span class="st">:deploy</span> =&gt; <span class="st">:remote_environment</span> <span class="kw">do</span></a>
-<a class="sourceLine" id="cb2-58" data-line-number="58">  <span class="co"># uncomment this line to make sure you pushed your local branch to the remote origin</span></a>
-<a class="sourceLine" id="cb2-59" data-line-number="59">  <span class="co"># invoke :&#39;git:ensure_pushed&#39;</span></a>
-<a class="sourceLine" id="cb2-60" data-line-number="60">  deploy <span class="kw">do</span></a>
-<a class="sourceLine" id="cb2-61" data-line-number="61">    <span class="co"># Put things that will set up an empty directory into a fully set-up</span></a>
-<a class="sourceLine" id="cb2-62" data-line-number="62">    <span class="co"># instance of your project.</span></a>
-<a class="sourceLine" id="cb2-63" data-line-number="63">    comment <span class="st">&quot;Deploying </span><span class="ot">#{</span>fetch(<span class="st">:application_name</span>)<span class="ot">}</span><span class="st"> to </span><span class="ot">#{</span>fetch(<span class="st">:domain</span>)<span class="ot">}</span><span class="st">:</span><span class="ot">#{</span>fetch(<span class="st">:deploy_to</span>)<span class="ot">}</span><span class="st">&quot;</span></a>
-<a class="sourceLine" id="cb2-64" data-line-number="64">    command <span class="ot">%{</span><span class="st">pwd</span><span class="ot">}</span></a>
-<a class="sourceLine" id="cb2-65" data-line-number="65">    invoke :<span class="st">&#39;git:clone&#39;</span></a>
-<a class="sourceLine" id="cb2-66" data-line-number="66">    invoke :<span class="st">&#39;deploy:link_shared_paths&#39;</span></a>
-<a class="sourceLine" id="cb2-67" data-line-number="67">    invoke :<span class="st">&#39;bundle:install&#39;</span></a>
-<a class="sourceLine" id="cb2-68" data-line-number="68"></a>
-<a class="sourceLine" id="cb2-69" data-line-number="69">    <span class="co"># these 2 commands shoudl be run first time only</span></a>
-<a class="sourceLine" id="cb2-70" data-line-number="70">    <span class="kw">if</span> fetch(<span class="st">:first_run</span>) == <span class="dv">true</span></a>
-<a class="sourceLine" id="cb2-71" data-line-number="71">      invoke :<span class="st">&#39;rails:db_create&#39;</span> <span class="co">#  creates the database</span></a>
-<a class="sourceLine" id="cb2-72" data-line-number="72">      invoke :<span class="st">&#39;rails:db_schema_load&#39;</span> <span class="co"># creates tables and columns within the (existing) database following schema.rb</span></a>
-<a class="sourceLine" id="cb2-73" data-line-number="73">    <span class="kw">end</span></a>
-<a class="sourceLine" id="cb2-74" data-line-number="74"></a>
-<a class="sourceLine" id="cb2-75" data-line-number="75">    invoke :<span class="st">&#39;rails:db_migrate&#39;</span></a>
-<a class="sourceLine" id="cb2-76" data-line-number="76"></a>
-<a class="sourceLine" id="cb2-77" data-line-number="77">    <span class="co"># first time only</span></a>
-<a class="sourceLine" id="cb2-78" data-line-number="78">    <span class="kw">if</span> fetch(<span class="st">:first_run</span>) == <span class="dv">true</span></a>
-<a class="sourceLine" id="cb2-79" data-line-number="79">      command <span class="ot">%{#{</span>fetch(<span class="st">:rails</span>)<span class="ot">}</span><span class="st"> db:seed</span><span class="ot">}</span></a>
-<a class="sourceLine" id="cb2-80" data-line-number="80">    <span class="kw">end</span></a>
-<a class="sourceLine" id="cb2-81" data-line-number="81"></a>
-<a class="sourceLine" id="cb2-82" data-line-number="82">    invoke :<span class="st">&#39;rails:assets_precompile&#39;</span></a>
-<a class="sourceLine" id="cb2-83" data-line-number="83"></a>
-<a class="sourceLine" id="cb2-84" data-line-number="84">    <span class="co">#command %{sudo service reload}</span></a>
-<a class="sourceLine" id="cb2-85" data-line-number="85"></a>
-<a class="sourceLine" id="cb2-86" data-line-number="86">    invoke :<span class="st">&#39;deploy:cleanup&#39;</span></a>
-<a class="sourceLine" id="cb2-87" data-line-number="87"></a>
-<a class="sourceLine" id="cb2-88" data-line-number="88">    on <span class="st">:launch</span> <span class="kw">do</span></a>
-<a class="sourceLine" id="cb2-89" data-line-number="89">        command <span class="ot">%{</span><span class="st">mkdir -p tmp/</span><span class="ot">}</span></a>
-<a class="sourceLine" id="cb2-90" data-line-number="90">        command <span class="ot">%{</span><span class="st">touch tmp/restart.txt</span><span class="ot">}</span></a>
-<a class="sourceLine" id="cb2-91" data-line-number="91">        invoke :<span class="st">&#39;puma:phased_restart&#39;</span></a>
-<a class="sourceLine" id="cb2-92" data-line-number="92">    <span class="kw">end</span></a>
-<a class="sourceLine" id="cb2-93" data-line-number="93">  <span class="kw">end</span></a>
-<a class="sourceLine" id="cb2-94" data-line-number="94"><span class="kw">end</span></a>
-<a class="sourceLine" id="cb2-95" data-line-number="95"></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb2-1" data-line-number="1">desc <span class="st">&quot;Populate logrotote&quot;</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">task :<span class="st">&#39;setup:logrotate_config&#39;</span> =&gt; <span class="st">:remote_environment</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">  logrotate_conf = &lt;&lt;-<span class="kw">LOGR</span><span class="ot">.dedent</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="ot">    #{</span>fetch(<span class="st">:deploy_to</span>)<span class="ot">}/shared/Backup/log/*.log</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="ot">    #{</span>fetch(<span class="st">:deploy_to</span>)<span class="ot">}/shared/log/*.log</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="ot">    #{</span>fetch(<span class="st">:deploy_to</span>)<span class="ot">}/shared/log/*/*.log {</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="ot">                daily</span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="ot">                dateext</span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="ot">                dateformat -%d.%m.%Y</span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="ot">                missingok</span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="ot">                rotate 5</span></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="ot">                compress</span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="ot">                delaycompress</span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="ot">                notifempty</span></a>
+<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="ot">                sharedscripts</span></a>
+<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="ot">                copytruncate</span></a>
+<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="ot">                }</span></a>
+<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="ot">    LOGR</span></a>
+<a class="sourceLine" id="cb2-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb2-20" data-line-number="20"><span class="ot">  command %{</span></a>
+<a class="sourceLine" id="cb2-21" data-line-number="21"><span class="ot">      echo &quot;-----&gt; Populating log rotation config&quot;</span></a>
+<a class="sourceLine" id="cb2-22" data-line-number="22"><span class="ot">      echo &quot;#{</span>logrotate_conf<span class="ot">}&quot; &gt; #{</span>fetch(<span class="st">:deploy_to</span>)<span class="ot">}/shared/config/log_rotation.conf</span></a>
+<a class="sourceLine" id="cb2-23" data-line-number="23"><span class="ot">      sudo chmod 644 #{</span>fetch(<span class="st">:deploy_to</span>)<span class="ot">}/shared/config/log_rotation.conf</span></a>
+<a class="sourceLine" id="cb2-24" data-line-number="24"><span class="ot">      # sudo ln -nfs #{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}/config/log_rotation.conf /etc/logrotate.d/#{</span>fetch(<span class="st">:application_name</span>)<span class="ot">}</span></a>
+<a class="sourceLine" id="cb2-25" data-line-number="25"><span class="ot">      sudo cp #{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}/config/log_rotation.conf /etc/logrotate.d/#{</span>fetch(<span class="st">:application_name</span>)<span class="ot">}</span></a>
+<a class="sourceLine" id="cb2-26" data-line-number="26"><span class="ot">      echo &quot;-----&gt; Done&quot;</span></a>
+<a class="sourceLine" id="cb2-27" data-line-number="27"><span class="ot">  }</span></a>
+<a class="sourceLine" id="cb2-28" data-line-number="28"></a>
+<a class="sourceLine" id="cb2-29" data-line-number="29"><span class="ot"> end</span></a>
+<a class="sourceLine" id="cb2-30" data-line-number="30"></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb3-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">task <span class="st">:test</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">  set <span class="st">:deploy_to</span>, <span class="st">&quot;</span><span class="ot">#{</span>fetch(<span class="st">:deploy_to</span>)<span class="ot">}</span><span class="st">&quot;</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">  set <span class="st">:rails_env</span>, <span class="st">&#39;production&#39;</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">  set <span class="st">:domain</span>, <span class="st">&#39;test.taxicenter.am&#39;</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">  set <span class="st">:www_domain</span>, <span class="st">&#39;test.taxicenter.am&#39;</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="kw">end</span></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">task <span class="st">:staging</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10">  set <span class="st">:deploy_to</span>, <span class="st">&quot;</span><span class="ot">#{</span>fetch(<span class="st">:deploy_to</span>)<span class="ot">}</span><span class="st">-staging&quot;</span></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">  set <span class="st">:rails_env</span>, <span class="st">&#39;staging&#39;</span></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12">  set <span class="st">:domain</span>, <span class="st">&#39;staging.taxicenter.am&#39;</span></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13">  set <span class="st">:www_domain</span>, <span class="st">&#39;staging.taxicenter.am&#39;</span></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">#  set :branch, &#39;develop&#39;</span></a>
+<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="kw">end</span></a>
+<a class="sourceLine" id="cb3-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb3-17" data-line-number="17">task <span class="st">:production</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb3-18" data-line-number="18">  set <span class="st">:rails_env</span>, <span class="st">&#39;production&#39;</span></a>
+<a class="sourceLine" id="cb3-19" data-line-number="19">  set <span class="st">:branch</span>, <span class="st">&#39;master&#39;</span></a>
+<a class="sourceLine" id="cb3-20" data-line-number="20">  set <span class="st">:domain</span>, <span class="st">&#39;taxicenter.am&#39;</span></a>
+<a class="sourceLine" id="cb3-21" data-line-number="21">  set <span class="st">:www_domain</span>, <span class="st">&#39;www.taxicenter.am&#39;</span></a>
+<a class="sourceLine" id="cb3-22" data-line-number="22"><span class="kw">end</span></a>
+<a class="sourceLine" id="cb3-23" data-line-number="23"></a>
+<a class="sourceLine" id="cb3-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb3-25" data-line-number="25">task <span class="st">:setup</span> =&gt; <span class="st">:remote_environment</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb3-26" data-line-number="26"></a>
+<a class="sourceLine" id="cb3-27" data-line-number="27">  <span class="co"># Puma needs a place to store its pid file and socket file.</span></a>
+<a class="sourceLine" id="cb3-28" data-line-number="28">  command <span class="ot">%(</span><span class="st">mkdir -p &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/tmp/&quot;</span><span class="ot">)</span></a>
+<a class="sourceLine" id="cb3-29" data-line-number="29">  command <span class="ot">%(</span><span class="st">chmod g+rx,u+rwx &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/tmp&quot;</span><span class="ot">)</span></a>
+<a class="sourceLine" id="cb3-30" data-line-number="30"></a>
+<a class="sourceLine" id="cb3-31" data-line-number="31">  command <span class="ot">%(</span><span class="st">mkdir -p &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/log/&quot;</span><span class="ot">)</span></a>
+<a class="sourceLine" id="cb3-32" data-line-number="32">  command <span class="ot">%(</span><span class="st">chmod g+rx,u+rwx &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/log&quot;</span><span class="ot">)</span></a>
+<a class="sourceLine" id="cb3-33" data-line-number="33">  command <span class="ot">%(</span><span class="st">mkdir -p &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/log/puma&quot;</span><span class="ot">)</span></a>
+<a class="sourceLine" id="cb3-34" data-line-number="34">    command <span class="ot">%(</span><span class="st">chmod g+rx,u+rwx &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/log/puma&quot;</span><span class="ot">)</span></a>
+<a class="sourceLine" id="cb3-35" data-line-number="35">  command <span class="ot">%(</span><span class="st">mkdir -p &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/log/nginx&quot;</span><span class="ot">)</span></a>
+<a class="sourceLine" id="cb3-36" data-line-number="36">  command <span class="ot">%(</span><span class="st">chmod g+rx,u+rwx &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/log/nginx&quot;</span><span class="ot">)</span></a>
+<a class="sourceLine" id="cb3-37" data-line-number="37"></a>
+<a class="sourceLine" id="cb3-38" data-line-number="38">  command <span class="ot">%(</span><span class="st">mkdir -p &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/tmp/sockets&quot;</span><span class="ot">)</span></a>
+<a class="sourceLine" id="cb3-39" data-line-number="39">  command <span class="ot">%(</span><span class="st">chmod g+rx,u+rwx &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/tmp/sockets&quot;</span><span class="ot">)</span></a>
+<a class="sourceLine" id="cb3-40" data-line-number="40"></a>
+<a class="sourceLine" id="cb3-41" data-line-number="41">  command <span class="ot">%(</span><span class="st">mkdir -p &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/backup&quot;</span><span class="ot">)</span></a>
+<a class="sourceLine" id="cb3-42" data-line-number="42">  command <span class="ot">%(</span><span class="st">chmod g+rx,u+rwx &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/backup&quot;</span><span class="ot">)</span></a>
+<a class="sourceLine" id="cb3-43" data-line-number="43"></a>
+<a class="sourceLine" id="cb3-44" data-line-number="44">  command <span class="ot">%(</span><span class="st">mkdir -p &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/tmp/pids&quot;</span><span class="ot">)</span></a>
+<a class="sourceLine" id="cb3-45" data-line-number="45">  command <span class="ot">%(</span><span class="st">chmod g+rx,u+rwx &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/tmp/pids&quot;</span><span class="ot">)</span></a>
+<a class="sourceLine" id="cb3-46" data-line-number="46"></a>
+<a class="sourceLine" id="cb3-47" data-line-number="47">  invoke :<span class="st">&#39;setup:db:database_yml&#39;</span></a>
+<a class="sourceLine" id="cb3-48" data-line-number="48">  invoke :<span class="st">&#39;setup:db:redis_yml&#39;</span></a>
+<a class="sourceLine" id="cb3-49" data-line-number="49">  invoke :<span class="st">&#39;setup:puma_config&#39;</span></a>
+<a class="sourceLine" id="cb3-50" data-line-number="50">  invoke :<span class="st">&#39;setup:secrets_yml&#39;</span></a>
+<a class="sourceLine" id="cb3-51" data-line-number="51">  invoke :<span class="st">&#39;setup:nginx_config&#39;</span></a>
+<a class="sourceLine" id="cb3-52" data-line-number="52">  invoke :<span class="st">&#39;setup:logrotate_config&#39;</span></a>
+<a class="sourceLine" id="cb3-53" data-line-number="53"></a>
+<a class="sourceLine" id="cb3-54" data-line-number="54"><span class="kw">end</span></a>
+<a class="sourceLine" id="cb3-55" data-line-number="55"></a>
+<a class="sourceLine" id="cb3-56" data-line-number="56">desc <span class="st">&quot;Deploys the current version to the server.&quot;</span></a>
+<a class="sourceLine" id="cb3-57" data-line-number="57">task <span class="st">:deploy</span> =&gt; <span class="st">:remote_environment</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb3-58" data-line-number="58">  <span class="co"># uncomment this line to make sure you pushed your local branch to the remote origin</span></a>
+<a class="sourceLine" id="cb3-59" data-line-number="59">  <span class="co"># invoke :&#39;git:ensure_pushed&#39;</span></a>
+<a class="sourceLine" id="cb3-60" data-line-number="60">  deploy <span class="kw">do</span></a>
+<a class="sourceLine" id="cb3-61" data-line-number="61">    <span class="co"># Put things that will set up an empty directory into a fully set-up</span></a>
+<a class="sourceLine" id="cb3-62" data-line-number="62">    <span class="co"># instance of your project.</span></a>
+<a class="sourceLine" id="cb3-63" data-line-number="63">    comment <span class="st">&quot;Deploying </span><span class="ot">#{</span>fetch(<span class="st">:application_name</span>)<span class="ot">}</span><span class="st"> to </span><span class="ot">#{</span>fetch(<span class="st">:domain</span>)<span class="ot">}</span><span class="st">:</span><span class="ot">#{</span>fetch(<span class="st">:deploy_to</span>)<span class="ot">}</span><span class="st">&quot;</span></a>
+<a class="sourceLine" id="cb3-64" data-line-number="64">    command <span class="ot">%{</span><span class="st">pwd</span><span class="ot">}</span></a>
+<a class="sourceLine" id="cb3-65" data-line-number="65">    invoke :<span class="st">&#39;git:clone&#39;</span></a>
+<a class="sourceLine" id="cb3-66" data-line-number="66">    invoke :<span class="st">&#39;deploy:link_shared_paths&#39;</span></a>
+<a class="sourceLine" id="cb3-67" data-line-number="67">    invoke :<span class="st">&#39;bundle:install&#39;</span></a>
+<a class="sourceLine" id="cb3-68" data-line-number="68"></a>
+<a class="sourceLine" id="cb3-69" data-line-number="69">    <span class="co"># these 2 commands shoudl be run first time only</span></a>
+<a class="sourceLine" id="cb3-70" data-line-number="70">    <span class="kw">if</span> fetch(<span class="st">:first_run</span>) == <span class="dv">true</span></a>
+<a class="sourceLine" id="cb3-71" data-line-number="71">      invoke :<span class="st">&#39;rails:db_create&#39;</span> <span class="co">#  creates the database</span></a>
+<a class="sourceLine" id="cb3-72" data-line-number="72">      invoke :<span class="st">&#39;rails:db_schema_load&#39;</span> <span class="co"># creates tables and columns within the (existing) database following schema.rb</span></a>
+<a class="sourceLine" id="cb3-73" data-line-number="73">    <span class="kw">end</span></a>
+<a class="sourceLine" id="cb3-74" data-line-number="74"></a>
+<a class="sourceLine" id="cb3-75" data-line-number="75">    invoke :<span class="st">&#39;rails:db_migrate&#39;</span></a>
+<a class="sourceLine" id="cb3-76" data-line-number="76"></a>
+<a class="sourceLine" id="cb3-77" data-line-number="77">    <span class="co"># first time only</span></a>
+<a class="sourceLine" id="cb3-78" data-line-number="78">    <span class="kw">if</span> fetch(<span class="st">:first_run</span>) == <span class="dv">true</span></a>
+<a class="sourceLine" id="cb3-79" data-line-number="79">      command <span class="ot">%{#{</span>fetch(<span class="st">:rails</span>)<span class="ot">}</span><span class="st"> db:seed</span><span class="ot">}</span></a>
+<a class="sourceLine" id="cb3-80" data-line-number="80">    <span class="kw">end</span></a>
+<a class="sourceLine" id="cb3-81" data-line-number="81"></a>
+<a class="sourceLine" id="cb3-82" data-line-number="82">    invoke :<span class="st">&#39;rails:assets_precompile&#39;</span></a>
+<a class="sourceLine" id="cb3-83" data-line-number="83"></a>
+<a class="sourceLine" id="cb3-84" data-line-number="84">    <span class="co">#command %{sudo service reload}</span></a>
+<a class="sourceLine" id="cb3-85" data-line-number="85"></a>
+<a class="sourceLine" id="cb3-86" data-line-number="86">    invoke :<span class="st">&#39;deploy:cleanup&#39;</span></a>
+<a class="sourceLine" id="cb3-87" data-line-number="87"></a>
+<a class="sourceLine" id="cb3-88" data-line-number="88">    on <span class="st">:launch</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb3-89" data-line-number="89">        command <span class="ot">%{</span><span class="st">mkdir -p tmp/</span><span class="ot">}</span></a>
+<a class="sourceLine" id="cb3-90" data-line-number="90">        command <span class="ot">%{</span><span class="st">touch tmp/restart.txt</span><span class="ot">}</span></a>
+<a class="sourceLine" id="cb3-91" data-line-number="91">        invoke :<span class="st">&#39;puma:phased_restart&#39;</span></a>
+<a class="sourceLine" id="cb3-92" data-line-number="92">    <span class="kw">end</span></a>
+<a class="sourceLine" id="cb3-93" data-line-number="93">  <span class="kw">end</span></a>
+<a class="sourceLine" id="cb3-94" data-line-number="94"><span class="kw">end</span></a>
+<a class="sourceLine" id="cb3-95" data-line-number="95"></a></code></pre></div>
 <p>_</p>
 </section>
 </section>
