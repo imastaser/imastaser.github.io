@@ -221,11 +221,11 @@ ul {
 }
 
 #TOC ul {
-    list-style-type: upper-roman
+   /* list-style-type: upper-roman */
 }
 
 #TOC li > ul {
-    list-style-type: decimal
+    list-style-type: circle
 }
 
 #TOC h3 {

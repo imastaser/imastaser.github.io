@@ -24,6 +24,19 @@ $if(haskellPosts)$
             <a href="$url$">$title$</a> - $date$
         </li>
     $endfor$
+</ul>
+$endif$
+</section>
+
+<section>
+$if(logicPosts)$
+<h3>Տրամաբանություն</h3>
+<ul>
+  $for(logicPosts)$
+        <li>
+            <a href="$url$">$title$</a> - $date$
+        </li>
+    $endfor$
     $if(fpPosts)$
       $for(fpPosts)$
           <li>
@@ -34,6 +47,7 @@ $if(haskellPosts)$
 </ul>
 $endif$
 </section>
+
 
 $if(methodologyPosts)$
 <h3>Մեթոդաբանություն</h3>

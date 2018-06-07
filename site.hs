@@ -152,6 +152,7 @@ main = do
                 haskellPosts <- recentFirst =<< loadAll ( "posts/mitq/haskell/*"
                                                         .||. "posts/mitq/haskell/*/*"
                                                         )
+                logicPosts <- recentFirst =<< loadAll ("posts/mitq/logic/*" .||. "posts/mitq/logic/*/*" )
                 etcPosts <- recentFirst =<< loadAll ("posts/mitq/etc/*" .||. "posts/mitq/etc/*/*" )
                 fpPosts <- recentFirst =<< loadAll ("posts/mitq/fp/*" .||. "posts/mitq/fp/*/*")
                 restPosts <- recentFirst =<< loadAll ("posts/mitq/*.org")
@@ -160,6 +161,7 @@ main = do
                         listField "methodologyPosts" (postCtx tags) (if null methodPosts then fail "No posts" else return methodPosts) `mappend`
                         listField "programmingPosts" (postCtx tags) (if null programmingPosts then fail "No posts" else return programmingPosts) `mappend`
                         listField "haskellPosts" (postCtx tags) (if null haskellPosts then fail "No posts" else return haskellPosts) `mappend`
+                        listField "logicPosts" (postCtx tags) (if null logicPosts then fail "No posts" else return logicPosts) `mappend`
                         listField "fpPosts" (postCtx tags) (if null fpPosts then fail "No posts" else return fpPosts) `mappend`
                         listField "etcPosts" (postCtx tags) (if null etcPosts then fail "No posts" else return etcPosts) `mappend`
                         listField "restPosts" (postCtx tags) (if null restPosts then fail "No posts" else return restPosts) `mappend`

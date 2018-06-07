@@ -7,6 +7,9 @@ comments: true
 toc: true
 ---
 
+How to install latest GHC from source + latest stack + cabal + cabal-install on
+ubuntu - https://gist.github.com/yantonov/10083524
+
 
 * Hakyll and github pages
   1. create git repository "my-site"  - for holding source

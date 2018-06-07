@@ -10,6 +10,15 @@ toc: true
 * TODO
 - Backup Letsencrypt folder
 - backup config files move to shared folder
+* create ssh key for remote server
+#+BEGIN_SRC bash
+ ssh-keygen -t rsa
+ cat ~/.ssh/<ssh_file_name>.pub
+ ssh user@<ip>
+ # check for key in server
+ cat ~/.ssh/authorized_keys
+#+END_SRC
+
 * server fingerprint changes
 #+BEGIN_SRC bash
   ssh-keygen -f "/home/arthur/.ssh/known_hosts" -R <ip_address>
@@ -23,7 +32,8 @@ toc: true
  cp .ssh/authorized_keys /home/deployer/.ssh/
  sudo chown -R deployer:deployer /home/deployer/.ssh/
 
- # edit /etc/ssh/sshd_config
+ # edit file
+ sudo vi /etc/ssh/sshd_config
  ...
  PasswordAuthentication no
  ...
@@ -41,37 +51,37 @@ toc: true
 #+END_SRC
 * Nginx
 #+BEGIN_SRC bash
-  https://websiteforstudents.com/install-nginx-latest-version-ubuntu-16-10-17-04/
+  # https://websiteforstudents.com/install-nginx-latest-version-ubuntu-16-10-17-04/
   # For the stable version, change mainline to stable.
-  > sudo sh -c 'echo "deb http://nginx.org/packages/mainline/ubuntu/ `lsb_release -cs` nginx" >> /etc/apt/sources.list.d/nginx.list'
-  > sudo sh -c 'echo "deb-src http://nginx.org/packages/mainline/ubuntu/ `lsb_release -cs` nginx" >> /etc/apt/sources.list.d/nginx.list'
-  > wget -q http://nginx.org/keys/nginx_signing.key -O - | sudo apt-key add -
-  > sudo apt -y update
-  > apt-cache policy nginx
-  > sudo apt install -y nginx
-  > nginx -v
-  > sudo systemctl enable nginx
-  > sudo service nginx start
-  > systemctl status nginx
+  sudo sh -c 'echo "deb http://nginx.org/packages/mainline/ubuntu/ `lsb_release -cs` nginx" >> /etc/apt/sources.list.d/nginx.list'
+  sudo sh -c 'echo "deb-src http://nginx.org/packages/mainline/ubuntu/ `lsb_release -cs` nginx" >> /etc/apt/sources.list.d/nginx.list'
+  wget -q http://nginx.org/keys/nginx_signing.key -O - | sudo apt-key add -
+  sudo apt -y update
+  apt-cache policy nginx
+  sudo apt install -y nginx
+  nginx -v
+  sudo systemctl enable nginx
+  sudo service nginx start
+  systemctl status nginx
 #+END_SRC
 * set domain or subdomain
 #+BEGIN_SRC bash
  # add A-record to dns server
- > sudo vi  /etc/hosts
+ sudo vi  /etc/hosts
  127.0.1.1 test.<domain_name> test
  127.0.0.1 localhost
 #+END_SRC
 * Let's Encrypt
 #+BEGIN_SRC bash
- it is easy to get certificate before you have the advacned nginx config for
- your site
-> sudo add-apt-repository ppa:certbot/certbot
-> sudo apt update -y
-> sudo apt install -y python-certbot-nginx
-> sudo systemctl reload nginx
-# verify the syntax of configurations
-> sudo nginx -t
-> sudo certbot certonly --dry-run --nginx -d <domain_name> -d www.<domain_name>
+ # it is easy to get certificate before you have the advacned nginx config for
+ # your site
+sudo add-apt-repository ppa:certbot/certbot
+sudo apt update -y
+sudo apt install -y python-certbot-nginx
+sudo systemctl reload nginx
+verify the syntax of configurations
+sudo nginx -t
+sudo certbot certonly --dry-run --nginx -d <domain_name> -d www.<domain_name>
 
 # TODO: backup /etc/letsencrypt fodler
 # configuration directory at /etc/letsencrypt. You should make a
@@ -82,72 +92,82 @@ toc: true
 # at first comment ssl parts from nginx config for the site we want to get  certificate
 # TODO: generate pre-certifiacation config for site
 # enter email address, c - is canceling all process.
-> sudo certbot --nginx -d <domain_name> -d www.<domain_name>
+sudo certbot --nginx -d <domain_name> -d www.<domain_name>
 
-> sudo certbot renew --dry-run
+sudo certbot renew --dry-run
 #+END_SRC
-* Installing Ruby, Nodejs more packages  [[https://gorails.com/setup/ubuntu/16.04][Go rails instruction]]
+* Ruby, Nodejs, [[https://gorails.com/setup/ubuntu/16.04][Go rails instruction]]
+
+ Nodejs
 #+BEGIN_SRC bash
-> curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-> curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-> echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-> sudo apt -y update
-> sudo apt -y  install git-core curl zlib1g-dev build-essential libssl-dev
-> sudo apt -y install  libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev
-> sudo apt -y install  libcurl4-openssl-dev python-software-properties libffi-dev nodejs yarn
+ curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+ sudo apt -y update
+ sudo apt -y install git-core curl zlib1g-dev build-essential libssl-dev
+ sudo apt -y install  libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev
+ sudo apt -y install  libcurl4-openssl-dev libffi-dev nodejs
 #+END_SRC
 
-Installing rbenv
+Yarn
 #+BEGIN_SRC bash
-   > cd
-   > git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-   > echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-   > echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-   > exec $SHELL
+ curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+ sudo apt-get update && sudo apt-get install yarn
+#+END_SRC
 
-   > git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-   > echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
-   > exec $SHELL
 
-   > rbenv install 2.5.0
-   > rbenv global 2.5.0
-   > ruby -v
+rbenv
+#+BEGIN_SRC bash
+ cd
+ git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+ echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+ exec $SHELL
 
-   > echo "gem: --no-document" > ~/.gemrc
-   > gem install bundler
-   > rbenv rehash
-   > gem list rails
-   > gem env home
+ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+ echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
+ exec $SHELL
 
-   Commands
-   > rbenv install -l # list of versions that you can choose to install.
-   > rbenv versions # Lists all Ruby versions known to rbenv
-   > rbenv version # Displays the currently active Ruby version
+ rbenv install 2.5.1
+ rbenv global 2.5.1
+ ruby -v
+
+ echo "gem: --no-document" > ~/.gemrc
+ gem install bundler
+ rbenv rehash
+ gem list rails
+ gem env home
+
+ # Commands
+ rbenv install -l # list of versions that you can choose to install.
+ rbenv versions # Lists all Ruby versions known to rbenv
+ rbenv version # Displays the currently active Ruby version
 #+END_SRC
 
 * PostgreSQL
 #+BEGIN_SRC bash
-  > sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
-  > wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
-  > sudo apt update -y
-  > sudo apt -y install postgresql postgresql-contrib libpq-dev
-  # add user auth
-  > sudo vi /etc/postgresql/10//main/pg_hba.conf
-    local   <db_role> <db_name> peer
-  > sudo systemctl status  postgresql
-  > sudo systemctl enable  postgresql
-  > sudo systemctl restart postgresql
+ sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
+ wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
+ sudo apt update -y
+ sudo apt -y install postgresql postgresql-contrib libpq-dev
+ # add user auth
+ sudo vi /etc/postgresql/10//main/pg_hba.conf
+ local   <db_name> <user_role> md5
+ sudo systemctl status  postgresql
+ sudo systemctl enable  postgresql
+ sudo systemctl restart postgresql
 #+END_SRC
 
 create db user, set postgres password
 #+BEGIN_SRC bash
-  > sudo su postgres
-  > psql
-  # \password -- set password for psotgres
-  <your_password for super user>
-  > create user iot with password 'yourpass' createdb superuser;
-  # \du -- list users
-  # \q
+  sudo su postgres
+  psql
+  # set password for psotgres
+  \password --
+  # <your_password for super user>
+  create user iot with password 'yourpass' createdb superuser;
+  \du -- list users
+  \q
+  exit
 #+END_SRC
 ** postgresql hacks
 #+BEGIN_SRC bash
@@ -171,8 +191,8 @@ tar xzvf redis-stable.tar.gz
 
 cd redis-stable
 make
-make test
 sudo make install
+make test
 
 ------ Configure redis: -------
 #Create configuration directory:
@@ -234,8 +254,9 @@ sudo systemctl restart redis
 --–– FIX Warnings ––-
 
 --- WARNING overcommit_memory is set to 0
-sudo nano /etc/sysctl.conf
-vm.overcommit_memory=1  #add this line to press wornix
+-- fix warning
+sudo vi /etc/sysctl.conf
+vm.overcommit_memory=1
 
 # run on trminal as well
 sudo sysctl vm.overcommit_memory=1
@@ -243,8 +264,8 @@ sudo sysctl vm.overcommit_memory=1
 --- The TCP backlog setting of 511 cannot be enforced because
 ---- /proc/sys/net/core/somaxconn is set to the lower value of 128
 
-sudo nano /etc/rc.local
-sysctl -w net.core.somaxconn=65535 # add this line
+sudo vi /etc/rc.local
+sysctl -w net.core.somaxconn=65535
 
 # run on trminal as well
 sudo sysctl -w net.core.somaxconn=65535
@@ -252,23 +273,22 @@ sudo sysctl -w net.core.somaxconn=65535
 * Mina
 ** install mina gem
 #+BEGIN_SRC bash
-   > gem instal mina
+   gem instal mina
 #+END_SRC
-** some commands with no password
+
+* some commands with no password
 #+BEGIN_SRC bash
- > sudo visudo
- or
- > sudo vi /etc/sudoers
- shift+G
+ sudo vi /etc/sudoers
+ # shift+G
  ՈՒշադրություն, գրել վերջում
  # IMPORTANT!!!  add at the end
  deployer ALL=(ALL) NOPASSWD: /bin/ln
  deployer ALL=(ALL) NOPASSWD: /bin/chmod
  deployer ALL=(ALL) NOPASSWD: /bin/cp
 
- :wq!
- #https://github.com/mina-deploy/mina/issues/234#issuecomment-57242061
-> sudo service ssh reload
+ # :wq!
+ # https://github.com/mina-deploy/mina/issues/234#issuecomment-57242061
+ sudo service ssh reload
 #+END_SRC
 
 ** deploy with mina
@@ -279,5 +299,38 @@ sudo sysctl -w net.core.somaxconn=65535
 #+END_SRC
 * Backup gem
 #+BEGIN_SRC bash
-  > gem install backup -v5.0.0.beta.2
+ gem install backup -v5.0.0.beta.2
+#+END_SRC
+
+* CRON
+** activate log for cron jobs
+#+BEGIN_SRC bash
+ sudo vi  /etc/rsyslog.d/50-default.conf
+ /s #cron
+ # uncomment the line
+ cron.*                          /var/log/cron.log
+
+ sudo service rsyslog restart
+ sudo service cron restart
+ # Cron activity will now be logged to /var/log/cron.log file (in addition to syslog).
+
+ # to continuously monitor it
+ tail -f /var/log/syslog | grep CRON
+
+#+END_SRC
+
+
+* Linux commands
+#+BEGIN_SRC bash
+ # disk usage info
+ df -h --total
+
+ # nginx config test
+ sudo nginx -t
+ sudo nginx -t -c /etc/nginx/conf.d/taxicenter.conf
+
+ # systemd
+ # reload if unit file changed
+ sudo systemctl daemon-reload
+
 #+END_SRC

@@ -1,0 +1,39 @@
+---
+title:  The Algebra of Algebraic Data Types
+tags: haskell, adt
+date: 2016-06-09
+author:
+description: draft
+comments: true
+toc: true
+---
+[[https://www.youtube.com/watch?v=YScIPA8RbVE][video]]
+[[https://stackoverflow.com/questions/9190352/abusing-the-algebra-of-algebraic-data-types-why-does-this-work][Abusing the algebra of algebraic data types - why does this work?]]
+
+
+initial algebra in category thoery
+
+
+* Algebra
+- Symbols: Things
+- Operations: Ways to make new things
+- Laws: Rules the things follow
+
+** Haskell types are Algebra
+ - Symbols - Types ((), Int, Bool)
+ - Operations - Type Constructors (Maybe, Either, [])
+ - Laws - ?
+
+
+
+* Type Calculus
+δ1 = 0
+δx = 1
+δ(f+g) = δf + δg
+δ(f*g) = δf * g + f * δg
+δ(f(g)) = δf(g) * δg
+
+
+** Deriviative of List recursive type
+   L(x) = 1 / (1 - x)
+   δL(x) = 1 / (1 - x)^2
