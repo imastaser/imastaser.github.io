@@ -831,6 +831,59 @@ I set up docker and configure to run my web app on it, i know about ~ Kubernetes
     <dc:creator>Arthur Vardanyan</dc:creator>
 </item>
 <item>
+    <title>The Algebra of Algebraic Data Types</title>
+    <link>http://imast.am/mitq/haskell/algebraic-data-types.html</link>
+    <description><![CDATA[<div class="post-content">
+<div id="TOC"><ul>
+<li><a href="#algebra">Algebra</a><ul>
+<li><a href="#haskell-types-are-algebra">Haskell types are Algebra</a></li>
+</ul></li>
+<li><a href="#type-calculus">Type Calculus</a><ul>
+<li><a href="#deriviative-of-list-recursive-type">Deriviative of List recursive type</a></li>
+</ul></li>
+</ul></div>
+<p><a href="https://www.youtube.com/watch?v=YScIPA8RbVE">video</a> <a href="https://stackoverflow.com/questions/9190352/abusing-the-algebra-of-algebraic-data-types-why-does-this-work">Abusing the algebra of algebraic data types - why does this work?</a></p>
+<p>initial algebra in category thoery</p>
+<section id="algebra" class="level1">
+<h1>Algebra</h1>
+<ul>
+<li>Symbols: Things</li>
+<li>Operations: Ways to make new things</li>
+<li>Laws: Rules the things follow</li>
+</ul>
+<section id="haskell-types-are-algebra" class="level2">
+<h2>Haskell types are Algebra</h2>
+<ul>
+<li>Symbols - Types ((), Int, Bool)</li>
+<li>Operations - Type Constructors (Maybe, Either, [])</li>
+<li>Laws - ?</li>
+</ul>
+</section>
+</section>
+<section id="type-calculus" class="level1">
+<h1>Type Calculus</h1>
+<p>δ1 = 0 δx = 1 δ(f+g) = δf + δg δ(f*g) = δf * g + f * δg δ(f(g)) = δf(g) * δg</p>
+<section id="deriviative-of-list-recursive-type" class="level2">
+<h2>Deriviative of List recursive type</h2>
+<p>L(x) = 1 / (1 - x) δL(x) = 1 / (1 - x)<sup>2</sup></p>
+</section>
+</section>
+</div>
+
+<div class="row">
+        <span class="date  text-right">
+            <i class="fa fa-calenda"></i> Posted on June  9, 2016
+        </span>
+        <span class="tags text-right" style="width: 100%">
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/haskell.html">haskell</a></li><li><a href="/tags/adt.html">adt</a></li></ul>
+        </span>
+</div>
+]]></description>
+    <pubDate>Thu, 09 Jun 2016 00:00:00 UT</pubDate>
+    <guid>http://imast.am/mitq/haskell/algebraic-data-types.html</guid>
+    <dc:creator>Arthur Vardanyan</dc:creator>
+</item>
+<item>
     <title>Աստուածային նախախնամութիւն (Հոգ մի արէք վաղուա օրուայ համար)</title>
     <link>http://imast.am/hogi/mashalyan/astvacain-naxaxnamutyun.html</link>
     <description><![CDATA[<div class="post-content">
@@ -1290,27 +1343,6 @@ I set up docker and configure to run my web app on it, i know about ~ Kubernetes
 ]]></description>
     <pubDate>Wed, 25 May 2016 00:00:00 UT</pubDate>
     <guid>http://imast.am/hogi/narek/matean.html</guid>
-    <dc:creator>Arthur Vardanyan</dc:creator>
-</item>
-<item>
-    <title>Կյանքի ճշմարիտ իմաստը</title>
-    <link>http://imast.am/hogi/mashalyan/kyanqi_imast.html</link>
-    <description><![CDATA[<div class="post-content">
-<iframe width="420" height="315" src="https://www.youtube.com/embed/Tk-UbtDKq5w">
-</iframe>
-</div>
-
-<div class="row">
-        <span class="date  text-right">
-            <i class="fa fa-calenda"></i> Posted on May 25, 2016
-        </span>
-        <span class="tags text-right" style="width: 100%">
-            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/%D6%84%D5%A1%D6%80%D5%B8%D5%A6.html">քարոզ</a></li><li><a href="/tags/%D5%84%D5%A1%D5%B7%D5%A1%D5%AC%D5%A5%D5%A1%D5%B6.html">Մաշալեան</a></li></ul>
-        </span>
-</div>
-]]></description>
-    <pubDate>Wed, 25 May 2016 00:00:00 UT</pubDate>
-    <guid>http://imast.am/hogi/mashalyan/kyanqi_imast.html</guid>
     <dc:creator>Arthur Vardanyan</dc:creator>
 </item>
 
