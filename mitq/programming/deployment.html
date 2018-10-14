@@ -83,7 +83,13 @@
 <li><a href="#cron">CRON</a><ul>
 <li><a href="#activate-log-for-cron-jobs">activate log for cron jobs</a></li>
 </ul></li>
-<li><a href="#linux-commands">Linux commands</a></li>
+<li><a href="#convert-putty-to-ssh-agent">Convert putty to ssh-agent</a></li>
+<li><a href="#linux-commands">Linux commands</a><ul>
+<li><a href="#folder-size">folder size</a></li>
+<li><a href="#system.d">system.d</a></li>
+<li><a href="#logs">logs</a></li>
+<li><a href="#bash">bash</a></li>
+</ul></li>
 </ul></div>
 <section id="todo" class="level1">
 <h1>TODO</h1>
@@ -388,19 +394,60 @@
 <a class="sourceLine" id="cb18-12" data-line-number="12"></a></code></pre></div>
 </section>
 </section>
+<section id="convert-putty-to-ssh-agent" class="level1">
+<h1>Convert putty to ssh-agent</h1>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="co"># puttygen supports exporting your private key to an OpenSSH compatible format. You can then use OpenSSH tools to recreate the public key.</span></a>
+<a class="sourceLine" id="cb19-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb19-3" data-line-number="3"><span class="co"># 1. Open PuttyGen</span></a>
+<a class="sourceLine" id="cb19-4" data-line-number="4"><span class="co"># 2. Click Load</span></a>
+<a class="sourceLine" id="cb19-5" data-line-number="5"><span class="co"># 3. Load your private key</span></a>
+<a class="sourceLine" id="cb19-6" data-line-number="6"><span class="co"># 4. Go to Conversions-&gt;Export OpenSSH and export your private key</span></a>
+<a class="sourceLine" id="cb19-7" data-line-number="7"><span class="co"># 5. Copy your private key to ~/.ssh/id_dsa (or id_rsa).</span></a>
+<a class="sourceLine" id="cb19-8" data-line-number="8"><span class="co"># 6. Create the RFC 4716 version of the public key using ssh-keygen</span></a>
+<a class="sourceLine" id="cb19-9" data-line-number="9"><span class="fu">ssh-keygen</span> -e -f ~/.ssh/id_dsa <span class="op">&gt;</span> ~/.ssh/id_dsa_com.pub</a>
+<a class="sourceLine" id="cb19-10" data-line-number="10"><span class="co"># 7. Convert the RFC 4716 version of the public key to the OpenSSH format:</span></a>
+<a class="sourceLine" id="cb19-11" data-line-number="11"><span class="fu">ssh-keygen</span> -i -f ~/.ssh/id_dsa_com.pub <span class="op">&gt;</span> ~/.ssh/id_dsa.pub</a></code></pre></div>
+</section>
 <section id="linux-commands" class="level1">
 <h1>Linux commands</h1>
-<div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="co"># disk usage info</span></a>
-<a class="sourceLine" id="cb19-2" data-line-number="2"><span class="fu">df</span> -h --total</a>
-<a class="sourceLine" id="cb19-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb19-4" data-line-number="4"><span class="co"># nginx config test</span></a>
-<a class="sourceLine" id="cb19-5" data-line-number="5"><span class="fu">sudo</span> nginx -t</a>
-<a class="sourceLine" id="cb19-6" data-line-number="6"><span class="fu">sudo</span> nginx -t -c /etc/nginx/conf.d/taxicenter.conf</a>
-<a class="sourceLine" id="cb19-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb19-8" data-line-number="8"><span class="co"># systemd</span></a>
-<a class="sourceLine" id="cb19-9" data-line-number="9"><span class="co"># reload if unit file changed</span></a>
-<a class="sourceLine" id="cb19-10" data-line-number="10"><span class="fu">sudo</span> systemctl daemon-reload</a>
-<a class="sourceLine" id="cb19-11" data-line-number="11"></a></code></pre></div>
+<section id="folder-size" class="level2">
+<h2>folder size</h2>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="co"># disk usage info</span></a>
+<a class="sourceLine" id="cb20-2" data-line-number="2"><span class="fu">df</span> -h --total</a>
+<a class="sourceLine" id="cb20-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb20-4" data-line-number="4"><span class="co"># each folder size</span></a>
+<a class="sourceLine" id="cb20-5" data-line-number="5"><span class="fu">du</span> -sh * <span class="kw">|</span> <span class="fu">sort</span> -g</a>
+<a class="sourceLine" id="cb20-6" data-line-number="6"><span class="fu">du</span> -sk * <span class="kw">|</span> <span class="fu">sort</span> -n</a>
+<a class="sourceLine" id="cb20-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb20-8" data-line-number="8"><span class="co"># each folder size including hiddens</span></a>
+<a class="sourceLine" id="cb20-9" data-line-number="9"><span class="fu">du</span> -sch .[!.]* * <span class="kw">|</span><span class="fu">sort</span> -h</a>
+<a class="sourceLine" id="cb20-10" data-line-number="10"><span class="co"># try ncdu</span></a>
+<a class="sourceLine" id="cb20-11" data-line-number="11"><span class="fu">sudo</span> apt-get install ncdu</a>
+<a class="sourceLine" id="cb20-12" data-line-number="12"><span class="ex">ncdu</span></a></code></pre></div>
+</section>
+<section id="system.d" class="level2">
+<h2>system.d</h2>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="co"># nginx config test</span></a>
+<a class="sourceLine" id="cb21-2" data-line-number="2"><span class="fu">sudo</span> nginx -t</a>
+<a class="sourceLine" id="cb21-3" data-line-number="3"><span class="fu">sudo</span> nginx -t -c /etc/nginx/conf.d/taxicenter.conf</a>
+<a class="sourceLine" id="cb21-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb21-5" data-line-number="5"><span class="co"># systemd</span></a>
+<a class="sourceLine" id="cb21-6" data-line-number="6"><span class="co"># reload if unit file changed</span></a>
+<a class="sourceLine" id="cb21-7" data-line-number="7"><span class="fu">sudo</span> systemctl daemon-reload</a></code></pre></div>
+</section>
+<section id="logs" class="level2">
+<h2>logs</h2>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="co"># read</span></a>
+<a class="sourceLine" id="cb22-2" data-line-number="2"><span class="fu">cat</span> /node-1.log <span class="kw">|</span> <span class="fu">head</span> -20</a>
+<a class="sourceLine" id="cb22-3" data-line-number="3"><span class="fu">tail</span> -f logs/node-1.log</a>
+<a class="sourceLine" id="cb22-4" data-line-number="4"><span class="ex">jq</span> select(.ns[1]==<span class="st">&quot;consensus&quot;</span>)</a>
+<a class="sourceLine" id="cb22-5" data-line-number="5"><span class="ex">jq</span> -c . <span class="kw">|</span> <span class="kw">{</span> <span class="st">&quot;at&quot;</span>: <span class="ex">.at</span>, <span class="st">&quot;val&quot;</span>: .data.H <span class="kw">}</span></a></code></pre></div>
+</section>
+<section id="bash" class="level2">
+<h2>bash</h2>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="fu">find</span> -name all.js</a>
+<a class="sourceLine" id="cb23-2" data-line-number="2"><span class="kw">for</span> <span class="ex">j</span> in <span class="va">$(</span><span class="fu">find</span> -name all.js<span class="va">)</span><span class="kw">;</span> <span class="kw">do</span> <span class="fu">cp</span> -v /tmp/all.js <span class="va">$j</span><span class="kw">;</span> <span class="kw">done</span></a></code></pre></div>
+</section>
 </section>
 </div>
 
