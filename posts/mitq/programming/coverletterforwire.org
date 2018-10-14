@@ -117,73 +117,8 @@ have used, I will do my best if i have chance to work with experts of FP, distri
   Rust. I have never tried it, but language featuring looks promising.
 
 
-*  samples
 
-** Changelog
-#+BEGIN_SRC markdown
-Change Log / Release Notes
-
-0.0.8
-• add device_log table in migration, add log.db end point.
-• fix lng & lat invalid format parsing exception, "Prelude.read: no parse"
-• publish data to redis channel, to feed websocket on front-end.
-• reset device activity key in redis when checking for auth.
-
-0.0.7
-• add patvers
-
-0.0.6
-• verbose error for auth token.
-• remove debugMsg for development as well, from response.
-• parse imei value from auth header, add flockLog function.
-• add AuthTokenDBError type constructor
-• add imei to command reponse as well.
-• deal with patvers, get patver status update from device
-• handle not registered device case
-
-0.0.5
-• log to slack all errors
-• firmware download row by row
-• create firmware tables and seeds for testing.
-• add taxi specific field to trip
-• DeviceData: remove temp, add angle
-• add endpoints to get tariff by id, by number.
-• add endpoints to get tariff group tariffs id array, get all tariffs.
-• add command endpoints to get device command or commands list
-• add taxi.order endpoints, start, stop collect order data and save to db
-• use redis heavily
-• set taxi_id, taxometer_id and shift_id to taxi_order when order created.
-
-0.0.4
-• add expire key to redis for device activity tracking
-• parse trip status
-• add redis to handle trip creation, collect trip points.
-• rename device property, make shorter, add new fields.
-• add script for deploying to remote via ssh, 80% done.
-
-0.0.3
-• parse latitude and longitude from NMEA coords format
-• convert lat and lng to degrees
-• make staging error more verbos, DebugMsg option
-• add logging of request and response to file, formatted as json.
-• add api/info, do not remove "Content-Type" Header for this /api/info path, TODO: dev more sophisticate mechanism to remove header
-
-0.0.2
-• make response json more simple, for easy parse in device side, reduce nesting level in json
-• change /api/device.data accept json where numeric types represent as text. the numeric type in the device side loss precision, and for device it is easy send text. Develop the json parser that accept numbers or string without fail.
-• alt, speed, angle can access string, int, rational, empty
-
-0.0.1
-• change Response format
-• run sql scripts as migration
-• Add some tests
-• Improved Rest API, separate Lib module, improve exception catching
-
-0.0.0
-• Expose necessary endpoints for pro-prototyping.
-
-
-#+END_SRC
+* code samples
 
 ** Deployment code sample (mina)
 #+LABEL: sec:X
@@ -319,4 +254,70 @@ task :deploy => :remote_environment do
   end
 end
 
-#+END_SRC_
+#+END_SRC
+
+
+** Changelog
+#+BEGIN_SRC markdown
+Change Log / Release Notes
+
+0.0.8
+• add device_log table in migration, add log.db end point.
+• fix lng & lat invalid format parsing exception, "Prelude.read: no parse"
+• publish data to redis channel, to feed websocket on front-end.
+• reset device activity key in redis when checking for auth.
+
+0.0.7
+• add patvers
+
+0.0.6
+• verbose error for auth token.
+• remove debugMsg for development as well, from response.
+• parse imei value from auth header, add flockLog function.
+• add AuthTokenDBError type constructor
+• add imei to command reponse as well.
+• deal with patvers, get patver status update from device
+• handle not registered device case
+
+0.0.5
+• log to slack all errors
+• firmware download row by row
+• create firmware tables and seeds for testing.
+• add taxi specific field to trip
+• DeviceData: remove temp, add angle
+• add endpoints to get tariff by id, by number.
+• add endpoints to get tariff group tariffs id array, get all tariffs.
+• add command endpoints to get device command or commands list
+• add taxi.order endpoints, start, stop collect order data and save to db
+• use redis heavily
+• set taxi_id, taxometer_id and shift_id to taxi_order when order created.
+
+0.0.4
+• add expire key to redis for device activity tracking
+• parse trip status
+• add redis to handle trip creation, collect trip points.
+• rename device property, make shorter, add new fields.
+• add script for deploying to remote via ssh, 80% done.
+
+0.0.3
+• parse latitude and longitude from NMEA coords format
+• convert lat and lng to degrees
+• make staging error more verbos, DebugMsg option
+• add logging of request and response to file, formatted as json.
+• add api/info, do not remove "Content-Type" Header for this /api/info path, TODO: dev more sophisticate mechanism to remove header
+
+0.0.2
+• make response json more simple, for easy parse in device side, reduce nesting level in json
+• change /api/device.data accept json where numeric types represent as text. the numeric type in the device side loss precision, and for device it is easy send text. Develop the json parser that accept numbers or string without fail.
+• alt, speed, angle can access string, int, rational, empty
+
+0.0.1
+• change Response format
+• run sql scripts as migration
+• Add some tests
+• Improved Rest API, separate Lib module, improve exception catching
+
+0.0.0
+• Expose necessary endpoints for pro-prototyping.
+
+#+END_SRC

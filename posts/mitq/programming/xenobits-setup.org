@@ -1,0 +1,130 @@
+---
+title: Set up xeno*
+tags: hxr
+date: 2018-08-27
+description: DESCRIPTION
+comments: true
+toc: true
+---
+
+#+BEGIN_SRC bash
+ apt update && apt upgrade -y
+ apt install git tmux
+ apt-get install apt-transport-https ca-certificates curl software-properties-common
+ apt-get install autoconf autogen
+ apt-get install libtool
+
+#+END_SRC
+
+* ghc, stack
+#+BEGIN_SRC bash
+ curl -sSL https://get.haskellstack.org/ | sh
+#+END_SRC
+
+* Eth, Nem, Btc nodes
+
+** install docker
+
+#+BEGIN_SRC bash
+
+ curl -fsSL test.docker.com | sh
+ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+ sudo add-apt-repository    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+
+ sudo apt-get update
+ sudo apt-get install docker-ce
+#+END_SRC
+
+** Eth parity
+#+BEGIN_SRC bash
+
+  mkdir parity
+  ./run-ropsten.sh
+
+  #
+  vi io.parity.ethereum/docker/pass
+
+  # create accounts
+  sudo parity account new --chain ropsten --keys-path io.parity.ethereum/docker/keys/
+
+#+END_SRC
+
+** Nem node
+#+BEGIN_SRC bash
+
+
+#+END_SRC
+
+** Btc node
+#+BEGIN_SRC bash
+
+
+#+END_SRC
+
+
+
+* xenochain trade
+#+BEGIN_SRC bash
+
+
+#+END_SRC
+
+
+
+* xenochain-front
+#+BEGIN_SRC bash
+
+# prerequest nix-shell
+https://nixos.wiki/wiki/Nix_Installation_Guide sudo install -d -m755 -o $USER -g
+$USER /nix curl https://nixos.org/nix/install | sh
+
+# activate your nix profile
+source ~/.nix-profile/etc/profile.d/nix.sh
+
+# some workround, if needed
+echo "build-users-group =" > /etc/nix/nix.conf
+
+
+
+
+cd frontend/xenochain-front
+./build.sh
+#+END_SRC
+
+
+* create user
+#+BEGIN_SRC bash
+
+ adduser xeno
+ usermod -aG root xeno
+ usermod -aG docker xeno
+ usermod -aG admin xeno
+ usermod -aG sudo xeno
+
+ mkdir /home/xeno/.ssh
+ cp .ssh/authorized_keys /home/xeno/.ssh/
+ sudo chown -R xeno:xeno /home/xeno/.ssh/
+
+
+ # NOPASSWD option for xeno user
+ visudo
+ xeno ALL=(ALL) NOPASSWD:ALL
+
+ #delete password
+ sudo passwd -d `xeno`
+
+ # edit file
+ sudo vi /etc/ssh/sshd_config
+ ...
+ PasswordAuthentication no
+ ...
+ service ssh reload
+
+ # on remote server check permission and set to if needed
+ # chmod 700 .ssh
+ # chmod 600 .ssh/authorized_keys
+ logout
+ ssh xeno@<ip_adddress>
+#+END_SRC
