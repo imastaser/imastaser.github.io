@@ -2,36 +2,63 @@
 -- hakyll users, mostly Jasper through his site and hakyll's,
 -- but also skybluetrades.net and chromaticleaves.com
 
+{-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE FlexibleContexts #-}
 
-import           Control.Applicative ((<$>))
+import           Control.Applicative             ((<$>))
 import           Data.Char
-import           Data.Maybe (catMaybes)
-import           Data.Monoid (mappend, (<>), mconcat, mempty)
-import           Data.Time.Clock (getCurrentTime, UTCTime(..))
-import Data.Time.Calendar (toGregorian)
-import           Data.Time.Format (formatTime)
-import           GHC.IO.Encoding (utf8, setLocaleEncoding, setFileSystemEncoding, setForeignEncoding)
-import           Hakyll ( (.||.), (.&&.), hakyllWith, match, idRoute, route
-                        , applyTemplateList, buildTags, compile,  compressCssCompiler
-                        , pandocCompilerWith, deployCommand, previewHost,  modificationTimeField
-                        , recentFirst, relativizeUrls, field, applyAsTemplate, listField
-                        , copyFileCompiler, dateField, defaultContext, toUrl, makeItem, loadAndApplyTemplate
-                        , defaultHakyllWriterOptions, getUnderlying, getMetadataField, defaultConfiguration
-                        , loadAll, loadBody, getResourceBody, create, setExtension, saveSnapshot
-                        , FeedConfiguration(..), fromCapture, loadAllSnapshots, composeRoutes, templateCompiler
-                        , constField, gsubRoute, defaultHakyllReaderOptions, bodyField, customRoute, toFilePath
-                        , Compiler, Context, Item, Pattern, Tags, Configuration, renderRss, renderAtom, Routes)
+import           Data.Maybe                      (catMaybes)
+import           Data.Monoid                     (mappend, mconcat, mempty,
+                                                  (<>))
+import           Data.Time.Calendar              (toGregorian)
+import           Data.Time.Clock                 (UTCTime (..), getCurrentTime)
+import           Data.Time.Format                (formatTime)
+import           GHC.IO.Encoding                 (setFileSystemEncoding,
+                                                  setForeignEncoding,
+                                                  setLocaleEncoding, utf8)
+import           Hakyll                          (Compiler, Configuration,
+                                                  Context,
+                                                  FeedConfiguration (..), Item,
+                                                  Pattern, Routes, Tags,
+                                                  applyAsTemplate,
+                                                  applyTemplateList, bodyField,
+                                                  buildTags, compile,
+                                                  composeRoutes,
+                                                  compressCssCompiler,
+                                                  constField, copyFileCompiler,
+                                                  create, customRoute,
+                                                  dateField,
+                                                  defaultConfiguration,
+                                                  defaultContext,
+                                                  defaultHakyllReaderOptions,
+                                                  defaultHakyllWriterOptions,
+                                                  deployCommand, field,
+                                                  fromCapture, getMetadataField,
+                                                  getResourceBody,
+                                                  getUnderlying, gsubRoute,
+                                                  hakyllWith, idRoute,
+                                                  listField, loadAll,
+                                                  loadAllSnapshots,
+                                                  loadAndApplyTemplate,
+                                                  loadBody, makeItem, match,
+                                                  modificationTimeField,
+                                                  pandocCompilerWith,
+                                                  previewHost, recentFirst,
+                                                  relativizeUrls, renderAtom,
+                                                  renderRss, route,
+                                                  saveSnapshot, setExtension,
+                                                  templateCompiler, toFilePath,
+                                                  toUrl, (.&&.), (.||.))
 import           Hakyll.Web.Tags
-import           System.FilePath.Posix (takeBaseName, splitDirectories, (</>)
-                                       , addExtension, addExtension
-                                       , replaceExtension, dropExtension)
-import           System.Locale (defaultTimeLocale)
-import           Text.Blaze.Html (toHtml, toValue, (!))
+import           System.FilePath.Posix           (addExtension, dropExtension,
+                                                  replaceExtension,
+                                                  splitDirectories,
+                                                  takeBaseName, (</>))
+import           System.Locale                   (defaultTimeLocale)
+import           Text.Blaze.Html                 (toHtml, toValue, (!))
 import           Text.Blaze.Html.Renderer.String (renderHtml)
-import qualified Text.Blaze.Html5 as H
-import qualified Text.Blaze.Html5.Attributes as A
+import qualified Text.Blaze.Html5                as H
+import qualified Text.Blaze.Html5.Attributes     as A
 import           Text.Pandoc.Options
 
 main :: IO ()
@@ -129,7 +156,7 @@ main = do
         match "index.html" $ do
             route idRoute
             compile $ do
-                posts <- fmap (take 6) . recentFirst =<< loadAll postPattern --  ((++) <$> loadAll "posts/*" <*> loadAll "posts/*/*")
+                posts <- fmap (take 12) . recentFirst =<< loadAll postPattern --  ((++) <$> loadAll "posts/*" <*> loadAll "posts/*/*")
 
                 let indexCtx =
                       listField "posts" (postCtx tags) (return posts) <>
@@ -147,6 +174,15 @@ main = do
             compile $ do
                 methodPosts <- recentFirst =<< loadAll ("posts/mitq/methodology/*"
                                                         .||. "posts/mitq/methodology/*/*")
+                mathPosts <- recentFirst =<< loadAll ("posts/mitq/math/*"
+                                                      .||. "posts/mitq/math/seminar/*"
+                                                      .||. "posts/mitq/math/seminar/*/*"
+                                                      .||. "posts/mitq/math/logic/*"
+                                                      .||. "posts/mitq/math/logic/*/*"
+                                                      .||. "posts/mitq/math/fvs/*"
+                                                      .||. "posts/mitq/math/fvs/*/*"
+                                                     )
+
                 programmingPosts <- recentFirst =<< loadAll ("posts/mitq/programming/*"
                                                              .||. "posts/mitq/programming/*/*")
                 haskellPosts <- recentFirst =<< loadAll ( "posts/mitq/haskell/*"
@@ -162,6 +198,7 @@ main = do
                         listField "programmingPosts" (postCtx tags) (if null programmingPosts then fail "No posts" else return programmingPosts) `mappend`
                         listField "haskellPosts" (postCtx tags) (if null haskellPosts then fail "No posts" else return haskellPosts) `mappend`
                         listField "logicPosts" (postCtx tags) (if null logicPosts then fail "No posts" else return logicPosts) `mappend`
+                        listField "mathPosts" (postCtx tags) (if null mathPosts then fail "No posts" else return mathPosts) `mappend`
                         listField "fpPosts" (postCtx tags) (if null fpPosts then fail "No posts" else return fpPosts) `mappend`
                         listField "etcPosts" (postCtx tags) (if null etcPosts then fail "No posts" else return etcPosts) `mappend`
                         listField "restPosts" (postCtx tags) (if null restPosts then fail "No posts" else return restPosts) `mappend`
