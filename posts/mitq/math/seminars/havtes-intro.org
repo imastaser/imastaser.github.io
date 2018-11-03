@@ -1,0 +1,8 @@
+---
+title: ՀավՏես
+tags: math, seminar
+date: 2018-10-31
+description: Հավանականուփյունների տեսություն
+comments: true
+toc: true
+---

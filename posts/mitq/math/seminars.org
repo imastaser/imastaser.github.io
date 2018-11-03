@@ -1,0 +1,13 @@
+---
+title: Սեմինարներ/Seminars
+tags: math, seminar
+date: 2018-10-31
+description: DESCRIPTION
+comments: true
+toc: true
+---
+
+*** Հավանականությունների Տեսություն
+    Սկիզբը 31.10.2018, Փ. Հակոբյանի հետ
+    Խոսելու ենք նաև «Ձևադրական ստուգման համակարգերի» մասին
+**** [[./seminars/havtes-intro.html][Ներածություն]]

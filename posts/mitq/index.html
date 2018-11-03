@@ -3,10 +3,10 @@ title: Միտք
 ---
 <article>
 <section>
-  $if(programmingPosts)$
-  <h3>Ծրագրավորում և Մաթեմատիկա </h3>
+  $if(mathPosts)$
+  <h3> Մաթեմատիկա </h3>
   <ul>
-    $for(programmingPosts)$
+    $for(mathPosts)$
     <li>
       <a href="$url$">$title$</a> - $date$
     </li>
@@ -15,9 +15,20 @@ title: Միտք
   $endif$
 </section>
 
+
 <section>
-$if(haskellPosts)$
-<h3>Ֆունկցիոնալ Ծրագրավորում</h3>
+  $if(programmingPosts)$
+  <h3>Ծրագրավորում</h3>
+  <ul>
+    $for(programmingPosts)$
+    <li>
+      <a href="$url$">$title$</a> - $date$
+    </li>
+    $endfor$
+  </ul>
+  $endif$
+  $if(haskellPosts)$
+  <p>-------</p>
 <ul>
   $for(haskellPosts)$
         <li>
