@@ -8,8 +8,95 @@
         <name>Arthur Vardanyan</name>
         <email>arthur@imast.am</email>
     </author>
-    <updated>2018-08-27T00:00:00Z</updated>
+    <updated>2018-10-31T00:00:00Z</updated>
     <entry>
+    <title>ՀավՏես</title>
+    <link href="http://imast.am/mitq/math/seminars/havtes-intro.html" />
+    <id>http://imast.am/mitq/math/seminars/havtes-intro.html</id>
+    <published>2018-10-31T00:00:00Z</published>
+    <updated>2018-10-31T00:00:00Z</updated>
+    <summary type="html"><![CDATA[<div class="post-content">
+
+
+</div>
+
+<div class="row">
+        <span class="date  text-right">
+            <i class="fa fa-calenda"></i> Posted on October 31, 2018
+        </span>
+        <span class="tags text-right" style="width: 100%">
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/math.html">math</a></li><li><a href="/tags/seminar.html">seminar</a></li></ul>
+        </span>
+</div>
+]]></summary>
+</entry>
+<entry>
+    <title>Սեմինարներ/Seminars</title>
+    <link href="http://imast.am/mitq/math/seminars.html" />
+    <id>http://imast.am/mitq/math/seminars.html</id>
+    <published>2018-10-31T00:00:00Z</published>
+    <updated>2018-10-31T00:00:00Z</updated>
+    <summary type="html"><![CDATA[<div class="post-content">
+<div id="TOC"><ul>
+<li><a href="#հավանականությունների-տեսություն">Հավանականությունների Տեսություն</a></li>
+</ul></div>
+<section id="հավանականությունների-տեսություն" class="level3">
+<h3>Հավանականությունների Տեսություն</h3>
+<p>Սկիզբը 31.10.2018, Փ. Հակոբյանի հետ Խոսելու ենք նաև «Ձևադրական ստուգման համակարգերի» մասին</p>
+<ol>
+<li><p><a href="./seminars/havtes-intro.html">Ներածություն</a></p></li>
+</ol>
+</section>
+</div>
+
+<div class="row">
+        <span class="date  text-right">
+            <i class="fa fa-calenda"></i> Posted on October 31, 2018
+        </span>
+        <span class="tags text-right" style="width: 100%">
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/math.html">math</a></li><li><a href="/tags/seminar.html">seminar</a></li></ul>
+        </span>
+</div>
+]]></summary>
+</entry>
+<entry>
+    <title>NixOS</title>
+    <link href="http://imast.am/mitq/programming/nixos.html" />
+    <id>http://imast.am/mitq/programming/nixos.html</id>
+    <published>2018-10-14T00:00:00Z</published>
+    <updated>2018-10-14T00:00:00Z</updated>
+    <summary type="html"><![CDATA[<div class="post-content">
+<div id="TOC"><ul>
+<li><a href="#nixos-in-hetzner-machine">NixOS in hetzner machine</a><ul>
+<li><a href="#enable-ssh">enable ssh</a></li>
+</ul></li>
+</ul></div>
+<section id="nixos-in-hetzner-machine" class="level1">
+<h1>NixOS in hetzner machine</h1>
+<section id="enable-ssh" class="level2">
+<h2>enable ssh</h2>
+<p>enable sshd in hetzner, put in user data</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># generate config file</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="ex">nixos-generate-config</span> --root /mnt</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="ex">vi</span> /mnt/etc/nixos/configuration.nix</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co"># uncomment ssh</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="ex">services.sshd.enable</span> = true<span class="kw">;</span></a></code></pre></div>
+</section>
+</section>
+</div>
+
+<div class="row">
+        <span class="date  text-right">
+            <i class="fa fa-calenda"></i> Posted on October 14, 2018
+        </span>
+        <span class="tags text-right" style="width: 100%">
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/nixos.html">nixos</a></li></ul>
+        </span>
+</div>
+]]></summary>
+</entry>
+<entry>
     <title>Set up xeno*</title>
     <link href="http://imast.am/mitq/programming/xenobits-setup.html" />
     <id>http://imast.am/mitq/programming/xenobits-setup.html</id>
@@ -1323,267 +1410,6 @@ I set up docker and configure to run my web app on it, i know about ~ Kubernetes
         </span>
         <span class="tags text-right" style="width: 100%">
             <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/%D5%A1%D6%82%D5%A5%D5%BF%D5%A1%D6%80%D5%A1%D5%B6.html">աւետարան</a></li><li><a href="/tags/%D5%84%D5%A1%D5%B7%D5%A1%D5%AC%D5%A5%D5%A1%D5%B6.html">Մաշալեան</a></li></ul>
-        </span>
-</div>
-]]></summary>
-</entry>
-<entry>
-    <title>Isuzu</title>
-    <link href="http://imast.am/mitq/etc/isuzu.html" />
-    <id>http://imast.am/mitq/etc/isuzu.html</id>
-    <published>2016-06-07T00:00:00Z</published>
-    <updated>2016-06-07T00:00:00Z</updated>
-    <summary type="html"><![CDATA[<div class="post-content">
-<div id="TOC"><ul>
-<li><a href="#manulas">Manulas</a></li>
-<li><a href="#forum">Forum</a></li>
-<li><a href="#articles">Articles</a></li>
-<li><a href="#part-numbers">Part Numbers</a><ul>
-<li><a href="#пыльники">Пыльники</a></li>
-<li><a href="#смазки-для-шрусов">Смазки для ШРУСОВ</a></li>
-<li><a href="#фильтр">фильтр</a></li>
-<li><a href="#atf">ATF</a></li>
-</ul></li>
-</ul></div>
-<section id="manulas" class="level2">
-<h2>Manulas</h2>
-<p><a href="https://drive.google.com/open?id=0B5_olWfL1-4xbGFsQmk5OEo0Vkk" target="_blank">Ремонт и эксплуатация ISUZU Bighorn 1984-91</a></p>
-</section>
-<section id="forum" class="level2">
-<h2>Forum</h2>
-<p><a href="http://forums.drom.ru/isuzu-bighorn/" target="_blank">drom.ru</a
-> <a href="http://www.4x4wire.com/isuzu/" target="_blank">Isuzu 4x4</a></p>
-</section>
-<section id="articles" class="level2">
-<h2>Articles</h2>
-<p><a href="http://www.toyota-club.net/files/lib/z_st/05-01-20_pub_bighorn.htm" target="_blank">Isuzu Bighorn. Уходящий в небытие</a></p>
-<p><a href="http://www.itocuk.co.uk/forums/viewtopic.php?t=31318" target="_blank">Oils required for your Trooper.</a></p>
-</section>
-<section id="part-numbers" class="level2">
-<h2>Part Numbers</h2>
-<section id="пыльники" class="level3">
-<h3>Пыльники</h3>
-<ul>
-<li><a href="https://www.youtube.com/watch?v=KOdP20LzqP8" target="_blank">Замена Пыльников (video)</a></li>
-<li>8-97117-220-0 пыльник ШРУСа внутренний</li>
-<li>8-97117-221-0 пыльник ШРУСа внешний</li>
-<li>До 05.1995 года внешний и внутренний пыльники - OHNO FB-2060.</li>
-<li>После 05.1995 года внешний OHNO FB-2199, внутренний OHNO FB-2148.</li>
-<li><ul>
-<li><a href="http://forums.drom.ru/isuzu-bighorn/t1151257090.html" target="_blank">Пыльники ШРУСов (drom.ru)</a></li>
-</ul></li>
-</ul>
-</section>
-<section id="смазки-для-шрусов" class="level3">
-<h3>Смазки для ШРУСОВ</h3>
-<ul>
-<li>внутренний ШРУС - полимочевинные.</li>
-<li>наружный ШРУС - молибден/литий и прочее. <a href="https://www.emex.ru/catalog?8=42814&amp;CAT_ID=25&amp;page=1">Смазки литиевые.</a></li>
-</ul>
-</section>
-<section id="фильтр" class="level3">
-<h3>фильтр</h3>
-<ul>
-<li>8-94456-741-2 фильтр масляный</li>
-<li>Blue print ADS72101 фильтр масляный (неоригинал)</li>
-<li>8-98021-510-0 фильтр топливный (в раме) <a href="https://www.youtube.com/watch?v=koBnfwaUSlQ" target="_blank">Fuel Filter Replacement (video)</a></li>
-<li>8-97035-303-0 фильтр воздушный</li>
-</ul>
-</section>
-<section id="atf" class="level3">
-<h3>ATF</h3>
-<ul>
-<li>8-96015-062-0 фильтр АКПП</li>
-<li>8-96014-234-0 прокладка поддона АКПП 1</li>
-<li>8-96014-235-0 прокладка поддона АКПП 2</li>
-</ul>
-</section>
-</section>
-</div>
-
-<div class="row">
-        <span class="date  text-right">
-            <i class="fa fa-calenda"></i> Posted on June  7, 2016
-        </span>
-        <span class="tags text-right" style="width: 100%">
-            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/Isuzu.html">Isuzu</a></li></ul>
-        </span>
-</div>
-]]></summary>
-</entry>
-<entry>
-    <title>Հաւատով Խոստովանիմ</title>
-    <link href="http://imast.am/hogi/nshnorhali/havatov.html" />
-    <id>http://imast.am/hogi/nshnorhali/havatov.html</id>
-    <published>2016-06-06T00:00:00Z</published>
-    <updated>2016-06-06T00:00:00Z</updated>
-    <summary type="html"><![CDATA[<div class="post-content">
-<div id="TOC"><ul>
-<li><a href="#ա">Ա</a></li>
-<li><a href="#բ">Բ</a></li>
-<li><a href="#գ">Գ</a></li>
-<li><a href="#դ">Դ</a></li>
-<li><a href="#ե">Ե</a></li>
-<li><a href="#զ">Զ</a></li>
-<li><a href="#է">Է</a></li>
-<li><a href="#ը">Ը</a></li>
-<li><a href="#թ">Թ</a></li>
-<li><a href="#ժ">Ժ</a></li>
-<li><a href="#ժա">ԺԱ</a></li>
-<li><a href="#ժբ">ԺԲ</a></li>
-<li><a href="#ժգ">ԺԳ</a></li>
-<li><a href="#ժդ">ԺԴ</a></li>
-<li><a href="#ժե">ԺԵ</a></li>
-<li><a href="#ժզ">ԺԶ</a></li>
-<li><a href="#ժէ">Ժէ</a></li>
-<li><a href="#ժը">ԺԸ</a></li>
-<li><a href="#ժթ">ԺԹ</a></li>
-<li><a href="#ի">Ի</a></li>
-<li><a href="#իա">ԻԱ</a></li>
-<li><a href="#իբ">ԻԲ</a></li>
-<li><a href="#իգ">ԻԳ</a></li>
-<li><a href="#իդ">ԻԴ</a></li>
-</ul></div>
-<section id="ա" class="level2">
-<h2>Ա</h2>
-<p>Հաւատով խոստովանիմ եւ երկիրպագանեմ Քեզ, <br> Հայր եւ Որդի եւ Սուրբ Հոգի,<br> Անեղ եւ անմահ բնութիւն,<br> Արարիչ հրեշտակաց եւ մարդկան եւ ամենայն եղելոց.<br> ողորմեա Քո արարածոց եւ ինձ՝ բազմամեղիս:<br></p>
-</section>
-<section id="բ" class="level2">
-<h2>Բ</h2>
-<p>Հաւատով խոստովանիմ եւ երկիրպագանիմ Քեզ,<br> Անբաժանելի լոյս, միասնական Սուրբ Երրորդութիւն եւ մի Աստուածութիւն,<br> Արարիչ լուսոյ եւ հալածիչ խաւարի,<br> Հալածեա ի հոգւոյ իմմէ զխաւար մեղաց եւ անգիտութեան,<br> եւ լուսաւորեա զմիտս իմ ի ժամուս յայսմիկ՝ Աղօթել Քեզ ի հաճոյս,<br> եւ ընդունիլ ի Քէն զխնդրուածս իմ.<br> Եւ ողորմեա Քո արարածոց եւ ինձ՝ բազմամեղիս:<br></p>
-</section>
-<section id="գ" class="level2">
-<h2>Գ</h2>
-<p>Հայր երկնաւոր, Աստուած ճշմարիտ,<br> որ առաքեցեր զՈրդիդ Քո սիրելի ի խնդիր մոլորեալ ոչխարին,<br> Մեղայ յերկինս եւ առաջի Քո.<br> Ենկալ զիս որպէս զանառակ որդին.<br> եւ զգեցո ինձ զպատմուճանն զառաջին, զոր մերկացայ մեղօք.<br> Եւ ողորմեա Քո արարածոց եւ ինձ՝ բազմամեղիս:<br></p>
-</section>
-<section id="դ" class="level2">
-<h2>Դ</h2>
-<p>Որդի Աստուծոյ, Աստուած ճշմարիտ,<br> Որ խոնարհեցեր ի հայրական ծոցոյ<br> Եւ առեր մարմին<br> Ի սրբոյ կուսէն Մարիամայ՝<br> Վասն մերոյ փրկությեան,<br> Խաչեցար, թաղեցար<br> Եւ յարեար ի մեռելոց<br> Եւ համբարձար փառոք առ Հայր.<br> Մեղայ երկինս եւ առաջի Քո,<br> Յիշեա զիս որպէս ցաւազակն,<br> Յորժամ գաս արքայութեամբ քով.<br> Եւ ողորմեա Քո արարածոց եւ ինձ՝ բազմամեղիս:<br></p>
-</section>
-<section id="ե" class="level2">
-<h2>Ե</h2>
-<p>Հոգի Աստուծոյ՝ Աստուած ճշմարիտ,<br> Որ իջեր ի Յորդանան <br> Եւ ի վերնատունն<br> Եւ լուսավորեցեր զիս մկրտությամբ սուրբ Աւազանին,<br> Մեղայ յերկինս եւ առաջի Քո.<br> Մաքրեա զիս վերստինք Աստուածային հրով Քով՝<br> Որպէս հրեղէն լեզուօք սուրբ զառաքեալսն.<br> Եւ ողորմեա Քո արարածոց եւ ինձ՝ բազմամեղիս:<br></p>
-</section>
-<section id="զ" class="level2">
-<h2>Զ</h2>
-<p>Անեղ բնութիւն,<br> Մեղայ Քեզ մտօք իմովք,<br> Հոգւով եւ մարմնով իմով,<br> Մի յիշեր զմեղս իմ զառաջինս<br> Վասն անուանդ քում սրբոյ.<br> Եւ ողորմեա Քո արարածոց եւ ինձ՝ բազմամեղիս:<br></p>
-</section>
-<section id="է" class="level2">
-<h2>Է</h2>
-<p>Տեսող ամենայնի,<br> Մեղայ Քեզ Խորհրդով, բանիվ եւ գործով<br> Ջնջեա զձեռագիրս յանցանաց իմոց<br> Եւ գրեա զանուն իմ Ի դպրութեան կենաց.<br> Եւ ողորմեա Քո արարածոց եւ ինձ՝ բազմամեղիս:<br></p>
-</section>
-<section id="ը" class="level2">
-<h2>Ը</h2>
-<p>Քննող գաղտնեաց,<br> Մեղայ Քեզ կամայ եւ ակամայ,<br> Գիտութեամբ եւ անգիտութեամբ,<br> Թողութիւն շնորհեա մեղավորիս.<br> Զի ի ծննդենէ սուրբ Աւազանին<br> Մինչեւ զայսօր<br> Մեղուցեալ եմ<br> Առաջի Աստուղութեանդ քո<br> Զգայարանօք իմովք<br> Եւ ամենայն անդամօք մարմնոյս.<br> Եւ ողորմեա Քո արարածոց Եւ ինձ՝ բազմամեղիս:<br></p>
-</section>
-<section id="թ" class="level2">
-<h2>Թ</h2>
-<p>Ամենախնամ Տէր,<br> Դիր պահապան աչաց իմոց՝<br> Զերկիր Քո սուրբ<br> Ոչ եւս հայիլ յայրատ.<br> Եւ՝ ականջաց իմոց,<br> Ոչ ախորժել լսել զբանս չարութեան,<br> Եւ՝ բերանոյ իմոյ,<br> Ոչ խօսել ստութիւն,<br> Եւ՝ սրտի իմոյ,<br> Ոչ խորհել զչարութիւն,<br> Եւ՝ ձեռաց իմոց,<br> Ոչ գործել զանիրաւութիւն.<br> Եւ՝ ոտից իմոց,<br> Ոչ գնալ ի ճանապարհս Անօրենութեան.<br> Այլ ուղղեա զշարժումս սոցա՝<br> Լինել ըստ պատուիրանաց Քոց ամենայնի.<br> Եւ ողորմեա Քո արարածոց Եւ ինձ՝ բազմամեղիս:<br></p>
-</section>
-<section id="ժ" class="level2">
-<h2>Ժ</h2>
-<p>Հուր կենդանի Քրիստոս,<br> Զհուր սիրոյ Քո, զոր արկեր յերկիր՝<br> Բորբոքեա յանձն իմ,<br> Զի այրեսցէ ախտ հոգւոյ իմոյ.<br> Եւ սրբեսցէ զխիղճ մտաց իմոյ,<br> Եւ մաքրեսցէ զմեղս մարմնոյ իմոյ,<br> Եւ վառեսցէ զլոյս գիտութեան Քո<br> Ի սրտի իմում.<br> Եւ ողորմեա Քո արարածոց եւ ինձ՝ բազմամեղիս: <br></p>
-</section>
-<section id="ժա" class="level2">
-<h2>ԺԱ</h2>
-<p>Իմաստութի՛ւն Հօր Յիսուս, տո՛ւր ինձ զիմաստութիւն <br> զԲարիս խորհել եւ խոսել եւ գործել առաջի Քո յամենայն ժամ, <br> Ի չար խորհրդոց, ի բանից եւ ի գործոց փրկեա՛ զիս.<br> Եւ ողորմեա՛ Քո արարածոց եւ ինձ՝ բազմամեղիս:<br></p>
-</section>
-<section id="ժբ" class="level2">
-<h2>ԺԲ</h2>
-<p>Կամեցո՛ղ բաեաց, Տէ՛ր կամարար, <br> Մի՛ թողուր զիս ի կամս անձին իմոյ գնալ, <br> Այլ առաջնորդեա՛ ինձ լինել միշտ ըստ կամաց Քոց բարեսիրաց. <br> Եւ ողորմեա՛ Քո արարածոց եւ ինձ՝ բազմամեղիս:<br></p>
-</section>
-<section id="ժգ" class="level2">
-<h2>ԺԳ</h2>
-<p>Արքա՛յ երկնաւոր, տո՛ւր ինձ զարքայութիւն Քո, <br> զՈր Խոստացար սիրելեաց Քոց, եւ զօրացո՛ զսիրտ իմ՝ <br> Ատել զմեղս եւ սիրել զՔեզ միայն եւ առնել զկամս Քո. <br> Եւ ողորմեա՛ Քո արարածոց եւ ինձ՝ բազմամեղիս:<br></p>
-</section>
-<section id="ժդ" class="level2">
-<h2>ԺԴ</h2>
-<p>Խնամո՛ղ արարածոց, պահեա՛ նշանաւ Խաչի Քո<br> զՀոքի եւ զմարմին իմ ի պատրանաց մեղաց, <br> Ի փորձութեանց դիւաց եւ իմ մարդոց անիրաւաց<br> Եւ ամենայն վտանգից հոգւոյ եւ մարմնու.<br> Եւ ողորմեա՛ Քո արարածոց եւ ինձ՝ բազմամեղիս:<br></p>
-</section>
-<section id="ժե" class="level2">
-<h2>ԺԵ</h2>
-<p>Պահապա՛ն ամենայնի Քրիստոս,<br> Աջ Քո հովանի լիցի ի վերայ իմ ի տուէ եւ ի գիշերի,<br> Ի նստել ի տան,<br> Ի գնալ ի ճանապարհ,<br> ի ննջել եւ ի յառնել, <br> զի մի՛ երբեք սասանեցայց.<br> Եւ ողորմեա՛ Քո արարածոց եւ ինձ՝ բազմամեղիս:<br></p>
-</section>
-<section id="ժզ" class="level2">
-<h2>ԺԶ</h2>
-<p>Աստուա՛ծ իմ, որ բանաս զձեռս Քո<br> Եւ լնուս զամենայն արարածս ողորմութեամբ Քով,<br><br />
-Քեզ յանձն առնեմ զանձն իմ, <br> Դո՛ւ հոգա եւ պատրաստեա<br><br />
-զՊէտս հոգւոյ եւ մարմնոյ իմոյ յայսմհետէ մինչեւ յաւիտեան.<br> Եւ ողորմեա՛ Քո արարածոց եւ ինձ՝ բազմամեղիս:<br></p>
-</section>
-<section id="ժէ" class="level2">
-<h2>Ժէ</h2>
-<p>Դարձուցի՛չ մոլորելոց, <br><br />
-Դարձո՛ զիս ի չար սովորութեանց իմոց ի բարի սովորութիուն <br> Եւ բեւեռեա՛ ի հոգի իմ <br> զՍոսկալի օր մահուն եւ զերկիւղ գեհենոյն եւ զսէր արքայութեանն,<br> զԻ զղջացայց ի մեղղաց եւ գործեցից զարդարութիւն. <br> Եւ ողորմեա՛ Քո արարածոց եւ ինձ՝ բազմամեղիս:<br></p>
-</section>
-<section id="ժը" class="level2">
-<h2>ԺԸ</h2>
-<p>Աղբի՛ւր անմահութեան, աղբերացո՛ ի սրտէ իմմէ<br> զԱրտասուս ապաշխարութեան՝ որպէս պոռնկին,<br> զԻ լըվացից զմեղս ան՛ին իմոյ յառաջ քան զելանելն իմ յաշխարհէս.<br> Եւ ողորմեա՛ Քո արարածոց եւ ինձ՝ բազմամեղիս:<br></p>
-</section>
-<section id="ժթ" class="level2">
-<h2>ԺԹ</h2>
-<p>Պարգեւի՛չ ողորմութեան, պարգեէեա՛ ինձ <br> Ուղղափառ հաւատով եւ բարի գործով եւ սուրբ Մարմնոյ եւ Արեան Քո հաղորդութեամբ գալ առ Քեզ. Եւ ողորմեա՛ Քո արարածոց եւ ինձ՝ բազմամեղիս:<br></p>
-</section>
-<section id="ի" class="level2">
-<h2>Ի</h2>
-<p>Բարերա՛ր Տէր, հրեշտակի բարւոյ յանձն արասցես զիս՝ <br> Քաղցրութեամբ աւանդել զհոգի իմ <br> Եւ անխռով անցուցանել ընդ չարութիւն այսոցն,<br><br />
-Որք են ի ներքոյ երկնից.<br> Եւ ողորմեա՛ Քո արարածոց եւ ինձ՝ բազմամեղիս:<br></p>
-</section>
-<section id="իա" class="level2">
-<h2>ԻԱ</h2>
-<p>Լո՛յս ճշմարիտ Քրիստոս,<br> Արժանաւորեա՛ զհոգի իմ ուրախութեամբ տեսանել<br> զԼոյս փառաց Քոց ի կոչման աւուրն <br> Եւ հանգչիլ յուսով բարեաց յօթեւանս արդարոց<br> Մինչեւ յՕր մեծի գալստեան Քո.<br> Եւ ողորմեա՛ Քո արարածոց եւ ինձ՝ բազմամեղիս:<br></p>
-</section>
-<section id="իբ" class="level2">
-<h2>ԻԲ</h2>
-<p>Դատաւո՛ր արդար, յորժամ գաս փառօք Հօր՝ դատել զկենդանիս եւ զմեռեալս,<br> Մի՛ մտաներ ի դատաստան ենդ ծառայիս Քում, <br> Այլ փրկեա՛ զիս ի յաւիտենական հրոյն եւ լսելի՛ արա ինձ <br> զԵրանաւետ կոչումն արդարոց յերկնից արքայութիւնդ.<br> Եւ ողորմեա՛ Քո արարածոց եւ ինձ՝ բազմամեղիս:<br></p>
-</section>
-<section id="իգ" class="level2">
-<h2>ԻԳ</h2>
-<p>Ամէնողո՛րմ Տէր, ողորմեա՛ ամենայն հաւատացելոց ի Քեզ, <br> Իմոց եւ օտարաց, ծանօթից եւ անծանօթից, կենդանեաց եւ մեռելոց.<br> Շնորհեա՛ եւ թշնամեաց իմոց եւ ատելեաց զթողութիւն՝ որ առ իս յանցանեաց,<br> Եւ դաձո՛ զնոսա ի չարեացն, զոր ունին վասն իմ,<br> զԻ ողորմութեանդ Քում արժանի եղիցին.<br> Եւ ողորմեա՛ Քո արարածոց եւ ինձ՝ բազմամեղիս:<br></p>
-</section>
-<section id="իդ" class="level2">
-<h2>ԻԴ</h2>
-<p>Փառավորեա՛լ Տէր, ընա՛լ զաղաչանս ծառայիս Քո<br> Եւ կատարեա՛ ի բարի զխնդրուաղս իմ՝ բարեխոսութեամբ<br> Սրբուհւոյ Աստուածածնին Եւ Յովհաննու Մկրտչին<br> Եւ սրբւյն Ստեփանոսի Նախավկային <br> Եւ սրբոյն Գրիգորի մերոյ Լուսաւորչին<br> Եւ սրբոց առաքելոց, մարքարէից, վարդապետաց, մարտիրոսաց,<br> հայրապետաց, ճգնավորաց, կուսանաց, միանձանց <br> Եւ ամենայն սրբոց Քոց երկնաւորաց եւ երկրաւորաց.<br> Եւ Քեզ փառք եւ երկրպագութիւն՝ անբաժանելի Սուրբ Երրորդութեանդ, յաւիտեանս.<br> ամէն:<br></p>
-</section>
-</div>
-
-<div class="row">
-        <span class="date  text-right">
-            <i class="fa fa-calenda"></i> Posted on June  6, 2016
-        </span>
-        <span class="tags text-right" style="width: 100%">
-            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/%D5%A3%D6%80%D5%A1%D5%A2%D5%A1%D6%80.html">գրաբար</a></li><li><a href="/tags/%D5%A1%D5%B2%D5%B8%D5%A9%D6%84.html">աղոթք</a></li></ul>
-        </span>
-</div>
-]]></summary>
-</entry>
-<entry>
-    <title>Աստուածաշունչ</title>
-    <link href="http://imast.am/hogi/astuatsashunch/index.html" />
-    <id>http://imast.am/hogi/astuatsashunch/index.html</id>
-    <published>2016-06-06T00:00:00Z</published>
-    <updated>2016-06-06T00:00:00Z</updated>
-    <summary type="html"><![CDATA[<div class="post-content">
-<div id="TOC"><ul>
-<li><a href="#հին-կտակարան">ՀԻՆ ԿՏԱԿԱՐԱՆ</a></li>
-<li><a href="#նոր-կտակարան">ՆՈՐ ԿՏԱԿԱՐԱՆ</a></li>
-</ul></div>
-<section id="հին-կտակարան" class="level2">
-<h2>ՀԻՆ ԿՏԱԿԱՐԱՆ</h2>
-</section>
-<section id="նոր-կտակարան" class="level2">
-<h2>ՆՈՐ ԿՏԱԿԱՐԱՆ</h2>
-<ul>
-<li><a href="avetaran/matheos/index.html">Աւետարան ըստ Մատթէոսի</a></li>
-</ul>
-</section>
-</div>
-
-<div class="row">
-        <span class="date  text-right">
-            <i class="fa fa-calenda"></i> Posted on June  6, 2016
-        </span>
-        <span class="tags text-right" style="width: 100%">
-            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/%D4%B1%D5%BD%D5%BF%D5%B8%D6%82%D5%A1%D5%AE%D5%A1%D5%B7%D5%B8%D6%82%D5%B6%D5%B9.html">Աստուածաշունչ</a></li></ul>
         </span>
 </div>
 ]]></summary>
