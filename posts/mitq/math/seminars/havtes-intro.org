@@ -22,14 +22,14 @@ toc: true
 3. *Պատահույթ*
 
    F = \Omega-ի որևէ ենթաբազմությունների բազմ է, որը կազմում է \sigma Հանրահաշիվ
- \[
-   1. \Omega \subset F \\
-   2. A \subset F \Rightarrow \bar A \not\subset F \Rightarrow
+\begin{equation}
+   1. \Omega \in F \\
+   2. A \subset F \Rightarrow \bar A \not\in F \Rightarrow
       \varnothing \subset F \\
-   3. \forall A_1, A_2,...,A_n \subset F \Rightarrow
+   3. \forall A_1, A_2,...,A_n \in F \Rightarrow
       \bigcup_{i=1}^{\infty} A_{i} \subset F
+\end{equation}
 
-    \]
 
       F-ի տարրերը կոչվում են պատահույթներ: Կասենք A պատահույթը տեղի է ունեցել եթե
       փորձի տարրական ելքը \in A:
@@ -59,7 +59,7 @@ toc: true
 
     \]
 
-    *Սահմանում*. Կասենք A և B անհամատեղելի պատահույթներ եթե  \[A \cup B = \varnothing\]
+    *Սահմանում*. Կասենք A և B անհամատեղելի պատահույթներ եթե  A \cap B = \varnothing
      Օրինակ. կբացվի զույգ թէ կբացվի կենտ
 
 
@@ -67,6 +67,14 @@ toc: true
 ** Աքսիոմատիկ
 Կոլմոգորով
 
-\[ (\Omega, F, P) - \text {Հավանականային Տարածություն}\]
+(\Omega, F, P) - \text {Հավանականային Տարածություն}
 
 ** Դասական
+\Omega տարերը վերջավոր են \\
+\Omega ={ \omega_1, \omega_2, ..., \omega_n } \text հավասարահնարավոր, հվասարահավանական են \\
+F=\Omega-ի ենթբազմերի բազմն է \\
+P(\omega_i) = 1/n, i=1,..,n \\
+
+Պտահույթի հավանականությունը
+
+P(A)=\mathbf{N}_A/N
