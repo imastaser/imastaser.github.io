@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Coq installation</title>
+        <link rel="alternate" type="application/rss+xml" title="AV notes" href="../../rss.xml" />
+        <link rel="shortcut icon" href="../../favicon.ico?v=2" type="image/x-icon" />
+        <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+        <link rel="stylesheet" href="../../css/bootstrap-theme.min.css" />
+        <link rel="stylesheet" href="../../css/default.css" />
+        <link rel="stylesheet" href="../../css/syntax.css" />
+          <link rel="stylesheet" href="../../css/quotes.css" />
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config( { tex2jax: { inlineMath: [ ["\\(", "\\)"] ]
+                                           , displayMath: [ ["\\[", "\\]" ] ]
+                                           , processEscapes: true
+                                           }
+                              });
+
+
+
+        </script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
+
+        <script type="text/javascript" src="../../js/jquery.min.js">
+        </script>
+        <script type="text/javascript" src="../../js/bootstrap.min.js">
+        </script>
+        <script type="text/javascript" src="../../js/codeCopy.js">
+        </script>
+
+    </head>
+    <body>
+        <div class="container">
+
+
+            <div id="header">
+
+                <ul id="navigation" class="list-inline text-center">
+                    <li class="logo"><a href="../../" class="home-link">ԳԼԽԱՎՈՐ</a></i>
+                    <li><a href="../../hogi/">ՀՈԳԻ</a></li>
+                    <li><a href="../../mitq/">ՄԻՏՔ</a></li>
+                    <li><a href="../../marmin/">ՄԱՐՄԻՆ</a></li>
+                    <li><a href="../../rss.xml"><i class="fa fa-rss"></i></a></li>
+                    <!-- <li><a href="/atom.xml"><i class="fa fa-rss"></i></a></li> -->
+                </ul>
+            </div>
+            <div class="clear"></div>
+            <!---->
+
+  <div class="clear"></div>
+<!--  <p style="font-size: 11px;"><strong>Ուշադրություն.</strong> <small>«իմաստասէր» բառը պետք է հասկանալ տառացի. ոչ որպէս փիլիսոփա իմաստով:</small></p> -->
+            <div id="content">
+
+               <!-- <div class="title text-center">
+                    <h4>Coq installation</h4>
+                    <hr>
+                </div> -->
+                <div class="post-content">
+
+<p>*</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># install ocaml palcage manager</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="fu">sh</span> <span class="op">&lt;(</span><span class="ex">curl</span> -sL https://raw.githubusercontent.com/ocaml/opam/master/shell/install.sh<span class="op">)</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co"># Install bubblewrap on Ubuntu 18.04</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="fu">sudo</span> apt update</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="fu">sudo</span> apt install bubblewrap</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co"># Using OPAM to install Coq</span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="bu">export</span> <span class="va">OPAMROOT=</span>~/opam-coq.8.8.2 <span class="co"># installation directory</span></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="ex">opam</span> init -n --comp=ocaml-base-compiler.4.02.3 -j 2 <span class="co"># 2 is the number of CPU cores</span></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="ex">opam</span> repo add coq-released http://coq.inria.fr/opam/released</a>
+<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="ex">opam</span> install coq.8.8.2 <span class="kw">&amp;&amp;</span> <span class="ex">opam</span> pin add coq 8.8.2</a>
+<a class="sourceLine" id="cb1-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="co"># Running Coq</span></a>
+<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="bu">export</span> <span class="va">OPAMROOT=</span>~/opam-coq.8.8.2</a>
+<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="bu">eval</span> <span class="kw">`</span><span class="ex">opam</span> config env<span class="kw">`</span></a>
+<a class="sourceLine" id="cb1-17" data-line-number="17"><span class="ex">coqc</span> -v</a>
+<a class="sourceLine" id="cb1-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb1-19" data-line-number="19"><span class="co"># Using OPAM to install Coq packages</span></a>
+<a class="sourceLine" id="cb1-20" data-line-number="20"><span class="ex">opam</span> search coq</a>
+<a class="sourceLine" id="cb1-21" data-line-number="21"><span class="ex">opam</span> show coq-sudoku</a>
+<a class="sourceLine" id="cb1-22" data-line-number="22"><span class="ex">opam</span> install coq-sudoku</a>
+<a class="sourceLine" id="cb1-23" data-line-number="23"></a></code></pre></div>
+</div>
+
+<div class="row">
+        <span class="date  text-right">
+            <i class="fa fa-calenda"></i> Posted on November 26, 2018
+        </span>
+        <span class="tags text-right" style="width: 100%">
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="../../tags/coq.html">coq</a></li><li><a href="../../tags/SF.html">SF</a></li></ul>
+        </span>
+</div>
+
+            </div>
+            <div id="footer" class="col-md-12">
+                <div class="row"><hr /></div>
+
+                <div class="row text-center">
+                  powered by  <a href="http://jaspervdj.be/hakyll" target="_blank">Hakyll</a>,
+                                      <a href="https://en.wikipedia.org/wiki/Org-mode" target="_blank"> Org-mode</a>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="../../js/quotes.js">
+        </script>
+    </body>
+</html>

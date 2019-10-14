@@ -7,8 +7,52 @@
         <description><![CDATA[]]></description>
         <atom:link href="http://imast.am/rss.xml" rel="self"
                    type="application/rss+xml" />
-        <lastBuildDate>Wed, 31 Oct 2018 00:00:00 UT</lastBuildDate>
+        <lastBuildDate>Mon, 26 Nov 2018 00:00:00 UT</lastBuildDate>
         <item>
+    <title>Coq installation</title>
+    <link>http://imast.am/mitq/programming/how-to-install-coq.html</link>
+    <description><![CDATA[<div class="post-content">
+
+<p>*</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># install ocaml palcage manager</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="fu">sh</span> <span class="op">&lt;(</span><span class="ex">curl</span> -sL https://raw.githubusercontent.com/ocaml/opam/master/shell/install.sh<span class="op">)</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co"># Install bubblewrap on Ubuntu 18.04</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="fu">sudo</span> apt update</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="fu">sudo</span> apt install bubblewrap</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co"># Using OPAM to install Coq</span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="bu">export</span> <span class="va">OPAMROOT=</span>~/opam-coq.8.8.2 <span class="co"># installation directory</span></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="ex">opam</span> init -n --comp=ocaml-base-compiler.4.02.3 -j 2 <span class="co"># 2 is the number of CPU cores</span></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="ex">opam</span> repo add coq-released http://coq.inria.fr/opam/released</a>
+<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="ex">opam</span> install coq.8.8.2 <span class="kw">&amp;&amp;</span> <span class="ex">opam</span> pin add coq 8.8.2</a>
+<a class="sourceLine" id="cb1-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="co"># Running Coq</span></a>
+<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="bu">export</span> <span class="va">OPAMROOT=</span>~/opam-coq.8.8.2</a>
+<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="bu">eval</span> <span class="kw">`</span><span class="ex">opam</span> config env<span class="kw">`</span></a>
+<a class="sourceLine" id="cb1-17" data-line-number="17"><span class="ex">coqc</span> -v</a>
+<a class="sourceLine" id="cb1-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb1-19" data-line-number="19"><span class="co"># Using OPAM to install Coq packages</span></a>
+<a class="sourceLine" id="cb1-20" data-line-number="20"><span class="ex">opam</span> search coq</a>
+<a class="sourceLine" id="cb1-21" data-line-number="21"><span class="ex">opam</span> show coq-sudoku</a>
+<a class="sourceLine" id="cb1-22" data-line-number="22"><span class="ex">opam</span> install coq-sudoku</a>
+<a class="sourceLine" id="cb1-23" data-line-number="23"></a></code></pre></div>
+</div>
+
+<div class="row">
+        <span class="date  text-right">
+            <i class="fa fa-calenda"></i> Posted on November 26, 2018
+        </span>
+        <span class="tags text-right" style="width: 100%">
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/coq.html">coq</a></li><li><a href="/tags/SF.html">SF</a></li></ul>
+        </span>
+</div>
+]]></description>
+    <pubDate>Mon, 26 Nov 2018 00:00:00 UT</pubDate>
+    <guid>http://imast.am/mitq/programming/how-to-install-coq.html</guid>
+    <dc:creator>Arthur Vardanyan</dc:creator>
+</item>
+<item>
     <title>Պատահական Երևույթներ նկարագրող մոդել</title>
     <link>http://imast.am/mitq/math/seminars/havtes-intro.html</link>
     <description><![CDATA[<div class="post-content">
@@ -32,20 +76,23 @@
 <p>Օրինակ. Զառ նետել` <em>Ω</em> = {<em>ω</em><sub>1</sub>, <em>ω</em><sub>2</sub>, <em>ω</em><sub>3</sub>, <em>ω</em><sub>4</sub>, <em>ω</em><sub>5</sub>, <em>ω</em><sub>6</sub>}</p>
 <p><em>Ω</em> - տարրական պատահույթների բազմություն</p></li>
 <li><p><strong>Պատահույթ</strong></p>
-<p>F = <em>Ω</em>-ի որևէ ենթաբազմությունների բազմ է, որը կազմում է <em>σ</em> Հանրահաշիվ <span class="math display">\[
-  1. \Omega \subset F \\
-  2. A \subset F \Rightarrow \bar A \not\subset F \Rightarrow
-     \varnothing \subset F \\
-  3. \forall A_1, A_2,...,A_n \subset F \Rightarrow
-     \bigcup_{i=1}^{\infty} A_{i} \subset F
-
-   \]</span></p>
+F = <em>Ω</em>-ի որևէ ենթաբազմությունների բազմ է, որը կազմում է <em>σ</em> Հանրահաշիվ</li>
+</ol>
+<span class="math display">\[\begin{equation}
+   1. \Omega \in F \\
+   2. A \subset F \Rightarrow \bar A \not\in F \Rightarrow
+      \varnothing \subset F \\
+   3. \forall A_1, A_2,...,A_n \in F \Rightarrow
+      \bigcup_{i=1}^{\infty} A_{i} \subset F
+\end{equation}
+\]</span>
 <p>F-ի տարրերը կոչվում են պատահույթներ: Կասենք A պատահույթը տեղի է ունեցել եթե փորձի տարրական ելքը ∈ A:</p>
 <p>⌀ ∈ F - անհնար պատահույթ, իսկ <em>Ω</em> - հավաստի պատահույթ Օրինակ. Զառի նետման խնդիրը <span class="math display">\[
-     F={\varnothing, \Omega, \{\omega_1}, {\omega_2},...,{\omega_6},...\{...\} \} \\
-     A=\{ \text{կբացվի զույգ թիվ} \} = \{ \omega_2, \omega_4, \omega_6 \} \\
-     \bar A = \{ \text{կբացվի  կենտ  թիվ} \} = \{ \omega_1, \omega_3, \omega_5 \} \\
-    \]</span></p></li>
+      F={\varnothing, \Omega, \{\omega_1}, {\omega_2},...,{\omega_6},...\{...\} \} \\
+      A=\{ \text{կբացվի զույգ թիվ} \} = \{ \omega_2, \omega_4, \omega_6 \} \\
+      \bar A = \{ \text{կբացվի  կենտ  թիվ} \} = \{ \omega_1, \omega_3, \omega_5 \} \\
+     \]</span></p>
+<ol>
 <li><p><strong>Հավանականություն</strong> (գաղափար)</p>
 <p>Հավանականությունը պատահույթի հանդես գալու թվային գնահատականն է, որը մաթեմատիկական ֆունկցիա է՝ P : F → R, այսինքն ֆունկցիա է, որը <span class="math display">\[
 
@@ -59,7 +106,7 @@
      \bigcup_{i=1}^{n} A_{i}  = \Sigma_{i=1}^{n} P(A_{i})
 
    \]</span></p>
-<p><strong>Սահմանում</strong>. Կասենք A և B անհամատեղելի պատահույթներ եթե <span class="math display">\[A \cup B = \varnothing\]</span> Օրինակ. կբացվի զույգ թէ կբացվի կենտ</p></li>
+<p><strong>Սահմանում</strong>. Կասենք A և B անհամատեղելի պատահույթներ եթե A ∩ B = ⌀ Օրինակ. կբացվի զույգ թէ կբացվի կենտ</p></li>
 </ol>
 </section>
 </section>
@@ -68,10 +115,16 @@
 <section id="աքսիոմատիկ" class="level2">
 <h2>Աքսիոմատիկ</h2>
 <p>Կոլմոգորով</p>
-<p><span class="math display">\[ (\Omega, F, P) - \text {Հավանականային Տարածություն}\]</span></p>
+<p>(<em>Ω</em>, F, P) - Հավանականային Տարածություն</p>
 </section>
 <section id="դասական" class="level2">
 <h2>Դասական</h2>
+<p><em>Ω</em> տարերը վերջավոր են<br />
+<em>Ω</em> ={ <em>ω</em><sub>1</sub>, <em>ω</em><sub>2</sub>, …, <em>ω</em><sub>n</sub> }  հավասարահնարավոր, հվասարահավանական են<br />
+F=<em>Ω</em>-ի ենթբազմերի բազմն է<br />
+P(<em>ω</em><sub>i</sub>) = 1/n, i=1,..,n<br />
+Պտահույթի հավանականությունը</p>
+<p>P(A)=<strong>N</strong><sub>A</sub>/N</p>
 </section>
 </section>
 </div>
@@ -126,7 +179,12 @@
 <li><a href="#nixos-in-hetzner-machine">NixOS in hetzner machine</a><ul>
 <li><a href="#enable-ssh">enable ssh</a></li>
 </ul></li>
+<li><a href="#install-with-nix-env">install with nix-env</a><ul>
+<li><a href="#install-emacs">install emacs</a></li>
+</ul></li>
+<li><a href="#emacs-under-nix-shell">Emacs under nix-shell</a></li>
 </ul></div>
+<p><a href="https://github.com/Gabriel439/haskell-nix" class="uri">https://github.com/Gabriel439/haskell-nix</a> <a href="https://www.domenkozar.com/2014/03/11/why-puppet-chef-ansible-arent-good-enough-and-we-can-do-better/" class="uri">https://www.domenkozar.com/2014/03/11/why-puppet-chef-ansible-arent-good-enough-and-we-can-do-better/</a> <a href="https://wiki.ocharles.org.uk/posts/2014-02-04-how-i-develop-with-nixos.html" class="uri">https://wiki.ocharles.org.uk/posts/2014-02-04-how-i-develop-with-nixos.html</a> <a href="http://lucumr.pocoo.org/2013/11/17/my-favorite-database/" class="uri">http://lucumr.pocoo.org/2013/11/17/my-favorite-database/</a> <a href="https://www.fosskers.ca/blog/nix-en.html" class="uri">https://www.fosskers.ca/blog/nix-en.html</a> <a href="https://nixos.org/nixpkgs/manual/#users-guide-to-the-haskell-infrastructure" class="uri">https://nixos.org/nixpkgs/manual/#users-guide-to-the-haskell-infrastructure</a></p>
 <section id="nixos-in-hetzner-machine" class="level1">
 <h1>NixOS in hetzner machine</h1>
 <section id="enable-ssh" class="level2">
@@ -139,6 +197,37 @@
 <a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co"># uncomment ssh</span></a>
 <a class="sourceLine" id="cb1-6" data-line-number="6"><span class="ex">services.sshd.enable</span> = true<span class="kw">;</span></a></code></pre></div>
 </section>
+</section>
+<section id="install-with-nix-env" class="level1">
+<h1>install with nix-env</h1>
+<section id="install-emacs" class="level2">
+<h2>install emacs</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># figure out the proper attribute path for emacs pakages</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="ex">nix-env</span> -qaP emacs</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="op">&gt;</span> <span class="ex">nixpkgs.emacs25</span>  emacs-25.3</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="op">&gt;</span> <span class="ex">nixpkgs.emacs</span>    emacs-26.1</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co"># install emacs</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="ex">nix-env</span> -iA nixpkgs.emacs</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"></a></code></pre></div>
+<p>_</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># list ghc compilers</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="ex">nix-env</span> -f <span class="st">&quot;&lt;nixpkgs&gt;&quot;</span> -qaP -A haskell.compiler</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co"># install cabal-install</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="ex">nix-env</span> -f <span class="st">&quot;&lt;nixpkgs&gt;&quot;</span> -iA haskellPackages.ghc haskellPackages.cabal-install</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co"># or more specific</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="ex">nix-env</span> -f <span class="st">&quot;&lt;nixpkgs&gt;&quot;</span> -iA haskell.compiler.integer-simple.ghc863 haskellPackages.cabal-install</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co"># enter nix-shell where ghc 8.6.3</span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"> <span class="ex">nix-shell</span> -p haskell.compiler.integer-simple.ghc863</a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co"># install (if not exists) and enter the nix-shell with ghc 8.4.4</span></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="ex">nix-shell</span> -p haskell.compiler.ghc844</a></code></pre></div>
+</section>
+</section>
+<section id="emacs-under-nix-shell" class="level1">
+<h1>Emacs under nix-shell</h1>
 </section>
 </div>
 
@@ -153,143 +242,6 @@
 ]]></description>
     <pubDate>Sun, 14 Oct 2018 00:00:00 UT</pubDate>
     <guid>http://imast.am/mitq/programming/nixos.html</guid>
-    <dc:creator>Arthur Vardanyan</dc:creator>
-</item>
-<item>
-    <title>Set up xeno*</title>
-    <link>http://imast.am/mitq/programming/xenobits-setup.html</link>
-    <description><![CDATA[<div class="post-content">
-<div id="TOC"><ul>
-<li><a href="#ghc-stack">ghc, stack</a></li>
-<li><a href="#eth-nem-btc-nodes">Eth, Nem, Btc nodes</a><ul>
-<li><a href="#install-docker">install docker</a></li>
-<li><a href="#eth-parity">Eth parity</a></li>
-<li><a href="#nem-node">Nem node</a></li>
-<li><a href="#btc-node">Btc node</a></li>
-</ul></li>
-<li><a href="#xenochain-trade">xenochain trade</a></li>
-<li><a href="#xenochain-front">xenochain-front</a></li>
-<li><a href="#create-user">create user</a></li>
-</ul></div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="ex">apt</span> update <span class="kw">&amp;&amp;</span> <span class="ex">apt</span> upgrade -y</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="ex">apt</span> install git tmux</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="ex">apt-get</span> install apt-transport-https ca-certificates curl software-properties-common</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="ex">apt-get</span> install autoconf autogen</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="ex">apt-get</span> install libtool</a>
-<a class="sourceLine" id="cb1-6" data-line-number="6"></a></code></pre></div>
-<section id="ghc-stack" class="level1">
-<h1>ghc, stack</h1>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="ex">curl</span> -sSL https://get.haskellstack.org/ <span class="kw">|</span> <span class="fu">sh</span></a></code></pre></div>
-</section>
-<section id="eth-nem-btc-nodes" class="level1">
-<h1>Eth, Nem, Btc nodes</h1>
-<section id="install-docker" class="level2">
-<h2>install docker</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1"></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="ex">curl</span> -fsSL test.docker.com <span class="kw">|</span> <span class="fu">sh</span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="ex">curl</span> -fsSL https://download.docker.com/linux/ubuntu/gpg <span class="kw">|</span> <span class="fu">sudo</span> apt-key add -</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="fu">sudo</span> add-apt-repository    <span class="st">&quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \</span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="st">  </span><span class="va">$(</span><span class="ex">lsb_release</span> -cs<span class="va">)</span><span class="st"> \</span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="st">  stable&quot;</span></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="fu">sudo</span> apt-get update</a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="fu">sudo</span> apt-get install docker-ce</a></code></pre></div>
-</section>
-<section id="eth-parity" class="level2">
-<h2>Eth parity</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" data-line-number="1"></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="fu">mkdir</span> parity</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="ex">./run-ropsten.sh</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="ex">vi</span> io.parity.ethereum/docker/pass</a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co"># create accounts</span></a>
-<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="fu">sudo</span> parity account new --chain ropsten --keys-path io.parity.ethereum/docker/keys/</a>
-<a class="sourceLine" id="cb4-10" data-line-number="10"></a></code></pre></div>
-</section>
-<section id="nem-node" class="level2">
-<h2>Nem node</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" data-line-number="1"></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"></a></code></pre></div>
-</section>
-<section id="btc-node" class="level2">
-<h2>Btc node</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" data-line-number="1"></a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"></a></code></pre></div>
-</section>
-</section>
-<section id="xenochain-trade" class="level1">
-<h1>xenochain trade</h1>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" data-line-number="1"></a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"></a></code></pre></div>
-</section>
-<section id="xenochain-front" class="level1">
-<h1>xenochain-front</h1>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" data-line-number="1"></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co"># prerequest nix-shell</span></a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="ex">https</span>://nixos.wiki/wiki/Nix_Installation_Guide sudo install -d -m755 -o <span class="va">$USER</span> -g</a>
-<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="va">$USER</span> <span class="ex">/nix</span> curl https://nixos.org/nix/install <span class="kw">|</span> <span class="fu">sh</span></a>
-<a class="sourceLine" id="cb8-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="co"># activate your nix profile</span></a>
-<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="bu">source</span> ~/.nix-profile/etc/profile.d/nix.sh</a>
-<a class="sourceLine" id="cb8-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb8-9" data-line-number="9"><span class="co"># some workround, if needed</span></a>
-<a class="sourceLine" id="cb8-10" data-line-number="10"><span class="bu">echo</span> <span class="st">&quot;build-users-group =&quot;</span> <span class="op">&gt;</span> /etc/nix/nix.conf</a>
-<a class="sourceLine" id="cb8-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb8-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb8-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb8-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb8-15" data-line-number="15"><span class="bu">cd</span> frontend/xenochain-front</a>
-<a class="sourceLine" id="cb8-16" data-line-number="16"><span class="ex">./build.sh</span></a></code></pre></div>
-</section>
-<section id="create-user" class="level1">
-<h1>create user</h1>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" data-line-number="1"></a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="ex">adduser</span> xeno</a>
-<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="ex">usermod</span> -aG root xeno</a>
-<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="ex">usermod</span> -aG docker xeno</a>
-<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="ex">usermod</span> -aG admin xeno</a>
-<a class="sourceLine" id="cb9-6" data-line-number="6"><span class="ex">usermod</span> -aG sudo xeno</a>
-<a class="sourceLine" id="cb9-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb9-8" data-line-number="8"><span class="fu">mkdir</span> /home/xeno/.ssh</a>
-<a class="sourceLine" id="cb9-9" data-line-number="9"><span class="fu">cp</span> .ssh/authorized_keys /home/xeno/.ssh/</a>
-<a class="sourceLine" id="cb9-10" data-line-number="10"><span class="fu">sudo</span> chown -R xeno:xeno /home/xeno/.ssh/</a>
-<a class="sourceLine" id="cb9-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb9-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb9-13" data-line-number="13"><span class="co"># NOPASSWD option for xeno user</span></a>
-<a class="sourceLine" id="cb9-14" data-line-number="14"><span class="ex">visudo</span></a>
-<a class="sourceLine" id="cb9-15" data-line-number="15"><span class="ex">xeno</span> ALL=(ALL) <span class="ex">NOPASSWD</span>:ALL</a>
-<a class="sourceLine" id="cb9-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb9-17" data-line-number="17"><span class="co">#delete password</span></a>
-<a class="sourceLine" id="cb9-18" data-line-number="18"><span class="fu">sudo</span> passwd -d <span class="kw">`</span><span class="ex">xeno</span><span class="kw">`</span></a>
-<a class="sourceLine" id="cb9-19" data-line-number="19"></a>
-<a class="sourceLine" id="cb9-20" data-line-number="20"><span class="co"># edit file</span></a>
-<a class="sourceLine" id="cb9-21" data-line-number="21"><span class="fu">sudo</span> vi /etc/ssh/sshd_config</a>
-<a class="sourceLine" id="cb9-22" data-line-number="22"><span class="ex">...</span></a>
-<a class="sourceLine" id="cb9-23" data-line-number="23"><span class="ex">PasswordAuthentication</span> no</a>
-<a class="sourceLine" id="cb9-24" data-line-number="24"><span class="ex">...</span></a>
-<a class="sourceLine" id="cb9-25" data-line-number="25"><span class="ex">service</span> ssh reload</a>
-<a class="sourceLine" id="cb9-26" data-line-number="26"></a>
-<a class="sourceLine" id="cb9-27" data-line-number="27"><span class="co"># on remote server check permission and set to if needed</span></a>
-<a class="sourceLine" id="cb9-28" data-line-number="28"><span class="co"># chmod 700 .ssh</span></a>
-<a class="sourceLine" id="cb9-29" data-line-number="29"><span class="co"># chmod 600 .ssh/authorized_keys</span></a>
-<a class="sourceLine" id="cb9-30" data-line-number="30"><span class="bu">logout</span></a>
-<a class="sourceLine" id="cb9-31" data-line-number="31"><span class="fu">ssh</span> xeno@<span class="op">&lt;</span>ip_adddress<span class="op">&gt;</span></a></code></pre></div>
-</section>
-</div>
-
-<div class="row">
-        <span class="date  text-right">
-            <i class="fa fa-calenda"></i> Posted on August 27, 2018
-        </span>
-        <span class="tags text-right" style="width: 100%">
-            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/hxr.html">hxr</a></li></ul>
-        </span>
-</div>
-]]></description>
-    <pubDate>Mon, 27 Aug 2018 00:00:00 UT</pubDate>
-    <guid>http://imast.am/mitq/programming/xenobits-setup.html</guid>
     <dc:creator>Arthur Vardanyan</dc:creator>
 </item>
 <item>
@@ -406,290 +358,6 @@
 ]]></description>
     <pubDate>Fri, 06 Jul 2018 00:00:00 UT</pubDate>
     <guid>http://imast.am/mitq/programming/dev-server-setup.html</guid>
-    <dc:creator>Arthur Vardanyan</dc:creator>
-</item>
-<item>
-    <title>Cover Letter for Wire</title>
-    <link>http://imast.am/mitq/programming/coverletterforwire.html</link>
-    <description><![CDATA[<div class="post-content">
-<section id="cover-letter" class="level1">
-<h1>Cover Letter</h1>
-<p>Hi,</p>
-<p>I am excited about the opportunity to join a team that does functional programming, uses open source tools and makes open source software. I’m actively developing my side project that utilizes a few popular open source tools and the FP languages (Haskell, Elm) which interest me a lot.</p>
-<p>I work in the team who use only Microsoft languages, tools and all on Windows OS.</p>
-<p>In general, I learn FP concepts continuously using <strong>Haskell</strong>, <strong>Racket</strong>. On 2017 I decided to use Haskell to develop backend to serve IoT devices. I’m going to build my cover letter by answering to the <a href="https://wire.softgarden.io/job/2105535?l=en">requirements</a> section concerning what I have done and what I’m going to do in the future. All work was done single-handedly with zero experience in linux and all tools i have used, I will do my best if i have chance to work with experts of FP, distributed and scalable systems.</p>
-</section>
-<section id="requirements" class="level1">
-<h1>Requirements</h1>
-<section id="excited-about-designing-building-and-running-distributed-and-scalable-systems" class="level2">
-<h2>*Excited about designing, building, and running distributed and scalable systems</h2>
-<p>I have manage to set up hetzner’s virtual linux machines for development, testing and production, my <a href="http://imast.am/mitq/programming/deployment.html">set up notes</a> (by looking to move use ansible to automate set up process). I design the backend scalability in mind, each device know about two backends, first backend’s address(will be moved on the AWS or IBC cloud) is burned into firmware this backend the devices uses to get configuration with second backend address which uses send data, for login, to auth to get commands and etc. Set up nginx.</p>
-<p><strong>TODO:</strong></p>
-<ul>
-<li>investigate and use floating IPs that hetzner provide.</li>
-<li>use docker technologies with private docker repository</li>
-</ul>
-</section>
-<section id="interest-in-statically-typed-functional-languages-is-a-big-plus" class="level2">
-<h2>*Interest in statically-typed functional languages is a big plus</h2>
-<p>I love to let the language to validate my program at compile time, I am very excited about GHC’s <code>GADTs, DataKinds, TypeFamilies,
-   TypeOperators</code> language extensions that brings Dependent type elements to haskell. Also I found also Elm language, which helps me to avoid writing code in JavaScript as much as possible. You can relax on code refactoring; the deep refactoring is not pain anymore. <strong>TODO:</strong></p>
-<ul>
-<li>try <a href="http://www.purescript.org/">purescript</a></li>
-</ul>
-</section>
-<section id="passion-for-clean-code-and-elegant-solutions-continuously-improving-current-ones" class="level2">
-<h2>*Passion for clean code and elegant solutions (continuously improving current ones)</h2>
-<p>I periodically re-wording and formatting my comments to help haddock generate better documents. I try to apply Haskell abstraction which make code shorter, also i like the dependently typed languages concepts and looking forward to use them. I think I have found and implemented some elegant solutions in my current project: how to send commands to device, how to scale easily without any magic when there will be many devices. I use <a href="https://www.pivotaltracker.com/">pivotaltracker</a> to track my stories and tasks, there is a “Epic” section. Have written several tests for backend, need more.</p>
-<p><strong>TODO:</strong> mostly from “Epics” section</p>
-<ul>
-<li>view for log files</li>
-<li>encrypt all communication, use hardware encryptors on device side</li>
-<li>move device configs to cloud</li>
-<li>use web sockets for all, avoid ajax pooling from front end as much as possible.</li>
-<li>audit database changes</li>
-<li>move to use MQTT protocol in the device side.</li>
-<li>set up swagger document page for endpoints.</li>
-<li>write more tests</li>
-<li>use real time monitoring of backend application metrics</li>
-</ul>
-</section>
-<section id="we-highly-value-experience-with" class="level2">
-<h2>We highly value experience with:</h2>
-<ul>
-<li><p>AWS (or other cloud providers) Use S3, Route53 Testing to use IBM Cloud Iot platform to store device configs(first backend)</p></li>
-<li><p>Automating builds and deployments</p>
-<p>I have automated my deployment with <a href="http://nadarei.co/mina/">mina</a>, i use for both backend and for web application, it is DSL to describe deployment, which allows to generate on fly ngxin, logrotate and other configuration based on deployment environments {Production, Test, Staging}, then mina translates to bash script and runs it on remote server. <a href="#samples">mina config smaple</a></p>
-<p>set up cron job for <a href="https://backup.github.io/backup/v4/installation/">backup gem</a> to make and store db backups to S3</p>
-<p>I know about CI, have not set it up yet.</p></li>
-<li><p>Unix/Linux environments, including the ability to analyze and troubleshoot potential networking issues</p>
-<p>As I told already all my app live in linux, I enable firewall, open close ports, check which program listens for given port, ping, set domain name. These are usually what I have done related to the networking on Linux environments.</p></li>
-<li><p>Containerization technologies</p>
-I set up docker and configure to run my web app on it, i know about ~ Kubernetes and Docker Swarm~ Next steps of migration to full dockerized deployment are:
-<ol>
-<li>Build containers for:
-<ul>
-<li>postgreSQL</li>
-<li>Redis</li>
-<li>nginx</li>
-<li>backend</li>
-<li>web application</li>
-</ul></li>
-<li>Configure Docker Orchestration</li>
-</ol></li>
-<li><p>Coding in Rust</p>
-<p>I heard about Rust that it has something similar which we have for Type classes in Haskell, also that it can be used to program for Rasberry pi and is good for system programming, something that come to replace <code>C</code>, this all what I know about Rust. I have never tried it, but language featuring looks promising.</p></li>
-</ul>
-</section>
-</section>
-<section id="code-samples" class="level1">
-<h1>code samples</h1>
-<section id="deployment-code-sample-mina" class="level2">
-<h2>Deployment code sample (mina)</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb1-1" data-line-number="1">desc <span class="st">&quot;Populate logrotote&quot;</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">task :<span class="st">&#39;setup:logrotate_config&#39;</span> =&gt; <span class="st">:remote_environment</span> <span class="kw">do</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">  logrotate_conf = &lt;&lt;-<span class="kw">LOGR</span><span class="ot">.dedent</span></a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="ot">    #{</span>fetch(<span class="st">:deploy_to</span>)<span class="ot">}/shared/Backup/log/*.log</span></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="ot">    #{</span>fetch(<span class="st">:deploy_to</span>)<span class="ot">}/shared/log/*.log</span></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="ot">    #{</span>fetch(<span class="st">:deploy_to</span>)<span class="ot">}/shared/log/*/*.log {</span></a>
-<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="ot">                daily</span></a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="ot">                dateext</span></a>
-<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="ot">                dateformat -%d.%m.%Y</span></a>
-<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="ot">                missingok</span></a>
-<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="ot">                rotate 5</span></a>
-<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="ot">                compress</span></a>
-<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="ot">                delaycompress</span></a>
-<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="ot">                notifempty</span></a>
-<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="ot">                sharedscripts</span></a>
-<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="ot">                copytruncate</span></a>
-<a class="sourceLine" id="cb1-17" data-line-number="17"><span class="ot">                }</span></a>
-<a class="sourceLine" id="cb1-18" data-line-number="18"><span class="ot">    LOGR</span></a>
-<a class="sourceLine" id="cb1-19" data-line-number="19"></a>
-<a class="sourceLine" id="cb1-20" data-line-number="20"><span class="ot">  command %{</span></a>
-<a class="sourceLine" id="cb1-21" data-line-number="21"><span class="ot">      echo &quot;-----&gt; Populating log rotation config&quot;</span></a>
-<a class="sourceLine" id="cb1-22" data-line-number="22"><span class="ot">      echo &quot;#{</span>logrotate_conf<span class="ot">}&quot; &gt; #{</span>fetch(<span class="st">:deploy_to</span>)<span class="ot">}/shared/config/log_rotation.conf</span></a>
-<a class="sourceLine" id="cb1-23" data-line-number="23"><span class="ot">      sudo chmod 644 #{</span>fetch(<span class="st">:deploy_to</span>)<span class="ot">}/shared/config/log_rotation.conf</span></a>
-<a class="sourceLine" id="cb1-24" data-line-number="24"><span class="ot">      # sudo ln -nfs #{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}/config/log_rotation.conf /etc/logrotate.d/#{</span>fetch(<span class="st">:application_name</span>)<span class="ot">}</span></a>
-<a class="sourceLine" id="cb1-25" data-line-number="25"><span class="ot">      sudo cp #{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}/config/log_rotation.conf /etc/logrotate.d/#{</span>fetch(<span class="st">:application_name</span>)<span class="ot">}</span></a>
-<a class="sourceLine" id="cb1-26" data-line-number="26"><span class="ot">      echo &quot;-----&gt; Done&quot;</span></a>
-<a class="sourceLine" id="cb1-27" data-line-number="27"><span class="ot">  }</span></a>
-<a class="sourceLine" id="cb1-28" data-line-number="28"></a>
-<a class="sourceLine" id="cb1-29" data-line-number="29"><span class="ot"> end</span></a>
-<a class="sourceLine" id="cb1-30" data-line-number="30"></a></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb2-1" data-line-number="1"></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">task <span class="st">:test</span> <span class="kw">do</span></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">  set <span class="st">:deploy_to</span>, <span class="st">&quot;</span><span class="ot">#{</span>fetch(<span class="st">:deploy_to</span>)<span class="ot">}</span><span class="st">&quot;</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">  set <span class="st">:rails_env</span>, <span class="st">&#39;production&#39;</span></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5">  set <span class="st">:domain</span>, <span class="st">&#39;test.taxicenter.am&#39;</span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">  set <span class="st">:www_domain</span>, <span class="st">&#39;test.taxicenter.am&#39;</span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="kw">end</span></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9">task <span class="st">:staging</span> <span class="kw">do</span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10">  set <span class="st">:deploy_to</span>, <span class="st">&quot;</span><span class="ot">#{</span>fetch(<span class="st">:deploy_to</span>)<span class="ot">}</span><span class="st">-staging&quot;</span></a>
-<a class="sourceLine" id="cb2-11" data-line-number="11">  set <span class="st">:rails_env</span>, <span class="st">&#39;staging&#39;</span></a>
-<a class="sourceLine" id="cb2-12" data-line-number="12">  set <span class="st">:domain</span>, <span class="st">&#39;staging.taxicenter.am&#39;</span></a>
-<a class="sourceLine" id="cb2-13" data-line-number="13">  set <span class="st">:www_domain</span>, <span class="st">&#39;staging.taxicenter.am&#39;</span></a>
-<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#  set :branch, &#39;develop&#39;</span></a>
-<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="kw">end</span></a>
-<a class="sourceLine" id="cb2-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb2-17" data-line-number="17">task <span class="st">:production</span> <span class="kw">do</span></a>
-<a class="sourceLine" id="cb2-18" data-line-number="18">  set <span class="st">:rails_env</span>, <span class="st">&#39;production&#39;</span></a>
-<a class="sourceLine" id="cb2-19" data-line-number="19">  set <span class="st">:branch</span>, <span class="st">&#39;master&#39;</span></a>
-<a class="sourceLine" id="cb2-20" data-line-number="20">  set <span class="st">:domain</span>, <span class="st">&#39;taxicenter.am&#39;</span></a>
-<a class="sourceLine" id="cb2-21" data-line-number="21">  set <span class="st">:www_domain</span>, <span class="st">&#39;www.taxicenter.am&#39;</span></a>
-<a class="sourceLine" id="cb2-22" data-line-number="22"><span class="kw">end</span></a>
-<a class="sourceLine" id="cb2-23" data-line-number="23"></a>
-<a class="sourceLine" id="cb2-24" data-line-number="24"></a>
-<a class="sourceLine" id="cb2-25" data-line-number="25">task <span class="st">:setup</span> =&gt; <span class="st">:remote_environment</span> <span class="kw">do</span></a>
-<a class="sourceLine" id="cb2-26" data-line-number="26"></a>
-<a class="sourceLine" id="cb2-27" data-line-number="27">  <span class="co"># Puma needs a place to store its pid file and socket file.</span></a>
-<a class="sourceLine" id="cb2-28" data-line-number="28">  command <span class="ot">%(</span><span class="st">mkdir -p &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/tmp/&quot;</span><span class="ot">)</span></a>
-<a class="sourceLine" id="cb2-29" data-line-number="29">  command <span class="ot">%(</span><span class="st">chmod g+rx,u+rwx &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/tmp&quot;</span><span class="ot">)</span></a>
-<a class="sourceLine" id="cb2-30" data-line-number="30"></a>
-<a class="sourceLine" id="cb2-31" data-line-number="31">  command <span class="ot">%(</span><span class="st">mkdir -p &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/log/&quot;</span><span class="ot">)</span></a>
-<a class="sourceLine" id="cb2-32" data-line-number="32">  command <span class="ot">%(</span><span class="st">chmod g+rx,u+rwx &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/log&quot;</span><span class="ot">)</span></a>
-<a class="sourceLine" id="cb2-33" data-line-number="33">  command <span class="ot">%(</span><span class="st">mkdir -p &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/log/puma&quot;</span><span class="ot">)</span></a>
-<a class="sourceLine" id="cb2-34" data-line-number="34">    command <span class="ot">%(</span><span class="st">chmod g+rx,u+rwx &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/log/puma&quot;</span><span class="ot">)</span></a>
-<a class="sourceLine" id="cb2-35" data-line-number="35">  command <span class="ot">%(</span><span class="st">mkdir -p &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/log/nginx&quot;</span><span class="ot">)</span></a>
-<a class="sourceLine" id="cb2-36" data-line-number="36">  command <span class="ot">%(</span><span class="st">chmod g+rx,u+rwx &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/log/nginx&quot;</span><span class="ot">)</span></a>
-<a class="sourceLine" id="cb2-37" data-line-number="37"></a>
-<a class="sourceLine" id="cb2-38" data-line-number="38">  command <span class="ot">%(</span><span class="st">mkdir -p &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/tmp/sockets&quot;</span><span class="ot">)</span></a>
-<a class="sourceLine" id="cb2-39" data-line-number="39">  command <span class="ot">%(</span><span class="st">chmod g+rx,u+rwx &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/tmp/sockets&quot;</span><span class="ot">)</span></a>
-<a class="sourceLine" id="cb2-40" data-line-number="40"></a>
-<a class="sourceLine" id="cb2-41" data-line-number="41">  command <span class="ot">%(</span><span class="st">mkdir -p &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/backup&quot;</span><span class="ot">)</span></a>
-<a class="sourceLine" id="cb2-42" data-line-number="42">  command <span class="ot">%(</span><span class="st">chmod g+rx,u+rwx &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/backup&quot;</span><span class="ot">)</span></a>
-<a class="sourceLine" id="cb2-43" data-line-number="43"></a>
-<a class="sourceLine" id="cb2-44" data-line-number="44">  command <span class="ot">%(</span><span class="st">mkdir -p &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/tmp/pids&quot;</span><span class="ot">)</span></a>
-<a class="sourceLine" id="cb2-45" data-line-number="45">  command <span class="ot">%(</span><span class="st">chmod g+rx,u+rwx &quot;</span><span class="ot">#{</span>fetch(<span class="st">:shared_path</span>)<span class="ot">}</span><span class="st">/tmp/pids&quot;</span><span class="ot">)</span></a>
-<a class="sourceLine" id="cb2-46" data-line-number="46"></a>
-<a class="sourceLine" id="cb2-47" data-line-number="47">  invoke :<span class="st">&#39;setup:db:database_yml&#39;</span></a>
-<a class="sourceLine" id="cb2-48" data-line-number="48">  invoke :<span class="st">&#39;setup:db:redis_yml&#39;</span></a>
-<a class="sourceLine" id="cb2-49" data-line-number="49">  invoke :<span class="st">&#39;setup:puma_config&#39;</span></a>
-<a class="sourceLine" id="cb2-50" data-line-number="50">  invoke :<span class="st">&#39;setup:secrets_yml&#39;</span></a>
-<a class="sourceLine" id="cb2-51" data-line-number="51">  invoke :<span class="st">&#39;setup:nginx_config&#39;</span></a>
-<a class="sourceLine" id="cb2-52" data-line-number="52">  invoke :<span class="st">&#39;setup:logrotate_config&#39;</span></a>
-<a class="sourceLine" id="cb2-53" data-line-number="53"></a>
-<a class="sourceLine" id="cb2-54" data-line-number="54"><span class="kw">end</span></a>
-<a class="sourceLine" id="cb2-55" data-line-number="55"></a>
-<a class="sourceLine" id="cb2-56" data-line-number="56">desc <span class="st">&quot;Deploys the current version to the server.&quot;</span></a>
-<a class="sourceLine" id="cb2-57" data-line-number="57">task <span class="st">:deploy</span> =&gt; <span class="st">:remote_environment</span> <span class="kw">do</span></a>
-<a class="sourceLine" id="cb2-58" data-line-number="58">  <span class="co"># uncomment this line to make sure you pushed your local branch to the remote origin</span></a>
-<a class="sourceLine" id="cb2-59" data-line-number="59">  <span class="co"># invoke :&#39;git:ensure_pushed&#39;</span></a>
-<a class="sourceLine" id="cb2-60" data-line-number="60">  deploy <span class="kw">do</span></a>
-<a class="sourceLine" id="cb2-61" data-line-number="61">    <span class="co"># Put things that will set up an empty directory into a fully set-up</span></a>
-<a class="sourceLine" id="cb2-62" data-line-number="62">    <span class="co"># instance of your project.</span></a>
-<a class="sourceLine" id="cb2-63" data-line-number="63">    comment <span class="st">&quot;Deploying </span><span class="ot">#{</span>fetch(<span class="st">:application_name</span>)<span class="ot">}</span><span class="st"> to </span><span class="ot">#{</span>fetch(<span class="st">:domain</span>)<span class="ot">}</span><span class="st">:</span><span class="ot">#{</span>fetch(<span class="st">:deploy_to</span>)<span class="ot">}</span><span class="st">&quot;</span></a>
-<a class="sourceLine" id="cb2-64" data-line-number="64">    command <span class="ot">%{</span><span class="st">pwd</span><span class="ot">}</span></a>
-<a class="sourceLine" id="cb2-65" data-line-number="65">    invoke :<span class="st">&#39;git:clone&#39;</span></a>
-<a class="sourceLine" id="cb2-66" data-line-number="66">    invoke :<span class="st">&#39;deploy:link_shared_paths&#39;</span></a>
-<a class="sourceLine" id="cb2-67" data-line-number="67">    invoke :<span class="st">&#39;bundle:install&#39;</span></a>
-<a class="sourceLine" id="cb2-68" data-line-number="68"></a>
-<a class="sourceLine" id="cb2-69" data-line-number="69">    <span class="co"># these 2 commands shoudl be run first time only</span></a>
-<a class="sourceLine" id="cb2-70" data-line-number="70">    <span class="kw">if</span> fetch(<span class="st">:first_run</span>) == <span class="dv">true</span></a>
-<a class="sourceLine" id="cb2-71" data-line-number="71">      invoke :<span class="st">&#39;rails:db_create&#39;</span> <span class="co">#  creates the database</span></a>
-<a class="sourceLine" id="cb2-72" data-line-number="72">      invoke :<span class="st">&#39;rails:db_schema_load&#39;</span> <span class="co"># creates tables and columns within the (existing) database following schema.rb</span></a>
-<a class="sourceLine" id="cb2-73" data-line-number="73">    <span class="kw">end</span></a>
-<a class="sourceLine" id="cb2-74" data-line-number="74"></a>
-<a class="sourceLine" id="cb2-75" data-line-number="75">    invoke :<span class="st">&#39;rails:db_migrate&#39;</span></a>
-<a class="sourceLine" id="cb2-76" data-line-number="76"></a>
-<a class="sourceLine" id="cb2-77" data-line-number="77">    <span class="co"># first time only</span></a>
-<a class="sourceLine" id="cb2-78" data-line-number="78">    <span class="kw">if</span> fetch(<span class="st">:first_run</span>) == <span class="dv">true</span></a>
-<a class="sourceLine" id="cb2-79" data-line-number="79">      command <span class="ot">%{#{</span>fetch(<span class="st">:rails</span>)<span class="ot">}</span><span class="st"> db:seed</span><span class="ot">}</span></a>
-<a class="sourceLine" id="cb2-80" data-line-number="80">    <span class="kw">end</span></a>
-<a class="sourceLine" id="cb2-81" data-line-number="81"></a>
-<a class="sourceLine" id="cb2-82" data-line-number="82">    invoke :<span class="st">&#39;rails:assets_precompile&#39;</span></a>
-<a class="sourceLine" id="cb2-83" data-line-number="83"></a>
-<a class="sourceLine" id="cb2-84" data-line-number="84">    <span class="co">#command %{sudo service reload}</span></a>
-<a class="sourceLine" id="cb2-85" data-line-number="85"></a>
-<a class="sourceLine" id="cb2-86" data-line-number="86">    invoke :<span class="st">&#39;deploy:cleanup&#39;</span></a>
-<a class="sourceLine" id="cb2-87" data-line-number="87"></a>
-<a class="sourceLine" id="cb2-88" data-line-number="88">    on <span class="st">:launch</span> <span class="kw">do</span></a>
-<a class="sourceLine" id="cb2-89" data-line-number="89">        command <span class="ot">%{</span><span class="st">mkdir -p tmp/</span><span class="ot">}</span></a>
-<a class="sourceLine" id="cb2-90" data-line-number="90">        command <span class="ot">%{</span><span class="st">touch tmp/restart.txt</span><span class="ot">}</span></a>
-<a class="sourceLine" id="cb2-91" data-line-number="91">        invoke :<span class="st">&#39;puma:phased_restart&#39;</span></a>
-<a class="sourceLine" id="cb2-92" data-line-number="92">    <span class="kw">end</span></a>
-<a class="sourceLine" id="cb2-93" data-line-number="93">  <span class="kw">end</span></a>
-<a class="sourceLine" id="cb2-94" data-line-number="94"><span class="kw">end</span></a>
-<a class="sourceLine" id="cb2-95" data-line-number="95"></a></code></pre></div>
-</section>
-<section id="changelog" class="level2">
-<h2>Changelog</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb3-1" data-line-number="1">Change Log / Release Notes</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">0.0.8</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4">• add device_log table in migration, add log.db end point.</a>
-<a class="sourceLine" id="cb3-5" data-line-number="5">• fix lng &amp; lat invalid format parsing exception, &quot;Prelude.read: no parse&quot;</a>
-<a class="sourceLine" id="cb3-6" data-line-number="6">• publish data to redis channel, to feed websocket on front-end.</a>
-<a class="sourceLine" id="cb3-7" data-line-number="7">• reset device activity key in redis when checking for auth.</a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9">0.0.7</a>
-<a class="sourceLine" id="cb3-10" data-line-number="10">• add patvers</a>
-<a class="sourceLine" id="cb3-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb3-12" data-line-number="12">0.0.6</a>
-<a class="sourceLine" id="cb3-13" data-line-number="13">• verbose error for auth token.</a>
-<a class="sourceLine" id="cb3-14" data-line-number="14">• remove debugMsg for development as well, from response.</a>
-<a class="sourceLine" id="cb3-15" data-line-number="15">• parse imei value from auth header, add flockLog function.</a>
-<a class="sourceLine" id="cb3-16" data-line-number="16">• add AuthTokenDBError type constructor</a>
-<a class="sourceLine" id="cb3-17" data-line-number="17">• add imei to command reponse as well.</a>
-<a class="sourceLine" id="cb3-18" data-line-number="18">• deal with patvers, get patver status update from device</a>
-<a class="sourceLine" id="cb3-19" data-line-number="19">• handle not registered device case</a>
-<a class="sourceLine" id="cb3-20" data-line-number="20"></a>
-<a class="sourceLine" id="cb3-21" data-line-number="21">0.0.5</a>
-<a class="sourceLine" id="cb3-22" data-line-number="22">• log to slack all errors</a>
-<a class="sourceLine" id="cb3-23" data-line-number="23">• firmware download row by row</a>
-<a class="sourceLine" id="cb3-24" data-line-number="24">• create firmware tables and seeds for testing.</a>
-<a class="sourceLine" id="cb3-25" data-line-number="25">• add taxi specific field to trip</a>
-<a class="sourceLine" id="cb3-26" data-line-number="26">• DeviceData: remove temp, add angle</a>
-<a class="sourceLine" id="cb3-27" data-line-number="27">• add endpoints to get tariff by id, by number.</a>
-<a class="sourceLine" id="cb3-28" data-line-number="28">• add endpoints to get tariff group tariffs id array, get all tariffs.</a>
-<a class="sourceLine" id="cb3-29" data-line-number="29">• add command endpoints to get device command or commands list</a>
-<a class="sourceLine" id="cb3-30" data-line-number="30">• add taxi.order endpoints, start, stop collect order data and save to db</a>
-<a class="sourceLine" id="cb3-31" data-line-number="31">• use redis heavily</a>
-<a class="sourceLine" id="cb3-32" data-line-number="32">• set taxi_id, taxometer_id and shift_id to taxi_order when order created.</a>
-<a class="sourceLine" id="cb3-33" data-line-number="33"></a>
-<a class="sourceLine" id="cb3-34" data-line-number="34">0.0.4</a>
-<a class="sourceLine" id="cb3-35" data-line-number="35">• add expire key to redis for device activity tracking</a>
-<a class="sourceLine" id="cb3-36" data-line-number="36">• parse trip status</a>
-<a class="sourceLine" id="cb3-37" data-line-number="37">• add redis to handle trip creation, collect trip points.</a>
-<a class="sourceLine" id="cb3-38" data-line-number="38">• rename device property, make shorter, add new fields.</a>
-<a class="sourceLine" id="cb3-39" data-line-number="39">• add script for deploying to remote via ssh, 80% done.</a>
-<a class="sourceLine" id="cb3-40" data-line-number="40"></a>
-<a class="sourceLine" id="cb3-41" data-line-number="41">0.0.3</a>
-<a class="sourceLine" id="cb3-42" data-line-number="42">• parse latitude and longitude from NMEA coords format</a>
-<a class="sourceLine" id="cb3-43" data-line-number="43">• convert lat and lng to degrees</a>
-<a class="sourceLine" id="cb3-44" data-line-number="44">• make staging error more verbos, DebugMsg option</a>
-<a class="sourceLine" id="cb3-45" data-line-number="45">• add logging of request and response to file, formatted as json.</a>
-<a class="sourceLine" id="cb3-46" data-line-number="46">• add api/info, do not remove &quot;Content-Type&quot; Header for this /api/info path, TODO: dev more sophisticate mechanism to remove header</a>
-<a class="sourceLine" id="cb3-47" data-line-number="47"></a>
-<a class="sourceLine" id="cb3-48" data-line-number="48">0.0.2</a>
-<a class="sourceLine" id="cb3-49" data-line-number="49">• make response json more simple, for easy parse in device side, reduce nesting level in json</a>
-<a class="sourceLine" id="cb3-50" data-line-number="50">• change /api/device.data accept json where numeric types represent as text. the numeric type in the device side loss precision, and for device it is easy send text. Develop the json parser that accept numbers or string without fail.</a>
-<a class="sourceLine" id="cb3-51" data-line-number="51">• alt, speed, angle can access string, int, rational, empty</a>
-<a class="sourceLine" id="cb3-52" data-line-number="52"></a>
-<a class="sourceLine" id="cb3-53" data-line-number="53">0.0.1</a>
-<a class="sourceLine" id="cb3-54" data-line-number="54">• change Response format</a>
-<a class="sourceLine" id="cb3-55" data-line-number="55">• run sql scripts as migration</a>
-<a class="sourceLine" id="cb3-56" data-line-number="56">• Add some tests</a>
-<a class="sourceLine" id="cb3-57" data-line-number="57">• Improved Rest API, separate Lib module, improve exception catching</a>
-<a class="sourceLine" id="cb3-58" data-line-number="58"></a>
-<a class="sourceLine" id="cb3-59" data-line-number="59">0.0.0</a>
-<a class="sourceLine" id="cb3-60" data-line-number="60">• Expose necessary endpoints for pro-prototyping.</a>
-<a class="sourceLine" id="cb3-61" data-line-number="61"></a></code></pre></div>
-</section>
-</section>
-</div>
-
-<div class="row">
-        <span class="date  text-right">
-            <i class="fa fa-calenda"></i> Posted on June  6, 2018
-        </span>
-        <span class="tags text-right" style="width: 100%">
-            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/haskell.html">haskell</a></li></ul>
-        </span>
-</div>
-]]></description>
-    <pubDate>Wed, 06 Jun 2018 00:00:00 UT</pubDate>
-    <guid>http://imast.am/mitq/programming/coverletterforwire.html</guid>
     <dc:creator>Arthur Vardanyan</dc:creator>
 </item>
 <item>
@@ -1471,6 +1139,90 @@ I set up docker and configure to run my web app on it, i know about ~ Kubernetes
 ]]></description>
     <pubDate>Wed, 08 Jun 2016 00:00:00 UT</pubDate>
     <guid>http://imast.am/hogi/mashalyan/astvacain-naxaxnamutyun.html</guid>
+    <dc:creator>Arthur Vardanyan</dc:creator>
+</item>
+<item>
+    <title>Isuzu</title>
+    <link>http://imast.am/mitq/etc/isuzu.html</link>
+    <description><![CDATA[<div class="post-content">
+<div id="TOC"><ul>
+<li><a href="#manulas">Manulas</a></li>
+<li><a href="#forum">Forum</a></li>
+<li><a href="#articles">Articles</a></li>
+<li><a href="#part-numbers">Part Numbers</a><ul>
+<li><a href="#пыльники">Пыльники</a></li>
+<li><a href="#смазки-для-шрусов">Смазки для ШРУСОВ</a></li>
+<li><a href="#фильтр">фильтр</a></li>
+<li><a href="#atf">ATF</a></li>
+</ul></li>
+</ul></div>
+<section id="manulas" class="level2">
+<h2>Manulas</h2>
+<p><a href="https://drive.google.com/open?id=0B5_olWfL1-4xbGFsQmk5OEo0Vkk" target="_blank">Ремонт и эксплуатация ISUZU Bighorn 1984-91</a></p>
+</section>
+<section id="forum" class="level2">
+<h2>Forum</h2>
+<p><a href="http://forums.drom.ru/isuzu-bighorn/" target="_blank">drom.ru</a
+> <a href="http://www.4x4wire.com/isuzu/" target="_blank">Isuzu 4x4</a></p>
+</section>
+<section id="articles" class="level2">
+<h2>Articles</h2>
+<p><a href="http://www.toyota-club.net/files/lib/z_st/05-01-20_pub_bighorn.htm" target="_blank">Isuzu Bighorn. Уходящий в небытие</a></p>
+<p><a href="http://www.itocuk.co.uk/forums/viewtopic.php?t=31318" target="_blank">Oils required for your Trooper.</a></p>
+</section>
+<section id="part-numbers" class="level2">
+<h2>Part Numbers</h2>
+<section id="пыльники" class="level3">
+<h3>Пыльники</h3>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=KOdP20LzqP8" target="_blank">Замена Пыльников (video)</a></li>
+<li>8-97117-220-0 пыльник ШРУСа внутренний</li>
+<li>8-97117-221-0 пыльник ШРУСа внешний</li>
+<li>До 05.1995 года внешний и внутренний пыльники - OHNO FB-2060.</li>
+<li>После 05.1995 года внешний OHNO FB-2199, внутренний OHNO FB-2148.</li>
+<li><ul>
+<li><a href="http://forums.drom.ru/isuzu-bighorn/t1151257090.html" target="_blank">Пыльники ШРУСов (drom.ru)</a></li>
+</ul></li>
+</ul>
+</section>
+<section id="смазки-для-шрусов" class="level3">
+<h3>Смазки для ШРУСОВ</h3>
+<ul>
+<li>внутренний ШРУС - полимочевинные.</li>
+<li>наружный ШРУС - молибден/литий и прочее. <a href="https://www.emex.ru/catalog?8=42814&amp;CAT_ID=25&amp;page=1">Смазки литиевые.</a></li>
+</ul>
+</section>
+<section id="фильтр" class="level3">
+<h3>фильтр</h3>
+<ul>
+<li>8-94456-741-2 фильтр масляный</li>
+<li>Blue print ADS72101 фильтр масляный (неоригинал)</li>
+<li>8-98021-510-0 фильтр топливный (в раме) <a href="https://www.youtube.com/watch?v=koBnfwaUSlQ" target="_blank">Fuel Filter Replacement (video)</a></li>
+<li>8-97035-303-0 фильтр воздушный</li>
+</ul>
+</section>
+<section id="atf" class="level3">
+<h3>ATF</h3>
+<ul>
+<li>8-96015-062-0 фильтр АКПП</li>
+<li>8-96014-234-0 прокладка поддона АКПП 1</li>
+<li>8-96014-235-0 прокладка поддона АКПП 2</li>
+</ul>
+</section>
+</section>
+</div>
+
+<div class="row">
+        <span class="date  text-right">
+            <i class="fa fa-calenda"></i> Posted on June  7, 2016
+        </span>
+        <span class="tags text-right" style="width: 100%">
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/Isuzu.html">Isuzu</a></li></ul>
+        </span>
+</div>
+]]></description>
+    <pubDate>Tue, 07 Jun 2016 00:00:00 UT</pubDate>
+    <guid>http://imast.am/mitq/etc/isuzu.html</guid>
     <dc:creator>Arthur Vardanyan</dc:creator>
 </item>
 

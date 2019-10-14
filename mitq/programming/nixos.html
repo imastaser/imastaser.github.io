@@ -64,7 +64,12 @@
 <li><a href="#nixos-in-hetzner-machine">NixOS in hetzner machine</a><ul>
 <li><a href="#enable-ssh">enable ssh</a></li>
 </ul></li>
+<li><a href="#install-with-nix-env">install with nix-env</a><ul>
+<li><a href="#install-emacs">install emacs</a></li>
+</ul></li>
+<li><a href="#emacs-under-nix-shell">Emacs under nix-shell</a></li>
 </ul></div>
+<p><a href="https://github.com/Gabriel439/haskell-nix" class="uri">https://github.com/Gabriel439/haskell-nix</a> <a href="https://www.domenkozar.com/2014/03/11/why-puppet-chef-ansible-arent-good-enough-and-we-can-do-better/" class="uri">https://www.domenkozar.com/2014/03/11/why-puppet-chef-ansible-arent-good-enough-and-we-can-do-better/</a> <a href="https://wiki.ocharles.org.uk/posts/2014-02-04-how-i-develop-with-nixos.html" class="uri">https://wiki.ocharles.org.uk/posts/2014-02-04-how-i-develop-with-nixos.html</a> <a href="http://lucumr.pocoo.org/2013/11/17/my-favorite-database/" class="uri">http://lucumr.pocoo.org/2013/11/17/my-favorite-database/</a> <a href="https://www.fosskers.ca/blog/nix-en.html" class="uri">https://www.fosskers.ca/blog/nix-en.html</a> <a href="https://nixos.org/nixpkgs/manual/#users-guide-to-the-haskell-infrastructure" class="uri">https://nixos.org/nixpkgs/manual/#users-guide-to-the-haskell-infrastructure</a></p>
 <section id="nixos-in-hetzner-machine" class="level1">
 <h1>NixOS in hetzner machine</h1>
 <section id="enable-ssh" class="level2">
@@ -77,6 +82,37 @@
 <a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co"># uncomment ssh</span></a>
 <a class="sourceLine" id="cb1-6" data-line-number="6"><span class="ex">services.sshd.enable</span> = true<span class="kw">;</span></a></code></pre></div>
 </section>
+</section>
+<section id="install-with-nix-env" class="level1">
+<h1>install with nix-env</h1>
+<section id="install-emacs" class="level2">
+<h2>install emacs</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># figure out the proper attribute path for emacs pakages</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="ex">nix-env</span> -qaP emacs</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="op">&gt;</span> <span class="ex">nixpkgs.emacs25</span>  emacs-25.3</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="op">&gt;</span> <span class="ex">nixpkgs.emacs</span>    emacs-26.1</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co"># install emacs</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="ex">nix-env</span> -iA nixpkgs.emacs</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"></a></code></pre></div>
+<p>_</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># list ghc compilers</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="ex">nix-env</span> -f <span class="st">&quot;&lt;nixpkgs&gt;&quot;</span> -qaP -A haskell.compiler</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co"># install cabal-install</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="ex">nix-env</span> -f <span class="st">&quot;&lt;nixpkgs&gt;&quot;</span> -iA haskellPackages.ghc haskellPackages.cabal-install</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co"># or more specific</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="ex">nix-env</span> -f <span class="st">&quot;&lt;nixpkgs&gt;&quot;</span> -iA haskell.compiler.integer-simple.ghc863 haskellPackages.cabal-install</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co"># enter nix-shell where ghc 8.6.3</span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"> <span class="ex">nix-shell</span> -p haskell.compiler.integer-simple.ghc863</a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co"># install (if not exists) and enter the nix-shell with ghc 8.4.4</span></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="ex">nix-shell</span> -p haskell.compiler.ghc844</a></code></pre></div>
+</section>
+</section>
+<section id="emacs-under-nix-shell" class="level1">
+<h1>Emacs under nix-shell</h1>
 </section>
 </div>
 
