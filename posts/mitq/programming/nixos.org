@@ -7,6 +7,15 @@ comments: true
 toc: true
 ---
 
+https://github.com/Gabriel439/haskell-nix
+https://www.domenkozar.com/2014/03/11/why-puppet-chef-ansible-arent-good-enough-and-we-can-do-better/
+https://wiki.ocharles.org.uk/posts/2014-02-04-how-i-develop-with-nixos.html
+http://lucumr.pocoo.org/2013/11/17/my-favorite-database/
+https://www.fosskers.ca/blog/nix-en.html
+https://nixos.org/nixpkgs/manual/#users-guide-to-the-haskell-infrastructure
+
+
+
 * NixOS in hetzner machine
 
 ** enable ssh
@@ -19,3 +28,32 @@ vi /mnt/etc/nixos/configuration.nix
 # uncomment ssh
 services.sshd.enable = true;
 #+END_SRC
+
+* install with  nix-env
+** install emacs
+#+BEGIN_SRC bash
+# figure out the proper attribute path for emacs pakages
+nix-env -qaP emacs
+> nixpkgs.emacs25  emacs-25.3
+> nixpkgs.emacs    emacs-26.1
+
+# install emacs
+nix-env -iA nixpkgs.emacs
+
+#+END_SRC_
+#+BEGIN_SRC bash
+# list ghc compilers
+nix-env -f "<nixpkgs>" -qaP -A haskell.compiler
+
+# install cabal-install
+nix-env -f "<nixpkgs>" -iA haskellPackages.ghc haskellPackages.cabal-install
+# or more specific
+nix-env -f "<nixpkgs>" -iA haskell.compiler.integer-simple.ghc863 haskellPackages.cabal-install
+
+# enter nix-shell where ghc 8.6.3
+ nix-shell -p haskell.compiler.integer-simple.ghc863
+
+# install (if not exists) and enter the nix-shell with ghc 8.4.4
+nix-shell -p haskell.compiler.ghc844
+#+END_SRC
+* Emacs under nix-shell
