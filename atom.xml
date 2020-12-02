@@ -8,8 +8,131 @@
         <name>Arthur Vardanyan</name>
         <email>arthur@imast.am</email>
     </author>
-    <updated>2018-11-26T00:00:00Z</updated>
+    <updated>2020-12-02T00:00:00Z</updated>
     <entry>
+    <title>Sorting Algorithms</title>
+    <link href="http://imast.am/mitq/programming/sorting-algorithms.html" />
+    <id>http://imast.am/mitq/programming/sorting-algorithms.html</id>
+    <published>2020-12-02T00:00:00Z</published>
+    <updated>2020-12-02T00:00:00Z</updated>
+    <summary type="html"><![CDATA[<div class="post-content">
+<div id="TOC"><ul>
+<li><a href="#տեսակավորման-ալգորիթմներ">Տեսակավորման ալգորիթմներ</a><ul>
+<li><a href="#պղպջակային-bubble-sort">Պղպջակային (Bubble sort )</a><ul>
+<li><a href="#վերլուփություն">Վերլուփություն</a></li>
+<li><a href="#կայուն-է---այո">Կայուն է - այո</a></li>
+<li><a href="#ադապտիվ-է---այո">Ադապտիվ է - այո</a></li>
+<li><a href="#կոդ">Կոդ</a></li>
+</ul></li>
+<li><a href="#տեղադրմանբ-insertion-sort">Տեղադրմանբ (Insertion sort)</a></li>
+<li><a href="#ընտրությամբ-selection-sort">Ընտրությամբ (Selection sort)</a></li>
+<li><a href="#արագ-quick-sort">Արագ (Quick sort)</a></li>
+</ul></li>
+</ul></div>
+<section id="տեսակավորման-ալգորիթմներ" class="level1">
+<h1>Տեսակավորման ալգորիթմներ</h1>
+<p><strong>Կայունությունը (stability)</strong> - եթե տեսակավորման ալգորիթմը պահպանում է հավասար էլեմնենտների խոխադարձ տեղակայումը, ապա այսպիտի սորտավորման ալգորիթմը կանվանենք կայուն:</p>
+<p><strong>Ադապտիվություն (adaptive)</strong> - կասենք տեսակավորման ալգորիթմը ադապտիվ է եթե նախօրոք սորտավորված տվյալների վրա ավելի արդյունավետ է աշխատում՝ ցուցադրում է իր լավագույն տարբերակը:</p>
+<p><strong>Տվյալների կառւոցվաջքը</strong> եթե հատուկ չի նշվում, ալգորթմը նկարագրելիս, նշանակում է խոսքը միաչափ զանգվածի մասին է</p>
+<div class="sourceCode" id="cb1" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb1-1" data-line-number="1">| Տեսակավորման ալգորիթմներ | Stable | Adaptive | Best | wORST  | aVERAGE | tYPE                    | eXTRA MEMORY |</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">|--------------------------+--------+----------+------+--------+---------+-------------------------+--------------|</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">| Պղպջակային տեսակավորում  | Yes    | Yes      | O(n) | O(n^<span class="dv">2</span>) | O(n^<span class="dv">2</span>)  | Comparision based sorts | No           |</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">|                          |        |          |      |        |         | Index base sorts        |              |</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">|--------------------------+--------+----------+------+--------+---------+-------------------------+--------------|</a></code></pre></div>
+<section id="պղպջակային-bubble-sort" class="level2">
+<h2>Պղպջակային (Bubble sort )</h2>
+<p>Համեմատության եղանակով տեսակավորման ալգորիթմ է, որը կարգավորում է զանգվածը ցույգ առ ցւոյգ համեմատելով հարևան էլեմնենտերը և տեղափոխելով իրար միջև եթե սխալ են դասավորված իրար նկատմամբ: Այսպիսի մի համեմատությունների և տեղափոխությունների անցումի մեկ ցիկլը էլեմենտների վրայով կանվանենք <strong>Փաս(Pass)</strong>: Առաջին Փասի արդյունքում մեկ էլեմենտ կգտնի իր տեղը, մեծագույն էլեմենտը զանգվածում կկարգավորվի: `n` էլեմնետ ունեցող զանգվածում հարկավոր կլինի n-1 Փաս ամբողձ զանգված հերթականուլյամբ դասավորելու համար: Իսկ n էլեմենտի համար պետք է կատարել n-1 համեմատություն և մաքսիմում n-1 տեղափոխություն՝ հերթական «ծանր» էլեմենտը իր տեղ դնելու համար:</p>
+<div class="sourceCode" id="cb2" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb2-1" data-line-number="1">  <span class="dt">int</span> A[] = {<span class="dv">9</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">4</span>,<span class="dv">3</span>}</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">| I Pass         | II Pass      | III Pass     | IV Pass      |</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">|----------------+--------------+--------------+--------------|</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">| <span class="dv">9</span>] <span class="dv">6</span>  <span class="dv">6</span>  <span class="dv">6</span>  <span class="dv">6</span>  | <span class="dv">6</span>] <span class="dv">6</span>  <span class="dv">6</span>  <span class="dv">6</span>   | <span class="dv">6</span>] <span class="dv">4</span>  <span class="dv">4</span>      | <span class="dv">4</span>] <span class="fl">3.</span>        |</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">| <span class="dv">6</span>] <span class="dv">9</span>] <span class="dv">8</span>  <span class="dv">8</span>  <span class="dv">8</span>  | <span class="dv">8</span>] <span class="dv">8</span>] <span class="dv">4</span>  <span class="dv">4</span>   | <span class="dv">4</span>] <span class="dv">6</span>] <span class="dv">3</span>      | <span class="dv">3</span>] <span class="fl">4.</span>        |</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">| <span class="dv">8</span>  <span class="dv">8</span>] <span class="dv">9</span>] <span class="dv">4</span>  <span class="dv">4</span>  | <span class="dv">4</span>  <span class="dv">4</span>] <span class="dv">8</span>] <span class="dv">3</span>   | <span class="dv">3</span>  <span class="dv">3</span>] <span class="fl">6.</span>     | <span class="fl">6.</span> <span class="fl">6.</span>        |</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">| <span class="dv">4</span>  <span class="dv">4</span>  <span class="dv">4</span>] <span class="dv">9</span>] <span class="dv">3</span>  | <span class="dv">3</span>  <span class="dv">3</span>  <span class="dv">3</span>] <span class="fl">8.</span>  | <span class="fl">8.</span> <span class="fl">8.</span> <span class="fl">8.</span>     | <span class="fl">8.</span> <span class="fl">8.</span>        |</a>
+<a class="sourceLine" id="cb2-9" data-line-number="9">| <span class="dv">3</span>  <span class="dv">3</span>  <span class="dv">3</span>  <span class="dv">3</span>] <span class="fl">9.</span> | <span class="fl">9.</span> <span class="fl">9.</span> <span class="fl">9.</span> <span class="fl">9.</span>  | <span class="fl">9.</span> <span class="fl">9.</span> <span class="fl">9.</span>     | <span class="fl">9.</span> <span class="fl">9.</span>        |</a>
+<a class="sourceLine" id="cb2-10" data-line-number="10">|----------------+--------------+--------------+--------------|</a>
+<a class="sourceLine" id="cb2-11" data-line-number="11">| sorted el.  <span class="dv">9</span>  | sorted el. <span class="dv">8</span> | sorted el. <span class="dv">6</span> | sorted el. <span class="dv">4</span> |</a>
+<a class="sourceLine" id="cb2-12" data-line-number="12">| #Comp: <span class="dv">4</span>       | #Comp: <span class="dv">3</span>     | #Comp: <span class="dv">2</span>     | #Comp: <span class="dv">1</span>     |</a>
+<a class="sourceLine" id="cb2-13" data-line-number="13">| #Swap: <span class="dv">4</span>       | #Swap: <span class="dv">2</span>     | #Swap: <span class="dv">2</span>     | #Swap: <span class="dv">1</span>     |</a>
+<a class="sourceLine" id="cb2-14" data-line-number="14">| #max swap: <span class="dv">4</span>   | #max swap: <span class="dv">3</span> | #max swap: <span class="dv">2</span> | #max swap: <span class="dv">1</span> | </a></code></pre></div>
+<section id="վերլուփություն" class="level3">
+<h3>Վերլուփություն</h3>
+<div class="sourceCode" id="cb3" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb3-1" data-line-number="1">Դիցուք ունենք n տարրանի զանգված, ապա.</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">- Փասերի քանակը՝ (n<span class="dv">-1</span>)</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">- Համեմատությունների քանակը՝ <span class="dv">1</span>+<span class="dv">2</span>+...+n<span class="dv">-1</span> = n*(n<span class="dv">-1</span>)/<span class="dv">2</span> ~ O(n^<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">- Մաքսիմալ հնարավոր տեղափոխությունների քանակը՝ <span class="dv">1</span>+<span class="dv">2</span>+...+n<span class="dv">-1</span> = n*(n<span class="dv">-1</span>)/<span class="dv">2</span> ~ O(n^<span class="dv">2</span>)</a></code></pre></div>
+</section>
+<section id="կայուն-է---այո" class="level3">
+<h3>Կայուն է - այո</h3>
+<div class="sourceCode" id="cb4" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb4-1" data-line-number="1">|--------------------|</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">| <span class="dv">9</span> ] <span class="dv">9</span>   <span class="dv">9</span>   <span class="dv">9</span>   <span class="dv">9</span>  | No change of order, =&gt; Bubbke sort is stable</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">| <span class="dv">9</span>*] <span class="dv">9</span>*] <span class="dv">3</span>   <span class="dv">3</span>   <span class="dv">3</span>  |</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">| <span class="dv">3</span>   <span class="dv">3</span> ] <span class="dv">9</span>*] <span class="dv">5</span>   <span class="dv">5</span>  |</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">| <span class="dv">5</span>   <span class="dv">5</span>   <span class="dv">5</span> ] <span class="dv">9</span>*] <span class="dv">4</span>  |</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">| <span class="dv">4</span>   <span class="dv">4</span>   <span class="dv">4</span>   <span class="dv">4</span> ] <span class="dv">9</span>* |</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">|--------------------|</a></code></pre></div>
+</section>
+<section id="ադապտիվ-է---այո" class="level3">
+<h3>Ադապտիվ է - այո</h3>
+<p>Պղպջակային ալգորիթմը իր բնույթով <strong>ադապտիվ</strong> չէ, բայց այն հնարավոր է դարձնել ադապտիվ, կոդի մեջ այդ նպատակի համար օգտագործում ենք flag փոփոխականը որողելու համար հերթական փասի ընթացքում գոնե մեկ տեղափոխություն(swap) եղել է, եթե չի եղել նշանակում է տվյալնեն արդեն կարգավրոված են:</p>
+<div class="sourceCode" id="cb5" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb5-1" data-line-number="1">| sorted list   |</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">|---------------|</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">| <span class="dv">3</span>] <span class="dv">3</span>  <span class="dv">3</span>  <span class="dv">3</span>  <span class="dv">3</span> | No spwaing, mean list already sorted, we use </a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">| <span class="dv">4</span>] <span class="dv">4</span>] <span class="dv">4</span>  <span class="dv">4</span>  <span class="dv">4</span> | flag to determine <span class="cf">if</span> ther is swap and made </a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">| <span class="dv">6</span>  <span class="dv">6</span>] <span class="dv">6</span>] <span class="dv">6</span>  <span class="dv">6</span> | buuble sort algorithm adaptive, it is not </a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">| <span class="dv">8</span>  <span class="dv">8</span>  <span class="dv">8</span>] <span class="dv">8</span>] <span class="dv">8</span> | adaptive by iteself, but it is possible to </a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">| <span class="dv">9</span>  <span class="dv">9</span>  <span class="dv">9</span>  <span class="dv">9</span>] <span class="dv">9</span> | make it adaptive.</a>
+<a class="sourceLine" id="cb5-8" data-line-number="8">|---------------|</a>
+<a class="sourceLine" id="cb5-9" data-line-number="9">| #Comp: <span class="dv">4</span>      |</a>
+<a class="sourceLine" id="cb5-10" data-line-number="10">| #Swap: <span class="dv">0</span>      | =&gt; O(n) - <span class="cf">if</span> already sorted, minimum time </a>
+<a class="sourceLine" id="cb5-11" data-line-number="11">| #max swap: <span class="dv">4</span>  |</a></code></pre></div>
+</section>
+<section id="կոդ" class="level3">
+<h3>Կոդ</h3>
+<div class="sourceCode" id="cb6" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="dt">void</span> BubbleSort(<span class="dt">int</span> A[], <span class="dt">int</span> n)</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">{</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"> <span class="co">// no swapping means the list already sorted</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"> <span class="co">// we use flag to determine if there is a swap. </span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"> <span class="dt">int</span> flag = <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"> <span class="cf">for</span>(i = <span class="dv">0</span>; i &lt; n<span class="dv">-1</span>; i++) <span class="co">// passes</span></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"> {</a>
+<a class="sourceLine" id="cb6-8" data-line-number="8">   <span class="cf">for</span>(j = <span class="dv">0</span>, flag = <span class="dv">0</span>; i &lt; n<span class="dv">-1</span>-i; j++) <span class="co">// every pass reduced comparision count </span></a>
+<a class="sourceLine" id="cb6-9" data-line-number="9">   {</a>
+<a class="sourceLine" id="cb6-10" data-line-number="10">     <span class="cf">if</span>(A[j] &gt; A[j+<span class="dv">1</span>])</a>
+<a class="sourceLine" id="cb6-11" data-line-number="11">     {</a>
+<a class="sourceLine" id="cb6-12" data-line-number="12">       swap(A[j], A[j+<span class="dv">1</span>]);</a>
+<a class="sourceLine" id="cb6-13" data-line-number="13">       flag = <span class="dv">1</span>;  </a>
+<a class="sourceLine" id="cb6-14" data-line-number="14">     }</a>
+<a class="sourceLine" id="cb6-15" data-line-number="15">   }</a>
+<a class="sourceLine" id="cb6-16" data-line-number="16">   <span class="cf">if</span>(flag == <span class="dv">0</span>) <span class="cf">break</span>;  </a>
+<a class="sourceLine" id="cb6-17" data-line-number="17"> }</a>
+<a class="sourceLine" id="cb6-18" data-line-number="18">}</a></code></pre></div>
+</section>
+</section>
+<section id="տեղադրմանբ-insertion-sort" class="level2">
+<h2>Տեղադրմանբ (Insertion sort)</h2>
+</section>
+<section id="ընտրությամբ-selection-sort" class="level2">
+<h2>Ընտրությամբ (Selection sort)</h2>
+</section>
+<section id="արագ-quick-sort" class="level2">
+<h2>Արագ (Quick sort)</h2>
+</section>
+</section>
+</div>
+
+<div class="row">
+        <span class="date  text-right">
+            <i class="fa fa-calenda"></i> Posted on December  2, 2020
+        </span>
+        <span class="tags text-right" style="width: 100%">
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/sorting.html">sorting</a></li><li><a href="/tags/algorithms.html">algorithms</a></li></ul>
+        </span>
+</div>
+]]></summary>
+</entry>
+<entry>
     <title>Coq installation</title>
     <link href="http://imast.am/mitq/programming/how-to-install-coq.html" />
     <id>http://imast.am/mitq/programming/how-to-install-coq.html</id>
@@ -1138,90 +1261,6 @@ P(<em>ω</em><sub>i</sub>) = 1/n, i=1,..,n<br />
         </span>
         <span class="tags text-right" style="width: 100%">
             <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/%D5%A1%D6%82%D5%A5%D5%BF%D5%A1%D6%80%D5%A1%D5%B6.html">աւետարան</a></li><li><a href="/tags/%D5%84%D5%A1%D5%B7%D5%A1%D5%AC%D5%A5%D5%A1%D5%B6.html">Մաշալեան</a></li></ul>
-        </span>
-</div>
-]]></summary>
-</entry>
-<entry>
-    <title>Isuzu</title>
-    <link href="http://imast.am/mitq/etc/isuzu.html" />
-    <id>http://imast.am/mitq/etc/isuzu.html</id>
-    <published>2016-06-07T00:00:00Z</published>
-    <updated>2016-06-07T00:00:00Z</updated>
-    <summary type="html"><![CDATA[<div class="post-content">
-<div id="TOC"><ul>
-<li><a href="#manulas">Manulas</a></li>
-<li><a href="#forum">Forum</a></li>
-<li><a href="#articles">Articles</a></li>
-<li><a href="#part-numbers">Part Numbers</a><ul>
-<li><a href="#пыльники">Пыльники</a></li>
-<li><a href="#смазки-для-шрусов">Смазки для ШРУСОВ</a></li>
-<li><a href="#фильтр">фильтр</a></li>
-<li><a href="#atf">ATF</a></li>
-</ul></li>
-</ul></div>
-<section id="manulas" class="level2">
-<h2>Manulas</h2>
-<p><a href="https://drive.google.com/open?id=0B5_olWfL1-4xbGFsQmk5OEo0Vkk" target="_blank">Ремонт и эксплуатация ISUZU Bighorn 1984-91</a></p>
-</section>
-<section id="forum" class="level2">
-<h2>Forum</h2>
-<p><a href="http://forums.drom.ru/isuzu-bighorn/" target="_blank">drom.ru</a
-> <a href="http://www.4x4wire.com/isuzu/" target="_blank">Isuzu 4x4</a></p>
-</section>
-<section id="articles" class="level2">
-<h2>Articles</h2>
-<p><a href="http://www.toyota-club.net/files/lib/z_st/05-01-20_pub_bighorn.htm" target="_blank">Isuzu Bighorn. Уходящий в небытие</a></p>
-<p><a href="http://www.itocuk.co.uk/forums/viewtopic.php?t=31318" target="_blank">Oils required for your Trooper.</a></p>
-</section>
-<section id="part-numbers" class="level2">
-<h2>Part Numbers</h2>
-<section id="пыльники" class="level3">
-<h3>Пыльники</h3>
-<ul>
-<li><a href="https://www.youtube.com/watch?v=KOdP20LzqP8" target="_blank">Замена Пыльников (video)</a></li>
-<li>8-97117-220-0 пыльник ШРУСа внутренний</li>
-<li>8-97117-221-0 пыльник ШРУСа внешний</li>
-<li>До 05.1995 года внешний и внутренний пыльники - OHNO FB-2060.</li>
-<li>После 05.1995 года внешний OHNO FB-2199, внутренний OHNO FB-2148.</li>
-<li><ul>
-<li><a href="http://forums.drom.ru/isuzu-bighorn/t1151257090.html" target="_blank">Пыльники ШРУСов (drom.ru)</a></li>
-</ul></li>
-</ul>
-</section>
-<section id="смазки-для-шрусов" class="level3">
-<h3>Смазки для ШРУСОВ</h3>
-<ul>
-<li>внутренний ШРУС - полимочевинные.</li>
-<li>наружный ШРУС - молибден/литий и прочее. <a href="https://www.emex.ru/catalog?8=42814&amp;CAT_ID=25&amp;page=1">Смазки литиевые.</a></li>
-</ul>
-</section>
-<section id="фильтр" class="level3">
-<h3>фильтр</h3>
-<ul>
-<li>8-94456-741-2 фильтр масляный</li>
-<li>Blue print ADS72101 фильтр масляный (неоригинал)</li>
-<li>8-98021-510-0 фильтр топливный (в раме) <a href="https://www.youtube.com/watch?v=koBnfwaUSlQ" target="_blank">Fuel Filter Replacement (video)</a></li>
-<li>8-97035-303-0 фильтр воздушный</li>
-</ul>
-</section>
-<section id="atf" class="level3">
-<h3>ATF</h3>
-<ul>
-<li>8-96015-062-0 фильтр АКПП</li>
-<li>8-96014-234-0 прокладка поддона АКПП 1</li>
-<li>8-96014-235-0 прокладка поддона АКПП 2</li>
-</ul>
-</section>
-</section>
-</div>
-
-<div class="row">
-        <span class="date  text-right">
-            <i class="fa fa-calenda"></i> Posted on June  7, 2016
-        </span>
-        <span class="tags text-right" style="width: 100%">
-            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/Isuzu.html">Isuzu</a></li></ul>
         </span>
 </div>
 ]]></summary>
