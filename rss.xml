@@ -30,80 +30,80 @@
 <p><strong>Կայունությունը (stability)</strong> - եթե տեսակավորման ալգորիթմը պահպանում է հավասար էլեմնենտների խոխադարձ տեղակայումը, ապա այսպիտի սորտավորման ալգորիթմը կանվանենք կայուն:</p>
 <p><strong>Ադապտիվություն (adaptive)</strong> - կասենք տեսակավորման ալգորիթմը ադապտիվ է եթե նախօրոք սորտավորված տվյալների վրա ավելի արդյունավետ է աշխատում՝ ցուցադրում է իր լավագույն տարբերակը:</p>
 <p><strong>Տվյալների կառւոցվաջքը</strong> եթե հատուկ չի նշվում, ալգորթմը նկարագրելիս, նշանակում է խոսքը միաչափ զանգվածի մասին է</p>
-<div class="sourceCode" id="cb1" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb1-1" data-line-number="1">| Տեսակավորման ալգորիթմներ | Stable | Adaptive | Best | wORST  | aVERAGE | tYPE                    | eXTRA MEMORY |</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">|--------------------------+--------+----------+------+--------+---------+-------------------------+--------------|</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">| Պղպջակային տեսակավորում  | Yes    | Yes      | O(n) | O(n^<span class="dv">2</span>) | O(n^<span class="dv">2</span>)  | Comparision based sorts | No           |</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4">|                          |        |          |      |        |         | Index base sorts        |              |</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5">|--------------------------+--------+----------+------+--------+---------+-------------------------+--------------|</a></code></pre></div>
+<div class="sourceCode" id="cb1" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1"></a>| Տեսակավորման ալգորիթմներ | Stable | Adaptive | Best | wORST  | aVERAGE | tYPE                    | eXTRA MEMORY |</span>
+<span id="cb1-2"><a href="#cb1-2"></a>|--------------------------+--------+----------+------+--------+---------+-------------------------+--------------|</span>
+<span id="cb1-3"><a href="#cb1-3"></a>| Պղպջակային տեսակավորում  | Yes    | Yes      | O(n) | O(n^<span class="dv">2</span>) | O(n^<span class="dv">2</span>)  | Comparision based sorts | No           |</span>
+<span id="cb1-4"><a href="#cb1-4"></a>|                          |        |          |      |        |         | Index base sorts        |              |</span>
+<span id="cb1-5"><a href="#cb1-5"></a>|--------------------------+--------+----------+------+--------+---------+-------------------------+--------------|</span></code></pre></div>
 <section id="պղպջակային-bubble-sort" class="level2">
 <h2>Պղպջակային (Bubble sort )</h2>
 <p>Համեմատության եղանակով տեսակավորման ալգորիթմ է, որը կարգավորում է զանգվածը ցույգ առ ցւոյգ համեմատելով հարևան էլեմնենտերը և տեղափոխելով իրար միջև եթե սխալ են դասավորված իրար նկատմամբ: Այսպիսի մի համեմատությունների և տեղափոխությունների անցումի մեկ ցիկլը էլեմենտների վրայով կանվանենք <strong>Փաս(Pass)</strong>: Առաջին Փասի արդյունքում մեկ էլեմենտ կգտնի իր տեղը, մեծագույն էլեմենտը զանգվածում կկարգավորվի: `n` էլեմնետ ունեցող զանգվածում հարկավոր կլինի n-1 Փաս ամբողձ զանգված հերթականուլյամբ դասավորելու համար: Իսկ n էլեմենտի համար պետք է կատարել n-1 համեմատություն և մաքսիմում n-1 տեղափոխություն՝ հերթական «ծանր» էլեմենտը իր տեղ դնելու համար:</p>
-<div class="sourceCode" id="cb2" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb2-1" data-line-number="1">  <span class="dt">int</span> A[] = {<span class="dv">9</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">4</span>,<span class="dv">3</span>}</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">| I Pass         | II Pass      | III Pass     | IV Pass      |</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">|----------------+--------------+--------------+--------------|</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5">| <span class="dv">9</span>] <span class="dv">6</span>  <span class="dv">6</span>  <span class="dv">6</span>  <span class="dv">6</span>  | <span class="dv">6</span>] <span class="dv">6</span>  <span class="dv">6</span>  <span class="dv">6</span>   | <span class="dv">6</span>] <span class="dv">4</span>  <span class="dv">4</span>      | <span class="dv">4</span>] <span class="fl">3.</span>        |</a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">| <span class="dv">6</span>] <span class="dv">9</span>] <span class="dv">8</span>  <span class="dv">8</span>  <span class="dv">8</span>  | <span class="dv">8</span>] <span class="dv">8</span>] <span class="dv">4</span>  <span class="dv">4</span>   | <span class="dv">4</span>] <span class="dv">6</span>] <span class="dv">3</span>      | <span class="dv">3</span>] <span class="fl">4.</span>        |</a>
-<a class="sourceLine" id="cb2-7" data-line-number="7">| <span class="dv">8</span>  <span class="dv">8</span>] <span class="dv">9</span>] <span class="dv">4</span>  <span class="dv">4</span>  | <span class="dv">4</span>  <span class="dv">4</span>] <span class="dv">8</span>] <span class="dv">3</span>   | <span class="dv">3</span>  <span class="dv">3</span>] <span class="fl">6.</span>     | <span class="fl">6.</span> <span class="fl">6.</span>        |</a>
-<a class="sourceLine" id="cb2-8" data-line-number="8">| <span class="dv">4</span>  <span class="dv">4</span>  <span class="dv">4</span>] <span class="dv">9</span>] <span class="dv">3</span>  | <span class="dv">3</span>  <span class="dv">3</span>  <span class="dv">3</span>] <span class="fl">8.</span>  | <span class="fl">8.</span> <span class="fl">8.</span> <span class="fl">8.</span>     | <span class="fl">8.</span> <span class="fl">8.</span>        |</a>
-<a class="sourceLine" id="cb2-9" data-line-number="9">| <span class="dv">3</span>  <span class="dv">3</span>  <span class="dv">3</span>  <span class="dv">3</span>] <span class="fl">9.</span> | <span class="fl">9.</span> <span class="fl">9.</span> <span class="fl">9.</span> <span class="fl">9.</span>  | <span class="fl">9.</span> <span class="fl">9.</span> <span class="fl">9.</span>     | <span class="fl">9.</span> <span class="fl">9.</span>        |</a>
-<a class="sourceLine" id="cb2-10" data-line-number="10">|----------------+--------------+--------------+--------------|</a>
-<a class="sourceLine" id="cb2-11" data-line-number="11">| sorted el.  <span class="dv">9</span>  | sorted el. <span class="dv">8</span> | sorted el. <span class="dv">6</span> | sorted el. <span class="dv">4</span> |</a>
-<a class="sourceLine" id="cb2-12" data-line-number="12">| #Comp: <span class="dv">4</span>       | #Comp: <span class="dv">3</span>     | #Comp: <span class="dv">2</span>     | #Comp: <span class="dv">1</span>     |</a>
-<a class="sourceLine" id="cb2-13" data-line-number="13">| #Swap: <span class="dv">4</span>       | #Swap: <span class="dv">2</span>     | #Swap: <span class="dv">2</span>     | #Swap: <span class="dv">1</span>     |</a>
-<a class="sourceLine" id="cb2-14" data-line-number="14">| #max swap: <span class="dv">4</span>   | #max swap: <span class="dv">3</span> | #max swap: <span class="dv">2</span> | #max swap: <span class="dv">1</span> | </a></code></pre></div>
+<div class="sourceCode" id="cb2" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1"></a>  <span class="dt">int</span> A[] = {<span class="dv">9</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">4</span>,<span class="dv">3</span>}</span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a>| I Pass         | II Pass      | III Pass     | IV Pass      |</span>
+<span id="cb2-4"><a href="#cb2-4"></a>|----------------+--------------+--------------+--------------|</span>
+<span id="cb2-5"><a href="#cb2-5"></a>| <span class="dv">9</span>] <span class="dv">6</span>  <span class="dv">6</span>  <span class="dv">6</span>  <span class="dv">6</span>  | <span class="dv">6</span>] <span class="dv">6</span>  <span class="dv">6</span>  <span class="dv">6</span>   | <span class="dv">6</span>] <span class="dv">4</span>  <span class="dv">4</span>      | <span class="dv">4</span>] <span class="fl">3.</span>        |</span>
+<span id="cb2-6"><a href="#cb2-6"></a>| <span class="dv">6</span>] <span class="dv">9</span>] <span class="dv">8</span>  <span class="dv">8</span>  <span class="dv">8</span>  | <span class="dv">8</span>] <span class="dv">8</span>] <span class="dv">4</span>  <span class="dv">4</span>   | <span class="dv">4</span>] <span class="dv">6</span>] <span class="dv">3</span>      | <span class="dv">3</span>] <span class="fl">4.</span>        |</span>
+<span id="cb2-7"><a href="#cb2-7"></a>| <span class="dv">8</span>  <span class="dv">8</span>] <span class="dv">9</span>] <span class="dv">4</span>  <span class="dv">4</span>  | <span class="dv">4</span>  <span class="dv">4</span>] <span class="dv">8</span>] <span class="dv">3</span>   | <span class="dv">3</span>  <span class="dv">3</span>] <span class="fl">6.</span>     | <span class="fl">6.</span> <span class="fl">6.</span>        |</span>
+<span id="cb2-8"><a href="#cb2-8"></a>| <span class="dv">4</span>  <span class="dv">4</span>  <span class="dv">4</span>] <span class="dv">9</span>] <span class="dv">3</span>  | <span class="dv">3</span>  <span class="dv">3</span>  <span class="dv">3</span>] <span class="fl">8.</span>  | <span class="fl">8.</span> <span class="fl">8.</span> <span class="fl">8.</span>     | <span class="fl">8.</span> <span class="fl">8.</span>        |</span>
+<span id="cb2-9"><a href="#cb2-9"></a>| <span class="dv">3</span>  <span class="dv">3</span>  <span class="dv">3</span>  <span class="dv">3</span>] <span class="fl">9.</span> | <span class="fl">9.</span> <span class="fl">9.</span> <span class="fl">9.</span> <span class="fl">9.</span>  | <span class="fl">9.</span> <span class="fl">9.</span> <span class="fl">9.</span>     | <span class="fl">9.</span> <span class="fl">9.</span>        |</span>
+<span id="cb2-10"><a href="#cb2-10"></a>|----------------+--------------+--------------+--------------|</span>
+<span id="cb2-11"><a href="#cb2-11"></a>| sorted el.  <span class="dv">9</span>  | sorted el. <span class="dv">8</span> | sorted el. <span class="dv">6</span> | sorted el. <span class="dv">4</span> |</span>
+<span id="cb2-12"><a href="#cb2-12"></a>| #Comp: <span class="dv">4</span>       | #Comp: <span class="dv">3</span>     | #Comp: <span class="dv">2</span>     | #Comp: <span class="dv">1</span>     |</span>
+<span id="cb2-13"><a href="#cb2-13"></a>| #Swap: <span class="dv">4</span>       | #Swap: <span class="dv">2</span>     | #Swap: <span class="dv">2</span>     | #Swap: <span class="dv">1</span>     |</span>
+<span id="cb2-14"><a href="#cb2-14"></a>| #max swap: <span class="dv">4</span>   | #max swap: <span class="dv">3</span> | #max swap: <span class="dv">2</span> | #max swap: <span class="dv">1</span> | </span></code></pre></div>
 <section id="վերլուփություն" class="level3">
 <h3>Վերլուփություն</h3>
-<div class="sourceCode" id="cb3" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb3-1" data-line-number="1">Դիցուք ունենք n տարրանի զանգված, ապա.</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">- Փասերի քանակը՝ (n<span class="dv">-1</span>)</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">- Համեմատությունների քանակը՝ <span class="dv">1</span>+<span class="dv">2</span>+...+n<span class="dv">-1</span> = n*(n<span class="dv">-1</span>)/<span class="dv">2</span> ~ O(n^<span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4">- Մաքսիմալ հնարավոր տեղափոխությունների քանակը՝ <span class="dv">1</span>+<span class="dv">2</span>+...+n<span class="dv">-1</span> = n*(n<span class="dv">-1</span>)/<span class="dv">2</span> ~ O(n^<span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb3" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1"></a>Դիցուք ունենք n տարրանի զանգված, ապա.</span>
+<span id="cb3-2"><a href="#cb3-2"></a>- Փասերի քանակը՝ (n-<span class="dv">1</span>)</span>
+<span id="cb3-3"><a href="#cb3-3"></a>- Համեմատությունների քանակը՝ <span class="dv">1</span>+<span class="dv">2</span>+...+n-<span class="dv">1</span> = n*(n-<span class="dv">1</span>)/<span class="dv">2</span> ~ O(n^<span class="dv">2</span>)</span>
+<span id="cb3-4"><a href="#cb3-4"></a>- Մաքսիմալ հնարավոր տեղափոխությունների քանակը՝ <span class="dv">1</span>+<span class="dv">2</span>+...+n-<span class="dv">1</span> = n*(n-<span class="dv">1</span>)/<span class="dv">2</span> ~ O(n^<span class="dv">2</span>)</span></code></pre></div>
 </section>
 <section id="կայուն-է---այո" class="level3">
 <h3>Կայուն է - այո</h3>
-<div class="sourceCode" id="cb4" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb4-1" data-line-number="1">|--------------------|</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">| <span class="dv">9</span> ] <span class="dv">9</span>   <span class="dv">9</span>   <span class="dv">9</span>   <span class="dv">9</span>  | No change of order, =&gt; Bubbke sort is stable</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">| <span class="dv">9</span>*] <span class="dv">9</span>*] <span class="dv">3</span>   <span class="dv">3</span>   <span class="dv">3</span>  |</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">| <span class="dv">3</span>   <span class="dv">3</span> ] <span class="dv">9</span>*] <span class="dv">5</span>   <span class="dv">5</span>  |</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5">| <span class="dv">5</span>   <span class="dv">5</span>   <span class="dv">5</span> ] <span class="dv">9</span>*] <span class="dv">4</span>  |</a>
-<a class="sourceLine" id="cb4-6" data-line-number="6">| <span class="dv">4</span>   <span class="dv">4</span>   <span class="dv">4</span>   <span class="dv">4</span> ] <span class="dv">9</span>* |</a>
-<a class="sourceLine" id="cb4-7" data-line-number="7">|--------------------|</a></code></pre></div>
+<div class="sourceCode" id="cb4" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1"></a>|--------------------|</span>
+<span id="cb4-2"><a href="#cb4-2"></a>| <span class="dv">9</span> ] <span class="dv">9</span>   <span class="dv">9</span>   <span class="dv">9</span>   <span class="dv">9</span>  | No change of order, =&gt; Bubbke sort is stable</span>
+<span id="cb4-3"><a href="#cb4-3"></a>| <span class="dv">9</span>*] <span class="dv">9</span>*] <span class="dv">3</span>   <span class="dv">3</span>   <span class="dv">3</span>  |</span>
+<span id="cb4-4"><a href="#cb4-4"></a>| <span class="dv">3</span>   <span class="dv">3</span> ] <span class="dv">9</span>*] <span class="dv">5</span>   <span class="dv">5</span>  |</span>
+<span id="cb4-5"><a href="#cb4-5"></a>| <span class="dv">5</span>   <span class="dv">5</span>   <span class="dv">5</span> ] <span class="dv">9</span>*] <span class="dv">4</span>  |</span>
+<span id="cb4-6"><a href="#cb4-6"></a>| <span class="dv">4</span>   <span class="dv">4</span>   <span class="dv">4</span>   <span class="dv">4</span> ] <span class="dv">9</span>* |</span>
+<span id="cb4-7"><a href="#cb4-7"></a>|--------------------|</span></code></pre></div>
 </section>
 <section id="ադապտիվ-է---այո" class="level3">
 <h3>Ադապտիվ է - այո</h3>
 <p>Պղպջակային ալգորիթմը իր բնույթով <strong>ադապտիվ</strong> չէ, բայց այն հնարավոր է դարձնել ադապտիվ, կոդի մեջ այդ նպատակի համար օգտագործում ենք flag փոփոխականը որողելու համար հերթական փասի ընթացքում գոնե մեկ տեղափոխություն(swap) եղել է, եթե չի եղել նշանակում է տվյալնեն արդեն կարգավրոված են:</p>
-<div class="sourceCode" id="cb5" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb5-1" data-line-number="1">| sorted list   |</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">|---------------|</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3">| <span class="dv">3</span>] <span class="dv">3</span>  <span class="dv">3</span>  <span class="dv">3</span>  <span class="dv">3</span> | No spwaing, mean list already sorted, we use </a>
-<a class="sourceLine" id="cb5-4" data-line-number="4">| <span class="dv">4</span>] <span class="dv">4</span>] <span class="dv">4</span>  <span class="dv">4</span>  <span class="dv">4</span> | flag to determine <span class="cf">if</span> ther is swap and made </a>
-<a class="sourceLine" id="cb5-5" data-line-number="5">| <span class="dv">6</span>  <span class="dv">6</span>] <span class="dv">6</span>] <span class="dv">6</span>  <span class="dv">6</span> | buuble sort algorithm adaptive, it is not </a>
-<a class="sourceLine" id="cb5-6" data-line-number="6">| <span class="dv">8</span>  <span class="dv">8</span>  <span class="dv">8</span>] <span class="dv">8</span>] <span class="dv">8</span> | adaptive by iteself, but it is possible to </a>
-<a class="sourceLine" id="cb5-7" data-line-number="7">| <span class="dv">9</span>  <span class="dv">9</span>  <span class="dv">9</span>  <span class="dv">9</span>] <span class="dv">9</span> | make it adaptive.</a>
-<a class="sourceLine" id="cb5-8" data-line-number="8">|---------------|</a>
-<a class="sourceLine" id="cb5-9" data-line-number="9">| #Comp: <span class="dv">4</span>      |</a>
-<a class="sourceLine" id="cb5-10" data-line-number="10">| #Swap: <span class="dv">0</span>      | =&gt; O(n) - <span class="cf">if</span> already sorted, minimum time </a>
-<a class="sourceLine" id="cb5-11" data-line-number="11">| #max swap: <span class="dv">4</span>  |</a></code></pre></div>
+<div class="sourceCode" id="cb5" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1"></a>| sorted list   |</span>
+<span id="cb5-2"><a href="#cb5-2"></a>|---------------|</span>
+<span id="cb5-3"><a href="#cb5-3"></a>| <span class="dv">3</span>] <span class="dv">3</span>  <span class="dv">3</span>  <span class="dv">3</span>  <span class="dv">3</span> | No spwaing, mean list already sorted, we use </span>
+<span id="cb5-4"><a href="#cb5-4"></a>| <span class="dv">4</span>] <span class="dv">4</span>] <span class="dv">4</span>  <span class="dv">4</span>  <span class="dv">4</span> | flag to determine <span class="cf">if</span> ther is swap and made </span>
+<span id="cb5-5"><a href="#cb5-5"></a>| <span class="dv">6</span>  <span class="dv">6</span>] <span class="dv">6</span>] <span class="dv">6</span>  <span class="dv">6</span> | buuble sort algorithm adaptive, it is not </span>
+<span id="cb5-6"><a href="#cb5-6"></a>| <span class="dv">8</span>  <span class="dv">8</span>  <span class="dv">8</span>] <span class="dv">8</span>] <span class="dv">8</span> | adaptive by iteself, but it is possible to </span>
+<span id="cb5-7"><a href="#cb5-7"></a>| <span class="dv">9</span>  <span class="dv">9</span>  <span class="dv">9</span>  <span class="dv">9</span>] <span class="dv">9</span> | make it adaptive.</span>
+<span id="cb5-8"><a href="#cb5-8"></a>|---------------|</span>
+<span id="cb5-9"><a href="#cb5-9"></a>| #Comp: <span class="dv">4</span>      |</span>
+<span id="cb5-10"><a href="#cb5-10"></a>| #Swap: <span class="dv">0</span>      | =&gt; O(n) - <span class="cf">if</span> already sorted, minimum time </span>
+<span id="cb5-11"><a href="#cb5-11"></a>| #max swap: <span class="dv">4</span>  |</span></code></pre></div>
 </section>
 <section id="կոդ" class="level3">
 <h3>Կոդ</h3>
-<div class="sourceCode" id="cb6" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="dt">void</span> BubbleSort(<span class="dt">int</span> A[], <span class="dt">int</span> n)</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">{</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"> <span class="co">// no swapping means the list already sorted</span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"> <span class="co">// we use flag to determine if there is a swap. </span></a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"> <span class="dt">int</span> flag = <span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"> <span class="cf">for</span>(i = <span class="dv">0</span>; i &lt; n<span class="dv">-1</span>; i++) <span class="co">// passes</span></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"> {</a>
-<a class="sourceLine" id="cb6-8" data-line-number="8">   <span class="cf">for</span>(j = <span class="dv">0</span>, flag = <span class="dv">0</span>; i &lt; n<span class="dv">-1</span>-i; j++) <span class="co">// every pass reduced comparision count </span></a>
-<a class="sourceLine" id="cb6-9" data-line-number="9">   {</a>
-<a class="sourceLine" id="cb6-10" data-line-number="10">     <span class="cf">if</span>(A[j] &gt; A[j+<span class="dv">1</span>])</a>
-<a class="sourceLine" id="cb6-11" data-line-number="11">     {</a>
-<a class="sourceLine" id="cb6-12" data-line-number="12">       swap(A[j], A[j+<span class="dv">1</span>]);</a>
-<a class="sourceLine" id="cb6-13" data-line-number="13">       flag = <span class="dv">1</span>;  </a>
-<a class="sourceLine" id="cb6-14" data-line-number="14">     }</a>
-<a class="sourceLine" id="cb6-15" data-line-number="15">   }</a>
-<a class="sourceLine" id="cb6-16" data-line-number="16">   <span class="cf">if</span>(flag == <span class="dv">0</span>) <span class="cf">break</span>;  </a>
-<a class="sourceLine" id="cb6-17" data-line-number="17"> }</a>
-<a class="sourceLine" id="cb6-18" data-line-number="18">}</a></code></pre></div>
+<div class="sourceCode" id="cb6" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1"></a><span class="dt">void</span> BubbleSort(<span class="dt">int</span> A[], <span class="dt">int</span> n)</span>
+<span id="cb6-2"><a href="#cb6-2"></a>{</span>
+<span id="cb6-3"><a href="#cb6-3"></a> <span class="co">// no swapping means the list already sorted</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a> <span class="co">// we use flag to determine if there is a swap. </span></span>
+<span id="cb6-5"><a href="#cb6-5"></a> <span class="dt">int</span> flag = <span class="dv">0</span>;</span>
+<span id="cb6-6"><a href="#cb6-6"></a> <span class="cf">for</span>(i = <span class="dv">0</span>; i &lt; n-<span class="dv">1</span>; i++) <span class="co">// passes</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a> {</span>
+<span id="cb6-8"><a href="#cb6-8"></a>   <span class="cf">for</span>(j = <span class="dv">0</span>, flag = <span class="dv">0</span>; i &lt; n-<span class="dv">1</span>-i; j++) <span class="co">// every pass reduced comparision count </span></span>
+<span id="cb6-9"><a href="#cb6-9"></a>   {</span>
+<span id="cb6-10"><a href="#cb6-10"></a>     <span class="cf">if</span>(A[j] &gt; A[j+<span class="dv">1</span>])</span>
+<span id="cb6-11"><a href="#cb6-11"></a>     {</span>
+<span id="cb6-12"><a href="#cb6-12"></a>       swap(A[j], A[j+<span class="dv">1</span>]);</span>
+<span id="cb6-13"><a href="#cb6-13"></a>       flag = <span class="dv">1</span>;  </span>
+<span id="cb6-14"><a href="#cb6-14"></a>     }</span>
+<span id="cb6-15"><a href="#cb6-15"></a>   }</span>
+<span id="cb6-16"><a href="#cb6-16"></a>   <span class="cf">if</span>(flag == <span class="dv">0</span>) <span class="cf">break</span>;  </span>
+<span id="cb6-17"><a href="#cb6-17"></a> }</span>
+<span id="cb6-18"><a href="#cb6-18"></a>}</span></code></pre></div>
 </section>
 </section>
 <section id="տեղադրմանբ-insertion-sort" class="level2">
@@ -132,34 +132,148 @@
     <dc:creator>Arthur Vardanyan</dc:creator>
 </item>
 <item>
+    <title>Online Courses</title>
+    <link>http://imast.am/mitq/programming/online-courses.html</link>
+    <description><![CDATA[<div class="post-content">
+<div id="TOC"><ul>
+<li><a href="#data-structures-algorithms">Data Structures &amp; Algorithms</a></li>
+<li><a href="#programming-concepts">Programming Concepts</a></li>
+</ul></div>
+<section id="data-structures-algorithms" class="level1">
+<h1>Data Structures &amp; Algorithms</h1>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=0IAPZzGSbME&amp;list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&amp;index=1">1. Introduction to Algorithms</a>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=-JTq1BFBwmo&amp;list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&amp;index=2">1.1 Priori Analysis and Posteriori Testing</a></li>
+<li><a href="https://www.youtube.com/watch?v=FbYzBWdhMb0&amp;list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&amp;index=3">1.2 Characteristics of Algorithm</a></li>
+<li><a href="http://youtu.be/xGYsEqe9Vl0">1.3 How Write and Analyze Algorithm</a></li>
+<li><a href="http://youtu.be/1U3Uwct45IY">1.4 Frequency Count Method</a></li>
+<li><a href="http://youtu.be/9TlHvipP5yA">1.5.1 Time Complexity #1</a></li>
+<li><a href="http://youtu.be/9SgLBjXqwd4">1.5.2 Time Complexity Example #2</a></li>
+<li><a href="http://youtu.be/p1EnSvS3urU">1.5.3 Time Complexity Example #3</a></li>
+<li><a href="http://youtu.be/w7t4_JUUTeg">1.6 Classes of functions</a></li>
+<li><a href="http://youtu.be/5v-tKX2uRAk">1.7 Compare Class of Functions</a></li>
+<li><a href="http://youtu.be/A03oI0znAoc">1.8.1 Asymptotic Notations Big Oh - Omega - Theta #1</a></li>
+<li><a href="http://youtu.be/Nd0XDY-jVHs">1.8.2 Asymptotic Notations Big Oh - Omega - Theta #2</a></li>
+<li><a href="http://youtu.be/NI4OKSvGAgM">1.9 Properties of Asymptotic Notations</a></li>
+<li><a href="http://youtu.be/mwN18xfwNhk">1.10.1 Comparison of Functions #1</a></li>
+<li><a href="http://youtu.be/WlBBTSL0ZRc">1.10.2 Comparison of Functions #2</a></li>
+<li><a href="http://youtu.be/lj3E24nnPjI">1.11 Best Worst and Average Case Analysis</a></li>
+<li><a href="http://youtu.be/wU6udHRIkcc">1.12 Disjoint Sets Data Structure - Weighted Union and Collapsing Find</a></li>
+</ul></li>
+<li><a href="http://youtu.be/2Rr2tW9zvRg">2 Divide And Conquer</a>
+<ul>
+<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
+<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
+<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
+<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
+<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
+</ul></li>
+<li><a href="http://youtu.be/ARvQcqJ_-NY">3. Greedy Method - Introduction</a>
+<ul>
+<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
+<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
+<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
+<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
+<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
+</ul></li>
+<li><a href="http://youtu.be/5dRGRueKU3M">4 Principle of Optimality - Dynamic Programming introduction</a>
+<ul>
+<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
+<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
+<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
+<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
+<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
+</ul></li>
+<li><a href="http://youtu.be/pcKY4hjDrxk">5.1 Graph Traversals - BFS &amp; DFS -Breadth First Search and Depth First Search</a>
+<ul>
+<li><a href="http://youtu.be/jFZsDDB0-vo">5.2 Articulation Point and Biconnected Components</a></li>
+</ul></li>
+<li><a href="http://youtu.be/DKCbsiDBN6c">6 Introduction to Backtracking - Brute Force Approach</a>
+<ul>
+<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
+<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
+<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
+<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
+</ul></li>
+<li><a href="http://youtu.be/3RBNPc0_Q6g">7 Branch and Bound Introduction</a>
+<ul>
+<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
+<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
+<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
+<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
+</ul></li>
+<li><a href="http://youtu.be/e2cF8a5aAhE">8. NP-Hard and NP-Complete Problems</a>
+<ul>
+<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
+</ul></li>
+<li><a href="http://youtu.be/V5-7GzOfADQ">9.1 Knuth-Morris-Pratt KMP String Matching Algorithm</a>
+<ul>
+<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
+</ul></li>
+<li><a href="http://youtu.be/jDM6_TnYIqE">10.1 AVL Tree - Insertion and Rotations</a></li>
+<li><a href="http://youtu.be/ddsP7NecEBk">Asymptotic Notations - Simplified</a></li>
+<li><a href="http://youtu.be/mFY0J5W8Udk">Hashing Technique - Simplified</a></li>
+<li><a href="http://youtu.be/2raV0H9KqY8">Shortest Path Algorithms (Dijkstra and Bellman-Ford) - Simplified</a></li>
+<li><a href="http://youtu.be/kyUpc_5705s">BFS DFS - Simplified</a></li>
+<li><a href="http://youtu.be/q6RicK1FCUs">Tower of Hanoi Problem - Made Easy</a></li>
+<li><a href="http://youtu.be/MJZd6uPi88E">Row-Major and Column-Major Mapping</a></li>
+</ul>
+</section>
+<section id="programming-concepts" class="level1">
+<h1>Programming Concepts</h1>
+<ul>
+<li><a href="http://youtu.be/OqLt2GfX6jg">Uses of pointers</a></li>
+<li><a href="http://youtu.be/PdvGEI-P3-M">Stack vs Heap</a></li>
+<li><a href="http://youtu.be/uMGwjNuidZU">Pointer Arithmetic - *p++; *++p; ++*p;</a></li>
+<li><a href="http://youtu.be/868qXWoGS9E">Pointer to Array</a></li>
+<li><a href="http://youtu.be/ygK0YON10sQ">Recursion and Stack</a></li>
+</ul>
+</section>
+</div>
+
+<div class="row">
+        <span class="date  text-right">
+            <i class="fa fa-calenda"></i> Posted on December  1, 2020
+        </span>
+        <span class="tags text-right" style="width: 100%">
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/courses.html">courses</a></li></ul>
+        </span>
+</div>
+]]></description>
+    <pubDate>Tue, 01 Dec 2020 00:00:00 UT</pubDate>
+    <guid>http://imast.am/mitq/programming/online-courses.html</guid>
+    <dc:creator>Arthur Vardanyan</dc:creator>
+</item>
+<item>
     <title>Coq installation</title>
     <link>http://imast.am/mitq/programming/how-to-install-coq.html</link>
     <description><![CDATA[<div class="post-content">
 
 <p>*</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># install ocaml palcage manager</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="fu">sh</span> <span class="op">&lt;(</span><span class="ex">curl</span> -sL https://raw.githubusercontent.com/ocaml/opam/master/shell/install.sh<span class="op">)</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co"># Install bubblewrap on Ubuntu 18.04</span></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="fu">sudo</span> apt update</a>
-<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="fu">sudo</span> apt install bubblewrap</a>
-<a class="sourceLine" id="cb1-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co"># Using OPAM to install Coq</span></a>
-<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="bu">export</span> <span class="va">OPAMROOT=</span>~/opam-coq.8.8.2 <span class="co"># installation directory</span></a>
-<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="ex">opam</span> init -n --comp=ocaml-base-compiler.4.02.3 -j 2 <span class="co"># 2 is the number of CPU cores</span></a>
-<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="ex">opam</span> repo add coq-released http://coq.inria.fr/opam/released</a>
-<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="ex">opam</span> install coq.8.8.2 <span class="kw">&amp;&amp;</span> <span class="ex">opam</span> pin add coq 8.8.2</a>
-<a class="sourceLine" id="cb1-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="co"># Running Coq</span></a>
-<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="bu">export</span> <span class="va">OPAMROOT=</span>~/opam-coq.8.8.2</a>
-<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="bu">eval</span> <span class="kw">`</span><span class="ex">opam</span> config env<span class="kw">`</span></a>
-<a class="sourceLine" id="cb1-17" data-line-number="17"><span class="ex">coqc</span> -v</a>
-<a class="sourceLine" id="cb1-18" data-line-number="18"></a>
-<a class="sourceLine" id="cb1-19" data-line-number="19"><span class="co"># Using OPAM to install Coq packages</span></a>
-<a class="sourceLine" id="cb1-20" data-line-number="20"><span class="ex">opam</span> search coq</a>
-<a class="sourceLine" id="cb1-21" data-line-number="21"><span class="ex">opam</span> show coq-sudoku</a>
-<a class="sourceLine" id="cb1-22" data-line-number="22"><span class="ex">opam</span> install coq-sudoku</a>
-<a class="sourceLine" id="cb1-23" data-line-number="23"></a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># install ocaml palcage manager</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">sh</span> <span class="op">&lt;(</span><span class="ex">curl</span> -sL https://raw.githubusercontent.com/ocaml/opam/master/shell/install.sh<span class="op">)</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># Install bubblewrap on Ubuntu 18.04</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">sudo</span> apt update</span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="fu">sudo</span> apt install bubblewrap</span>
+<span id="cb1-7"><a href="#cb1-7"></a></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="co"># Using OPAM to install Coq</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="bu">export</span> <span class="va">OPAMROOT=</span>~/opam-coq.8.8.2 <span class="co"># installation directory</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="ex">opam</span> init -n --comp=ocaml-base-compiler.4.02.3 -j 2 <span class="co"># 2 is the number of CPU cores</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="ex">opam</span> repo add coq-released http://coq.inria.fr/opam/released</span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="ex">opam</span> install coq.8.8.2 <span class="kw">&amp;&amp;</span> <span class="ex">opam</span> pin add coq 8.8.2</span>
+<span id="cb1-13"><a href="#cb1-13"></a></span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="co"># Running Coq</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a><span class="bu">export</span> <span class="va">OPAMROOT=</span>~/opam-coq.8.8.2</span>
+<span id="cb1-16"><a href="#cb1-16"></a><span class="bu">eval</span> <span class="kw">`</span><span class="ex">opam</span> config env<span class="kw">`</span></span>
+<span id="cb1-17"><a href="#cb1-17"></a><span class="ex">coqc</span> -v</span>
+<span id="cb1-18"><a href="#cb1-18"></a></span>
+<span id="cb1-19"><a href="#cb1-19"></a><span class="co"># Using OPAM to install Coq packages</span></span>
+<span id="cb1-20"><a href="#cb1-20"></a><span class="ex">opam</span> search coq</span>
+<span id="cb1-21"><a href="#cb1-21"></a><span class="ex">opam</span> show coq-sudoku</span>
+<span id="cb1-22"><a href="#cb1-22"></a><span class="ex">opam</span> install coq-sudoku</span>
+<span id="cb1-23"><a href="#cb1-23"></a></span></code></pre></div>
 </div>
 
 <div class="row">
@@ -196,10 +310,10 @@
 <ol>
 <li><p><strong>Վիճակագրական փորձ</strong></p></li>
 <li><p><strong>Տարական պատահույթ</strong> - փորձի պարզագույն ելք</p>
-<p>Օրինակ. Զառ նետել` <em>Ω</em> = {<em>ω</em><sub>1</sub>, <em>ω</em><sub>2</sub>, <em>ω</em><sub>3</sub>, <em>ω</em><sub>4</sub>, <em>ω</em><sub>5</sub>, <em>ω</em><sub>6</sub>}</p>
-<p><em>Ω</em> - տարրական պատահույթների բազմություն</p></li>
+<p>Օրինակ. Զառ նետել` Ω = {ω<sub>1</sub>, ω<sub>2</sub>, ω<sub>3</sub>, ω<sub>4</sub>, ω<sub>5</sub>, ω<sub>6</sub>}</p>
+<p>Ω - տարրական պատահույթների բազմություն</p></li>
 <li><p><strong>Պատահույթ</strong></p>
-F = <em>Ω</em>-ի որևէ ենթաբազմությունների բազմ է, որը կազմում է <em>σ</em> Հանրահաշիվ</li>
+<p>F = Ω-ի որևէ ենթաբազմությունների բազմ է, որը կազմում է σ Հանրահաշիվ</p></li>
 </ol>
 <span class="math display">\[\begin{equation}
    1. \Omega \in F \\
@@ -210,7 +324,7 @@ F = <em>Ω</em>-ի որևէ ենթաբազմությունների բազմ է, 
 \end{equation}
 \]</span>
 <p>F-ի տարրերը կոչվում են պատահույթներ: Կասենք A պատահույթը տեղի է ունեցել եթե փորձի տարրական ելքը ∈ A:</p>
-<p>⌀ ∈ F - անհնար պատահույթ, իսկ <em>Ω</em> - հավաստի պատահույթ Օրինակ. Զառի նետման խնդիրը <span class="math display">\[
+<p>∅ ∈ F - անհնար պատահույթ, իսկ Ω - հավաստի պատահույթ Օրինակ. Զառի նետման խնդիրը <span class="math display">\[
       F={\varnothing, \Omega, \{\omega_1}, {\omega_2},...,{\omega_6},...\{...\} \} \\
       A=\{ \text{կբացվի զույգ թիվ} \} = \{ \omega_2, \omega_4, \omega_6 \} \\
       \bar A = \{ \text{կբացվի  կենտ  թիվ} \} = \{ \omega_1, \omega_3, \omega_5 \} \\
@@ -229,7 +343,7 @@ F = <em>Ω</em>-ի որևէ ենթաբազմությունների բազմ է, 
      \bigcup_{i=1}^{n} A_{i}  = \Sigma_{i=1}^{n} P(A_{i})
 
    \]</span></p>
-<p><strong>Սահմանում</strong>. Կասենք A և B անհամատեղելի պատահույթներ եթե A ∩ B = ⌀ Օրինակ. կբացվի զույգ թէ կբացվի կենտ</p></li>
+<p><strong>Սահմանում</strong>. Կասենք A և B անհամատեղելի պատահույթներ եթե A ∩ B = ∅ Օրինակ. կբացվի զույգ թէ կբացվի կենտ</p></li>
 </ol>
 </section>
 </section>
@@ -238,14 +352,14 @@ F = <em>Ω</em>-ի որևէ ենթաբազմությունների բազմ է, 
 <section id="աքսիոմատիկ" class="level2">
 <h2>Աքսիոմատիկ</h2>
 <p>Կոլմոգորով</p>
-<p>(<em>Ω</em>, F, P) - Հավանականային Տարածություն</p>
+<p>(Ω, F, P) - Հավանականային Տարածություն</p>
 </section>
 <section id="դասական" class="level2">
 <h2>Դասական</h2>
-<p><em>Ω</em> տարերը վերջավոր են<br />
-<em>Ω</em> ={ <em>ω</em><sub>1</sub>, <em>ω</em><sub>2</sub>, …, <em>ω</em><sub>n</sub> }  հավասարահնարավոր, հվասարահավանական են<br />
-F=<em>Ω</em>-ի ենթբազմերի բազմն է<br />
-P(<em>ω</em><sub>i</sub>) = 1/n, i=1,..,n<br />
+<p>Ω տարերը վերջավոր են<br />
+Ω ={ ω<sub>1</sub>, ω<sub>2</sub>, …, ω<sub>n</sub> }  հավասարահնարավոր, հվասարահավանական են<br />
+F=Ω-ի ենթբազմերի բազմն է<br />
+P(ω<sub>i</sub>) = 1/n, i=1,..,n<br />
 Պտահույթի հավանականությունը</p>
 <p>P(A)=<strong>N</strong><sub>A</sub>/N</p>
 </section>
@@ -307,46 +421,46 @@ P(<em>ω</em><sub>i</sub>) = 1/n, i=1,..,n<br />
 </ul></li>
 <li><a href="#emacs-under-nix-shell">Emacs under nix-shell</a></li>
 </ul></div>
-<p><a href="https://github.com/Gabriel439/haskell-nix" class="uri">https://github.com/Gabriel439/haskell-nix</a> <a href="https://www.domenkozar.com/2014/03/11/why-puppet-chef-ansible-arent-good-enough-and-we-can-do-better/" class="uri">https://www.domenkozar.com/2014/03/11/why-puppet-chef-ansible-arent-good-enough-and-we-can-do-better/</a> <a href="https://wiki.ocharles.org.uk/posts/2014-02-04-how-i-develop-with-nixos.html" class="uri">https://wiki.ocharles.org.uk/posts/2014-02-04-how-i-develop-with-nixos.html</a> <a href="http://lucumr.pocoo.org/2013/11/17/my-favorite-database/" class="uri">http://lucumr.pocoo.org/2013/11/17/my-favorite-database/</a> <a href="https://www.fosskers.ca/blog/nix-en.html" class="uri">https://www.fosskers.ca/blog/nix-en.html</a> <a href="https://nixos.org/nixpkgs/manual/#users-guide-to-the-haskell-infrastructure" class="uri">https://nixos.org/nixpkgs/manual/#users-guide-to-the-haskell-infrastructure</a></p>
+<p><a href="https://github.com/Gabriel439/haskell-nix">https://github.com/Gabriel439/haskell-nix</a> <a href="https://www.domenkozar.com/2014/03/11/why-puppet-chef-ansible-arent-good-enough-and-we-can-do-better/">https://www.domenkozar.com/2014/03/11/why-puppet-chef-ansible-arent-good-enough-and-we-can-do-better/</a> <a href="https://wiki.ocharles.org.uk/posts/2014-02-04-how-i-develop-with-nixos.html">https://wiki.ocharles.org.uk/posts/2014-02-04-how-i-develop-with-nixos.html</a> <a href="http://lucumr.pocoo.org/2013/11/17/my-favorite-database/">http://lucumr.pocoo.org/2013/11/17/my-favorite-database/</a> <a href="https://www.fosskers.ca/blog/nix-en.html">https://www.fosskers.ca/blog/nix-en.html</a> <a href="https://nixos.org/nixpkgs/manual/#users-guide-to-the-haskell-infrastructure">https://nixos.org/nixpkgs/manual/#users-guide-to-the-haskell-infrastructure</a></p>
 <section id="nixos-in-hetzner-machine" class="level1">
 <h1>NixOS in hetzner machine</h1>
 <section id="enable-ssh" class="level2">
 <h2>enable ssh</h2>
 <p>enable sshd in hetzner, put in user data</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># generate config file</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="ex">nixos-generate-config</span> --root /mnt</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="ex">vi</span> /mnt/etc/nixos/configuration.nix</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co"># uncomment ssh</span></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="ex">services.sshd.enable</span> = true<span class="kw">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># generate config file</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="ex">nixos-generate-config</span> --root /mnt</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="ex">vi</span> /mnt/etc/nixos/configuration.nix</span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># uncomment ssh</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="ex">services.sshd.enable</span> = true<span class="kw">;</span></span></code></pre></div>
 </section>
 </section>
 <section id="install-with-nix-env" class="level1">
 <h1>install with nix-env</h1>
 <section id="install-emacs" class="level2">
 <h2>install emacs</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># figure out the proper attribute path for emacs pakages</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="ex">nix-env</span> -qaP emacs</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="op">&gt;</span> <span class="ex">nixpkgs.emacs25</span>  emacs-25.3</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="op">&gt;</span> <span class="ex">nixpkgs.emacs</span>    emacs-26.1</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co"># install emacs</span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="ex">nix-env</span> -iA nixpkgs.emacs</a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># figure out the proper attribute path for emacs pakages</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="ex">nix-env</span> -qaP emacs</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="op">&gt;</span> <span class="ex">nixpkgs.emacs25</span>  emacs-25.3</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="op">&gt;</span> <span class="ex">nixpkgs.emacs</span>    emacs-26.1</span>
+<span id="cb2-5"><a href="#cb2-5"></a></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="co"># install emacs</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="ex">nix-env</span> -iA nixpkgs.emacs</span>
+<span id="cb2-8"><a href="#cb2-8"></a></span></code></pre></div>
 <p>_</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># list ghc compilers</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="ex">nix-env</span> -f <span class="st">&quot;&lt;nixpkgs&gt;&quot;</span> -qaP -A haskell.compiler</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co"># install cabal-install</span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="ex">nix-env</span> -f <span class="st">&quot;&lt;nixpkgs&gt;&quot;</span> -iA haskellPackages.ghc haskellPackages.cabal-install</a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co"># or more specific</span></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="ex">nix-env</span> -f <span class="st">&quot;&lt;nixpkgs&gt;&quot;</span> -iA haskell.compiler.integer-simple.ghc863 haskellPackages.cabal-install</a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co"># enter nix-shell where ghc 8.6.3</span></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"> <span class="ex">nix-shell</span> -p haskell.compiler.integer-simple.ghc863</a>
-<a class="sourceLine" id="cb3-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co"># install (if not exists) and enter the nix-shell with ghc 8.4.4</span></a>
-<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="ex">nix-shell</span> -p haskell.compiler.ghc844</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># list ghc compilers</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="ex">nix-env</span> -f <span class="st">&quot;&lt;nixpkgs&gt;&quot;</span> -qaP -A haskell.compiler</span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co"># install cabal-install</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="ex">nix-env</span> -f <span class="st">&quot;&lt;nixpkgs&gt;&quot;</span> -iA haskellPackages.ghc haskellPackages.cabal-install</span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="co"># or more specific</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="ex">nix-env</span> -f <span class="st">&quot;&lt;nixpkgs&gt;&quot;</span> -iA haskell.compiler.integer-simple.ghc863 haskellPackages.cabal-install</span>
+<span id="cb3-8"><a href="#cb3-8"></a></span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="co"># enter nix-shell where ghc 8.6.3</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a> <span class="ex">nix-shell</span> -p haskell.compiler.integer-simple.ghc863</span>
+<span id="cb3-11"><a href="#cb3-11"></a></span>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="co"># install (if not exists) and enter the nix-shell with ghc 8.4.4</span></span>
+<span id="cb3-13"><a href="#cb3-13"></a><span class="ex">nix-shell</span> -p haskell.compiler.ghc844</span></code></pre></div>
 </section>
 </section>
 <section id="emacs-under-nix-shell" class="level1">
@@ -391,7 +505,7 @@ P(<em>ω</em><sub>i</sub>) = 1/n, i=1,..,n<br />
 <li>Go to Conversions-&gt;Export OpenSSH (force new format) and export your private key</li>
 <li>Copy your private key to ~/.ssh/id<sub>dsa</sub> (or id<sub>rsa</sub>).</li>
 </ol>
-<p><a href="https://stackoverflow.com/questions/2224066/how-to-convert-ssh-keypairs-generated-using-puttygenwindows-into-key-pairs-use" class="uri">https://stackoverflow.com/questions/2224066/how-to-convert-ssh-keypairs-generated-using-puttygenwindows-into-key-pairs-use</a></p>
+<p><a href="https://stackoverflow.com/questions/2224066/how-to-convert-ssh-keypairs-generated-using-puttygenwindows-into-key-pairs-use">https://stackoverflow.com/questions/2224066/how-to-convert-ssh-keypairs-generated-using-puttygenwindows-into-key-pairs-use</a></p>
 <ol>
 <li>Create the RFC 4716 version of the public key using ssh-keygen</li>
 </ol>
@@ -400,72 +514,72 @@ P(<em>ω</em><sub>i</sub>) = 1/n, i=1,..,n<br />
 </section>
 <section id="create-user" class="level1">
 <h1>create user</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="ex">adduser</span> deployer</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="fu">sudo</span> usermod -aG sudo deployer</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="fu">mkdir</span> /home/deployer/.ssh</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="fu">cp</span> .ssh/authorized_keys /home/deployer/.ssh/</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="fu">sudo</span> chown -R deployer:deployer /home/deployer/.ssh/</a>
-<a class="sourceLine" id="cb1-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co"># edit file</span></a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="fu">sudo</span> vi /etc/ssh/sshd_config</a>
-<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="ex">...</span></a>
-<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="ex">PasswordAuthentication</span> no</a>
-<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="ex">...</span></a>
-<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="co"># allow from some hosts</span></a>
-<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="co"># Settings that override the global settings for matching IP addresses only</span></a>
-<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="ex">Match</span> address 192.0.2.0/24</a>
-<a class="sourceLine" id="cb1-15" data-line-number="15">  <span class="ex">PasswordAuthentication</span> yes</a>
-<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="ex">service</span> ssh reload</a>
-<a class="sourceLine" id="cb1-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb1-18" data-line-number="18"><span class="co"># on remote server check permission and set to if needed</span></a>
-<a class="sourceLine" id="cb1-19" data-line-number="19"><span class="co"># chmod 700 .ssh</span></a>
-<a class="sourceLine" id="cb1-20" data-line-number="20"><span class="co"># chmod 600 .ssh/authorized_keys</span></a>
-<a class="sourceLine" id="cb1-21" data-line-number="21"><span class="bu">logout</span></a>
-<a class="sourceLine" id="cb1-22" data-line-number="22"><span class="fu">ssh</span> deployer@<span class="op">&lt;</span>ip_adddress<span class="op">&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">adduser</span> deployer</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">sudo</span> usermod -aG sudo deployer</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">mkdir</span> /home/deployer/.ssh</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">cp</span> .ssh/authorized_keys /home/deployer/.ssh/</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">sudo</span> chown -R deployer:deployer /home/deployer/.ssh/</span>
+<span id="cb1-6"><a href="#cb1-6"></a></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="co"># edit file</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="fu">sudo</span> vi /etc/ssh/sshd_config</span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="ex">...</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="ex">PasswordAuthentication</span> no</span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="ex">...</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="co"># allow from some hosts</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="co"># Settings that override the global settings for matching IP addresses only</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="ex">Match</span> address 192.0.2.0/24</span>
+<span id="cb1-15"><a href="#cb1-15"></a>  <span class="ex">PasswordAuthentication</span> yes</span>
+<span id="cb1-16"><a href="#cb1-16"></a><span class="ex">service</span> ssh reload</span>
+<span id="cb1-17"><a href="#cb1-17"></a></span>
+<span id="cb1-18"><a href="#cb1-18"></a><span class="co"># on remote server check permission and set to if needed</span></span>
+<span id="cb1-19"><a href="#cb1-19"></a><span class="co"># chmod 700 .ssh</span></span>
+<span id="cb1-20"><a href="#cb1-20"></a><span class="co"># chmod 600 .ssh/authorized_keys</span></span>
+<span id="cb1-21"><a href="#cb1-21"></a><span class="bu">logout</span></span>
+<span id="cb1-22"><a href="#cb1-22"></a><span class="fu">ssh</span> deployer@<span class="op">&lt;</span>ip_adddress<span class="op">&gt;</span></span></code></pre></div>
 </section>
 <section id="terminal" class="level1">
 <h1>terminal</h1>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># vi .profile add and save</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="bu">export</span> <span class="va">TERM=</span>xterm-256color</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="va">TZ=</span><span class="st">&#39;Asia/Yerevan&#39;</span>; <span class="bu">export</span> <span class="va">TZ</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co"># reload</span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="bu">source</span> ~/.profile</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># vi .profile add and save</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="bu">export</span> <span class="va">TERM=</span>xterm-256color</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="va">TZ=</span><span class="st">&#39;Asia/Yerevan&#39;</span>; <span class="bu">export</span> <span class="va">TZ</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="co"># reload</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="bu">source</span> ~/.profile</span></code></pre></div>
 </section>
 <section id="install-ghc" class="level1">
 <h1>install ghc</h1>
-<p><a href="https://gist.github.com/yantonov/10083524" class="uri">https://gist.github.com/yantonov/10083524</a></p>
+<p><a href="https://gist.github.com/yantonov/10083524">https://gist.github.com/yantonov/10083524</a></p>
 <section id="stack" class="level2">
 <h2>stack</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="fu">wget</span> -qO- https://get.haskellstack.org/ <span class="kw">|</span> <span class="fu">sh</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="ex">stack</span> setup</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="ex">stack</span> ghci</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">wget</span> -qO- https://get.haskellstack.org/ <span class="kw">|</span> <span class="fu">sh</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="ex">stack</span> setup</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="ex">stack</span> ghci</span></code></pre></div>
 </section>
 <section id="cabal" class="level2">
 <h2>cabal</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" data-line-number="1"> <span class="bu">cd</span> Downlods</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"> <span class="ex">curl</span> -L -O https://downloads.haskell.org/~ghc/8.4.3/ghc-8.4.3-x86_64-deb9-linux.tar.xz</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"> <span class="fu">tar</span> xvf ghc-8.4.3-x86_64-deb9-linux.tar.xz</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="bu">cd</span> ghc-8.4.3/</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co"># install to</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"> <span class="fu">mkdir</span> -p <span class="va">$HOME</span>/bin/ghc-8.4.3</a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="ex">./configure</span> --prefix=<span class="va">$HOME</span>/bin/ghc-8.4.3</a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co"># install</span></a>
-<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="fu">make</span> install</a>
-<a class="sourceLine" id="cb4-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co"># symbol links</span></a>
-<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="bu">cd</span> <span class="va">$HOME</span>/bin</a>
-<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="fu">rm</span> -f ghc</a>
-<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="fu">ln</span> -s <span class="kw">`</span><span class="bu">pwd</span><span class="kw">`</span>/ghc-<span class="va">$GHC_VERSION</span> ghc</a>
-<a class="sourceLine" id="cb4-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co"># add $HOME/Development/bin/ghc to $PATH</span></a>
-<a class="sourceLine" id="cb4-18" data-line-number="18"><span class="co"># add this line to ~/.profile</span></a>
-<a class="sourceLine" id="cb4-19" data-line-number="19"><span class="bu">export</span> <span class="va">GHC_HOME=$HOME</span>/bin/ghc</a>
-<a class="sourceLine" id="cb4-20" data-line-number="20"><span class="bu">export</span> <span class="va">PATH=$GHC_HOME</span>/bin:<span class="va">${PATH}</span></a>
-<a class="sourceLine" id="cb4-21" data-line-number="21"></a>
-<a class="sourceLine" id="cb4-22" data-line-number="22"><span class="co"># to use updated path without log off</span></a>
-<a class="sourceLine" id="cb4-23" data-line-number="23"><span class="bu">source</span> ~/.profile</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a> <span class="bu">cd</span> Downlods</span>
+<span id="cb4-2"><a href="#cb4-2"></a> <span class="ex">curl</span> -L -O https://downloads.haskell.org/~ghc/8.4.3/ghc-8.4.3-x86_64-deb9-linux.tar.xz</span>
+<span id="cb4-3"><a href="#cb4-3"></a> <span class="fu">tar</span> xvf ghc-8.4.3-x86_64-deb9-linux.tar.xz</span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="bu">cd</span> ghc-8.4.3/</span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="co"># install to</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a> <span class="fu">mkdir</span> -p <span class="va">$HOME</span>/bin/ghc-8.4.3</span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="ex">./configure</span> --prefix=<span class="va">$HOME</span>/bin/ghc-8.4.3</span>
+<span id="cb4-8"><a href="#cb4-8"></a></span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="co"># install</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="fu">make</span> install</span>
+<span id="cb4-11"><a href="#cb4-11"></a></span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="co"># symbol links</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a><span class="bu">cd</span> <span class="va">$HOME</span>/bin</span>
+<span id="cb4-14"><a href="#cb4-14"></a><span class="fu">rm</span> -f ghc</span>
+<span id="cb4-15"><a href="#cb4-15"></a><span class="fu">ln</span> -s <span class="kw">`</span><span class="bu">pwd</span><span class="kw">`</span>/ghc-<span class="va">$GHC_VERSION</span> ghc</span>
+<span id="cb4-16"><a href="#cb4-16"></a></span>
+<span id="cb4-17"><a href="#cb4-17"></a><span class="co"># add $HOME/Development/bin/ghc to $PATH</span></span>
+<span id="cb4-18"><a href="#cb4-18"></a><span class="co"># add this line to ~/.profile</span></span>
+<span id="cb4-19"><a href="#cb4-19"></a><span class="bu">export</span> <span class="va">GHC_HOME=$HOME</span>/bin/ghc</span>
+<span id="cb4-20"><a href="#cb4-20"></a><span class="bu">export</span> <span class="va">PATH=$GHC_HOME</span>/bin:<span class="va">${PATH}</span></span>
+<span id="cb4-21"><a href="#cb4-21"></a></span>
+<span id="cb4-22"><a href="#cb4-22"></a><span class="co"># to use updated path without log off</span></span>
+<span id="cb4-23"><a href="#cb4-23"></a><span class="bu">source</span> ~/.profile</span></code></pre></div>
 </section>
 </section>
 </div>
@@ -567,7 +681,7 @@ P(<em>ω</em><sub>i</sub>) = 1/n, i=1,..,n<br />
 <p>Infinitely Contraversial</p>
 <ul>
 <li><p>Contor’s Theorem, 1874: There are infinitely many inifinties! (Proof uses self-reference) - now the phylosophical debate become mathematical debate</p></li>
-<li>Mathematical Controversy:
+<li><p>Mathematical Controversy:</p>
 <ul>
 <li>Leibniz</li>
 <li>Gauss</li>
@@ -677,7 +791,7 @@ P(<em>ω</em><sub>i</sub>) = 1/n, i=1,..,n<br />
 <p>Alnozo Church’s Student</p>
 <ul>
 <li><p>Raymond Smullyan - puzzle Knightes and Knaves</p></li>
-<li>Stephen Cole Kleene, John Barkley Rosser, Sr.
+<li><p>Stephen Cole Kleene, John Barkley Rosser, Sr.</p>
 <ul>
 <li>proved untyped λ calculus inconsistent (Kleene-Rosser Paradox, 1936), and the proove called Y-combinator: <code>λ f.(λ x.(f (x x)) λ x.(f (x x)))</code>, and this is a the rule how we do general recusriosn in the untyped λ called, turns out that general recursion is logical inconsistency. You cannot reason about your code in the presence of the general recursion. And this is that we say that λ calculus was a Logic from day one,was formal Logic from day one. It was proven incosistent and that is why <code>Types</code>. And in fact even the simplke typed λ calculus inforces consistency in λ calculus</li>
 </ul></li>
@@ -740,7 +854,7 @@ P(<em>ω</em><sub>i</sub>) = 1/n, i=1,..,n<br />
 <li><a href="#nginx">Nginx</a></li>
 <li><a href="#set-domain-or-subdomain">set domain or subdomain</a></li>
 <li><a href="#lets-encrypt">Let’s Encrypt</a></li>
-<li><a href="#ruby-nodejs-go-rails-instruction">Ruby, Nodejs, <a href="https://gorails.com/setup/ubuntu/16.04">Go rails instruction</a></a></li>
+<li><a href="#ruby-nodejs-go-rails-instruction">Ruby, Nodejs, <span>Go rails instruction</span></a></li>
 <li><a href="#postgresql">PostgreSQL</a><ul>
 <li><a href="#postgresql-hacks">postgresql hacks</a></li>
 </ul></li>
@@ -772,353 +886,353 @@ P(<em>ω</em><sub>i</sub>) = 1/n, i=1,..,n<br />
 </section>
 <section id="create-ssh-key-for-remote-server" class="level1">
 <h1>create ssh key for remote server</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="fu">ssh-keygen</span> -t rsa</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="fu">cat</span> ~/.ssh/<span class="op">&lt;</span>ssh_file_name<span class="op">&gt;</span>.pub</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="fu">ssh</span> user@<span class="op">&lt;</span>ip<span class="op">&gt;</span></a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co"># check for key in server</span></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="fu">cat</span> ~/.ssh/authorized_keys</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">ssh-keygen</span> -t rsa</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">cat</span> ~/.ssh/<span class="op">&lt;</span>ssh_file_name<span class="op">&gt;</span>.pub</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">ssh</span> user@<span class="op">&lt;</span>ip<span class="op">&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># check for key in server</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">cat</span> ~/.ssh/authorized_keys</span></code></pre></div>
 </section>
 <section id="server-fingerprint-changes" class="level1">
 <h1>server fingerprint changes</h1>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="fu">ssh-keygen</span> -f <span class="st">&quot;/home/arthur/.ssh/known_hosts&quot;</span> -R <span class="op">&lt;</span>ip_address<span class="op">&gt;</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="fu">ssh-keygen</span> -f <span class="st">&quot;/home/arthur/.ssh/known_hosts&quot;</span> -R <span class="op">&lt;</span>domain_name<span class="op">&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">ssh-keygen</span> -f <span class="st">&quot;/home/arthur/.ssh/known_hosts&quot;</span> -R <span class="op">&lt;</span>ip_address<span class="op">&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">ssh-keygen</span> -f <span class="st">&quot;/home/arthur/.ssh/known_hosts&quot;</span> -R <span class="op">&lt;</span>domain_name<span class="op">&gt;</span></span></code></pre></div>
 </section>
 <section id="create-user" class="level1">
 <h1>create user</h1>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="ex">adduser</span> deployer</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="fu">sudo</span> usermod -aG sudo deployer</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="fu">mkdir</span> /home/deployer/.ssh</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="fu">cp</span> .ssh/authorized_keys /home/deployer/.ssh/</a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="fu">sudo</span> chown -R deployer:deployer /home/deployer/.ssh/</a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co"># edit file</span></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="fu">sudo</span> vi /etc/ssh/sshd_config</a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="ex">...</span></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="ex">PasswordAuthentication</span> no</a>
-<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="ex">...</span></a>
-<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co"># allow from some hosts</span></a>
-<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co"># Settings that override the global settings for matching IP addresses only</span></a>
-<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="ex">Match</span> address 192.0.2.0/24</a>
-<a class="sourceLine" id="cb3-15" data-line-number="15">  <span class="ex">PasswordAuthentication</span> yes</a>
-<a class="sourceLine" id="cb3-16" data-line-number="16"><span class="ex">service</span> ssh reload</a>
-<a class="sourceLine" id="cb3-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb3-18" data-line-number="18"><span class="co"># on remote server check permission and set to if needed</span></a>
-<a class="sourceLine" id="cb3-19" data-line-number="19"><span class="co"># chmod 700 .ssh</span></a>
-<a class="sourceLine" id="cb3-20" data-line-number="20"><span class="co"># chmod 600 .ssh/authorized_keys</span></a>
-<a class="sourceLine" id="cb3-21" data-line-number="21"><span class="bu">logout</span></a>
-<a class="sourceLine" id="cb3-22" data-line-number="22"><span class="fu">ssh</span> deployer@<span class="op">&lt;</span>ip_adddress<span class="op">&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">adduser</span> deployer</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">sudo</span> usermod -aG sudo deployer</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="fu">mkdir</span> /home/deployer/.ssh</span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="fu">cp</span> .ssh/authorized_keys /home/deployer/.ssh/</span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="fu">sudo</span> chown -R deployer:deployer /home/deployer/.ssh/</span>
+<span id="cb3-6"><a href="#cb3-6"></a></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="co"># edit file</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="fu">sudo</span> vi /etc/ssh/sshd_config</span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="ex">...</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="ex">PasswordAuthentication</span> no</span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="ex">...</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="co"># allow from some hosts</span></span>
+<span id="cb3-13"><a href="#cb3-13"></a><span class="co"># Settings that override the global settings for matching IP addresses only</span></span>
+<span id="cb3-14"><a href="#cb3-14"></a><span class="ex">Match</span> address 192.0.2.0/24</span>
+<span id="cb3-15"><a href="#cb3-15"></a>  <span class="ex">PasswordAuthentication</span> yes</span>
+<span id="cb3-16"><a href="#cb3-16"></a><span class="ex">service</span> ssh reload</span>
+<span id="cb3-17"><a href="#cb3-17"></a></span>
+<span id="cb3-18"><a href="#cb3-18"></a><span class="co"># on remote server check permission and set to if needed</span></span>
+<span id="cb3-19"><a href="#cb3-19"></a><span class="co"># chmod 700 .ssh</span></span>
+<span id="cb3-20"><a href="#cb3-20"></a><span class="co"># chmod 600 .ssh/authorized_keys</span></span>
+<span id="cb3-21"><a href="#cb3-21"></a><span class="bu">logout</span></span>
+<span id="cb3-22"><a href="#cb3-22"></a><span class="fu">ssh</span> deployer@<span class="op">&lt;</span>ip_adddress<span class="op">&gt;</span></span></code></pre></div>
 </section>
 <section id="nginx" class="level1">
 <h1>Nginx</h1>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># https://websiteforstudents.com/install-nginx-latest-version-ubuntu-16-10-17-04/</span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co"># For the stable version, change mainline to stable.</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="fu">sudo</span> sh -c <span class="st">&#39;echo &quot;deb http://nginx.org/packages/mainline/ubuntu/ `lsb_release -cs` nginx&quot; &gt;&gt; /etc/apt/sources.list.d/nginx.list&#39;</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="fu">sudo</span> sh -c <span class="st">&#39;echo &quot;deb-src http://nginx.org/packages/mainline/ubuntu/ `lsb_release -cs` nginx&quot; &gt;&gt; /etc/apt/sources.list.d/nginx.list&#39;</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="fu">wget</span> -q http://nginx.org/keys/nginx_signing.key -O - <span class="kw">|</span> <span class="fu">sudo</span> apt-key add -</a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="fu">sudo</span> apt -y update</a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="ex">apt-cache</span> policy nginx</a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="fu">sudo</span> apt install -y nginx</a>
-<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="ex">nginx</span> -v</a>
-<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="fu">sudo</span> systemctl enable nginx</a>
-<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="fu">sudo</span> service nginx start</a>
-<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="ex">systemctl</span> status nginx</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># https://websiteforstudents.com/install-nginx-latest-version-ubuntu-16-10-17-04/</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="co"># For the stable version, change mainline to stable.</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="fu">sudo</span> sh -c <span class="st">&#39;echo &quot;deb http://nginx.org/packages/mainline/ubuntu/ `lsb_release -cs` nginx&quot; &gt;&gt; /etc/apt/sources.list.d/nginx.list&#39;</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="fu">sudo</span> sh -c <span class="st">&#39;echo &quot;deb-src http://nginx.org/packages/mainline/ubuntu/ `lsb_release -cs` nginx&quot; &gt;&gt; /etc/apt/sources.list.d/nginx.list&#39;</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="fu">wget</span> -q http://nginx.org/keys/nginx_signing.key -O - <span class="kw">|</span> <span class="fu">sudo</span> apt-key add -</span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="fu">sudo</span> apt -y update</span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="ex">apt-cache</span> policy nginx</span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="fu">sudo</span> apt install -y nginx</span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="ex">nginx</span> -v</span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="fu">sudo</span> systemctl enable nginx</span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="fu">sudo</span> service nginx start</span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="ex">systemctl</span> status nginx</span></code></pre></div>
 </section>
 <section id="set-domain-or-subdomain" class="level1">
 <h1>set domain or subdomain</h1>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># add A-record to dns server</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="fu">sudo</span> vi  /etc/hosts</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="ex">127.0.1.1</span> test.<span class="op">&lt;</span>domain_name<span class="op">&gt;</span> test</a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="ex">127.0.0.1</span> localhost</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># add A-record to dns server</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">sudo</span> vi  /etc/hosts</span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="ex">127.0.1.1</span> test.<span class="op">&lt;</span>domain_name<span class="op">&gt;</span> test</span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="ex">127.0.0.1</span> localhost</span></code></pre></div>
 </section>
 <section id="lets-encrypt" class="level1">
 <h1>Let’s Encrypt</h1>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" data-line-number="1"> <span class="co"># it is easy to get certificate before you have the advacned nginx config for</span></a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"> <span class="co"># your site</span></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="fu">sudo</span> add-apt-repository ppa:certbot/certbot</a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="fu">sudo</span> apt update -y</a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="fu">sudo</span> apt install -y python-certbot-nginx</a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="fu">sudo</span> systemctl reload nginx</a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="ex">verify</span> the syntax of configurations</a>
-<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="fu">sudo</span> nginx -t</a>
-<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="fu">sudo</span> certbot certonly --dry-run --nginx -d <span class="op">&lt;</span>domain_name<span class="op">&gt;</span> -d www.<span class="op">&lt;</span>domain_name<span class="op">&gt;</span></a>
-<a class="sourceLine" id="cb6-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="co"># </span><span class="al">TODO</span><span class="co">: backup /etc/letsencrypt fodler</span></a>
-<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="co"># configuration directory at /etc/letsencrypt. You should make a</span></a>
-<a class="sourceLine" id="cb6-13" data-line-number="13"><span class="co"># secure backup of this folder now. This configuration directory will</span></a>
-<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="co"># also contain certificates and private keys obtained by Certbot so</span></a>
-<a class="sourceLine" id="cb6-15" data-line-number="15"><span class="co"># making regular backups of this folder is ideal.</span></a>
-<a class="sourceLine" id="cb6-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb6-17" data-line-number="17"><span class="co"># at first comment ssl parts from nginx config for the site we want to get  certificate</span></a>
-<a class="sourceLine" id="cb6-18" data-line-number="18"><span class="co"># </span><span class="al">TODO</span><span class="co">: generate pre-certifiacation config for site</span></a>
-<a class="sourceLine" id="cb6-19" data-line-number="19"><span class="co"># enter email address, c - is canceling all process.</span></a>
-<a class="sourceLine" id="cb6-20" data-line-number="20"><span class="fu">sudo</span> certbot --nginx -d <span class="op">&lt;</span>domain_name<span class="op">&gt;</span> -d www.<span class="op">&lt;</span>domain_name<span class="op">&gt;</span></a>
-<a class="sourceLine" id="cb6-21" data-line-number="21"></a>
-<a class="sourceLine" id="cb6-22" data-line-number="22"><span class="fu">sudo</span> certbot renew --dry-run</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a> <span class="co"># it is easy to get certificate before you have the advacned nginx config for</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a> <span class="co"># your site</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="fu">sudo</span> add-apt-repository ppa:certbot/certbot</span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="fu">sudo</span> apt update -y</span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="fu">sudo</span> apt install -y python-certbot-nginx</span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="fu">sudo</span> systemctl reload nginx</span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="ex">verify</span> the syntax of configurations</span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="fu">sudo</span> nginx -t</span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="fu">sudo</span> certbot certonly --dry-run --nginx -d <span class="op">&lt;</span>domain_name<span class="op">&gt;</span> -d www.<span class="op">&lt;</span>domain_name<span class="op">&gt;</span></span>
+<span id="cb6-10"><a href="#cb6-10"></a></span>
+<span id="cb6-11"><a href="#cb6-11"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: backup /etc/letsencrypt fodler</span></span>
+<span id="cb6-12"><a href="#cb6-12"></a><span class="co"># configuration directory at /etc/letsencrypt. You should make a</span></span>
+<span id="cb6-13"><a href="#cb6-13"></a><span class="co"># secure backup of this folder now. This configuration directory will</span></span>
+<span id="cb6-14"><a href="#cb6-14"></a><span class="co"># also contain certificates and private keys obtained by Certbot so</span></span>
+<span id="cb6-15"><a href="#cb6-15"></a><span class="co"># making regular backups of this folder is ideal.</span></span>
+<span id="cb6-16"><a href="#cb6-16"></a></span>
+<span id="cb6-17"><a href="#cb6-17"></a><span class="co"># at first comment ssl parts from nginx config for the site we want to get  certificate</span></span>
+<span id="cb6-18"><a href="#cb6-18"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: generate pre-certifiacation config for site</span></span>
+<span id="cb6-19"><a href="#cb6-19"></a><span class="co"># enter email address, c - is canceling all process.</span></span>
+<span id="cb6-20"><a href="#cb6-20"></a><span class="fu">sudo</span> certbot --nginx -d <span class="op">&lt;</span>domain_name<span class="op">&gt;</span> -d www.<span class="op">&lt;</span>domain_name<span class="op">&gt;</span></span>
+<span id="cb6-21"><a href="#cb6-21"></a></span>
+<span id="cb6-22"><a href="#cb6-22"></a><span class="fu">sudo</span> certbot renew --dry-run</span></code></pre></div>
 </section>
 <section id="ruby-nodejs-go-rails-instruction" class="level1">
 <h1>Ruby, Nodejs, <a href="https://gorails.com/setup/ubuntu/16.04">Go rails instruction</a></h1>
 <p>Nodejs</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="ex">curl</span> -sL https://deb.nodesource.com/setup_10.x <span class="kw">|</span> <span class="fu">sudo</span> -E bash -</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="fu">sudo</span> apt -y update</a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="fu">sudo</span> apt -y install git-core curl zlib1g-dev build-essential libssl-dev</a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="fu">sudo</span> apt -y install  libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev</a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="fu">sudo</span> apt -y install  libcurl4-openssl-dev libffi-dev nodejs</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="ex">curl</span> -sL https://deb.nodesource.com/setup_10.x <span class="kw">|</span> <span class="fu">sudo</span> -E bash -</span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="fu">sudo</span> apt -y update</span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="fu">sudo</span> apt -y install git-core curl zlib1g-dev build-essential libssl-dev</span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="fu">sudo</span> apt -y install  libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev</span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="fu">sudo</span> apt -y install  libcurl4-openssl-dev libffi-dev nodejs</span></code></pre></div>
 <p>Yarn</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="ex">curl</span> -sL https://dl.yarnpkg.com/debian/pubkey.gpg <span class="kw">|</span> <span class="fu">sudo</span> apt-key add -</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="bu">echo</span> <span class="st">&quot;deb https://dl.yarnpkg.com/debian/ stable main&quot;</span> <span class="kw">|</span> <span class="fu">sudo</span> tee /etc/apt/sources.list.d/yarn.list</a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="fu">sudo</span> apt-get update <span class="kw">&amp;&amp;</span> <span class="fu">sudo</span> apt-get install yarn</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="ex">curl</span> -sL https://dl.yarnpkg.com/debian/pubkey.gpg <span class="kw">|</span> <span class="fu">sudo</span> apt-key add -</span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="bu">echo</span> <span class="st">&quot;deb https://dl.yarnpkg.com/debian/ stable main&quot;</span> <span class="kw">|</span> <span class="fu">sudo</span> tee /etc/apt/sources.list.d/yarn.list</span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="fu">sudo</span> apt-get update <span class="kw">&amp;&amp;</span> <span class="fu">sudo</span> apt-get install yarn</span></code></pre></div>
 <p>rbenv</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="bu">cd</span></a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="fu">git</span> clone https://github.com/rbenv/rbenv.git ~/.rbenv</a>
-<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="bu">echo</span> <span class="st">&#39;export PATH=&quot;$HOME/.rbenv/bin:$PATH&quot;&#39;</span> <span class="op">&gt;&gt;</span> ~/.bashrc</a>
-<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="bu">echo</span> <span class="st">&#39;eval &quot;$(rbenv init -)&quot;&#39;</span> <span class="op">&gt;&gt;</span> ~/.bashrc</a>
-<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="bu">exec</span> <span class="va">$SHELL</span></a>
-<a class="sourceLine" id="cb9-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb9-7" data-line-number="7"><span class="fu">git</span> clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build</a>
-<a class="sourceLine" id="cb9-8" data-line-number="8"><span class="bu">echo</span> <span class="st">&#39;export PATH=&quot;$HOME/.rbenv/plugins/ruby-build/bin:$PATH&quot;&#39;</span> <span class="op">&gt;&gt;</span> ~/.bashrc</a>
-<a class="sourceLine" id="cb9-9" data-line-number="9"><span class="bu">exec</span> <span class="va">$SHELL</span></a>
-<a class="sourceLine" id="cb9-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb9-11" data-line-number="11"><span class="ex">rbenv</span> install 2.5.1</a>
-<a class="sourceLine" id="cb9-12" data-line-number="12"><span class="ex">rbenv</span> global 2.5.1</a>
-<a class="sourceLine" id="cb9-13" data-line-number="13"><span class="ex">ruby</span> -v</a>
-<a class="sourceLine" id="cb9-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb9-15" data-line-number="15"><span class="bu">echo</span> <span class="st">&quot;gem: --no-document&quot;</span> <span class="op">&gt;</span> ~/.gemrc</a>
-<a class="sourceLine" id="cb9-16" data-line-number="16"><span class="ex">gem</span> install bundler</a>
-<a class="sourceLine" id="cb9-17" data-line-number="17"><span class="ex">rbenv</span> rehash</a>
-<a class="sourceLine" id="cb9-18" data-line-number="18"><span class="ex">gem</span> list rails</a>
-<a class="sourceLine" id="cb9-19" data-line-number="19"><span class="ex">gem</span> env home</a>
-<a class="sourceLine" id="cb9-20" data-line-number="20"></a>
-<a class="sourceLine" id="cb9-21" data-line-number="21"><span class="co"># Commands</span></a>
-<a class="sourceLine" id="cb9-22" data-line-number="22"><span class="ex">rbenv</span> install -l <span class="co"># list of versions that you can choose to install.</span></a>
-<a class="sourceLine" id="cb9-23" data-line-number="23"><span class="ex">rbenv</span> versions <span class="co"># Lists all Ruby versions known to rbenv</span></a>
-<a class="sourceLine" id="cb9-24" data-line-number="24"><span class="ex">rbenv</span> version <span class="co"># Displays the currently active Ruby version</span></a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="bu">cd</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="fu">git</span> clone https://github.com/rbenv/rbenv.git ~/.rbenv</span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="bu">echo</span> <span class="st">&#39;export PATH=&quot;$HOME/.rbenv/bin:$PATH&quot;&#39;</span> <span class="op">&gt;&gt;</span> ~/.bashrc</span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="bu">echo</span> <span class="st">&#39;eval &quot;$(rbenv init -)&quot;&#39;</span> <span class="op">&gt;&gt;</span> ~/.bashrc</span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="bu">exec</span> <span class="va">$SHELL</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="fu">git</span> clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build</span>
+<span id="cb9-8"><a href="#cb9-8"></a><span class="bu">echo</span> <span class="st">&#39;export PATH=&quot;$HOME/.rbenv/plugins/ruby-build/bin:$PATH&quot;&#39;</span> <span class="op">&gt;&gt;</span> ~/.bashrc</span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="bu">exec</span> <span class="va">$SHELL</span></span>
+<span id="cb9-10"><a href="#cb9-10"></a></span>
+<span id="cb9-11"><a href="#cb9-11"></a><span class="ex">rbenv</span> install 2.5.1</span>
+<span id="cb9-12"><a href="#cb9-12"></a><span class="ex">rbenv</span> global 2.5.1</span>
+<span id="cb9-13"><a href="#cb9-13"></a><span class="ex">ruby</span> -v</span>
+<span id="cb9-14"><a href="#cb9-14"></a></span>
+<span id="cb9-15"><a href="#cb9-15"></a><span class="bu">echo</span> <span class="st">&quot;gem: --no-document&quot;</span> <span class="op">&gt;</span> ~/.gemrc</span>
+<span id="cb9-16"><a href="#cb9-16"></a><span class="ex">gem</span> install bundler</span>
+<span id="cb9-17"><a href="#cb9-17"></a><span class="ex">rbenv</span> rehash</span>
+<span id="cb9-18"><a href="#cb9-18"></a><span class="ex">gem</span> list rails</span>
+<span id="cb9-19"><a href="#cb9-19"></a><span class="ex">gem</span> env home</span>
+<span id="cb9-20"><a href="#cb9-20"></a></span>
+<span id="cb9-21"><a href="#cb9-21"></a><span class="co"># Commands</span></span>
+<span id="cb9-22"><a href="#cb9-22"></a><span class="ex">rbenv</span> install -l <span class="co"># list of versions that you can choose to install.</span></span>
+<span id="cb9-23"><a href="#cb9-23"></a><span class="ex">rbenv</span> versions <span class="co"># Lists all Ruby versions known to rbenv</span></span>
+<span id="cb9-24"><a href="#cb9-24"></a><span class="ex">rbenv</span> version <span class="co"># Displays the currently active Ruby version</span></span></code></pre></div>
 </section>
 <section id="postgresql" class="level1">
 <h1>PostgreSQL</h1>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="fu">sudo</span> sh -c <span class="st">&#39;echo &quot;deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main&quot; &gt;&gt; /etc/apt/sources.list.d/pgdg.list&#39;</span></a>
-<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="fu">wget</span> -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - <span class="kw">|</span> <span class="fu">sudo</span> apt-key add -</a>
-<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="fu">sudo</span> apt update -y</a>
-<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="fu">sudo</span> apt -y install postgresql postgresql-contrib libpq-dev</a>
-<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="co"># add user auth</span></a>
-<a class="sourceLine" id="cb10-6" data-line-number="6"><span class="fu">sudo</span> vi /etc/postgresql/10//main/pg_hba.conf</a>
-<a class="sourceLine" id="cb10-7" data-line-number="7"><span class="bu">local</span>   <span class="op">&lt;</span><span class="ex">db_name</span><span class="op">&gt;</span> <span class="op">&lt;</span>user_role<span class="op">&gt;</span> md5</a>
-<a class="sourceLine" id="cb10-8" data-line-number="8"><span class="fu">sudo</span> systemctl status  postgresql</a>
-<a class="sourceLine" id="cb10-9" data-line-number="9"><span class="fu">sudo</span> systemctl enable  postgresql</a>
-<a class="sourceLine" id="cb10-10" data-line-number="10"><span class="fu">sudo</span> systemctl restart postgresql</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">sudo</span> sh -c <span class="st">&#39;echo &quot;deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main&quot; &gt;&gt; /etc/apt/sources.list.d/pgdg.list&#39;</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="fu">wget</span> -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - <span class="kw">|</span> <span class="fu">sudo</span> apt-key add -</span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="fu">sudo</span> apt update -y</span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="fu">sudo</span> apt -y install postgresql postgresql-contrib libpq-dev</span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="co"># add user auth</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="fu">sudo</span> vi /etc/postgresql/10//main/pg_hba.conf</span>
+<span id="cb10-7"><a href="#cb10-7"></a><span class="bu">local</span>   <span class="op">&lt;</span><span class="ex">db_name</span><span class="op">&gt;</span> <span class="op">&lt;</span>user_role<span class="op">&gt;</span> md5</span>
+<span id="cb10-8"><a href="#cb10-8"></a><span class="fu">sudo</span> systemctl status  postgresql</span>
+<span id="cb10-9"><a href="#cb10-9"></a><span class="fu">sudo</span> systemctl enable  postgresql</span>
+<span id="cb10-10"><a href="#cb10-10"></a><span class="fu">sudo</span> systemctl restart postgresql</span></code></pre></div>
 <p>create db user, set postgres password</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="fu">sudo</span> su postgres</a>
-<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="ex">psql</span></a>
-<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="co"># set password for psotgres</span></a>
-<a class="sourceLine" id="cb11-4" data-line-number="4">\<span class="ex">password</span> --</a>
-<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="co"># &lt;your_password for super user&gt;</span></a>
-<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="ex">create</span> user iot with password <span class="st">&#39;yourpass&#39;</span> createdb superuser<span class="kw">;</span></a>
-<a class="sourceLine" id="cb11-7" data-line-number="7">\<span class="fu">du</span> -- list users</a>
-<a class="sourceLine" id="cb11-8" data-line-number="8">\<span class="ex">q</span></a>
-<a class="sourceLine" id="cb11-9" data-line-number="9"><span class="bu">exit</span></a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">sudo</span> su postgres</span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="ex">psql</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="co"># set password for psotgres</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a>\<span class="ex">password</span> --</span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="co"># &lt;your_password for super user&gt;</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a><span class="ex">create</span> user iot with password <span class="st">&#39;yourpass&#39;</span> createdb superuser<span class="kw">;</span></span>
+<span id="cb11-7"><a href="#cb11-7"></a>\<span class="fu">du</span> -- list users</span>
+<span id="cb11-8"><a href="#cb11-8"></a>\<span class="ex">q</span></span>
+<span id="cb11-9"><a href="#cb11-9"></a><span class="bu">exit</span></span></code></pre></div>
 <section id="postgresql-hacks" class="level2">
 <h2>postgresql hacks</h2>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="op">&gt;</span> <span class="ex">SELECT</span> pg_terminate_backend(pg_stat_activity.pid) <span class="ex">FROM</span> pg_stat_activity</a>
-<a class="sourceLine" id="cb12-2" data-line-number="2">  <span class="ex">WHERE</span> pg_stat_activity.datname = <span class="st">&#39;iothub_production;</span></a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1"></a><span class="op">&gt;</span> <span class="ex">SELECT</span> pg_terminate_backend(pg_stat_activity.pid) <span class="ex">FROM</span> pg_stat_activity</span>
+<span id="cb12-2"><a href="#cb12-2"></a>  <span class="ex">WHERE</span> pg_stat_activity.datname = <span class="st">&#39;iothub_production;</span></span></code></pre></div>
 </section>
 </section>
 <section id="redis" class="level1">
 <h1>Redis</h1>
-<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="ex">---------Install</span> build and test dependencies: ------</a>
-<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="fu">sudo</span> apt -y update</a>
-<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="fu">sudo</span> apt -y full-upgrade</a>
-<a class="sourceLine" id="cb13-4" data-line-number="4"><span class="co"># make test required tcl to run</span></a>
-<a class="sourceLine" id="cb13-5" data-line-number="5"><span class="fu">sudo</span> apt-get -y install build-essential tcl</a>
-<a class="sourceLine" id="cb13-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb13-7" data-line-number="7"><span class="ex">---------Set</span> up redis: -------</a>
-<a class="sourceLine" id="cb13-8" data-line-number="8"><span class="co">#Download latest copy via this link or with this</span></a>
-<a class="sourceLine" id="cb13-9" data-line-number="9"><span class="fu">mkdir</span> Downloads</a>
-<a class="sourceLine" id="cb13-10" data-line-number="10"><span class="bu">cd</span> Downloads</a>
-<a class="sourceLine" id="cb13-11" data-line-number="11"><span class="ex">curl</span> -O http://download.redis.io/redis-stable.tar.gz</a>
-<a class="sourceLine" id="cb13-12" data-line-number="12"><span class="fu">tar</span> xzvf redis-stable.tar.gz</a>
-<a class="sourceLine" id="cb13-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb13-14" data-line-number="14"><span class="bu">cd</span> redis-stable</a>
-<a class="sourceLine" id="cb13-15" data-line-number="15"><span class="fu">make</span></a>
-<a class="sourceLine" id="cb13-16" data-line-number="16"><span class="fu">sudo</span> make install</a>
-<a class="sourceLine" id="cb13-17" data-line-number="17"><span class="fu">make</span> test</a>
-<a class="sourceLine" id="cb13-18" data-line-number="18"></a>
-<a class="sourceLine" id="cb13-19" data-line-number="19"><span class="ex">------</span> Configure redis: -------</a>
-<a class="sourceLine" id="cb13-20" data-line-number="20"><span class="co">#Create configuration directory:</span></a>
-<a class="sourceLine" id="cb13-21" data-line-number="21"><span class="fu">sudo</span> mkdir /etc/redis</a>
-<a class="sourceLine" id="cb13-22" data-line-number="22"><span class="co"># Move sample redis configuration file:</span></a>
-<a class="sourceLine" id="cb13-23" data-line-number="23"><span class="fu">sudo</span> cp ~/Downloads/redis-stable/redis.conf /etc/redis</a>
-<a class="sourceLine" id="cb13-24" data-line-number="24"><span class="fu">sudo</span> vi /etc/redis/redis.conf</a>
-<a class="sourceLine" id="cb13-25" data-line-number="25"><span class="co">#set dir for persistent data dump, for log</span></a>
-<a class="sourceLine" id="cb13-26" data-line-number="26"><span class="ex">supervised</span> systemd</a>
-<a class="sourceLine" id="cb13-27" data-line-number="27"><span class="fu">dir</span> /var/redis</a>
-<a class="sourceLine" id="cb13-28" data-line-number="28"><span class="ex">logfile</span> /var/redis/redis.log</a>
-<a class="sourceLine" id="cb13-29" data-line-number="29"></a>
-<a class="sourceLine" id="cb13-30" data-line-number="30"><span class="ex">------</span> Set up the systemd unit file:------</a>
-<a class="sourceLine" id="cb13-31" data-line-number="31"><span class="co">#create file</span></a>
-<a class="sourceLine" id="cb13-32" data-line-number="32"><span class="fu">sudo</span> vi /etc/systemd/system/redis.service</a>
-<a class="sourceLine" id="cb13-33" data-line-number="33"></a>
-<a class="sourceLine" id="cb13-34" data-line-number="34"><span class="co"># add to file</span></a>
-<a class="sourceLine" id="cb13-35" data-line-number="35">[<span class="ex">Unit</span>]</a>
-<a class="sourceLine" id="cb13-36" data-line-number="36"><span class="va">Description=</span>Redis <span class="ex">In-Memory</span> Data Store</a>
-<a class="sourceLine" id="cb13-37" data-line-number="37"><span class="va">After=</span>network.target</a>
-<a class="sourceLine" id="cb13-38" data-line-number="38"></a>
-<a class="sourceLine" id="cb13-39" data-line-number="39">[<span class="ex">Service</span>]</a>
-<a class="sourceLine" id="cb13-40" data-line-number="40"><span class="va">User=</span>redis</a>
-<a class="sourceLine" id="cb13-41" data-line-number="41"><span class="va">Group=</span>redis</a>
-<a class="sourceLine" id="cb13-42" data-line-number="42"><span class="va">ExecStart=</span>/usr/local/bin/redis-server <span class="ex">/etc/redis/redis.conf</span></a>
-<a class="sourceLine" id="cb13-43" data-line-number="43"><span class="va">ExecStop=</span>/usr/local/bin/redis-cli <span class="ex">shutdown</span></a>
-<a class="sourceLine" id="cb13-44" data-line-number="44"><span class="va">Restart=</span>always</a>
-<a class="sourceLine" id="cb13-45" data-line-number="45"></a>
-<a class="sourceLine" id="cb13-46" data-line-number="46">[<span class="ex">Install</span>]</a>
-<a class="sourceLine" id="cb13-47" data-line-number="47"><span class="va">WantedBy=</span>multi-user.target</a>
-<a class="sourceLine" id="cb13-48" data-line-number="48"></a>
-<a class="sourceLine" id="cb13-49" data-line-number="49"><span class="ex">-----</span>––––-----–– Set up redis user, groups and directories: –––</a>
-<a class="sourceLine" id="cb13-50" data-line-number="50"><span class="co"># if /etc/systemd/system/redis.service cahnged</span></a>
-<a class="sourceLine" id="cb13-51" data-line-number="51"><span class="fu">sudo</span> systemctl daemon-reload</a>
-<a class="sourceLine" id="cb13-52" data-line-number="52"><span class="co"># create redis user and group with same ID but no home directory:</span></a>
-<a class="sourceLine" id="cb13-53" data-line-number="53"></a>
-<a class="sourceLine" id="cb13-54" data-line-number="54"><span class="fu">sudo</span> adduser --system --group --no-create-home redis</a>
-<a class="sourceLine" id="cb13-55" data-line-number="55"><span class="fu">sudo</span> mkdir /var/redis   # create directory</a>
-<a class="sourceLine" id="cb13-56" data-line-number="56"><span class="fu">sudo</span> chown redis:redis /var/redis   # make redis own /var/redis</a>
-<a class="sourceLine" id="cb13-57" data-line-number="57"><span class="fu">sudo</span> chmod 770 /var/redis   # adjust permission</a>
-<a class="sourceLine" id="cb13-58" data-line-number="58"></a>
-<a class="sourceLine" id="cb13-59" data-line-number="59"><span class="fu">sudo</span> systemctl enable redis <span class="co"># Enable redis to start at boot:</span></a>
-<a class="sourceLine" id="cb13-60" data-line-number="60"><span class="fu">sudo</span> systemctl start redis</a>
-<a class="sourceLine" id="cb13-61" data-line-number="61"></a>
-<a class="sourceLine" id="cb13-62" data-line-number="62"><span class="co">#other commands</span></a>
-<a class="sourceLine" id="cb13-63" data-line-number="63"><span class="ex">systemctl</span> status redis</a>
-<a class="sourceLine" id="cb13-64" data-line-number="64"><span class="fu">sudo</span> systemctl restart redis</a>
-<a class="sourceLine" id="cb13-65" data-line-number="65"></a>
-<a class="sourceLine" id="cb13-66" data-line-number="66"><span class="ex">-------</span> Enable redis to start at boot:------</a>
-<a class="sourceLine" id="cb13-67" data-line-number="67"><span class="fu">sudo</span> systemctl enable redis</a>
-<a class="sourceLine" id="cb13-68" data-line-number="68"></a>
-<a class="sourceLine" id="cb13-69" data-line-number="69"><span class="ex">-----------------</span> Test instance: ------------</a>
-<a class="sourceLine" id="cb13-70" data-line-number="70"><span class="ex">redis-cli</span></a>
-<a class="sourceLine" id="cb13-71" data-line-number="71"><span class="fu">ping</span></a>
-<a class="sourceLine" id="cb13-72" data-line-number="72"><span class="kw">set</span> <span class="bu">test</span> <span class="st">&quot;It&#39;s working!&quot;</span></a>
-<a class="sourceLine" id="cb13-73" data-line-number="73"><span class="ex">get</span> test</a>
-<a class="sourceLine" id="cb13-74" data-line-number="74"><span class="bu">exit</span></a>
-<a class="sourceLine" id="cb13-75" data-line-number="75"><span class="fu">sudo</span> systemctl restart redis</a>
-<a class="sourceLine" id="cb13-76" data-line-number="76"><span class="ex">--</span>–– FIX Warnings ––-</a>
-<a class="sourceLine" id="cb13-77" data-line-number="77"></a>
-<a class="sourceLine" id="cb13-78" data-line-number="78"><span class="ex">---</span> WARNING overcommit_memory is set to 0</a>
-<a class="sourceLine" id="cb13-79" data-line-number="79"><span class="ex">--</span> fix warning</a>
-<a class="sourceLine" id="cb13-80" data-line-number="80"><span class="fu">sudo</span> vi /etc/sysctl.conf</a>
-<a class="sourceLine" id="cb13-81" data-line-number="81"><span class="ex">vm.overcommit_memory</span>=1</a>
-<a class="sourceLine" id="cb13-82" data-line-number="82"></a>
-<a class="sourceLine" id="cb13-83" data-line-number="83"><span class="co"># run on trminal as well</span></a>
-<a class="sourceLine" id="cb13-84" data-line-number="84"><span class="fu">sudo</span> sysctl vm.overcommit_memory=1</a>
-<a class="sourceLine" id="cb13-85" data-line-number="85"></a>
-<a class="sourceLine" id="cb13-86" data-line-number="86"><span class="ex">---</span> The TCP backlog setting of 511 cannot be enforced because</a>
-<a class="sourceLine" id="cb13-87" data-line-number="87"><span class="ex">----</span> /proc/sys/net/core/somaxconn is set to the lower value of 128</a>
-<a class="sourceLine" id="cb13-88" data-line-number="88"></a>
-<a class="sourceLine" id="cb13-89" data-line-number="89"><span class="fu">sudo</span> vi /etc/rc.local</a>
-<a class="sourceLine" id="cb13-90" data-line-number="90"><span class="ex">sysctl</span> -w net.core.somaxconn=65535</a>
-<a class="sourceLine" id="cb13-91" data-line-number="91"></a>
-<a class="sourceLine" id="cb13-92" data-line-number="92"><span class="co"># run on trminal as well</span></a>
-<a class="sourceLine" id="cb13-93" data-line-number="93"><span class="fu">sudo</span> sysctl -w net.core.somaxconn=65535</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1"></a><span class="ex">---------Install</span> build and test dependencies: ------</span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="fu">sudo</span> apt -y update</span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="fu">sudo</span> apt -y full-upgrade</span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="co"># make test required tcl to run</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a><span class="fu">sudo</span> apt-get -y install build-essential tcl</span>
+<span id="cb13-6"><a href="#cb13-6"></a></span>
+<span id="cb13-7"><a href="#cb13-7"></a><span class="ex">---------Set</span> up redis: -------</span>
+<span id="cb13-8"><a href="#cb13-8"></a><span class="co">#Download latest copy via this link or with this</span></span>
+<span id="cb13-9"><a href="#cb13-9"></a><span class="fu">mkdir</span> Downloads</span>
+<span id="cb13-10"><a href="#cb13-10"></a><span class="bu">cd</span> Downloads</span>
+<span id="cb13-11"><a href="#cb13-11"></a><span class="ex">curl</span> -O http://download.redis.io/redis-stable.tar.gz</span>
+<span id="cb13-12"><a href="#cb13-12"></a><span class="fu">tar</span> xzvf redis-stable.tar.gz</span>
+<span id="cb13-13"><a href="#cb13-13"></a></span>
+<span id="cb13-14"><a href="#cb13-14"></a><span class="bu">cd</span> redis-stable</span>
+<span id="cb13-15"><a href="#cb13-15"></a><span class="fu">make</span></span>
+<span id="cb13-16"><a href="#cb13-16"></a><span class="fu">sudo</span> make install</span>
+<span id="cb13-17"><a href="#cb13-17"></a><span class="fu">make</span> test</span>
+<span id="cb13-18"><a href="#cb13-18"></a></span>
+<span id="cb13-19"><a href="#cb13-19"></a><span class="ex">------</span> Configure redis: -------</span>
+<span id="cb13-20"><a href="#cb13-20"></a><span class="co">#Create configuration directory:</span></span>
+<span id="cb13-21"><a href="#cb13-21"></a><span class="fu">sudo</span> mkdir /etc/redis</span>
+<span id="cb13-22"><a href="#cb13-22"></a><span class="co"># Move sample redis configuration file:</span></span>
+<span id="cb13-23"><a href="#cb13-23"></a><span class="fu">sudo</span> cp ~/Downloads/redis-stable/redis.conf /etc/redis</span>
+<span id="cb13-24"><a href="#cb13-24"></a><span class="fu">sudo</span> vi /etc/redis/redis.conf</span>
+<span id="cb13-25"><a href="#cb13-25"></a><span class="co">#set dir for persistent data dump, for log</span></span>
+<span id="cb13-26"><a href="#cb13-26"></a><span class="ex">supervised</span> systemd</span>
+<span id="cb13-27"><a href="#cb13-27"></a><span class="fu">dir</span> /var/redis</span>
+<span id="cb13-28"><a href="#cb13-28"></a><span class="ex">logfile</span> /var/redis/redis.log</span>
+<span id="cb13-29"><a href="#cb13-29"></a></span>
+<span id="cb13-30"><a href="#cb13-30"></a><span class="ex">------</span> Set up the systemd unit file:------</span>
+<span id="cb13-31"><a href="#cb13-31"></a><span class="co">#create file</span></span>
+<span id="cb13-32"><a href="#cb13-32"></a><span class="fu">sudo</span> vi /etc/systemd/system/redis.service</span>
+<span id="cb13-33"><a href="#cb13-33"></a></span>
+<span id="cb13-34"><a href="#cb13-34"></a><span class="co"># add to file</span></span>
+<span id="cb13-35"><a href="#cb13-35"></a>[<span class="ex">Unit</span>]</span>
+<span id="cb13-36"><a href="#cb13-36"></a><span class="va">Description=</span>Redis <span class="ex">In-Memory</span> Data Store</span>
+<span id="cb13-37"><a href="#cb13-37"></a><span class="va">After=</span>network.target</span>
+<span id="cb13-38"><a href="#cb13-38"></a></span>
+<span id="cb13-39"><a href="#cb13-39"></a>[<span class="ex">Service</span>]</span>
+<span id="cb13-40"><a href="#cb13-40"></a><span class="va">User=</span>redis</span>
+<span id="cb13-41"><a href="#cb13-41"></a><span class="va">Group=</span>redis</span>
+<span id="cb13-42"><a href="#cb13-42"></a><span class="va">ExecStart=</span>/usr/local/bin/redis-server <span class="ex">/etc/redis/redis.conf</span></span>
+<span id="cb13-43"><a href="#cb13-43"></a><span class="va">ExecStop=</span>/usr/local/bin/redis-cli <span class="ex">shutdown</span></span>
+<span id="cb13-44"><a href="#cb13-44"></a><span class="va">Restart=</span>always</span>
+<span id="cb13-45"><a href="#cb13-45"></a></span>
+<span id="cb13-46"><a href="#cb13-46"></a>[<span class="ex">Install</span>]</span>
+<span id="cb13-47"><a href="#cb13-47"></a><span class="va">WantedBy=</span>multi-user.target</span>
+<span id="cb13-48"><a href="#cb13-48"></a></span>
+<span id="cb13-49"><a href="#cb13-49"></a><span class="ex">-----</span>––––-----–– Set up redis user, groups and directories: –––</span>
+<span id="cb13-50"><a href="#cb13-50"></a><span class="co"># if /etc/systemd/system/redis.service cahnged</span></span>
+<span id="cb13-51"><a href="#cb13-51"></a><span class="fu">sudo</span> systemctl daemon-reload</span>
+<span id="cb13-52"><a href="#cb13-52"></a><span class="co"># create redis user and group with same ID but no home directory:</span></span>
+<span id="cb13-53"><a href="#cb13-53"></a></span>
+<span id="cb13-54"><a href="#cb13-54"></a><span class="fu">sudo</span> adduser --system --group --no-create-home redis</span>
+<span id="cb13-55"><a href="#cb13-55"></a><span class="fu">sudo</span> mkdir /var/redis   <span class="co"># create directory</span></span>
+<span id="cb13-56"><a href="#cb13-56"></a><span class="fu">sudo</span> chown redis:redis /var/redis   <span class="co"># make redis own /var/redis</span></span>
+<span id="cb13-57"><a href="#cb13-57"></a><span class="fu">sudo</span> chmod 770 /var/redis   <span class="co"># adjust permission</span></span>
+<span id="cb13-58"><a href="#cb13-58"></a></span>
+<span id="cb13-59"><a href="#cb13-59"></a><span class="fu">sudo</span> systemctl enable redis <span class="co"># Enable redis to start at boot:</span></span>
+<span id="cb13-60"><a href="#cb13-60"></a><span class="fu">sudo</span> systemctl start redis</span>
+<span id="cb13-61"><a href="#cb13-61"></a></span>
+<span id="cb13-62"><a href="#cb13-62"></a><span class="co">#other commands</span></span>
+<span id="cb13-63"><a href="#cb13-63"></a><span class="ex">systemctl</span> status redis</span>
+<span id="cb13-64"><a href="#cb13-64"></a><span class="fu">sudo</span> systemctl restart redis</span>
+<span id="cb13-65"><a href="#cb13-65"></a></span>
+<span id="cb13-66"><a href="#cb13-66"></a><span class="ex">-------</span> Enable redis to start at boot:------</span>
+<span id="cb13-67"><a href="#cb13-67"></a><span class="fu">sudo</span> systemctl enable redis</span>
+<span id="cb13-68"><a href="#cb13-68"></a></span>
+<span id="cb13-69"><a href="#cb13-69"></a><span class="ex">-----------------</span> Test instance: ------------</span>
+<span id="cb13-70"><a href="#cb13-70"></a><span class="ex">redis-cli</span></span>
+<span id="cb13-71"><a href="#cb13-71"></a><span class="fu">ping</span></span>
+<span id="cb13-72"><a href="#cb13-72"></a><span class="kw">set</span> <span class="bu">test</span> <span class="st">&quot;It&#39;s working!&quot;</span></span>
+<span id="cb13-73"><a href="#cb13-73"></a><span class="ex">get</span> test</span>
+<span id="cb13-74"><a href="#cb13-74"></a><span class="bu">exit</span></span>
+<span id="cb13-75"><a href="#cb13-75"></a><span class="fu">sudo</span> systemctl restart redis</span>
+<span id="cb13-76"><a href="#cb13-76"></a><span class="ex">--</span>–– FIX Warnings ––-</span>
+<span id="cb13-77"><a href="#cb13-77"></a></span>
+<span id="cb13-78"><a href="#cb13-78"></a><span class="ex">---</span> WARNING overcommit_memory is set to 0</span>
+<span id="cb13-79"><a href="#cb13-79"></a><span class="ex">--</span> fix warning</span>
+<span id="cb13-80"><a href="#cb13-80"></a><span class="fu">sudo</span> vi /etc/sysctl.conf</span>
+<span id="cb13-81"><a href="#cb13-81"></a><span class="ex">vm.overcommit_memory</span>=1</span>
+<span id="cb13-82"><a href="#cb13-82"></a></span>
+<span id="cb13-83"><a href="#cb13-83"></a><span class="co"># run on trminal as well</span></span>
+<span id="cb13-84"><a href="#cb13-84"></a><span class="fu">sudo</span> sysctl vm.overcommit_memory=1</span>
+<span id="cb13-85"><a href="#cb13-85"></a></span>
+<span id="cb13-86"><a href="#cb13-86"></a><span class="ex">---</span> The TCP backlog setting of 511 cannot be enforced because</span>
+<span id="cb13-87"><a href="#cb13-87"></a><span class="ex">----</span> /proc/sys/net/core/somaxconn is set to the lower value of 128</span>
+<span id="cb13-88"><a href="#cb13-88"></a></span>
+<span id="cb13-89"><a href="#cb13-89"></a><span class="fu">sudo</span> vi /etc/rc.local</span>
+<span id="cb13-90"><a href="#cb13-90"></a><span class="ex">sysctl</span> -w net.core.somaxconn=65535</span>
+<span id="cb13-91"><a href="#cb13-91"></a></span>
+<span id="cb13-92"><a href="#cb13-92"></a><span class="co"># run on trminal as well</span></span>
+<span id="cb13-93"><a href="#cb13-93"></a><span class="fu">sudo</span> sysctl -w net.core.somaxconn=65535</span></code></pre></div>
 </section>
 <section id="mina" class="level1">
 <h1>Mina</h1>
 <section id="install-mina-gem" class="level2">
 <h2>install mina gem</h2>
-<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="ex">gem</span> instal mina</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1"></a><span class="ex">gem</span> instal mina</span></code></pre></div>
 </section>
 </section>
 <section id="some-commands-with-no-password" class="level1">
 <h1>some commands with no password</h1>
-<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="fu">sudo</span> vi /etc/sudoers</a>
-<a class="sourceLine" id="cb15-2" data-line-number="2"><span class="co"># shift+G</span></a>
-<a class="sourceLine" id="cb15-3" data-line-number="3">ՈՒշադրություն, գրել վերջում</a>
-<a class="sourceLine" id="cb15-4" data-line-number="4"><span class="co"># IMPORTANT!!!  add at the end</span></a>
-<a class="sourceLine" id="cb15-5" data-line-number="5"><span class="ex">deployer</span> ALL=(ALL) <span class="ex">NOPASSWD</span>: /bin/ln</a>
-<a class="sourceLine" id="cb15-6" data-line-number="6"><span class="ex">deployer</span> ALL=(ALL) <span class="ex">NOPASSWD</span>: /bin/chmod</a>
-<a class="sourceLine" id="cb15-7" data-line-number="7"><span class="ex">deployer</span> ALL=(ALL) <span class="ex">NOPASSWD</span>: /bin/cp</a>
-<a class="sourceLine" id="cb15-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb15-9" data-line-number="9"><span class="co"># :wq!</span></a>
-<a class="sourceLine" id="cb15-10" data-line-number="10"><span class="co"># https://github.com/mina-deploy/mina/issues/234#issuecomment-57242061</span></a>
-<a class="sourceLine" id="cb15-11" data-line-number="11"><span class="fu">sudo</span> service ssh reload</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">sudo</span> vi /etc/sudoers</span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="co"># shift+G</span></span>
+<span id="cb15-3"><a href="#cb15-3"></a>ՈՒշադրություն, գրել վերջում</span>
+<span id="cb15-4"><a href="#cb15-4"></a><span class="co"># IMPORTANT!!!  add at the end</span></span>
+<span id="cb15-5"><a href="#cb15-5"></a><span class="ex">deployer</span> ALL=(ALL) <span class="ex">NOPASSWD</span>: /bin/ln</span>
+<span id="cb15-6"><a href="#cb15-6"></a><span class="ex">deployer</span> ALL=(ALL) <span class="ex">NOPASSWD</span>: /bin/chmod</span>
+<span id="cb15-7"><a href="#cb15-7"></a><span class="ex">deployer</span> ALL=(ALL) <span class="ex">NOPASSWD</span>: /bin/cp</span>
+<span id="cb15-8"><a href="#cb15-8"></a></span>
+<span id="cb15-9"><a href="#cb15-9"></a><span class="co"># :wq!</span></span>
+<span id="cb15-10"><a href="#cb15-10"></a><span class="co"># https://github.com/mina-deploy/mina/issues/234#issuecomment-57242061</span></span>
+<span id="cb15-11"><a href="#cb15-11"></a><span class="fu">sudo</span> service ssh reload</span></code></pre></div>
 <section id="deploy-with-mina" class="level2">
 <h2>deploy with mina</h2>
-<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="op">&gt;</span> <span class="ex">mina</span> test setup</a>
-<a class="sourceLine" id="cb16-2" data-line-number="2"><span class="co"># at frist time uncomment schema_load, then comment</span></a>
-<a class="sourceLine" id="cb16-3" data-line-number="3"><span class="op">&gt;</span> <span class="ex">mina</span> test deploy</a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1"></a><span class="op">&gt;</span> <span class="ex">mina</span> test setup</span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="co"># at frist time uncomment schema_load, then comment</span></span>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="op">&gt;</span> <span class="ex">mina</span> test deploy</span></code></pre></div>
 </section>
 </section>
 <section id="backup-gem" class="level1">
 <h1>Backup gem</h1>
-<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="ex">gem</span> install backup -v5.0.0.beta.2</a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1"></a><span class="ex">gem</span> install backup -v5.0.0.beta.2</span></code></pre></div>
 </section>
 <section id="cron" class="level1">
 <h1>CRON</h1>
 <section id="activate-log-for-cron-jobs" class="level2">
 <h2>activate log for cron jobs</h2>
-<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="fu">sudo</span> vi  /etc/rsyslog.d/50-default.conf</a>
-<a class="sourceLine" id="cb18-2" data-line-number="2"><span class="ex">/s</span> <span class="co">#cron</span></a>
-<a class="sourceLine" id="cb18-3" data-line-number="3"><span class="co"># uncomment the line</span></a>
-<a class="sourceLine" id="cb18-4" data-line-number="4"><span class="ex">cron.*</span>                          /var/log/cron.log</a>
-<a class="sourceLine" id="cb18-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb18-6" data-line-number="6"><span class="fu">sudo</span> service rsyslog restart</a>
-<a class="sourceLine" id="cb18-7" data-line-number="7"><span class="fu">sudo</span> service cron restart</a>
-<a class="sourceLine" id="cb18-8" data-line-number="8"><span class="co"># Cron activity will now be logged to /var/log/cron.log file (in addition to syslog).</span></a>
-<a class="sourceLine" id="cb18-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb18-10" data-line-number="10"><span class="co"># to continuously monitor it</span></a>
-<a class="sourceLine" id="cb18-11" data-line-number="11"><span class="fu">tail</span> -f /var/log/syslog <span class="kw">|</span> <span class="fu">grep</span> CRON</a>
-<a class="sourceLine" id="cb18-12" data-line-number="12"></a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">sudo</span> vi  /etc/rsyslog.d/50-default.conf</span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="ex">/s</span> <span class="co">#cron</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a><span class="co"># uncomment the line</span></span>
+<span id="cb18-4"><a href="#cb18-4"></a><span class="ex">cron.*</span>                          /var/log/cron.log</span>
+<span id="cb18-5"><a href="#cb18-5"></a></span>
+<span id="cb18-6"><a href="#cb18-6"></a><span class="fu">sudo</span> service rsyslog restart</span>
+<span id="cb18-7"><a href="#cb18-7"></a><span class="fu">sudo</span> service cron restart</span>
+<span id="cb18-8"><a href="#cb18-8"></a><span class="co"># Cron activity will now be logged to /var/log/cron.log file (in addition to syslog).</span></span>
+<span id="cb18-9"><a href="#cb18-9"></a></span>
+<span id="cb18-10"><a href="#cb18-10"></a><span class="co"># to continuously monitor it</span></span>
+<span id="cb18-11"><a href="#cb18-11"></a><span class="fu">tail</span> -f /var/log/syslog <span class="kw">|</span> <span class="fu">grep</span> CRON</span>
+<span id="cb18-12"><a href="#cb18-12"></a></span></code></pre></div>
 </section>
 </section>
 <section id="convert-putty-to-ssh-agent" class="level1">
 <h1>Convert putty to ssh-agent</h1>
-<div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="co"># puttygen supports exporting your private key to an OpenSSH compatible format. You can then use OpenSSH tools to recreate the public key.</span></a>
-<a class="sourceLine" id="cb19-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb19-3" data-line-number="3"><span class="co"># 1. Open PuttyGen</span></a>
-<a class="sourceLine" id="cb19-4" data-line-number="4"><span class="co"># 2. Click Load</span></a>
-<a class="sourceLine" id="cb19-5" data-line-number="5"><span class="co"># 3. Load your private key</span></a>
-<a class="sourceLine" id="cb19-6" data-line-number="6"><span class="co"># 4. Go to Conversions-&gt;Export OpenSSH and export your private key</span></a>
-<a class="sourceLine" id="cb19-7" data-line-number="7"><span class="co"># 5. Copy your private key to ~/.ssh/id_dsa (or id_rsa).</span></a>
-<a class="sourceLine" id="cb19-8" data-line-number="8"><span class="co"># 6. Create the RFC 4716 version of the public key using ssh-keygen</span></a>
-<a class="sourceLine" id="cb19-9" data-line-number="9"><span class="fu">ssh-keygen</span> -e -f ~/.ssh/id_dsa <span class="op">&gt;</span> ~/.ssh/id_dsa_com.pub</a>
-<a class="sourceLine" id="cb19-10" data-line-number="10"><span class="co"># 7. Convert the RFC 4716 version of the public key to the OpenSSH format:</span></a>
-<a class="sourceLine" id="cb19-11" data-line-number="11"><span class="fu">ssh-keygen</span> -i -f ~/.ssh/id_dsa_com.pub <span class="op">&gt;</span> ~/.ssh/id_dsa.pub</a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># puttygen supports exporting your private key to an OpenSSH compatible format. You can then use OpenSSH tools to recreate the public key.</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a></span>
+<span id="cb19-3"><a href="#cb19-3"></a><span class="co"># 1. Open PuttyGen</span></span>
+<span id="cb19-4"><a href="#cb19-4"></a><span class="co"># 2. Click Load</span></span>
+<span id="cb19-5"><a href="#cb19-5"></a><span class="co"># 3. Load your private key</span></span>
+<span id="cb19-6"><a href="#cb19-6"></a><span class="co"># 4. Go to Conversions-&gt;Export OpenSSH and export your private key</span></span>
+<span id="cb19-7"><a href="#cb19-7"></a><span class="co"># 5. Copy your private key to ~/.ssh/id_dsa (or id_rsa).</span></span>
+<span id="cb19-8"><a href="#cb19-8"></a><span class="co"># 6. Create the RFC 4716 version of the public key using ssh-keygen</span></span>
+<span id="cb19-9"><a href="#cb19-9"></a><span class="fu">ssh-keygen</span> -e -f ~/.ssh/id_dsa <span class="op">&gt;</span> ~/.ssh/id_dsa_com.pub</span>
+<span id="cb19-10"><a href="#cb19-10"></a><span class="co"># 7. Convert the RFC 4716 version of the public key to the OpenSSH format:</span></span>
+<span id="cb19-11"><a href="#cb19-11"></a><span class="fu">ssh-keygen</span> -i -f ~/.ssh/id_dsa_com.pub <span class="op">&gt;</span> ~/.ssh/id_dsa.pub</span></code></pre></div>
 </section>
 <section id="linux-commands" class="level1">
 <h1>Linux commands</h1>
 <section id="folder-size" class="level2">
 <h2>folder size</h2>
-<div class="sourceCode" id="cb20"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="co"># disk usage info</span></a>
-<a class="sourceLine" id="cb20-2" data-line-number="2"><span class="fu">df</span> -h --total</a>
-<a class="sourceLine" id="cb20-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb20-4" data-line-number="4"><span class="co"># each folder size</span></a>
-<a class="sourceLine" id="cb20-5" data-line-number="5"><span class="fu">du</span> -sh * <span class="kw">|</span> <span class="fu">sort</span> -g</a>
-<a class="sourceLine" id="cb20-6" data-line-number="6"><span class="fu">du</span> -sk * <span class="kw">|</span> <span class="fu">sort</span> -n</a>
-<a class="sourceLine" id="cb20-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb20-8" data-line-number="8"><span class="co"># each folder size including hiddens</span></a>
-<a class="sourceLine" id="cb20-9" data-line-number="9"><span class="fu">du</span> -sch .[!.]* * <span class="kw">|</span><span class="fu">sort</span> -h</a>
-<a class="sourceLine" id="cb20-10" data-line-number="10"><span class="co"># try ncdu</span></a>
-<a class="sourceLine" id="cb20-11" data-line-number="11"><span class="fu">sudo</span> apt-get install ncdu</a>
-<a class="sourceLine" id="cb20-12" data-line-number="12"><span class="ex">ncdu</span></a></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># disk usage info</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a><span class="fu">df</span> -h --total</span>
+<span id="cb20-3"><a href="#cb20-3"></a></span>
+<span id="cb20-4"><a href="#cb20-4"></a><span class="co"># each folder size</span></span>
+<span id="cb20-5"><a href="#cb20-5"></a><span class="fu">du</span> -sh * <span class="kw">|</span> <span class="fu">sort</span> -g</span>
+<span id="cb20-6"><a href="#cb20-6"></a><span class="fu">du</span> -sk * <span class="kw">|</span> <span class="fu">sort</span> -n</span>
+<span id="cb20-7"><a href="#cb20-7"></a></span>
+<span id="cb20-8"><a href="#cb20-8"></a><span class="co"># each folder size including hiddens</span></span>
+<span id="cb20-9"><a href="#cb20-9"></a><span class="fu">du</span> -sch .[!.]* * <span class="kw">|</span><span class="fu">sort</span> -h</span>
+<span id="cb20-10"><a href="#cb20-10"></a><span class="co"># try ncdu</span></span>
+<span id="cb20-11"><a href="#cb20-11"></a><span class="fu">sudo</span> apt-get install ncdu</span>
+<span id="cb20-12"><a href="#cb20-12"></a><span class="ex">ncdu</span></span></code></pre></div>
 </section>
 <section id="system.d" class="level2">
 <h2>system.d</h2>
-<div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="co"># nginx config test</span></a>
-<a class="sourceLine" id="cb21-2" data-line-number="2"><span class="fu">sudo</span> nginx -t</a>
-<a class="sourceLine" id="cb21-3" data-line-number="3"><span class="fu">sudo</span> nginx -t -c /etc/nginx/conf.d/taxicenter.conf</a>
-<a class="sourceLine" id="cb21-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb21-5" data-line-number="5"><span class="co"># systemd</span></a>
-<a class="sourceLine" id="cb21-6" data-line-number="6"><span class="co"># reload if unit file changed</span></a>
-<a class="sourceLine" id="cb21-7" data-line-number="7"><span class="fu">sudo</span> systemctl daemon-reload</a></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># nginx config test</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a><span class="fu">sudo</span> nginx -t</span>
+<span id="cb21-3"><a href="#cb21-3"></a><span class="fu">sudo</span> nginx -t -c /etc/nginx/conf.d/taxicenter.conf</span>
+<span id="cb21-4"><a href="#cb21-4"></a></span>
+<span id="cb21-5"><a href="#cb21-5"></a><span class="co"># systemd</span></span>
+<span id="cb21-6"><a href="#cb21-6"></a><span class="co"># reload if unit file changed</span></span>
+<span id="cb21-7"><a href="#cb21-7"></a><span class="fu">sudo</span> systemctl daemon-reload</span></code></pre></div>
 </section>
 <section id="logs" class="level2">
 <h2>logs</h2>
-<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="co"># read</span></a>
-<a class="sourceLine" id="cb22-2" data-line-number="2"><span class="fu">cat</span> /node-1.log <span class="kw">|</span> <span class="fu">head</span> -20</a>
-<a class="sourceLine" id="cb22-3" data-line-number="3"><span class="fu">tail</span> -f logs/node-1.log</a>
-<a class="sourceLine" id="cb22-4" data-line-number="4"><span class="ex">jq</span> select(.ns[1]==<span class="st">&quot;consensus&quot;</span>)</a>
-<a class="sourceLine" id="cb22-5" data-line-number="5"><span class="ex">jq</span> -c . <span class="kw">|</span> <span class="kw">{</span> <span class="st">&quot;at&quot;</span>: <span class="ex">.at</span>, <span class="st">&quot;val&quot;</span>: .data.H <span class="kw">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># read</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a><span class="fu">cat</span> /node-1.log <span class="kw">|</span> <span class="fu">head</span> -20</span>
+<span id="cb22-3"><a href="#cb22-3"></a><span class="fu">tail</span> -f logs/node-1.log</span>
+<span id="cb22-4"><a href="#cb22-4"></a><span class="ex">jq</span> select(.ns[1]==<span class="st">&quot;consensus&quot;</span>)</span>
+<span id="cb22-5"><a href="#cb22-5"></a><span class="ex">jq</span> -c . <span class="kw">|</span> <span class="kw">{</span> <span class="st">&quot;at&quot;</span>: <span class="ex">.at</span>, <span class="st">&quot;val&quot;</span>: .data.H <span class="kw">}</span></span></code></pre></div>
 </section>
 <section id="bash" class="level2">
 <h2>bash</h2>
-<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="fu">find</span> -name all.js</a>
-<a class="sourceLine" id="cb23-2" data-line-number="2"><span class="kw">for</span> <span class="ex">j</span> in <span class="va">$(</span><span class="fu">find</span> -name all.js<span class="va">)</span><span class="kw">;</span> <span class="kw">do</span> <span class="fu">cp</span> -v /tmp/all.js <span class="va">$j</span><span class="kw">;</span> <span class="kw">done</span></a></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">find</span> -name all.js</span>
+<span id="cb23-2"><a href="#cb23-2"></a><span class="kw">for</span> <span class="ex">j</span> in <span class="va">$(</span><span class="fu">find</span> -name all.js<span class="va">)</span><span class="kw">;</span> <span class="kw">do</span> <span class="fu">cp</span> -v /tmp/all.js <span class="va">$j</span><span class="kw">;</span> <span class="kw">done</span></span></code></pre></div>
 </section>
 </section>
 </div>
@@ -1187,81 +1301,6 @@ P(<em>ω</em><sub>i</sub>) = 1/n, i=1,..,n<br />
 ]]></description>
     <pubDate>Thu, 09 Jun 2016 00:00:00 UT</pubDate>
     <guid>http://imast.am/mitq/haskell/algebraic-data-types.html</guid>
-    <dc:creator>Arthur Vardanyan</dc:creator>
-</item>
-<item>
-    <title>Աստուածային նախախնամութիւն (Հոգ մի արէք վաղուա օրուայ համար)</title>
-    <link>http://imast.am/hogi/mashalyan/astvacain-naxaxnamutyun.html</link>
-    <description><![CDATA[<div class="post-content">
-
-<p><a target="_blank" href="https://www.youtube.com/watch?v=Nfb-RggRsSc&amp;t=0m14s"><strong>Սուսաննա(0:14)</strong> </a> - Մենք ապրում ենք հոգալով մեր վաղուա օրվա խնդիրները, ջանում, հնարաւորինս բարեկեցիկ կեանք ապահովել մեր երեխաների համար: Երբեմն պաշտպանուած Եւ ապահով լինելու մեր ձգտումները հասնում են ծայրայեղութեան: Այսօր կփորձենք պարզել, արժէ արդեո՞ք մտասեւեռուել վաղուա օրուայ վրայ, թէ ինչպէս պատուիրում է Աստուած ապաւինել իրեն: Ընթերցենք աւետարանական հատուածը.</p>
-<blockquote>
-<p><a target="_blank" href="https://www.youtube.com/watch?v=Nfb-RggRsSc&amp;t=0m42s">ԱՒԵՏԱՐԱՆ ԸՍՏ ՄԱՏԹԷՈՍԻ 6.24</a><br />
-Աստուած եւ մամոնայ<br> Ապաւինում նախախնամութեանը</p>
-</blockquote>
-<p><a target="_blank" href="http://www.youtube.com/watch?v=Nfb-RggRsSc&amp;t=2m39s"> <strong>Սուսաննա(2:39)</strong> </a> - Սրբազա՛ն, Աստուած, պատուիրում է չհոգալ վաղուա օրվա համար. ինչպե՞ս հասկանալ այս խօսքերը՝ տառացիորե՞ն:</p>
-<p><a target="_blank" href="http://www.youtube.com/watch?v=Nfb-RggRsSc&amp;t=2m45s"> <strong>Մաշալեան(2:45)</strong> </a>- Մենք յաճախ կհանդիպինք աւետարաններում այդպիսի խօսքի արտայայտութիւն, զոր օրինակ կըսէ. «եթէ աչքդ կգայթակղեցնէ քեզ, հանէ՛ անիկա, նետէ՛ քեզմէ դուրս: Ձեռքդ կգայթակղեցնէ կտրէ՛, նետէ՛», բայց եթէ մենք տառացի կերպով պիտի առնենք՝ կարելի՞ է, որ մարդու աչք երբեք չգայթակղեցնի, ձեռք չգայթակղեցնի, ոտք չգայթակղեցնի. մենք բոլորս այդպէս անդամալոյծ պէտք է շրջէինք: Ուրեմն յայտնի է, որ <strong>Տէր Յիսուս</strong> հոստէ ինչ կուզէ. շեշտէ՛ ուրիշ ճշմարտութիւն, որ գայթակղութիւնը շատ կարեւոր եւ ալ աւելի կարեւոր է հոգիին փրկութիւնը եւ մենք պիտի շատ կարգապահ ըլլանք մեր անդամներու նկատմամբ:</p>
-<p>Ուրեմն <strong>Տէր Յիսուս</strong> հոստէ(Մատթէոս 6.24) բոլոր ժամակներու ժողովրդին, իրականութեան մէջ, կոչ մը կուղէ՝ կըսէ որ. «դուք շատ կմտահոգուիք նիւթական բաներով: ի՞նչ պիտի ուտէք, ի՞նչ պիտի խմէք, ի՞նչ պիտի հագուիք» բայց կըսէ ուրիշ բաներ կան իրականութեան մէջ, աւելի հոգս ընելիք, պէտք է աւելի քաջ ապրիք դուք: Խնդիր այդ չէ իրապէս, որ մենք չունինք ուտելիք, խմելիք, հագուստ, բայց մեր միտքին մէջ մտահոգութիւն ըսուած մեխանիզմ մը կա, որ շարունակ մեզի անհանգիստ կընէ նոյնիսկ մեր քուններուն մէջ կմտնէ, մեր երազներուն մէջ կմտնէ եւ վաղուան մասին երկիւղ կազդէ մեր սիրտին մի տեսակ մենք շարունակ պրկուած կապրինք, շարունակ պահպանութեան տակ կապրինք, շարունակ կսպասենք, որ վաղը վատ բան մը կրնայ ըլլալ, գալիք տարիներ վատ կրնան ըլլալ. ուրեմն մենք պէտք է այդ վատ օրերուն համար պատրաստութիւն ընենք:</p>
-<blockquote>
-<p>Այսպէսով մենք կփախցնենք ապրիլը. գարունը կու գայ ծաղիկները կբացուին, բայց մենք չենք տեսնի անիկա, կտեսնենք մեր մտահոգութիւնը վաղուա մասին:</p>
-</blockquote>
-<p>Ձիւնը կիջնէ ամեն ինչ սպիտակ կդառնայ, մանուկները կխաղան, բայց մենք տխուր ենք, որովհետեւ մտահոգուած ենք վաղուան մասին: Գիշերը կու գայ աստղերը կփայլին, բայց մենք չենք տեսնիլ, որովհետեւ մխրճուած ենք ցեխի մէջ եւ կտեսնենք միայն վատը: Ուրեմն ինչու՞ է այսպէս, որովհետեւ մենք կարծես թէ մեր մշակոյթի կողմէն կսորվեցուինք մտահոգուիլ. <em>մտահոգուելը</em> մի տեսակ ապրելակերպ կդառնայ աշխարհահայեացք մը կդառնայ եւ այս պրկուած վիճակով, ուրեմն <em>մենք կեանքը չենք կրնայ վայելել</em>: <a target="_blank" href="https://www.youtube.com/watch?v=Nfb-RggRsSc&amp;t=5m32s"><strong>ե՞րբ պիտի վայելենք:</strong></a> Ուրեմն, <strong>Տէր Յիսուս</strong> կըսէ, որ այսօր պիտի վայելես Եւ քու միտքէդ դուրս պիտի հանես այս հիմնական վախերը, որովհետեւ այդ վախերը Աստուծմէ չէ գար, Աստուած այդպիսի աշխարհ մը ստեղծել է, որ հոնդէ բոլոր էակները լիակատար կառնեն իրենց կեանքի բաժինը:</p>
-<p><a target="_blank" href="https://www.youtube.com/watch?v=Nfb-RggRsSc&amp;t=5m56s"><strong>Սուսաննա(5:56)</strong></a> - Սրբազա՛ն, շատ գեղեցիկ է, երբ Աստուած պատուիրում է տեսնել այդ գեղեցիկը, ապրել թռչունների նման, ապրել դաշտի ծաղկի նման, բայդ արդեն այս աշխարհը մի տեսակ նիւթականացուած է. դժուար չէ, արդյո՞ք հետեւել այդ խորհուրդին կամ պատգամին:</p>
-<p><a target="_blank" href="https://www.youtube.com/watch?v=Nfb-RggRsSc&amp;t=6m11s"><strong>Մաշալեան(6:11)</strong></a> - Քրիստոնեան, դէպի զառիվեր ընթացող անձն է. ճանփան դժուար է, ինչպէս որ սար կբարձրանաք, բայց տեսարանը աւելի կյստականայ, կպարզանայ, կգեղեցկանայ: Ուրեմն դժուարութիւնը, որ մենք, <strong>Տէր Յիսուսի</strong> խօսքերուն մէջ կտեսնենք, արդեն անոնց իրական ըլլալը ցոյց կու դա, ինչպէս որ բժշկին կերթանք, մեզի կըսէ, որ դիետա պիտի ընես՝ սա պիտի չուտես, մարզանք պիտի ընես, քունդ լաւ պիտի առնես. կըսենք, որ շատ դժուար է. Այո՛, դժուար է, բայց այդ չփոխեր որ այդ խօսքերը ճշմարիտ են: Հետեւաբար, <strong>Տէր Յիսուսի</strong> խօսքերը. ապրիլ՝ մեր քաղաքական կեանքին մէջ, այս օրուան կեանքի մէջ, արդի կեանքին մէջ շատ դժուար է, բայց անկարելի չէ: Պէտք է մեր նայուածքը փոխել եւ պէտք է հասկնանք, որ մենք մեր միտքին մէջ ծուղակաւորված ենք. այսինքն մեզի սորվեցուցած է այս աշխարհը յատուկ տեսակ նայելու՝ դէպքերուն, դէմքերուն, անձերուն, հարստութեան, կեանքին, մահուան: Եւ այդ բոլոր հոգսերը մենք կառնենք մեր վրայ եւ այդպէս կնայինք, անոր համար տէրը ինչ կըսէ. «բոլոր յոգնածներդ եւ բեռնաւորուածներդ եկէք ինձի ես ձեզի հանգիստ կու տամ», ինչպե՞ս հանգիստ կու տայ Տէրը, կըսէ. «իմ բեռս առե՛ք եւ ինձմէ սորվեցե՛ք»շ այն ատեն հանգիստ կգտնէք ձեր հոգիներուն:</p>
-<p>Ուրեմն, <strong>Տէր Յիսուս</strong> մեր բեռերը չի կրնար առնել մեր վրայէն, այդ մտահոգութիւններէն չի կրնար փրկել մեզի, եթէ մենք իրմէ չենք սորվիր,</p>
-<blockquote>
-<p>միայն իր ուսուցումներով մենք կհասկնանք կեանքը եւ մահը եւ կարժեւորենք մեր ներկան:</p>
-</blockquote>
-<p>Մենք պետք է շատ լավ հասկնանք <strong>Տէր Յիսուսի</strong> խօսքերը. <strong>Տէր Յիսուս</strong> չի ըսեր, որ հոգս պիտի չընէք՝ կըսէ որ հոգս պիտի ընէք, բայց արդեն ձեր օրը այնքան լեցուն է այդ հոգսերով անոնցմով զբաղուեցէք, ներկայ դժուարութեամբ զբաղուէ, անիկա լուծելու ջանա, վաղը ուրիշ դժուարութիւնները պիտի ունենաս արդեն, հիմակուանէ ինչու՞ համար վաղուա հոգսերը կառնես քու վրադ, թերեւս երբեք իրականում էտի չէ…</p>
-<p><a target="_blank" href="https://www.youtube.com/watch?v=Nfb-RggRsSc&amp;t=8m42s">Ես կատակ մը կյիշեմ(8:42)</a>. ուրեմն ամուսինները կամուսնանան եւ առաջին գիշերեն սկսեալ կինը կըսէ որ, պառկելէն առաջ, «ձայն լսեցի, տունի մէջ գող մտած է, կարծես թէ, գնա՛, նայի՛»: Ամուսինը կերթայ, կնայի. բան մը չկայ, ուրեմն ամեն գիշեր նոյն պատմութիւնը, ամեն գիշեր կնիկը կըսէ, որ «ձայն մը լսեցի գող է կարծես» ամուսինը կերթայ… Տարիներ կանցնին, այսպէս 17 տարի յետոյ, կրկին ամուսինը կիջնէ կտեսնէ, որ գողը հոնէ, եւ գողը կտեսնէ կուզէ փախչիլ, ճիշտ պատուհանէն պիտի փախչի կբռնէ, կըսէ որ. «կեցի ուր կերթաս կինս կսպասէ քեզի 17 տարի»…</p>
-<p>Ուրեմն, իրապէս այսպիսի ծիծաղելի վիճակ է շատ անգամ մեր վախերը, երբեք պիտի չգան անոնք՝ զոր օրինակ, երբեք մենք անօթի պիտի չմնանք, քանի՞ գիշեր անօթի մնացինք մինչեւ այս տարեկան, երբեք մերկ պիտի չլանք մենք, երբեք թերեւս առանձին պիտի չմնանք, բայց կրնան ալ ըլլալ այս բոլորը, կրնան ալ ըլլալ, բայց հիմակուանէ ինչու՞ համար մտահոգուիլ 17 տարի յետոյ գալիք այդ դէպքի համար:</p>
-<p><a target="_blank" href="https://www.youtube.com/watch?v=Nfb-RggRsSc&amp;t=9m56s"><strong>Սուսաննա(9:56)</strong></a> - Սրբազան, իսկ վաղուա օրուայ մասին չհոգալը, չմտահոգուելը մի տեսակ պատասխանատուութիւնից խուսափել չէ՞, քաոսի չի՞ վերածի մարդու կեանքը:</p>
-<p><a target="_blank" href="https://www.youtube.com/watch?v=Nfb-RggRsSc&amp;t=10m06s"><strong>Մաշալեան(10:06)</strong></a> Ուրեմն, <strong>Տէր Յիսուս</strong> չըսէր, որ վաղուան համար մի պատրաստուեցէք, վաղուան համար հոգս մի ընէք կըսէ, այսինքն, գործ մը ընելու մէջ մենք ինչ զգացում կդնենք այդ շատ կարեւոր է: <strong>Տէր Յիսուսի</strong> ամբողջ փիլիսոփայութիւնը՝ կեանքի մօտեցումը վաղուան համար պատրաստուիլն է, չէ՞, յետմահու պատրաստութիւնն է, մենք միշտ պիտի այդ պատրաստութիւնը ունենանք, բայց առանց մտահոգուելու, առանց պանիկ ըլլալու, առանց ընկճուած ըլլալու, առանց յուսաբեկուելու, ուրեմն մենք խնդիրները կրնանք դիմագրաւել առանց այս ժխտական, բացասական ընկճուած զգացումների՝ <em>հաւատով:</em></p>
-<p>Ուրեմն, <strong>Տէր Յիսուս</strong> այս կըսէ մեզի, պէտք չէ, մենք, հասկնանք անիկա որոշ մարդոց պէս, որ Քրիստոնեան անհոգ պէտք է ապրի, աշխարհ իր հոգ պէտք չէ ըլլայ, միայն այսօր ինչ հաճոյք կա կապրի… Կան հեռու արեւելքի, այդպիսի փիլիսոփայութիւններ, Քրիստոնէութիւնը այդպէս չէ, <strong>Տէր Յիսուս</strong> չըսեր որ հոգս պիտի չընես, <strong>Տէր Յիսուս</strong> կըսէ որ. «այս օրը շիտակ պիտի ապրիս, այս օրուան հոգսը պիտի տանիս», ուրիշ տեղ ի՞նչ կըսէ, «ան որ իր խաչը չի առնէր ամեն օր եւ չի շալկեր եւ իմ ետեւէս չի գար արժանի չէ ինձի»:</p>
-<p>Ուրեմն մենք ամեն օր խաչ պիտի կրենք եւ անիկա իր հոգս ունի հարկաւ թէ, անիկա դուրին չէ, բայց <strong>Տէր Յիսուս</strong> կըսէ որ. «ասիկա առանց բարդոյթի ըրէք», այսինքն ձեր հոգիին ներսը չթափանցէ այս հոգսերը, որովհետեւ շիտակ ըլլանք, ի՞նչ մնացած է մէկ շաբթուան առաջուան մեր հոգսէն, չեմ ըսեր, որ մէկ տարուան, տասն տարուան առաջ, յիշեցէք մանուկ եղած ատենս որքան լացինք այն խախալիքին վրայ, որ երբեք չեկաւ, այն շոկոլադի վրայ՝ որ մեզի չառնուեցաւ, այն հագուստը, կօշիկը հաւնած էինք եւ՝ չեղաւ, ինկած էինք, մեր ընկերը մեզի վատ բան ըրած էր լացած էինք, եւ կամ երիտասարդութեան այդպէս մտահոգուեցանք, կարծեցինք, որ այդ սէրը մեր ամենէն մեծ սէրն է, եւ մերժուած ըլլալու այդ զգացումը… բայց անցած են բոլորը, կարծես թէ իրապէս մեր հոգսերը ժայռի վրայ չեն գրուած՝ աւազի վրայ գրուած են. հովը կառնի եւ կտանի: Հետեւաբար <strong>Տէր Յիսուս</strong> կըսէ որ.</p>
-<blockquote>
-<p>«հիմակուանէ դուն իմաստուն եղիր եւ հասկցիր, որ այս բոլորը չարժեր սրտմաշուք ընելուն, ուրիշ բաներ կան կեանքի մէջ մտահոգուելու, դուն քեզի համար այսքան մի մտահոգուիր, մի քիչ ուրիշներուն տեղ բաց կեանքիդ մէջ, Աստուծոյ տեղ բաց, այս աշխարհի մէջ բաներ մը փոխուելու մտահոգուէ, խաչ կրելու համար մտահոգուէ»</p>
-</blockquote>
-<p><a target="_blank" href="https://www.youtube.com/watch?v=Nfb-RggRsSc&amp;t=13m18s">Ուրեմն</a> <strong>Տէր Յիսուսի</strong> ըսածը իրապէս մեզի կեանքի պատասխանատուութիւններէն փախչիլ չի հրաւիրեր, ճիշտ հակառակը այդ պատասխանատուութիւնները ճիշտ եւ շիտակ կրելու մասին է, որ կոչ կուղղէ:</p>
-<p><a target="_blank" href="https://www.youtube.com/watch?v=Nfb-RggRsSc&amp;t=13m32s"><strong>Սուսաննա(13:32)</strong></a> - Սրբազա՛ն, մեր կեանքում յաճախ են հանդիպում մարդիկ, անգամ հաւատացեալ մարդիկ, ովքեր ապրում են ծայրաստիճան աղքատութեան մէջ: Չէ՞ որ կան դէպքեր երբ պարզապէս դժուար է հասկանալ կամ ընկալել վաղուա օրուայ մասին չհոգալու այս սկզբունքը:</p>
-<p><a target="_blank" href="https://www.youtube.com/watch?v=Nfb-RggRsSc&amp;t=13m47s"><strong>Մաշալեան(13:47)</strong></a> - Ուրեմն, շիտակ է, որ մեծագոյն հարցերէն մէկը հաւատացեալի համար.</p>
-<blockquote>
-<p>«Ինչու՞ համար բարիները ցաւ են քաշում: Ինչու՞ համար Աստծոյ հաւատացողները նեղութիւններու մէջ են:»</p>
-</blockquote>
-<p>Եւ անոր համար Հոբի գիրքը գրուած է. Հոբը, որ արդար մարդ էր, շիտակ մարդ էր, հաւատացեալ էր, մէկ են մէկ ամեն ինչ կկորսնցնէ. իր ընտանիքի անդամները, բոլոր հարստութիւնը, իր առողջութիւնը, եւ մարդիկ կուգան եւ կըսեն որ. «Դու մեղք մը գործած ես, որ այս բանը քու գլուխդ եկաւ» եւ ան ալ կըսէ որ. «Չէ, ուրիշ պատճառ մը պէտք է, որ ըլլայ»: Եւ Հոբի գիրքը ճիշտ այս ձեր հարցուցած հարցումին ուսումնասիրութիւնն է, եւ հոնդէ յայտնի կդառնայ,</p>
-<blockquote>
-<p>որ մարդուն այս կեանքին մէջ ապրելու նպատակն երջանիկ ըլլալ չէ: Մարդուն այս աշխարհին մէջ ապրելուն նպատակը <em>փորձուիլն է</em>, եւ <em>յաղթական դուրս գալն է</em>: Իր նկարագրի հաստատութիւնն է, իր հոգիին մէջ Աստուածաւաել եւ երկինքին՝ դրախտին, Աստուծոյ Արքայութեան հարմար անձնաւորութիւն կազմաւորելն է: <strong>Մեր այս կեանքի նպատակը այս է:</strong></p>
-</blockquote>
-<p><a target="_blank" href="https://www.youtube.com/watch?v=Nfb-RggRsSc&amp;t=15m20s">Մենք</a> պէտք է խոստովանինք, որ նեղութիւնները, դժուարութիւնները, ցաւը՝ մեր մէջը հոգեպէս աւելի հաստատ, աւելի զօրաւոր, աւելի գիտակից մարդ կկերտէ: Ուրեմն, յասպիսիններուն <strong>Սուրբ գիրքի</strong> տուած պատասխանը սա է. <em>«Աստուած կուզէ փաստել, որ իր հաւատացեալները, կրնան ապրիլ կեանքի նուաստագոյն պայմաններու մէջ եւ տակաւին շարունակել իրենց հաւատքը. իրենց հաւատքը ամենէն թանկագինն է:»</em> <a target="_blank" href="https://www.youtube.com/watch?v=Nfb-RggRsSc&amp;t=16m02s">Ուրեմն,</a> եթէ իրապէս հաւատացեալն ալ նոյն խնդիրը կապրի եւ անհաւատն ալ, եթէ երկունքն ալ նոյն պոռթկումներով պիտի ապրին, նոյնպէս պիտի ապստամբեն կեանքին, նոյնպէս յոռետես պիտի դառնան. <em>այն ատեն հաւատքի առաւելութիւնն ի՞նչ է</em>: <a target="_blank" href="https://www.youtube.com/watch?v=Nfb-RggRsSc&amp;t=16m18s">Ուրեմն,</a> Աստուած մի տեսակ այս աշխարհին կփաստի, որ իր հաւատացեալները կրնան դժուարութիւնների մէջէն անցնիլ, բայց մէկ տարբերութեամբ. ինքը անոնց հետ պիտի ըլլայ: Մարդ շատ զօրաւոր է իրականութեան մէջ մեր կարծածէն շատ աւելի զօրաւոր է…</p>
-<p>Հայ հոգեբան մը կար, անուն դժբախտաբար մոռցայ, ինքը ուսումնասիրած էր մեծ եղեռնեն փրկուած անձանց հաւատքի որակի մասին. այսինքն ջարդը տեսած այդ մարդիկ իրենց հաւատքի որակ ինչպե՞ս է, եւ լսեցի իր բանախօսութիւնը, այս հոգեբանի, ուսումնասիրած է 3-4 տարի այս անձերու հետ անձնապէս տեսնուելով, կըսեր. «…որ ես սկզբէն կկարծէի, որ այս մարդիկ իրենց հաւատքը կորսնցուցած են. այս վատ բաները, այս ողբերգութիւնները տեսնելով Աստծոյ հաւատալ որքան դժուար կըլլայ, բայց իրենց մէջը անհաւատ մարդու չհանդիպեցայ ես, եւ յետոյ հասկցայ, որ ճիշտ հակառակը, այդ դժուարութիւններու մէջ մարդիկ հասկցած են Աստուծոյ գոյութեան, Աստուծոյ փառութեան, եւ մարդու յանցանքը ըլլալով տեսնելու սկսած են այդ բոլորը ոչ թէ Աստուծոյ»:</p>
-<p><a target="_blank" href="https://www.youtube.com/watch?v=Nfb-RggRsSc&amp;t=17m35s">Հետեւաբար,</a> մենք պէտք չէ այդ դժուարութիւնները չափազանցենք՝ դժուարութիւնը՝ դժուարութիւն է: Կրակը իր ինկած տեղը կայրէ, բայց շատ քիչ դժուարութիւն կա, որ մարդը չկարողանայ տանել: Պօղոս առաքեալը մի հրաշալի խօսքը կա, չէ՞- կըսէ. «Աստուած մեզմէ ոչ մէկը մեծ փորձութեամբ չփորձել. մեր կարելիութենէն աւելի փորձութեամբ չենք փորձուի եթէ փորձութիւնը գայ, Աստուած ելքի ճամփան էլ կպատրաստէ մեզի համար»:</p>
-<p><a target="_blank" href="https://www.youtube.com/watch?v=Nfb-RggRsSc&amp;t=18m08s"><strong>Սուսաննա(18:08)</strong></a> - Սրբազա՛ն, <strong>Սուրբ գրքում</strong> կա՞ն օրինակները, երբ մարդիկ առաջնորդուել են այս <em>վաղուա օրուայ մասին չհոգալու այս սկզբունքով</em>:</p>
-<p><a target="_blank" href="https://www.youtube.com/watch?v=Nfb-RggRsSc&amp;t=18m14s"><strong>Մաշալեան(18:14)</strong></a> - Հարկաւ թէ, այսինքն գրեթէ <strong>Սուրբ գրքի</strong> բոլոր սուրբերը, ըսենք, մարգարէները այդ սկզբունքով ապրած են: Անմիջապէս իմ միտքս կու գայ, զոր օրինակ, Աբրահամը, Իսահակը եւ Յակոբը. ասոնք քոչւոր ժողովուրդ էին չէ՞՝ տեղ չունէին մնային, անասուններով միասին քաղաքէ-քաղաք, անապատէ-անապատ կընթանային եւ ճոխ կեանք կապրէին, որովհետեւ Աստուած իրենց հետ էր: Յովսէփ Գեղեցիկը, կյիշեմ, զոր օրինակ, որ ծախուեցաւ՝ իր եղբայրներու կողմէ եգիպտացիներուն, ստրուկ դարձաւ, հոնդէ անբաստանուեցաւ՝ բանդ դրուեցաւ, բանդի մէջ երկար տարիներ մնաց, բայց իր հաւատքը չկորսնցուց: Կտեսնենք, որ բոլոր այդ վիճակներու մէջ՝ ստրուկ եղած ատենը լաւ ստրուկ եղած է. անոր համար բարձրացած է, բանդին մէջ լաւ բանտարկեալ եղած է. անոր համար բանդապետը միւս բոլոր բանտարկեալների վրայ դրած է իրեն, երբ որ պետական մարդ դարձաւ ինքը իր գործը լաւ կընէր, հետեւաբար, մի տեսակ հոգս տանիլ այդ է, որ մեր ներկայ պարտականութիւնը լաւ պիտի կատարենք, ճիշտ մարդ պիտի ըլլանք այսօր, մեր կեանքի հիմերը ճիշտ պիտի դնենք այսօր, վաղը պիտի հնձենք ինչ որ մենք ցանած ենք:</p>
-<p><a target="_blank" href="https://www.youtube.com/watch?v=Nfb-RggRsSc&amp;t=19m46s">Անապատի կեանքը</a> լաւագոյն օրինակն է. առօրեայ հոգսերը տանելու: 40 տարի մէկ միլիոնէն աւելի մարդ, 40 տարի, անապատի մէջ ապրեցան, շրջեցան անապատի մէջ, ջուր քիչ էր, հաց քիչ էր, վտանգները շատ էին, ձանձրացուցիչ կեանք մըն էր, բայց 40 տարի Աստուած խնամեց, ինչպե՞ս. երկինքէն մանանայ իջեցուց: Ամեն առաւօտ թարմ էր անիկա միւս օրուան համար չէին կրնայ պահել անիկա, հետեւաբար մենք <strong>Սուրբ գիրքի</strong> մէջ կտեսնենք Եղիա մարգարէն,զոր օրինակ, ագռաւները կբերէին անոր հացը, որովհետեւ անապատում կպահվտեր, յետոյ այդ հացը եւ ջուրը անապատում պակսեցաւ, Աստուած ուղարկեց, որ այրի կին մը նայի անոր:</p>
-<p>Մենք իրապէս այս կտեսնենք <strong>Յիսուս Քրիստոսի</strong> կեանքում.</p>
-<blockquote>
-<p><a target="_blank" href="https://www.youtube.com/watch?v=Nfb-RggRsSc&amp;t=20m47s"><strong>Տէր Յիսուս</strong></a> այդպէս ապրեցաւ, իր խօսքերի զօրութիւնը այդ է արդեն, ինքը ապրեցաւ ինչպէս որ ըսաւ ինքը: Կրնաք մտածել, այն գիշերը որ պիտի բռնեն իրեն եւ վաղը պիտի խաչեն կըսէ, իր աշակերտներն. «…խաղաղութիւնս կթողիմ ձեզի, իմ խաղաղութիւնս»:</p>
-</blockquote>
-<p>Գիտեր որ մէկ շաբաթ յետոյ խաչ պիտի հանեն, ինքը նստեցաւ էշի վրայ՝ աւանակին վրայ եւ երուսաղեմ մտաւ փառքով եւ ընդունեց այդ փառքը, չլացաւ, Յիսու՛ս, ըսելով որ. «հաա, մէկ շաբաթ յետոյ ինձ պիտի խաչեն, ի՞նչ պիտի ընեմ ես», որովհետեւ գիտեր, որ խաչ կա բայց յետոյ յարութիւն էլ կա: Ուրեմն, մենք ալ պիտի այս օրինակները առնենք եւ ըսենք, որ այո դժուարութիւն կա հոգսեր կան, բայց վաղը արեւը վերստին պիտի բացուի վաղը նորէն կարելիութիւններ պիտի ըլլայ, նոյնիսկ մեռնիմ Աստուծոյ ժամանակը վերջ չունի, Աստուծոյ հետ ամեն ինչ լաւ պիտի ըլլայ:</p>
-<p><a target="_blank" href="https://www.youtube.com/watch?v=Nfb-RggRsSc&amp;t=21m55s"><strong>Սուսաննա(21:55)</strong></a> - Սրբազա՛ն, 1960-ական թուականներին սկսուեց հիպիական շարժում. շատ երիտասարդներ հետեւելով վաղուա օրուայ մասին չհոգալու սկզբունքին լքեցին տուն տեղ եւ սոցիալական լուրջ խնդիրների առջեւ կանգնեցին: Ո՞րն է այս սկզբունքի ճիշտ կիրառութեան գաղտնիքը, ինչպե՞ս խուսափել ծայրայեղութիւնից:</p>
-<p><a target="_blank" href="https://www.youtube.com/watch?v=Nfb-RggRsSc&amp;t=22m15s"><strong>Մաշալեան(22:15)</strong></a> - Այդ հիպիական շարժումը, երիտասարդները, կապստամբէին իրենց մեծերու ապրելակերպին, այդ 2-րդ աշխարհի պատերազմէն յետոյ աճած նոր սերունդ մըն էր, եւ իրենց մեծերու բարոյական կեանքի մէջ այդ կեղծաւորութիւնը կտեսնէին, կապիտալիզմի հակասութիւնները կտեսնէին, անտեղի պատերազմները կտեսնէին՝ որ միլիոնաւոր մարդիկ կմեռնէր, ապստամբեցին անոր, բայց գացին միւս ծայրայեղութեան: Ասիկա <strong>Տէր Յիսուս Քրիստոսի</strong> ուսուցումը չէ, ասիկա ալ աւելի հեռու արեւելեան կրօններու որոշ մի տեսակին ուսուցումն է, որ հնդկաստանին մէջ այդպէս կապրին մարդիկ՝ փողոցներում կապրին, իսկ <strong>Տէր Յիսուսի</strong> ըսածը սա է. «դուն այս օրդ Աստուծոյ հետ միասին լաւ պիտի ապրիս, քու պարտականութիւններդ այս օր լաւ պիտի կատարես եւ պէտք չէ հոգեբանական բարդոյթներով կրես քու խնդիրներդ, որովհետեւ Աստուած մը ունիս, եթէ հաւատք մը ունիս, քու այդ մտահոգուած նիւթական բաները քեզի պիտի տրուի. մի քիչ պակաս մի քիչ աւելի, բայց պիտի ունենաս ինչպե՞ս չես կրնայ ունենալ, Աստուած, որ այս աշխարհը այսքան առատաձեռնորեն ստեղծել է եւ բոլոր արարածներուն իր կեանքի բաժինը տուած է քեզի պիտի չտա՞, մի մտահոգուիր այդ բանով»՝ Բայց, <strong>Տէր Յիսուս</strong>, հարկաւ թէ ինքը մտահոգուեցաւ մարդոց հոգիներու փրկութեան համար, մտահոգուեցաւ իր աշակերտներու կրթութեամբ, մտահոգուեցաւ բարոյականութիւնը դէպի լաւ յառաջ տանելու, մտահոգուեցաւ իր քարոզչութեան գործով, մտահոգուեցաւ իր այդ օրուայ քաղաքական եւ տնտեսական խնդիրներով: Ուրեմն, միայն թէ <strong>Տէր Յիսուս</strong> ինչ ըսաւ. «հիւանդագին զգացումներուն առանց վերածուելու մէկը պէտք է զբաղուի իր ապրած ընկերութեան բարօրութեան համար»: Ուրեմն. այս տարբերութիւնը կա, այս ծայրայեղութիւնը կա: Ուրեմն, հոգս տանիլ բայց չարտօնել որ այդ հոգսը թունաւորէ քո կեանքդ միայն այդ պահուն, այդ գործը կատարելու ատեն այնքան պրկուէ, երբ որ քնանաս գլուխդ դնես սնարիդ վրայ Աստծուն յանձնես դու քեզի եւ մանուկների պէս քնանաս:</p>
-<p><a target="_blank" href="https://www.youtube.com/watch?v=Nfb-RggRsSc&amp;t=24m50s"><strong>Սուսաննա(24:50)</strong></a> Այսինքն, Աստծուն ապաւինել դեռեւս չի նշանակում մատնուել անգործութեան:</p>
-<p><a target="_blank" href="https://www.youtube.com/watch?v=Nfb-RggRsSc&amp;t=24m54s"><strong>Մաշալեան(24:54)</strong></a> Հարկաւ թէ, նայեցէք, նոյնիսկ մենք անապատի հայրեր ունինք, որոնք աշխարհէն փախած են, անապատներ փախած են, քարայրներու մէջ. ճգնաւորներ եղած են, բայց երբ, որ իրենց գրութիւններուն կնայիք, իրենք, երբ որ առաւօտուն կարթնանան, իրենց աղօթքի կեանքը. գործ կանուանեն, այնպէս մեր եկեղեցու արարողութիւնները մենք պաշտօն կկոչենք, պաշտամունք՝ պաշտօն կատարել է նաեւ, հետեւաբար, երբ որ մէկը Աստուծոյ կմօտենայ, կհասկանայ, որ Աստուած այնպէս կարգաւորած է այս տիեզերքը որ հիերարխիա մը կա. նվիրաբերութիւն մե, հրեշտակներ, մարդիկ, անասուններ բոյսեր: Բոլորը իր պարտականութիւն ունի. իր պարտականութիւնը Եւ իր իրաւունքները, հետեւաբար հրեշտակներ միայն երկնքի մէջ չեն թռչի այդպէս եւ միայն երաժշտութիւն մտիկ չեն ընէր այդպէս, գործ ունին այս տիեզերքի մէջ՝ Աստուծոյ ծառայելու, Աստուծոյ նպատակները իրագործելու իրենց բաժինը ունին նաեւ հրեշտակները:</p>
-<p><a target="_blank" href="https://www.youtube.com/watch?v=Nfb-RggRsSc&amp;t=26m02s"><strong>Սուսաննա(26:02)</strong></a> Սրբազան, իսկ ինչպէ՞ս հասկանալ, եթէ դաշտի խոտին, որ այսօր կա եւ վաղը հնոց կնետուի այդպէս է հագցնում Աստուած որքան եւս առաւել ձեզ թերահաւատներ:</p>
-<p><a target="_blank" href="https://www.youtube.com/watch?v=Nfb-RggRsSc&amp;t=26m15s"><strong>Մաշալեան(26:15)</strong></a> Մենք կկարծենք, որ մեր կեանքի վերաբերեալ բաներուն, մենք, կտիրապետենք, բայց չենք տիրապետում. մենք ճաշը կերանք, մեր ճաշը կերանք, հիմա կմարսէ մեր մարմինը՝ մեր ստամոքսը եւ աղիքները եւ արիւնը կշրջի մեր երակներուն մէջ՝ ուղեղը կերթայ, սիրտին կերթայ, մենք կնենք այս բանը: Հիմա, ես, աչքերս կբանամ. տեսնել կուզեմ եւ կտեսնեմ, բայց ոչ թէ որովհետեւ ես շատ ջանք կթափեմ. անոր համար, պարզապէս, ինծի, տրուեր են այդ բոլորը, հետեւաբար իրականութեան մէջ մարդն ալ շատ զօրաւոր չէ թիթեռնիկէն մը, ճանճէն մը, մրջիւնէն մը աւելի զօրաւոր չենք մենք, ինչ որ շնորհուած է անոնց մեզ էլ այդպէս շնորհուած է, հետեւաբար պէտք է այս գիտակցութիւնը ունենանք որ եթէ Աստուած կեանք կուտայ անոր համար կապրինք մենք, Աստուած առողջութիւն կուտայ անոր համար կմարսենք մենք, Աստուած մեր օրերը կերկարէ անոր համար մենք աշխատում ենք եւ դրամ ենք վաստակում ոչ թէ մենք շատ ջանք կթափենք անոր համար եւ ինչ կպատահի, յետոյ, օր մը կհանդիպինք խնդիր մը, բժիշկը կըսէ. «ուռուցք մը ելել է հոստէ» կըսենք. «ինչպէ՞ս» Է, ինչպէս ուռուցք չելլեր քո մէջդ, հըմ, անոր մասին երբեք մտածած ես, ինչու՞ համար մեր աչքերը կատարախտ չըլլար, ինչո՞ւ համար, մեր վէրքը կբուժուի, մածել ե՞նք անոր մասին: Ուրեմն, Աստուած, այդ հրաշալի զօրութեամբ կկարգադրէ անիկա, ինչպէս ծաղիկներուն, ինչպէս թռչուններուն այդպէս ալ մարդուն համար: Աստծոյ ափին մէջն էք դուք արդէն, կվայելէք արդէն Աստուծոյ ոլոր բարիքները, անոր մասին մտածեցէք, այսքան հարստութիւն տուել է ձեզի աւելին պիտի չտա՞ Աստուած, պիտի տա: Հետեւաբար, Տէր Յիսուս, կըսէ, որ. «շատ մտահոգուելով այս բաներուն մասին չկարծէք, որ աւելի շիտակ պիտի ընթանայ…» Չեմ, գիտէր, դուք ալ անդրադարձած էք, որոշ բաներուն եթէ շատ ուշադրութիւն կդարձնէք</p>
-</div>
-
-<div class="row">
-        <span class="date  text-right">
-            <i class="fa fa-calenda"></i> Posted on June  8, 2016
-        </span>
-        <span class="tags text-right" style="width: 100%">
-            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/%D5%A1%D6%82%D5%A5%D5%BF%D5%A1%D6%80%D5%A1%D5%B6.html">աւետարան</a></li><li><a href="/tags/%D5%84%D5%A1%D5%B7%D5%A1%D5%AC%D5%A5%D5%A1%D5%B6.html">Մաշալեան</a></li></ul>
-        </span>
-</div>
-]]></description>
-    <pubDate>Wed, 08 Jun 2016 00:00:00 UT</pubDate>
-    <guid>http://imast.am/hogi/mashalyan/astvacain-naxaxnamutyun.html</guid>
     <dc:creator>Arthur Vardanyan</dc:creator>
 </item>
 

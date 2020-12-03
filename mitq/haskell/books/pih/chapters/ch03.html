@@ -76,9 +76,9 @@
 <h2>Հիմնական Հասկացությունները</h2>
 <p><strong>Տիպը</strong> դա նույնանման, իրար առնչվող արժեքների հավաքածուն է։ Օրինակ՝ <code>Bool</code> տիպը պարունակում է երկու տրամաբանական արժեք <code>False</code> և <code>True</code>, Իսկ <code>Bool → Bool</code> տիպը պարունակում է բոլոր այն ֆունկցիաները որոնք արտապատկերում են <code>Bool</code> պազմությունե <code>Bool</code> բազմության, ինչպիսին է տրամաբական ժխտում ֆունկցիան՝ ~¬~։</p>
 <p>Մենք կգործածենք <code>v :: T</code> գրելաձևը, հայտարարելու համար, որ <code>v</code> արժեքի տիպը <code>T</code> է, օրինակ՝</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="dt">False</span><span class="ot"> ::</span> <span class="dt">Bool</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="dt">True</span><span class="ot"> ::</span> <span class="dt">Bool</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">¬<span class="ot"> ::</span> <span class="dt">Bool</span> <span class="ot">→</span> <span class="dt">Bool</span></a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1"></a><span class="dt">False</span><span class="ot"> ::</span> <span class="dt">Bool</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="dt">True</span><span class="ot"> ::</span> <span class="dt">Bool</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>¬<span class="ot"> ::</span> <span class="dt">Bool</span> <span class="ot">→</span> <span class="dt">Bool</span></span></code></pre></div>
 </section>
 <section id="տիպի-արտածում-type-inference" class="level2">
 <h2>Տիպի Արտածում (type inference)</h2>
@@ -93,26 +93,26 @@
 <ol>
 <li>Որո՞նք են հետևյալ արժեքների *տիպերը*։</li>
 </ol>
-<div class="sourceCode" id="cb2"><pre class="sourceCode haskell"><code class="sourceCode haskell"><a class="sourceLine" id="cb2-1" data-line-number="1">[’a’,’b’,’c’]</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">(’a’, ’b’, ’c’)</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">[(<span class="dt">False</span> , ’<span class="dt">O</span>’), (<span class="dt">True</span> , ’1’)]</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">([<span class="dt">False</span>,<span class="dt">True</span>],[’0’,’1’])</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5">[tail , init , reverse]</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb2-1"><a href="#cb2-1"></a>[’a’,’b’,’c’]</span>
+<span id="cb2-2"><a href="#cb2-2"></a>(’a’, ’b’, ’c’)</span>
+<span id="cb2-3"><a href="#cb2-3"></a>[(<span class="dt">False</span> , ’<span class="dt">O</span>’), (<span class="dt">True</span> , ’1’)]</span>
+<span id="cb2-4"><a href="#cb2-4"></a>([<span class="dt">False</span>,<span class="dt">True</span>],[’0’,’1’])</span>
+<span id="cb2-5"><a href="#cb2-5"></a>[<span class="fu">tail</span> , <span class="fu">init</span> , <span class="fu">reverse</span>]</span></code></pre></div>
 <ol>
 <li>Որո՞նք են հետևյալ ֆունկցիաների *տիպերը*։</li>
 </ol>
-<div class="sourceCode" id="cb3"><pre class="sourceCode haskell"><code class="sourceCode haskell"><a class="sourceLine" id="cb3-1" data-line-number="1">second xs     <span class="fu">=</span> head (tail xs)</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">swap (x,y)    <span class="fu">=</span> (y,x)</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5">pair x y      <span class="fu">=</span> (x,y)</a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7">double x      <span class="fu">=</span> x <span class="fu">*</span> <span class="dv">2</span></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9">palindrome xs <span class="fu">=</span> reverse xs <span class="fu">==</span> xs</a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb3-11" data-line-number="11">twice f x     <span class="fu">=</span> f (f x)</a>
-<a class="sourceLine" id="cb3-12" data-line-number="12"></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1"></a>second xs     <span class="ot">=</span> <span class="fu">head</span> (<span class="fu">tail</span> xs)</span>
+<span id="cb3-2"><a href="#cb3-2"></a></span>
+<span id="cb3-3"><a href="#cb3-3"></a>swap (x,y)    <span class="ot">=</span> (y,x)</span>
+<span id="cb3-4"><a href="#cb3-4"></a></span>
+<span id="cb3-5"><a href="#cb3-5"></a>pair x y      <span class="ot">=</span> (x,y)</span>
+<span id="cb3-6"><a href="#cb3-6"></a></span>
+<span id="cb3-7"><a href="#cb3-7"></a>double x      <span class="ot">=</span> x <span class="op">*</span> <span class="dv">2</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a></span>
+<span id="cb3-9"><a href="#cb3-9"></a>palindrome xs <span class="ot">=</span> <span class="fu">reverse</span> xs <span class="op">==</span> xs</span>
+<span id="cb3-10"><a href="#cb3-10"></a></span>
+<span id="cb3-11"><a href="#cb3-11"></a>twice f x     <span class="ot">=</span> f (f x)</span>
+<span id="cb3-12"><a href="#cb3-12"></a></span></code></pre></div>
 <p><strong><strong>Hint</strong></strong>: take care to include the necessary class constraints if the functions are defined using overloaded operators.~</p>
 <ol>
 <li>Check your answers to the preceding two questions using Hugs.</li>
@@ -125,30 +125,30 @@
 <h3>Լուծումներ</h3>
 <ol>
 <li><p>վարժ. 3.1</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode haskell"><code class="sourceCode haskell"><a class="sourceLine" id="cb4-1" data-line-number="1">[’a’,’b’,’c’]<span class="ot"> ::</span> [<span class="dt">Char</span>]</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">(’a’, ’b’, ’c’)<span class="ot"> ::</span> (<span class="dt">Char</span>, <span class="dt">Char</span>, <span class="dt">Char</span>)</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">[ (<span class="dt">False</span> , ’<span class="dt">O</span>’), (<span class="dt">True</span> , ’1’) ]<span class="ot"> ::</span> [(<span class="dt">Bool</span>, <span class="dt">Char</span>)]</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">([<span class="dt">False</span>,<span class="dt">True</span>],[’0’,’1’])<span class="ot"> ::</span> ([<span class="dt">Bool</span>], [<span class="dt">Char</span>])</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5">[ tail , init , reverse ]<span class="ot"> ::</span> [[a] <span class="ot">-&gt;</span> [a]]</a></code></pre></div></li>
+<div class="sourceCode" id="cb4"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb4-1"><a href="#cb4-1"></a>[’a’,’b’,’c’]<span class="ot"> ::</span> [<span class="dt">Char</span>]</span>
+<span id="cb4-2"><a href="#cb4-2"></a>(’a’, ’b’, ’c’)<span class="ot"> ::</span> (<span class="dt">Char</span>, <span class="dt">Char</span>, <span class="dt">Char</span>)</span>
+<span id="cb4-3"><a href="#cb4-3"></a>[ (<span class="dt">False</span> , ’<span class="dt">O</span>’), (<span class="dt">True</span> , ’1’) ]<span class="ot"> ::</span> [(<span class="dt">Bool</span>, <span class="dt">Char</span>)]</span>
+<span id="cb4-4"><a href="#cb4-4"></a>([<span class="dt">False</span>,<span class="dt">True</span>],[’0’,’1’])<span class="ot"> ::</span> ([<span class="dt">Bool</span>], [<span class="dt">Char</span>])</span>
+<span id="cb4-5"><a href="#cb4-5"></a>[ <span class="fu">tail</span> , <span class="fu">init</span> , <span class="fu">reverse</span> ]<span class="ot"> ::</span> [[a] <span class="ot">-&gt;</span> [a]]</span></code></pre></div></li>
 <li><p>վարժ. 3.2</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode haskell"><code class="sourceCode haskell"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="ot">second ::</span> [a] <span class="ot">-&gt;</span> a</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">second xs     <span class="fu">=</span> head (tail xs)</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="ot">swap ::</span> (a, b) <span class="ot">-&gt;</span> (b, a)</a>
-<a class="sourceLine" id="cb5-5" data-line-number="5">swap (x,y)    <span class="fu">=</span> (y,x)</a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="ot">pair ::</span> a b <span class="ot">-&gt;</span> (a, b)</a>
-<a class="sourceLine" id="cb5-8" data-line-number="8">pair x y      <span class="fu">=</span> (x,y)</a>
-<a class="sourceLine" id="cb5-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="ot">double ::</span> <span class="dt">Num</span> a <span class="ot">=&gt;</span> a <span class="ot">-&gt;</span> a</a>
-<a class="sourceLine" id="cb5-11" data-line-number="11">double x      <span class="fu">=</span> x <span class="fu">*</span> <span class="dv">2</span></a>
-<a class="sourceLine" id="cb5-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb5-13" data-line-number="13"><span class="ot">palindrome ::</span> <span class="dt">Eq</span> a <span class="ot">=&gt;</span> [a] <span class="ot">-&gt;</span> <span class="dt">Bool</span></a>
-<a class="sourceLine" id="cb5-14" data-line-number="14">palindrome xs <span class="fu">=</span> reverse xs <span class="fu">==</span> xs</a>
-<a class="sourceLine" id="cb5-15" data-line-number="15"></a>
-<a class="sourceLine" id="cb5-16" data-line-number="16"><span class="ot">twice ::</span> (a <span class="ot">-&gt;</span> a) <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> a</a>
-<a class="sourceLine" id="cb5-17" data-line-number="17">twice f x     <span class="fu">=</span> f (f x)</a>
-<a class="sourceLine" id="cb5-18" data-line-number="18"></a></code></pre></div></li>
+<div class="sourceCode" id="cb5"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb5-1"><a href="#cb5-1"></a><span class="ot">second ::</span> [a] <span class="ot">-&gt;</span> a</span>
+<span id="cb5-2"><a href="#cb5-2"></a>second xs     <span class="ot">=</span> <span class="fu">head</span> (<span class="fu">tail</span> xs)</span>
+<span id="cb5-3"><a href="#cb5-3"></a></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="ot">swap ::</span> (a, b) <span class="ot">-&gt;</span> (b, a)</span>
+<span id="cb5-5"><a href="#cb5-5"></a>swap (x,y)    <span class="ot">=</span> (y,x)</span>
+<span id="cb5-6"><a href="#cb5-6"></a></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="ot">pair ::</span> a b <span class="ot">-&gt;</span> (a, b)</span>
+<span id="cb5-8"><a href="#cb5-8"></a>pair x y      <span class="ot">=</span> (x,y)</span>
+<span id="cb5-9"><a href="#cb5-9"></a></span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="ot">double ::</span> <span class="dt">Num</span> a <span class="ot">=&gt;</span> a <span class="ot">-&gt;</span> a</span>
+<span id="cb5-11"><a href="#cb5-11"></a>double x      <span class="ot">=</span> x <span class="op">*</span> <span class="dv">2</span></span>
+<span id="cb5-12"><a href="#cb5-12"></a></span>
+<span id="cb5-13"><a href="#cb5-13"></a><span class="ot">palindrome ::</span> <span class="dt">Eq</span> a <span class="ot">=&gt;</span> [a] <span class="ot">-&gt;</span> <span class="dt">Bool</span></span>
+<span id="cb5-14"><a href="#cb5-14"></a>palindrome xs <span class="ot">=</span> <span class="fu">reverse</span> xs <span class="op">==</span> xs</span>
+<span id="cb5-15"><a href="#cb5-15"></a></span>
+<span id="cb5-16"><a href="#cb5-16"></a><span class="ot">twice ::</span> (a <span class="ot">-&gt;</span> a) <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> a</span>
+<span id="cb5-17"><a href="#cb5-17"></a>twice f x     <span class="ot">=</span> f (f x)</span>
+<span id="cb5-18"><a href="#cb5-18"></a></span></code></pre></div></li>
 <li><p>վարժ. 3.3</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode haskell"><code class="sourceCode haskell"></code></pre></div></li>
 <li><p>վարժ. 3.4</p>

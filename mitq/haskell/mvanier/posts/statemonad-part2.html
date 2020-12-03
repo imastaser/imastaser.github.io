@@ -60,7 +60,7 @@
                     <hr>
                 </div> -->
                 <div class="post-content">
-<p>[original article](<a href="http://mvanier.livejournal.com/1901.html" class="uri">http://mvanier.livejournal.com/1901.html</a>)</p>
+<p>[original article](<a href="http://mvanier.livejournal.com/1901.html">http://mvanier.livejournal.com/1901.html</a>)</p>
 <p>In my [previous post](statemonad<sub>part1</sub>.html), I described in general terms how state transformations are represented in functional languages like Haskell that don’t have the concept of mutable state (assignment to variables). There are different ways to do this, but the way that most closely simulates the way things work in imperative languages is by using state monads. This involves taking an imperative computation and breaking it down into very small subcomputations, each of which is a very simple state transformation. In this post, I’m going to expand on this, showing what I mean by “simple state transformation”. I’m going to try to explain not only how state monads work in Haskell, but why they work the way they do.</p>
 <p>To model an imperative computation in Haskell, you do this:</p>
 <ol>

@@ -63,7 +63,7 @@
 <div id="TOC"><ul>
 <li><a href="#hakyll-and-github-pages">Hakyll and github pages</a></li>
 <li><a href="#install-haskell-on-ubuntu">Install Haskell on Ubuntu</a><ul>
-<li><a href="#soft-approach-from-learnhaskellhttpsgithub.combitemyapplearnhaskell">1. Soft Approach (from [learnhaskell](<a href="https://github.com/bitemyapp/learnhaskell" class="uri">https://github.com/bitemyapp/learnhaskell</a>))</a></li>
+<li><a href="#soft-approach-from-learnhaskellhttpsgithub.combitemyapplearnhaskell">1. Soft Approach (from [learnhaskell](<span>https://github.com/bitemyapp/learnhaskell</span>))</a></li>
 <li><a href="#ubuntu-prerequisites">2. ubuntu prerequisites</a></li>
 <li><a href="#if-you-have-only-ghc-but-not-cabal-installed">3. if you have only GHC (but not cabal) installed:</a></li>
 <li><a href="#if-error">if error</a></li>
@@ -75,7 +75,7 @@
 <li><a href="#easyinstall-pygments-1.6-py2.7.egg">```easy<sub>install</sub> Pygments-1.6-py2.7.egg```</a></li>
 </ul></li>
 </ul></div>
-<p>How to install latest GHC from source + latest stack + cabal + cabal-install on ubuntu - <a href="https://gist.github.com/yantonov/10083524" class="uri">https://gist.github.com/yantonov/10083524</a></p>
+<p>How to install latest GHC from source + latest stack + cabal + cabal-install on ubuntu - <a href="https://gist.github.com/yantonov/10083524">https://gist.github.com/yantonov/10083524</a></p>
 <section id="hakyll-and-github-pages" class="level1">
 <h1>Hakyll and github pages</h1>
 <ol>
@@ -88,87 +88,87 @@
 <li>hakyll-init my-site This creates a folder my-site in the current directory, with some example content and a generic configuration.</li>
 <li>add “CNAME” file</li>
 </ol>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="ex">cabal</span> update</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="ex">cabal</span> init <span class="co">#create config file and edit it to set up depends package if need, and set main-is:</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="ex">cabal</span> sandbox init</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="ex">cabal</span> install</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="ex">./site</span> clean</a>
-<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="ex">./site</span> watch --port=5000</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">cabal</span> update</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="ex">cabal</span> init <span class="co">#create config file and edit it to set up depends package if need, and set main-is:</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="ex">cabal</span> sandbox init</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="ex">cabal</span> install</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="ex">./site</span> clean</span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="ex">./site</span> watch --port=5000</span></code></pre></div>
 <p><strong><strong>git setup</strong></strong></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="fu">git</span> config --system  --list  #show configs from  /usr/etc/gitconfig</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="fu">git</span> config --global  --list  #show configs from  ~/.gitconfig</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="fu">git</span> config --local   --list     #show configs from .git/config</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="fu">git</span> config --list         # show</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="fu">git</span> remote -v             # show remote repository address if exist</a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="fu">git</span> remote add origin https://github.comarthurvard/my-site.git <span class="co">#add address with alias origin</span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="fu">git</span> branch -a <span class="co"># show branches</span></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="bu">cd</span> my-site</a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="fu">git</span> init</a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="fu">git</span> remote add origin https://github.comarthurvard/muy-site.git</a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="fu">git</span> pull origin master <span class="co">#this step is required when repository is not empty, usually ther is READ.me file</span></a>
-<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="fu">touch</span> .gitignore <span class="co"># add .gitignore file for hakyll</span></a>
-<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="fu">git</span> add .</a>
-<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="fu">git</span> commit -m <span class="st">&quot;init commit&quot;</span></a>
-<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="fu">git</span> push -u origin master</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">git</span> config --system  --list  <span class="co">#show configs from  /usr/etc/gitconfig</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">git</span> config --global  --list  <span class="co">#show configs from  ~/.gitconfig</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="fu">git</span> config --local   --list     <span class="co">#show configs from .git/config</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="fu">git</span> config --list         <span class="co"># show</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="fu">git</span> remote -v             <span class="co"># show remote repository address if exist</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="fu">git</span> remote add origin https://github.comarthurvard/my-site.git <span class="co">#add address with alias origin</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="fu">git</span> branch -a <span class="co"># show branches</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="bu">cd</span> my-site</span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="fu">git</span> init</span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="fu">git</span> remote add origin https://github.comarthurvard/muy-site.git</span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="fu">git</span> pull origin master <span class="co">#this step is required when repository is not empty, usually ther is READ.me file</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="fu">touch</span> .gitignore <span class="co"># add .gitignore file for hakyll</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a><span class="fu">git</span> add .</span>
+<span id="cb2-14"><a href="#cb2-14"></a><span class="fu">git</span> commit -m <span class="st">&quot;init commit&quot;</span></span>
+<span id="cb2-15"><a href="#cb2-15"></a><span class="fu">git</span> push -u origin master</span></code></pre></div>
 <p>[GitHub pages]</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="bu">cd</span> my-site <span class="co">#if needed</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="fu">mkdir</span> _publish</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="bu">cd</span> _publish</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="fu">git</span> init</a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="fu">git</span> remote -v</a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="fu">git</span> remote add origin https://github.com/ArthurVard/my-site.am</a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="fu">cp</span> ../CNAME .</a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="fu">git</span> add CNAME</a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="fu">git</span> commit -m <span class="st">&quot;CNAME file&quot;</span></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="fu">git</span> checkout --orphan gh-pages</a>
-<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="fu">git</span> push -u origin gh-pages <span class="co">#create branch</span></a>
-<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co"># add publish.sh and rebuild.sh script files to current dir</span></a>
-<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="ex">emacs</span> publish.sh <span class="co">#change hakyll-site dir and git repo address</span></a>
-<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="ex">./publish.sh</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="bu">cd</span> my-site <span class="co">#if needed</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">mkdir</span> _publish</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="bu">cd</span> _publish</span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="fu">git</span> init</span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="fu">git</span> remote -v</span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="fu">git</span> remote add origin https://github.com/ArthurVard/my-site.am</span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="fu">cp</span> ../CNAME .</span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="fu">git</span> add CNAME</span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="fu">git</span> commit -m <span class="st">&quot;CNAME file&quot;</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="fu">git</span> checkout --orphan gh-pages</span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="fu">git</span> push -u origin gh-pages <span class="co">#create branch</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="co"># add publish.sh and rebuild.sh script files to current dir</span></span>
+<span id="cb3-13"><a href="#cb3-13"></a><span class="ex">emacs</span> publish.sh <span class="co">#change hakyll-site dir and git repo address</span></span>
+<span id="cb3-14"><a href="#cb3-14"></a><span class="ex">./publish.sh</span></span></code></pre></div>
 </section>
 <section id="install-haskell-on-ubuntu" class="level1">
 <h1>Install Haskell on Ubuntu</h1>
 <section id="soft-approach-from-learnhaskellhttpsgithub.combitemyapplearnhaskell" class="level3">
-<h3>1. Soft Approach (from [learnhaskell](<a href="https://github.com/bitemyapp/learnhaskell" class="uri">https://github.com/bitemyapp/learnhaskell</a>))</h3>
-<p>This PPA is excellent and is what I use on all my Linux dev and build machines: <a href="http://launchpad.net/~hvr/+archive/ghc" class="uri">http://launchpad.net/~hvr/+archive/ghc</a></p>
+<h3>1. Soft Approach (from [learnhaskell](<a href="https://github.com/bitemyapp/learnhaskell">https://github.com/bitemyapp/learnhaskell</a>))</h3>
+<p>This PPA is excellent and is what I use on all my Linux dev and build machines: <a href="http://launchpad.net/~hvr/+archive/ghc">http://launchpad.net/~hvr/+archive/ghc</a></p>
 <p>Specifically:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="fu">sudo</span> apt-get update<span class="kw">`</span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#**12.04 and below** -&gt;</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="fu">sudo</span> apt-get install python-software-properties</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#**12.04 and above** -&gt;</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="fu">sudo</span> apt-get install software-properties-common</a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="fu">sudo</span> add-apt-repository -y ppa:hvr/ghc<span class="kw">`</span></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="fu">sudo</span> apt-get update<span class="kw">`</span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="fu">sudo</span> apt-get install cabal-install-1.20 ghc-7.8.3 happy-1.19.4 alex-3.1.3<span class="kw">`</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">sudo</span> apt-get update<span class="kw">`</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="co">#**12.04 and below** -&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="fu">sudo</span> apt-get install python-software-properties</span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co">#**12.04 and above** -&gt;</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="fu">sudo</span> apt-get install software-properties-common</span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="fu">sudo</span> add-apt-repository -y ppa:hvr/ghc<span class="kw">`</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="fu">sudo</span> apt-get update<span class="kw">`</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="fu">sudo</span> apt-get install cabal-install-1.20 ghc-7.8.3 happy-1.19.4 alex-3.1.3<span class="kw">`</span></span></code></pre></div>
 <p>Then add `~/.cabal/bin:/opt/cabal/1.20/bin:/opt/ghc/7.8.3/bin:/opt/happy/1.19.4/bin:/opt/alex/3.1.3/bin` to your `PATH` (bash<sub>profile</sub>, zshrc, bashrc, etc)</p>
 <p><strong>Optional</strong> You could also add `.cabal-sandbox/bin` to your path. Code that you are actively developing will be available to you from the command line. This only works when your current working directory is a cabal sandbox.</p>
 </section>
 <section id="ubuntu-prerequisites" class="level3">
 <h3>2. ubuntu prerequisites</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="fu">sudo</span> apt-get install libgmp-dev -y  # Multiprecision arithmetic library developers tools</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="fu">sudo</span> -K  # ??</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="ex">Get</span> ghc from http://www.haskell.org/ghc/ and install</a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="fu">wget</span> http://www.haskell.org/ghc/dist/7.8.3/ghc-7.8.3-i386-unknown-linux-deb7.tar.xz</a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="fu">tar</span> -xvf ghc-7.8.3-i386-unknown-linux-deb7.tar.xz</a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="bu">cd</span> ghc-7.8.3</a>
-<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="ex">./configure</span> --prefix=/opt/ghc-7.8.3</a>
-<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="fu">make</span> -j 2 install</a>
-<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="ex">Open</span> ~/.bashrc file and add:</a>
-<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="va">PATH=$PATH</span>:/opt/ghc-7.8.3/bin</a>
-<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="bu">source</span> ~/.bashrc <span class="co"># reload bash</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">sudo</span> apt-get install libgmp-dev -y  <span class="co"># Multiprecision arithmetic library developers tools</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">sudo</span> -K  <span class="co"># ??</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="ex">Get</span> ghc from http://www.haskell.org/ghc/ and install</span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="fu">wget</span> http://www.haskell.org/ghc/dist/7.8.3/ghc-7.8.3-i386-unknown-linux-deb7.tar.xz</span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="fu">tar</span> -xvf ghc-7.8.3-i386-unknown-linux-deb7.tar.xz</span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="bu">cd</span> ghc-7.8.3</span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="ex">./configure</span> --prefix=/opt/ghc-7.8.3</span>
+<span id="cb5-9"><a href="#cb5-9"></a><span class="fu">make</span> -j 2 install</span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="ex">Open</span> ~/.bashrc file and add:</span>
+<span id="cb5-11"><a href="#cb5-11"></a><span class="va">PATH=$PATH</span>:/opt/ghc-7.8.3/bin</span>
+<span id="cb5-12"><a href="#cb5-12"></a><span class="bu">source</span> ~/.bashrc <span class="co"># reload bash</span></span></code></pre></div>
 </section>
 <section id="if-you-have-only-ghc-but-not-cabal-installed" class="level3">
 <h3>3. if you have only GHC (but not cabal) installed:</h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="fu">wget</span> http://www.haskell.org/cabal/release/cabal-install-1.20.0.3/cabal-install-1.20.0.3.tar.gz</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="fu">tar</span> xvf cabal-install-1.20.0.3.tar.gz</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="bu">cd</span> cabal-1.20.0.3</a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="ex">./bootstrap.sh</span> --user</a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="ex">runhaskell</span> Setup.hs configure --user</a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="ex">runhaskell</span> Setup.hs build</a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="ex">runhaskell</span> Setup.hs install</a>
-<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="bu">cd</span> ../cabal-install</a>
-<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="fu">sh</span> bootstrap.sh</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">wget</span> http://www.haskell.org/cabal/release/cabal-install-1.20.0.3/cabal-install-1.20.0.3.tar.gz</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="fu">tar</span> xvf cabal-install-1.20.0.3.tar.gz</span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="bu">cd</span> cabal-1.20.0.3</span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="ex">./bootstrap.sh</span> --user</span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="ex">runhaskell</span> Setup.hs configure --user</span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="ex">runhaskell</span> Setup.hs build</span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="ex">runhaskell</span> Setup.hs install</span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="bu">cd</span> ../cabal-install</span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="fu">sh</span> bootstrap.sh</span></code></pre></div>
 </section>
 <section id="if-error" class="level2">
 <h2>if error</h2>
@@ -178,26 +178,26 @@
 </section>
 <section id="if-error-regarding-locals-see" class="level2">
 <h2>if error regarding Locals see</h2>
-<p>[Configure Locales in Ubuntu](<a href="http://www.thomas-krenn.com/en/wiki/Configure_Locales_in_Ubuntu" class="uri">http://www.thomas-krenn.com/en/wiki/Configure_Locales_in_Ubuntu</a>) [ERROR: ‘invalid byte sequence’](<a href="http://ppenzin.github.io/haskell/quickcheck/freebsd/2014/06/25/tf-random-invalid-byte-sequence/" class="uri">http://ppenzin.github.io/haskell/quickcheck/freebsd/2014/06/25/tf-random-invalid-byte-sequence/</a>) see also: [Safer Haskell Install](<a href="http://yannesposito.com/Scratch/en/blog/Safer-Haskell-Install/index.html" class="uri">http://yannesposito.com/Scratch/en/blog/Safer-Haskell-Install/index.html</a>)</p>
+<p>[Configure Locales in Ubuntu](<a href="http://www.thomas-krenn.com/en/wiki/Configure_Locales_in_Ubuntu">http://www.thomas-krenn.com/en/wiki/Configure_Locales_in_Ubuntu</a>) [ERROR: ‘invalid byte sequence’](<a href="http://ppenzin.github.io/haskell/quickcheck/freebsd/2014/06/25/tf-random-invalid-byte-sequence/">http://ppenzin.github.io/haskell/quickcheck/freebsd/2014/06/25/tf-random-invalid-byte-sequence/</a>) see also: [Safer Haskell Install](<a href="http://yannesposito.com/Scratch/en/blog/Safer-Haskell-Install/index.html">http://yannesposito.com/Scratch/en/blog/Safer-Haskell-Install/index.html</a>)</p>
 <section id="links-regarding-cabal-and-ghc" class="level3">
 <h3>Links regarding cabal and ghc</h3>
-<p>[<a href="http://hyperpolyglot.org/" class="uri">http://hyperpolyglot.org/</a>](<a href="http://hyperpolyglot.org/" class="uri">http://hyperpolyglot.org/</a>) [Install Haskell on Ubuntu from source](<a href="https://gist.github.com/Dexyne/5791465" class="uri">https://gist.github.com/Dexyne/5791465</a>) [<a href="https://gist.github.com/wting/8498731" class="uri">https://gist.github.com/wting/8498731</a>](<a href="https://gist.github.com/wting/8498731" class="uri">https://gist.github.com/wting/8498731</a>) [<a href="http://coldwa.st/e/blog/2013-08-20-Cabal-sandbox.html" class="uri">http://coldwa.st/e/blog/2013-08-20-Cabal-sandbox.html</a>](<a href="http://coldwa.st/e/blog/2013-08-20-Cabal-sandbox.html" class="uri">http://coldwa.st/e/blog/2013-08-20-Cabal-sandbox.html</a>) [<a href="https://gist.github.com/yantonov/10083524" class="uri">https://gist.github.com/yantonov/10083524</a>](<a href="https://gist.github.com/yantonov/10083524" class="uri">https://gist.github.com/yantonov/10083524</a>)</p>
+<p>[<a href="http://hyperpolyglot.org/">http://hyperpolyglot.org/</a>](<a href="http://hyperpolyglot.org/">http://hyperpolyglot.org/</a>) [Install Haskell on Ubuntu from source](<a href="https://gist.github.com/Dexyne/5791465">https://gist.github.com/Dexyne/5791465</a>) [<a href="https://gist.github.com/wting/8498731">https://gist.github.com/wting/8498731</a>](<a href="https://gist.github.com/wting/8498731">https://gist.github.com/wting/8498731</a>) [<a href="http://coldwa.st/e/blog/2013-08-20-Cabal-sandbox.html">http://coldwa.st/e/blog/2013-08-20-Cabal-sandbox.html</a>](<a href="http://coldwa.st/e/blog/2013-08-20-Cabal-sandbox.html">http://coldwa.st/e/blog/2013-08-20-Cabal-sandbox.html</a>) [<a href="https://gist.github.com/yantonov/10083524">https://gist.github.com/yantonov/10083524</a>](<a href="https://gist.github.com/yantonov/10083524">https://gist.github.com/yantonov/10083524</a>)</p>
 </section>
 </section>
 </section>
 <section id="installing-python-pygments-on-windows" class="level1">
 <h1>Installing Python Pygments on Windows</h1>
-<p>How install [Pygments](<a href="http://pygments.org/" class="uri">http://pygments.org/</a>) syntax highlighter on Windows for use with hakyll site generator</p>
+<p>How install [Pygments](<a href="http://pygments.org/">http://pygments.org/</a>) syntax highlighter on Windows for use with hakyll site generator</p>
 <ul>
 <li>Download and install Python 2.7.2</li>
 <li>Add C:\27\ and C:\27 to the Windows path</li>
-<li>Download [ez<sub>setup</sub>.py](<a href="http://peak.telecommunity.com/dist/ez_setup.py" class="uri">http://peak.telecommunity.com/dist/ez_setup.py</a>)</li>
+<li>Download [ez<sub>setup</sub>.py](<a href="http://peak.telecommunity.com/dist/ez_setup.py">http://peak.telecommunity.com/dist/ez_setup.py</a>)</li>
 <li>Run ```python ez<sub>setup</sub>.py```</li>
-<li>Downlad [Pygments-1.6-py2.7.egg](<a href="https://pypi.python.org/pypi/Pygments" class="uri">https://pypi.python.org/pypi/Pygments</a>)</li>
+<li>Downlad [Pygments-1.6-py2.7.egg](<a href="https://pypi.python.org/pypi/Pygments">https://pypi.python.org/pypi/Pygments</a>)</li>
 </ul>
 <section id="easyinstall-pygments-1.6-py2.7.egg" class="level2">
 <h2>```easy<sub>install</sub> Pygments-1.6-py2.7.egg```</h2>
-<p>details from [Installing Python Pygments on Windows](<a href="http://zduck.com/2009/installing-python-pygments-on-windows/" class="uri">http://zduck.com/2009/installing-python-pygments-on-windows/</a>)</p>
+<p>details from [Installing Python Pygments on Windows](<a href="http://zduck.com/2009/installing-python-pygments-on-windows/">http://zduck.com/2009/installing-python-pygments-on-windows/</a>)</p>
 <p>And that’s it.</p>
 </section>
 </section>
