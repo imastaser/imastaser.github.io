@@ -1,0 +1,79 @@
+---
+title: Online Courses
+tags: courses
+date: 2020-12-01
+description: DESCRIPTION
+comments: true
+toc: true
+---
+
+
+* Data Structures & Algorithms
+- [[https://www.youtube.com/watch?v=0IAPZzGSbME&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=1][1. Introduction to Algorithms]]
+  - [[https://www.youtube.com/watch?v=-JTq1BFBwmo&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=2][1.1 Priori Analysis and Posteriori Testing]]
+  - [[https://www.youtube.com/watch?v=FbYzBWdhMb0&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=3][1.2 Characteristics of Algorithm]]
+  - [[http://youtu.be/xGYsEqe9Vl0][1.3 How Write and Analyze Algorithm]]
+  - [[http://youtu.be/1U3Uwct45IY][1.4 Frequency Count Method]]
+  - [[http://youtu.be/9TlHvipP5yA][1.5.1 Time Complexity #1]]
+  - [[http://youtu.be/9SgLBjXqwd4][1.5.2 Time Complexity Example #2]]
+  - [[http://youtu.be/p1EnSvS3urU][1.5.3 Time Complexity Example #3]]
+  - [[http://youtu.be/w7t4_JUUTeg][1.6 Classes of functions]]
+  - [[http://youtu.be/5v-tKX2uRAk][1.7 Compare Class of Functions]]
+  - [[http://youtu.be/A03oI0znAoc][1.8.1 Asymptotic Notations Big Oh - Omega - Theta #1]]
+  - [[http://youtu.be/Nd0XDY-jVHs][1.8.2 Asymptotic Notations Big Oh - Omega - Theta #2]]
+  - [[http://youtu.be/NI4OKSvGAgM][1.9 Properties of Asymptotic Notations]]
+  - [[http://youtu.be/mwN18xfwNhk][1.10.1 Comparison of Functions #1]]
+  - [[http://youtu.be/WlBBTSL0ZRc][1.10.2 Comparison of Functions #2]]
+  - [[http://youtu.be/lj3E24nnPjI][1.11 Best Worst and Average Case Analysis]]
+  - [[http://youtu.be/wU6udHRIkcc][1.12 Disjoint Sets Data Structure - Weighted Union and Collapsing Find]]
+
+- [[http://youtu.be/2Rr2tW9zvRg][2 Divide And Conquer]]
+  - [[http://youtu.be/][]
+  - [[http://youtu.be/][]
+  - [[http://youtu.be/][]
+  - [[http://youtu.be/][]
+  - [[http://youtu.be/][]
+- [[http://youtu.be/ARvQcqJ_-NY][3. Greedy Method - Introduction]]
+  - [[http://youtu.be/][]
+  - [[http://youtu.be/][]
+  - [[http://youtu.be/][]
+  - [[http://youtu.be/][]
+  - [[http://youtu.be/][]
+- [[http://youtu.be/5dRGRueKU3M][4 Principle of Optimality - Dynamic Programming introduction]]
+  - [[http://youtu.be/][]
+  - [[http://youtu.be/][]
+  - [[http://youtu.be/][]
+  - [[http://youtu.be/][]
+  - [[http://youtu.be/][]
+- [[http://youtu.be/pcKY4hjDrxk][5.1 Graph Traversals - BFS & DFS -Breadth First Search and Depth First Search]]
+  - [[http://youtu.be/jFZsDDB0-vo][5.2 Articulation Point and Biconnected Components]]
+- [[http://youtu.be/DKCbsiDBN6c][6 Introduction to Backtracking - Brute Force Approach]]
+  - [[http://youtu.be/][]
+  - [[http://youtu.be/][]
+  - [[http://youtu.be/][]
+  - [[http://youtu.be/][]
+- [[http://youtu.be/3RBNPc0_Q6g][7 Branch and Bound Introduction]]
+  - [[http://youtu.be/][]
+  - [[http://youtu.be/][]
+  - [[http://youtu.be/][]
+  - [[http://youtu.be/][]
+- [[http://youtu.be/e2cF8a5aAhE][8. NP-Hard and NP-Complete Problems]]
+  - [[http://youtu.be/][]
+- [[http://youtu.be/V5-7GzOfADQ][9.1 Knuth-Morris-Pratt KMP String Matching Algorithm]]
+  - [[http://youtu.be/][]
+- [[http://youtu.be/jDM6_TnYIqE][10.1 AVL Tree - Insertion and Rotations]]
+- [[http://youtu.be/ddsP7NecEBk][Asymptotic Notations - Simplified]]
+- [[http://youtu.be/mFY0J5W8Udk][Hashing Technique - Simplified]]
+- [[http://youtu.be/2raV0H9KqY8][Shortest Path Algorithms (Dijkstra and Bellman-Ford) - Simplified]]
+- [[http://youtu.be/kyUpc_5705s][BFS DFS - Simplified]]
+- [[http://youtu.be/q6RicK1FCUs][Tower of Hanoi Problem - Made Easy]]
+- [[http://youtu.be/MJZd6uPi88E][Row-Major and Column-Major Mapping]]
+
+
+* Programming Concepts
+ - [[http://youtu.be/OqLt2GfX6jg][Uses of pointers]]
+ - [[http://youtu.be/PdvGEI-P3-M][Stack vs Heap]]
+ - [[http://youtu.be/uMGwjNuidZU][Pointer Arithmetic - *p++; *++p; ++*p;]]
+ - [[http://youtu.be/868qXWoGS9E][Pointer to Array]]
+ - [[http://youtu.be/ygK0YON10sQ][Recursion and Stack]]
+
