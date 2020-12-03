@@ -1,6 +1,6 @@
 
 sshGitHub="git@github.com:imastaser/imastaser.github.io.git"
-hakylldir=~/imastaser.github.io
+hakylldir=~/imastaser.github.io/web
 pubdir=$hakylldir/_publish
 
 ./rebuild.sh        && \
