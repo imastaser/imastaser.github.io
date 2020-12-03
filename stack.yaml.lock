@@ -5,22 +5,15 @@
 
 packages:
 - completed:
-    hackage: hakyll-4.11.0.0@sha256:3ada948c0d2f0bb01cbd9181adba1f9b37857bdd9287186c3143b89453bee791,9964
+    hackage: hakyll-4.13.4.0@sha256:d97cb1b1cf7b901ce049e6e0aa5b1ac702cf52d2e475f5d3fe2de3694bb7dc7b,8867
     pantry-tree:
-      size: 7475
-      sha256: 250bfe788e6933a9dfcc95c030a4272dfb9f2f982ac25002bf4a256b000c15d8
+      size: 7841
+      sha256: e31b612480429149bd2c042dd49cdb1a5eb9c807d4acce4a971a6da3d6f5db81
   original:
-    hackage: hakyll-4.11.0.0
-- completed:
-    hackage: pandoc-citeproc-0.13.0.1@sha256:7f45aaa1126a7f88f2bcfb1c0c6b3ca017dc6115c7beac6dfe82c75131a5f4ac,7617
-    pantry-tree:
-      size: 21489
-      sha256: 6bd7503e4aa1448cbb96873bac0feac117b0ddf087828570bc518d4ffb53a089
-  original:
-    hackage: pandoc-citeproc-0.13.0.1
+    hackage: hakyll-4.13.4.0
 snapshots:
 - completed:
-    size: 568655
-    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/10/5.yaml
-    sha256: d5d2a8f55085643b41a30e9191cbbd4f8f707dd63facdddfbce08d811f808444
-  original: lts-10.5
+    size: 523541
+    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/14/23.yaml
+    sha256: f761fe419a1a44fc3ef47f5bfb1853304d13320fc72b45d2798c08d21dabc23c
+  original: lts-14.23

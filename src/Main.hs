@@ -5,6 +5,8 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE OverloadedStrings #-}
 
+module Main where
+
 import           Control.Applicative             ((<$>))
 import           Data.Char
 import           Data.Maybe                      (catMaybes)
@@ -16,39 +18,7 @@ import           Data.Time.Format                (formatTime)
 import           GHC.IO.Encoding                 (setFileSystemEncoding,
                                                   setForeignEncoding,
                                                   setLocaleEncoding, utf8)
-import           Hakyll                          (Compiler, Configuration,
-                                                  Context,
-                                                  FeedConfiguration (..), Item,
-                                                  Pattern, Routes, Tags,
-                                                  applyAsTemplate,
-                                                  applyTemplateList, bodyField,
-                                                  buildTags, compile,
-                                                  composeRoutes,
-                                                  compressCssCompiler,
-                                                  constField, copyFileCompiler,
-                                                  create, customRoute,
-                                                  dateField,
-                                                  defaultConfiguration,
-                                                  defaultContext,
-                                                  defaultHakyllReaderOptions,
-                                                  defaultHakyllWriterOptions,
-                                                  deployCommand, field,
-                                                  fromCapture, getMetadataField,
-                                                  getResourceBody,
-                                                  getUnderlying, gsubRoute,
-                                                  hakyllWith, idRoute,
-                                                  listField, loadAll,
-                                                  loadAllSnapshots,
-                                                  loadAndApplyTemplate,
-                                                  loadBody, makeItem, match,
-                                                  modificationTimeField,
-                                                  pandocCompilerWith,
-                                                  previewHost, recentFirst,
-                                                  relativizeUrls, renderAtom,
-                                                  renderRss, route,
-                                                  saveSnapshot, setExtension,
-                                                  templateCompiler, toFilePath,
-                                                  toUrl, (.&&.), (.||.))
+import           Hakyll
 import           Hakyll.Web.Tags
 import           System.FilePath.Posix           (addExtension, dropExtension,
                                                   replaceExtension,
@@ -60,6 +30,17 @@ import           Text.Blaze.Html.Renderer.String (renderHtml)
 import qualified Text.Blaze.Html5                as H
 import qualified Text.Blaze.Html5.Attributes     as A
 import           Text.Pandoc.Options
+
+
+import           Compilers
+
+config :: Configuration
+config = defaultConfiguration
+    { deployCommand = "rsync -avz -e ssh ./_site/ \
+                       \ a@a.com:public_html/"
+    , previewHost = "0.0.0.0"
+    , previewPort = 8000
+    }
 
 main :: IO ()
 main = do
@@ -293,19 +274,6 @@ myFeedConfiguration = FeedConfiguration
     , feedRoot        = "http://imast.am"
     }
 
--- -----------------------------------------------------------------------------
--- * Compilers
-
--- | Creates a compiler to render a list of posts for a given pattern, context,
--- and sorting/filtering function
-postList :: Pattern
-         -> Context String
-         -> ([Item String] -> Compiler [Item String])
-         -> Compiler String
-postList pattern postCtx sortFilter = do
-    posts   <- sortFilter =<< loadAll pattern
-    itemTpl <- loadBody "templates/post-item.html"
-    applyTemplateList itemTpl postCtx posts
 
 -- -----------------------------------------------------------------------------
 -- * Helpers
@@ -318,9 +286,6 @@ getCurrentYear = do
   return $ show year
 
 
-myTagCloud :: Tags -> Compiler String
-myTagCloud tags =  renderTagList tags  -- show tag posts count in parns e.g haskell(3)
---  renderTagCloud 80 250 tags -- tag posts count feed to tag font size
 
 myTagsField :: String -> Tags -> Context a
 myTagsField =
@@ -338,39 +303,8 @@ renderOneTag tag (Just filepath) =
         H.a ! A.href (toValue $ toUrl filepath) $ toHtml tag
 
 --------------------------------------------------------------------------------
-config :: Configuration
-config = defaultConfiguration
-    { deployCommand = "rsync -avz -e ssh ./_site/ \
-                       \ a@a.com:public_html/"
-    , previewHost = "0.0.0.0"
-    }
 
 
-myPandocCompiler' :: Maybe String -> Compiler (Item String)
-myPandocCompiler' withToc =
-    pandocCompilerWith defaultHakyllReaderOptions $
-        case withToc of
-            Just x | map toLower x `elem` ["true", "yes"] -> writerWithToc
-                   | otherwise                            -> writerOpts
-            Nothing                                       -> writerOpts
-
-    where writerOpts = defaultHakyllWriterOptions
-                           { writerReferenceLinks = True
-                           , writerSectionDivs = True
-                          -- , writerHtml5 = True
-                           , writerHTMLMathMethod = MathJax "http://cdn.mathjax.org/mathjax/latest/MathJax.js"
-                           , writerColumns = 100
-                           }
-          writerWithToc =
-            writerOpts { writerTableOfContents = True
-                       , writerTemplate = Just "$if(toc)$<div id=\"TOC\">$toc$</div>$endif$\n$body$"
-                    --   , writerStandalone = True
-                       }
-
-myPandocCompiler :: Compiler (Item String)
-myPandocCompiler = do
-    ident <- getUnderlying
-    myPandocCompiler' =<< getMetadataField ident "toc"
 
 -- ------------------------------------------------------------------------------
 -- * routes
