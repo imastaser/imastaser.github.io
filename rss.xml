@@ -16,26 +16,26 @@
 <li><a href="#տեսակավորման-ալգորիթմներ">Տեսակավորման ալգորիթմներ</a><ul>
 <li><a href="#պղպջակային-bubble-sort">Պղպջակային (Bubble sort )</a><ul>
 <li><a href="#վերլուծություն">Վերլուծություն</a></li>
-<li><a href="#կայուն-է---այո">Կայուն է - այո</a></li>
-<li><a href="#ադապտիվ-է---այո">Ադապտիվ է - այո</a></li>
 <li><a href="#դիտողություններ">Դիտողություններ</a></li>
-<li><a href="#կոդ">Կոդ</a></li>
+<li><a href="#կոդը">Կոդը</a></li>
 </ul></li>
 <li><a href="#տեղադրմանբ-insertion-sort">Տեղադրմանբ (Insertion sort)</a><ul>
 <li><a href="#վերլուծություն-1">Վերլուծություն</a></li>
-<li><a href="#կայուն-է---այո-1">Կայուն է - այո</a></li>
-<li><a href="#ադապտիվ-է---այո-1">Ադապտիվ է - այո</a></li>
 <li><a href="#դիտողություններ-1">Դիտողություններ</a></li>
-<li><a href="#կոդը">Կոդը</a></li>
+<li><a href="#կոդը-1">Կոդը</a></li>
 </ul></li>
 <li><a href="#ընտրությամբ-selection-sort">Ընտրությամբ (Selection sort)</a><ul>
 <li><a href="#վերլուծություն-2">Վերլուծություն</a></li>
-<li><a href="#կայուն-է---ոչ">Կայուն է - ոչ</a></li>
-<li><a href="#ադապտիվ-է---ոչ">Ադապտիվ է - ոչ</a></li>
 <li><a href="#դիտողություններ-2">Դիտողություններ</a></li>
-<li><a href="#կոդը-1">Կոդը</a></li>
+<li><a href="#կոդը-2">Կոդը</a></li>
 </ul></li>
-<li><a href="#արագ-quick-sort">Արագ (Quick sort)</a></li>
+<li><a href="#արագ-quick-sort">Արագ (Quick sort)</a><ul>
+<li><a href="#ներածություն">Ներածություն</a></li>
+<li><a href="#բաժանման-ընթացակարգ-partitioning-procedure">Բաժանման ընթացակարգ (Partitioning procedure)</a></li>
+<li><a href="#վերլուծություն-3">Վերլուծություն</a></li>
+<li><a href="#դիտողություններ-3">Դիտողություններ</a></li>
+<li><a href="#կոդը-3">Կոդը</a></li>
+</ul></li>
 </ul></li>
 </ul></div>
 <section id="տեսակավորման-ալգորիթմներ" class="level1">
@@ -43,8 +43,8 @@
 <p><strong>Կայունությունը (stability)</strong> - եթե տեսակավորման ալգորիթմը պահպանում է հավասար էլեմնենտների խոխադարձ տեղակայումը, ապա այսպիտի սորտավորման ալգորիթմը կանվանենք կայուն:</p>
 <p><strong>Ադապտիվություն (adaptive)</strong> - կասենք տեսակավորման ալգորիթմը ադապտիվ է եթե նախօրոք սորտավորված տվյալների վրա ծախսում է մինիմում ժամանակ՝ ցուցադրում է իր լավագույն ժամանակը(Best case):</p>
 <p><strong>Տվյալների կառուցվածքը</strong> եթե հատուկ չի նշվում, ալգորթմը նկարագրելիս, նշանակում է խոսքը միաչափ զանգվածի մասին է</p>
-<p>// <a href="http://www.cheat-sheets.org/saved-copy/bigoposter.pdf">http://www.cheat-sheets.org/saved-copy/bigoposter.pdf</a></p>
-<div class="sourceCode" id="cb1" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"></code></pre></div>
+<div class="sourceCode" id="cb1" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">// http://www.cheat-sheets.org/saved-copy/bigoposter.pdf</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a></span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -66,7 +66,7 @@
 <td>Ω(n)</td>
 <td>θ(n<sup>2</sup>)</td>
 <td>O(n<sup>2</sup>)</td>
-<td>Comparision sorts</td>
+<td>Comparision sort</td>
 <td>O(1)</td>
 </tr>
 <tr class="even">
@@ -91,11 +91,11 @@
 </tr>
 <tr class="even">
 <td>Quicksort</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>No</td>
+<td>No</td>
+<td>Ω(n*log(n))</td>
+<td>θ(n*log(n))</td>
+<td>O(n<sup>2</sup>)</td>
 <td></td>
 <td>O(log(n))</td>
 </tr>
@@ -126,7 +126,7 @@
 <td></td>
 <td></td>
 <td></td>
-<td>Index sorts</td>
+<td>Index sort</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -183,11 +183,8 @@
 <div class="sourceCode" id="cb3" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1"></a>Դիցուք ունենք n տարրանի զանգված, ապա.</span>
 <span id="cb3-2"><a href="#cb3-2"></a>- Փասերի քանակը՝ (n-<span class="dv">1</span>)</span>
 <span id="cb3-3"><a href="#cb3-3"></a>- Համեմատությունների քանակը՝ <span class="dv">1</span>+<span class="dv">2</span>+...+n-<span class="dv">1</span> = n*(n-<span class="dv">1</span>)/<span class="dv">2</span> ~ O(n^<span class="dv">2</span>)</span>
-<span id="cb3-4"><a href="#cb3-4"></a>- Մաքսիմալ հնարավոր տեղափոխությունների քանակը՝ <span class="dv">1</span>+<span class="dv">2</span>+...+n-<span class="dv">1</span> = n*(n-<span class="dv">1</span>)/<span class="dv">2</span> ~ O(n^<span class="dv">2</span>)</span>
-<span id="cb3-5"><a href="#cb3-5"></a></span></code></pre></div>
-</section>
-<section id="կայուն-է---այո" class="level3">
-<h3>Կայուն է - այո</h3>
+<span id="cb3-4"><a href="#cb3-4"></a>- Մաքսիմալ հնարավոր տեղափոխությունների քանակը՝ <span class="dv">1</span>+<span class="dv">2</span>+...+n-<span class="dv">1</span> = n*(n-<span class="dv">1</span>)/<span class="dv">2</span> ~ O(n^<span class="dv">2</span>)</span></code></pre></div>
+<p><strong>Կայու՞ն է</strong> - այո</p>
 <div class="sourceCode" id="cb4" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1"></a>|--------------------|</span>
 <span id="cb4-2"><a href="#cb4-2"></a>| <span class="dv">9</span> ] <span class="dv">9</span>   <span class="dv">9</span>   <span class="dv">9</span>   <span class="dv">9</span>  | No change of order, =&gt; Bubbke sort is stable</span>
 <span id="cb4-3"><a href="#cb4-3"></a>| <span class="dv">9</span>*] <span class="dv">9</span>*] <span class="dv">3</span>   <span class="dv">3</span>   <span class="dv">3</span>  |</span>
@@ -195,9 +192,7 @@
 <span id="cb4-5"><a href="#cb4-5"></a>| <span class="dv">5</span>   <span class="dv">5</span>   <span class="dv">5</span> ] <span class="dv">9</span>*] <span class="dv">4</span>  |</span>
 <span id="cb4-6"><a href="#cb4-6"></a>| <span class="dv">4</span>   <span class="dv">4</span>   <span class="dv">4</span>   <span class="dv">4</span> ] <span class="dv">9</span>* |</span>
 <span id="cb4-7"><a href="#cb4-7"></a>|--------------------|</span></code></pre></div>
-</section>
-<section id="ադապտիվ-է---այո" class="level3">
-<h3>Ադապտիվ է - այո</h3>
+<p><strong>Ադապտի՞վ է</strong> - այո</p>
 <p>Պղպջակային ալգորիթմը իր բնույթով <strong>ադապտիվ</strong> չէ, բայց այն հնարավոր է դարձնել ադապտիվ, կոդի մեջ այդ նպատակի համար օգտագործում ենք flag փոփոխականը որողելու համար հերթական փասի ընթացքում գոնե մեկ տեղափոխություն(swap) եղել է, եթե չի եղել նշանակում է տվյալնեն արդեն կարգավրոված են:</p>
 <div class="sourceCode" id="cb5" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1"></a>| sorted list   |</span>
 <span id="cb5-2"><a href="#cb5-2"></a>|---------------|</span>
@@ -217,8 +212,8 @@
 <li>Այս տեսակավորման միջանկյալ արդյունքները՝ k Փաս-ից հետո, k &lt; n-1, նույնպես կարող են օգտակար լինեն, քանի որ ամեն Փասի ընթացքում «ամենածանր» տարրը իջնում է ներքև, հետևաբար 1-ին փասից հետո կունենաք մեծագույն տարրը, 2-րդից հետո երկու մեծագույն տարրերը և այդպես շարունակ:</li>
 </ul>
 </section>
-<section id="կոդ" class="level3">
-<h3>Կոդ</h3>
+<section id="կոդը" class="level3">
+<h3>Կոդը</h3>
 <div class="sourceCode" id="cb6" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1"></a><span class="dt">void</span> BubbleSort(<span class="dt">int</span> A[], <span class="dt">int</span> n)</span>
 <span id="cb6-2"><a href="#cb6-2"></a>{</span>
 <span id="cb6-3"><a href="#cb6-3"></a> <span class="co">// no swapping means the list already sorted</span></span>
@@ -320,9 +315,7 @@
 <span id="cb10-10"><a href="#cb10-10"></a>|------+--------------------+---------------------|</span>
 <span id="cb10-11"><a href="#cb10-11"></a>|      | in ascending order | in descending order |</span>
 <span id="cb10-12"><a href="#cb10-12"></a></span></code></pre></div>
-</section>
-<section id="կայուն-է---այո-1" class="level3">
-<h3>Կայուն է - այո</h3>
+<p><strong>Կայու՞ն է</strong> - այո</p>
 <p>Դիտարկենք զանգված որը տեսակավորել ենք տեադրմամբ, և ունենք կնկնվող էլեմենտ 6’ որի հերթն է տեծադրելու զանգվածի կարգավորված մասում, քանի որ մենք ստուգում ենք աջից խիստ անհավասարություն, այսինք հավասար էլեմենտնրը չի տեղափոխում, արդյունքում էլ այս երկրորդ 6’ կհայտնվի առաջին վեցից աջ, ինչպես չկարգավորված զանցվածում էր, հետԵբար տեղադրմամբ տեսակավորումը կայուն է:</p>
 <div class="sourceCode" id="cb11" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb11-1"><a href="#cb11-1"></a>|----------------|</span>
 <span id="cb11-2"><a href="#cb11-2"></a>| <span class="dv">4</span> <span class="dv">6</span> <span class="dv">9</span> <span class="dv">11</span> <span class="dv">12</span> *  |</span>
@@ -330,9 +323,7 @@
 <span id="cb11-4"><a href="#cb11-4"></a>|    . . .       |</span>
 <span id="cb11-5"><a href="#cb11-5"></a>| <span class="dv">4</span> <span class="dv">6</span> <span class="dv">6</span><span class="er">&#39;</span> <span class="dv">5</span> <span class="dv">11</span> <span class="dv">12</span> |</span>
 <span id="cb11-6"><a href="#cb11-6"></a>|----------------|</span></code></pre></div>
-</section>
-<section id="ադապտիվ-է---այո-1" class="level3">
-<h3>Ադապտիվ է - այո</h3>
+<p><strong>Ադապտի՞վ է</strong> - այո</p>
 <p>Տեղադրությամբ տեսակավորումը ադապտիվ է իր բնույթով՝ կարիք չկա լրացուցիչ ինչ որ flag կամ այլ մի բան օգտագործենլու որպեսզի այն դառնա ադապտիվ:</p>
 <div class="sourceCode" id="cb12" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb12-1"><a href="#cb12-1"></a><span class="dt">int</span> A[] = {<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">12</span>}</span>
 <span id="cb12-2"><a href="#cb12-2"></a></span>
@@ -356,7 +347,7 @@
 <li>Այս տեսակավորումը իրականացնելիս նպատակահարմար է օգտագործել կապակցված ցուցակ, որովհետև էլեմենտների տեծափոխությյուն կատարելու անհրաժեշտությունը չկա: Հակառակն էլ է ճիշտ, կապակզված ցուցակ տեսակավրոելու համար ավելի հարմար է տեղադրմամբ տեսակավորման ալգորիթմը:</li>
 </ul>
 </section>
-<section id="կոդը" class="level3">
+<section id="կոդը-1" class="level3">
 <h3>Կոդը</h3>
 <div class="sourceCode" id="cb13" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb13-1"><a href="#cb13-1"></a><span class="dt">void</span> InsertionSort(<span class="dt">int</span> A[], <span class="dt">int</span> n)</span>
 <span id="cb13-2"><a href="#cb13-2"></a>{</span>
@@ -422,9 +413,7 @@ Number of swap: n-1 ~ O(n)
 <span id="cb15-2"><a href="#cb15-2"></a>- Փասերի քանակը՝ (n-<span class="dv">1</span>)</span>
 <span id="cb15-3"><a href="#cb15-3"></a>- Համեմատությունների քանակը՝ <span class="dv">1</span>+<span class="dv">2</span>+...+n-<span class="dv">1</span> = n*(n-<span class="dv">1</span>)/<span class="dv">2</span> ~ O(n^<span class="dv">2</span>)</span>
 <span id="cb15-4"><a href="#cb15-4"></a>- տեղափոխությունների քանակը՝ n-<span class="dv">1</span> ~ O(n)</span></code></pre></div>
-</section>
-<section id="կայուն-է---ոչ" class="level3">
-<h3>Կայուն է - ոչ</h3>
+<p><strong>Կայուն է</strong> - ոչ</p>
 <p>Հենց առաջին Փասի վերջւոմ կատարվող տեղափոխության ժամանակ առաջին 8 կանցնի մյուս 8-ից՝ իրար նկատմամբ տեղերը կփոխվի. հետևաբար կայուն չէ:</p>
 <div class="sourceCode" id="cb16" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb16-1"><a href="#cb16-1"></a>|  I Pass | after swap |</span>
 <span id="cb16-2"><a href="#cb16-2"></a>|---------+------------|</span>
@@ -435,9 +424,7 @@ Number of swap: n-1 ~ O(n)
 <span id="cb16-7"><a href="#cb16-7"></a>|       <span class="dv">4</span> |          <span class="dv">4</span> |</span>
 <span id="cb16-8"><a href="#cb16-8"></a>|  k -&gt; <span class="dv">2</span> |         <span class="dv">8</span><span class="er">&#39;</span> |</span>
 <span id="cb16-9"><a href="#cb16-9"></a>|       <span class="dv">7</span> |          <span class="dv">7</span> |</span></code></pre></div>
-</section>
-<section id="ադապտիվ-է---ոչ" class="level3">
-<h3>Ադապտիվ է - ոչ</h3>
+<p><strong>Ադապտիվ է</strong> - ոչ</p>
 <p>Ընտրությամբ տեսակավորման մեջ հնարավոր չէ այնպես անել որ ստուգի տվյալները արդեն իսկ դասավրոված են հերթականությամբ. ինչպես դա արեցինք Պղպջակային տեսակավորման ընթացակարգում: Ընտրությամբ տեսակավորումը միշտ աշխատում է O(n<sup>2</sup>) ժամանակում:</p>
 </section>
 <section id="դիտողություններ-2" class="level3">
@@ -447,7 +434,7 @@ Number of swap: n-1 ~ O(n)
 <li>K Փաս հետո կունենանք k փոքագույն տարրերը, այսինք ընտրությամբ տեսակավորումը ունի օգտակար միջանկյալ արդյունք: Bubble sort K փաս հետո ունենւոմ ենք K մեծագույննեը այստեղ, K փոգրագույնները:</li>
 </ul>
 </section>
-<section id="կոդը-1" class="level3">
+<section id="կոդը-2" class="level3">
 <h3>Կոդը</h3>
 <div class="sourceCode" id="cb17" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb17-1"><a href="#cb17-1"></a><span class="dt">void</span> SelectionSort(<span class="dt">int</span> A[], <span class="dt">int</span> n)</span>
 <span id="cb17-2"><a href="#cb17-2"></a>{</span>
@@ -467,6 +454,276 @@ Number of swap: n-1 ~ O(n)
 </section>
 <section id="արագ-quick-sort" class="level2">
 <h2>Արագ (Quick sort)</h2>
+<section id="ներածություն" class="level3">
+<h3>Ներածություն</h3>
+<div class="sourceCode" id="cb18" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb18-1"><a href="#cb18-1"></a>(<span class="dv">1</span>) - [<span class="dv">10</span><span class="er">&#39;</span> <span class="dv">3</span> <span class="dv">20</span> <span class="dv">70</span> <span class="dv">40</span> <span class="dv">90</span> <span class="dv">80</span>]</span>
+<span id="cb18-2"><a href="#cb18-2"></a>(<span class="dv">2</span>) - [<span class="dv">80</span> <span class="dv">70</span> <span class="dv">40</span> <span class="dv">30</span> <span class="dv">20</span> <span class="dv">10</span> <span class="dv">90</span><span class="er">&#39;</span>]</span>
+<span id="cb18-3"><a href="#cb18-3"></a>(<span class="dv">3</span>) - [<span class="dv">40</span> <span class="dv">30</span> <span class="dv">20</span> <span class="dv">50</span><span class="er">&#39;</span> <span class="dv">90</span> <span class="dv">70</span> <span class="dv">80</span>]</span></code></pre></div>
+<p>(3)-ում 50 իր տեղում է, քանի որ բոլոր նախորդող տարրերը ավելի փոքր են իրենից և բոլոր հաջորդոծ տարրերը ավելի մեծ են: Արագ տեսակավորման ալգորիթմի հիմքում հենց այս գաղափարն է, որ տարրը իր տեղում է եթե բոլոր նախորդողները իրենից փոքր են, իսկ բոլոր հաջորդողները իրենից մեծ:</p>
+</section>
+<section id="բաժանման-ընթացակարգ-partitioning-procedure" class="level3">
+<h3>Բաժանման ընթացակարգ (Partitioning procedure)</h3>
+<ul>
+<li>Ընտրում ենք առանցքային(pivot) տարրը</li>
+<li>որոշում ենք i, j տեղերը</li>
+<li>տեղափոխում ենք տարրերը</li>
+<li>Բերում ենք pivot իր տեղը, որը կկոչենք՝ բաժանման տեղ կամ գիծ</li>
+</ul>
+<div class="sourceCode" id="cb19" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb19-1"><a href="#cb19-1"></a>Բաժանման ընթացակարգի իրականացման մանրամասերը և քայլերը.</span>
+<span id="cb19-2"><a href="#cb19-2"></a></span>
+<span id="cb19-3"><a href="#cb19-3"></a>- Առաջին էլեմնտը՝ <span class="dv">50</span> դիտարկում ենք որպես առանցքային(pivotal) տարր, և պետք է գտնենք այդ առանցքային տարրի</span>
+<span id="cb19-4"><a href="#cb19-4"></a>տեղը, դրա համար բոոր այն տարրերը որինք առանցքային տարրից՝ <span class="dv">50</span> փոքր են պետք լինեն իրենից ձախ և բոլոր այն տարրերը </span>
+<span id="cb19-5"><a href="#cb19-5"></a>որոնք մեծ են ընտրված առանցքային տարրից՝ աջ կողմում:</span>
+<span id="cb19-6"><a href="#cb19-6"></a></span>
+<span id="cb19-7"><a href="#cb19-7"></a>- *i* - փնտրելու ենք այն տարրերը որոնք մեծ են առանցքային(pivot) տարրից </span>
+<span id="cb19-8"><a href="#cb19-8"></a>- *j* - փնտրելու ենք այն տարրերը որոնք փոքր կամ հավասար են առանցքային(pivot) տարրից </span>
+<span id="cb19-9"><a href="#cb19-9"></a>- *∞* - ենթադրենք որ ցուցակում չկա ավելի մեծ տարր քան մեր ընտրած առանցքային տարրն է. այդ </span>
+<span id="cb19-10"><a href="#cb19-10"></a> դեպքում որպեսզի կանգնեցնենք *i*-ն մեր տվյանլնեի զանգվածի վերջին տարրը դնենք մեծագույն արժեքը՝ </span>
+<span id="cb19-11"><a href="#cb19-11"></a> օրինակ INT32_MAX (Int.MaxValue)</span>
+<span id="cb19-12"><a href="#cb19-12"></a></span>
+<span id="cb19-13"><a href="#cb19-13"></a></span>
+<span id="cb19-14"><a href="#cb19-14"></a><span class="dt">int</span> l = <span class="dv">0</span>;</span>
+<span id="cb19-15"><a href="#cb19-15"></a><span class="dt">int</span> h = <span class="dv">10</span>;</span>
+<span id="cb19-16"><a href="#cb19-16"></a><span class="dt">int</span> i = <span class="dv">0</span>; <span class="dt">int</span> j = <span class="dv">9</span>;</span>
+<span id="cb19-17"><a href="#cb19-17"></a><span class="dt">int</span> pivot = A[l]; <span class="co">//50</span></span>
+<span id="cb19-18"><a href="#cb19-18"></a></span>
+<span id="cb19-19"><a href="#cb19-19"></a>A = [<span class="dv">50</span> <span class="dv">70</span> <span class="dv">60</span> <span class="dv">90</span> <span class="dv">40</span> <span class="dv">80</span> <span class="dv">10</span> <span class="dv">20</span> <span class="dv">30</span> ∞]</span>
+<span id="cb19-20"><a href="#cb19-20"></a>      i                         j</span>
+<span id="cb19-21"><a href="#cb19-21"></a>---------------------------------</span>
+<span id="cb19-22"><a href="#cb19-22"></a></span>
+<span id="cb19-23"><a href="#cb19-23"></a>Steps:</span>
+<span id="cb19-24"><a href="#cb19-24"></a>| # |                                        |                                                        |</span>
+<span id="cb19-25"><a href="#cb19-25"></a>|---+----------------------------------------+--------------------------------------------------------|</span>
+<span id="cb19-26"><a href="#cb19-26"></a>| <span class="dv">1</span> | i++; j--;                              | [<span class="dv">50</span> <span class="dv">70</span> <span class="dv">60</span> <span class="dv">90</span> <span class="dv">40</span> <span class="dv">80</span> <span class="dv">10</span> <span class="dv">20</span> <span class="dv">30</span> ∞]                         |</span>
+<span id="cb19-27"><a href="#cb19-27"></a>|   |                                        |     i                    j                             |</span>
+<span id="cb19-28"><a href="#cb19-28"></a>|   | <span class="cf">if</span>(A[i] &gt; pivot) &amp;&amp; <span class="cf">if</span>(A[j] &lt;= pivot)) | Yes, Yes                                               |</span>
+<span id="cb19-29"><a href="#cb19-29"></a>|   | then swap(A[i], A[j])                  | [<span class="dv">50</span> <span class="dv">30</span> <span class="dv">60</span> <span class="dv">90</span> <span class="dv">40</span> <span class="dv">80</span> <span class="dv">10</span> <span class="dv">20</span> <span class="dv">70</span> ∞]                         |</span>
+<span id="cb19-30"><a href="#cb19-30"></a>|   |                                        |                                                        |</span>
+<span id="cb19-31"><a href="#cb19-31"></a>|---+----------------------------------------+--------------------------------------------------------|</span>
+<span id="cb19-32"><a href="#cb19-32"></a>| <span class="dv">2</span> | i++; j--;                              | [<span class="dv">50</span> <span class="dv">30</span> <span class="dv">60</span> <span class="dv">90</span> <span class="dv">40</span> <span class="dv">80</span> <span class="dv">10</span> <span class="dv">20</span> <span class="dv">70</span> ∞]                         |</span>
+<span id="cb19-33"><a href="#cb19-33"></a>|   |                                        |        i              j                                |</span>
+<span id="cb19-34"><a href="#cb19-34"></a>|   | <span class="cf">if</span>(A[i] &gt; pivot) &amp;&amp; <span class="cf">if</span>(A[j] &lt;= pivot)) | Yes, Yes                                               |</span>
+<span id="cb19-35"><a href="#cb19-35"></a>|   | then swap(A[i], A[j])                  | [<span class="dv">50</span> <span class="dv">30</span> <span class="dv">20</span> <span class="dv">90</span> <span class="dv">40</span> <span class="dv">80</span> <span class="dv">10</span> <span class="dv">60</span> <span class="dv">70</span> ∞]                         |</span>
+<span id="cb19-36"><a href="#cb19-36"></a>|---+----------------------------------------+--------------------------------------------------------|</span>
+<span id="cb19-37"><a href="#cb19-37"></a>| <span class="dv">3</span> | i++; j--;                              | [<span class="dv">50</span> <span class="dv">30</span> <span class="dv">20</span> <span class="dv">90</span> <span class="dv">40</span> <span class="dv">80</span> <span class="dv">10</span> <span class="dv">60</span> <span class="dv">70</span> ∞]                         |</span>
+<span id="cb19-38"><a href="#cb19-38"></a>|   |                                        |           i        j                                   |</span>
+<span id="cb19-39"><a href="#cb19-39"></a>|   | <span class="cf">if</span>(A[i] &gt; pivot) &amp;&amp; <span class="cf">if</span>(A[j] &lt;= pivot)) | Yes, Yes                                               |</span>
+<span id="cb19-40"><a href="#cb19-40"></a>|   | then swap(A[i], A[j])                  | [<span class="dv">50</span> <span class="dv">30</span> <span class="dv">20</span> <span class="dv">10</span> <span class="dv">40</span> <span class="dv">80</span> <span class="dv">90</span> <span class="dv">60</span> <span class="dv">70</span> ∞]                         |</span>
+<span id="cb19-41"><a href="#cb19-41"></a>|---+----------------------------------------+--------------------------------------------------------|</span>
+<span id="cb19-42"><a href="#cb19-42"></a>| <span class="dv">4</span> | i++; j--;                              | [<span class="dv">50</span> <span class="dv">30</span> <span class="dv">20</span> <span class="dv">10</span> <span class="dv">40</span> <span class="dv">80</span> <span class="dv">90</span> <span class="dv">60</span> <span class="dv">70</span> ∞]                         |</span>
+<span id="cb19-43"><a href="#cb19-43"></a>|   |                                        |              i   j                                     |</span>
+<span id="cb19-44"><a href="#cb19-44"></a>|   | <span class="cf">if</span>(A[i] &gt; pivot) &amp;&amp; <span class="cf">if</span>(A[j] &lt;= pivot)) | No, No                                                 |</span>
+<span id="cb19-45"><a href="#cb19-45"></a>|   | <span class="cf">continue</span> i++; <span class="cf">if</span> greater stop          | [<span class="dv">50</span> <span class="dv">30</span> <span class="dv">20</span> <span class="dv">10</span> <span class="dv">40</span> <span class="dv">80</span> <span class="dv">10</span> <span class="dv">20</span> <span class="dv">70</span> ∞]                         |</span>
+<span id="cb19-46"><a href="#cb19-46"></a>|   | <span class="cf">continue</span> j--; <span class="cf">if</span> smaller stop          |                                                        |</span>
+<span id="cb19-47"><a href="#cb19-47"></a>|---+----------------------------------------+--------------------------------------------------------|</span>
+<span id="cb19-48"><a href="#cb19-48"></a>|   |                                        |                                                        |</span>
+<span id="cb19-49"><a href="#cb19-49"></a>| <span class="dv">5</span> | when (i &gt; j)                           | yes, swap(pivot, A[j])                                 |</span>
+<span id="cb19-50"><a href="#cb19-50"></a>|   |                                        |                                                        |</span>
+<span id="cb19-51"><a href="#cb19-51"></a>|   |                                        | [(<span class="dv">30</span> <span class="dv">20</span> <span class="dv">10</span> <span class="dv">40</span>) <span class="dv">50</span> (<span class="dv">80</span> <span class="dv">10</span> <span class="dv">20</span> <span class="dv">70</span>) ∞]                     |</span>
+<span id="cb19-52"><a href="#cb19-52"></a>|   |                                        |                ..                                      |</span>
+<span id="cb19-53"><a href="#cb19-53"></a>|   |                                        | ths pivotal element in its place, one lement is sorted |</span>
+<span id="cb19-54"><a href="#cb19-54"></a>|   |                                        | this .. position called <span class="st">&quot;Partitioning postition&quot;</span>       |</span>
+<span id="cb19-55"><a href="#cb19-55"></a>|   |                                        | <span class="cf">for</span> infinity element <span class="cf">for</span> left hand side list is a      |</span>
+<span id="cb19-56"><a href="#cb19-56"></a>|   |                                        | sorted element <span class="dv">50</span>                                      |</span>
+<span id="cb19-57"><a href="#cb19-57"></a>|---+----------------------------------------+--------------------------------------------------------|</span></code></pre></div>
+<p><strong>Բաժանման պրոցեդուրայից</strong> հետո ունենում ենք երկու բաժանված՝ աջ և ձախ զանգվածներ որոնք նույնպես պետք է սորտավորենք: Ի՞նչպես անել դա: Պատասխանն էլ հենց այն է ինչ կանվանենք <strong>արագ տեսակավորման ալգորիթմ</strong> և որը կկիրառենք <strong>ռեկուրսիվ</strong> եղանակով այդ բաժանված աջ և ձախ կեսերի վրա: Ձախ կեսի համար որես <strong>∞</strong> տարր կհանդիսանա հենց նոր սորտավորված առանցքային էլեմենտը</p>
+</section>
+<section id="վերլուծություն-3" class="level3">
+<h3>Վերլուծություն</h3>
+<p>Նախքան վերլուծությունը տեսնենք թէ Արագ տեսակավորման ալգորիթմը ինչպես է աշխատում 2 և 3 տարրանի զանգվաղների վրա, նախօրոք սորտավորվաԾների վրա</p>
+<p>Օրինակ. 3 տարրանի զանգվածի</p>
+<div class="sourceCode" id="cb20" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb20-1"><a href="#cb20-1"></a>[<span class="dv">20</span> <span class="dv">10</span> <span class="dv">30</span> ∞] =&gt; [<span class="dv">20</span> <span class="dv">10</span> <span class="dv">30</span> ∞], i &gt; j =&gt; swap (pivot, A[j]) =&gt; [<span class="dv">10</span> <span class="dv">20</span> <span class="dv">30</span> ∞]</span>
+<span id="cb20-2"><a href="#cb20-2"></a> i        j      *  j   i      </span>
+<span id="cb20-3"><a href="#cb20-3"></a>առանցքային էլեմենտը՝ <span class="dv">20</span> տեղափոխությունից հետո հայտնվելով իր տեղում զանգվածը բաժանում մի մի տարրանոց մասերի, </span>
+<span id="cb20-4"><a href="#cb20-4"></a>իսկ մեկ տարրանոց զանգվաը համարում ենք սորտավորված, հետևաբար ամբողջ զանգվածը տեսակավորված է:</span></code></pre></div>
+<p>Օրինակ. 2 տարրանի զանգվածի</p>
+<div class="sourceCode" id="cb21" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb21-1"><a href="#cb21-1"></a>[<span class="dv">20</span> <span class="dv">10</span> ∞] =&gt; [<span class="dv">10</span> <span class="dv">20</span> ∞] i &gt; j =&gt; swap(pivot, A[j]) =&gt; (<span class="dv">10</span>)(<span class="dv">20</span>) ∞</span>
+<span id="cb21-2"><a href="#cb21-2"></a>առանցքային տարր նույնն է ինչ որ A[j], տեղափոփում ենք ինքն իր հետ</span></code></pre></div>
+<p>Զանգվածը դասավորված է ըստ աճման կարգի</p>
+<div class="sourceCode" id="cb22" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb22-1"><a href="#cb22-1"></a>[<span class="dv">10</span> <span class="dv">20</span> <span class="dv">30</span> <span class="dv">40</span> <span class="dv">50</span> ∞]</span>
+<span id="cb22-2"><a href="#cb22-2"></a> i              j   </span>
+<span id="cb22-3"><a href="#cb22-3"></a>|    |                          |                                 |            |</span>
+<span id="cb22-4"><a href="#cb22-4"></a>|----+--------------------------+---------------------------------+------------|</span>
+<span id="cb22-5"><a href="#cb22-5"></a>| <span class="fl">1.</span> | [<span class="dv">10</span><span class="er">&#39;</span> <span class="dv">20</span> <span class="dv">30</span> <span class="dv">40</span> <span class="dv">50</span> ∞]      | n - elments                     | #Comp: n   |</span>
+<span id="cb22-6"><a href="#cb22-6"></a>|    | i               j        |                                 |            |</span>
+<span id="cb22-7"><a href="#cb22-7"></a>|    | [<span class="dv">10</span><span class="er">&#39;</span> <span class="dv">20</span> <span class="dv">30</span> <span class="dv">40</span> <span class="dv">50</span> ∞]      |                                 |            |</span>
+<span id="cb22-8"><a href="#cb22-8"></a>|    | j    i                   | i &gt; j, =&gt; swap (el&#39;, A[j])      |            |</span>
+<span id="cb22-9"><a href="#cb22-9"></a>|    | [() <span class="dv">10</span><span class="er">&#39;</span> (<span class="dv">20</span> <span class="dv">30</span> <span class="dv">40</span> <span class="dv">50</span>) ∞] | no element in left side         |            |</span>
+<span id="cb22-10"><a href="#cb22-10"></a>|----+--------------------------+---------------------------------+------------|</span>
+<span id="cb22-11"><a href="#cb22-11"></a>|    | [<span class="dv">20</span><span class="er">&#39;</span> <span class="dv">30</span> <span class="dv">40</span> <span class="dv">50</span> ∞]         | n-<span class="dv">1</span> - elements                  | #Comp: n-<span class="dv">1</span> |</span>
+<span id="cb22-12"><a href="#cb22-12"></a>| <span class="fl">2.</span> | i            j           |                                 |            |</span>
+<span id="cb22-13"><a href="#cb22-13"></a>|    | [<span class="dv">20</span><span class="er">&#39;</span> <span class="dv">30</span> <span class="dv">40</span> <span class="dv">50</span> ∞]         |                                 |            |</span>
+<span id="cb22-14"><a href="#cb22-14"></a>|    | j    i                   | i&gt;j, =&gt; swap(el&#39;, A[j]), itself |            |</span>
+<span id="cb22-15"><a href="#cb22-15"></a>|----+--------------------------+---------------------------------+------------|</span>
+<span id="cb22-16"><a href="#cb22-16"></a>| <span class="fl">3.</span> | [<span class="dv">30</span><span class="er">&#39;</span> <span class="dv">40</span> <span class="dv">50</span> ∞]            | n-<span class="dv">2</span> - elements                  | #Comp: n-<span class="dv">2</span> |</span>
+<span id="cb22-17"><a href="#cb22-17"></a>|    | i        j               |                                 |            |</span>
+<span id="cb22-18"><a href="#cb22-18"></a>|    | [<span class="dv">30</span><span class="er">&#39;</span> <span class="dv">40</span> <span class="dv">50</span> ∞]            |                                 |            |</span>
+<span id="cb22-19"><a href="#cb22-19"></a>|    | j    i                   | i&gt;j, =&gt; swap(el&#39;, A[j]), iself  |            |</span>
+<span id="cb22-20"><a href="#cb22-20"></a>|----+--------------------------+---------------------------------+------------|</span>
+<span id="cb22-21"><a href="#cb22-21"></a>| <span class="fl">4.</span> | [<span class="dv">40</span><span class="er">&#39;</span> <span class="dv">50</span> ∞]               | <span class="dv">2</span> - elements                    | #Comp: <span class="dv">2</span>   |</span>
+<span id="cb22-22"><a href="#cb22-22"></a>|    | i     j                  |                                 |            |</span>
+<span id="cb22-23"><a href="#cb22-23"></a>|    | [<span class="dv">40</span><span class="er">&#39;</span> <span class="dv">50</span> ∞]               |                                 |            |</span>
+<span id="cb22-24"><a href="#cb22-24"></a>|    | j    i                   | i&gt;j, =&gt; swap(el&#39;, A[j]), isself |            |</span>
+<span id="cb22-25"><a href="#cb22-25"></a>|----+--------------------------+---------------------------------+------------|</span>
+<span id="cb22-26"><a href="#cb22-26"></a>| <span class="fl">5.</span> | [<span class="dv">50</span> ∞]}                  | <span class="dv">1</span> - elemetn                     |  #Comp: <span class="dv">1</span>  |</span>
+<span id="cb22-27"><a href="#cb22-27"></a>|    |                          |                                 |            |</span>
+<span id="cb22-28"><a href="#cb22-28"></a>|----+--------------------------+---------------------------------+------------|</span>
+<span id="cb22-29"><a href="#cb22-29"></a></span>
+<span id="cb22-30"><a href="#cb22-30"></a></span>
+<span id="cb22-31"><a href="#cb22-31"></a>recursive call tree</span>
+<span id="cb22-32"><a href="#cb22-32"></a>[n]</span>
+<span id="cb22-33"><a href="#cb22-33"></a>  \</span>
+<span id="cb22-34"><a href="#cb22-34"></a>   [n-<span class="dv">1</span>]</span>
+<span id="cb22-35"><a href="#cb22-35"></a>     \</span>
+<span id="cb22-36"><a href="#cb22-36"></a>     [n-<span class="dv">2</span>]</span>
+<span id="cb22-37"><a href="#cb22-37"></a>       \</span>
+<span id="cb22-38"><a href="#cb22-38"></a>       ...</span>
+<span id="cb22-39"><a href="#cb22-39"></a>         \ </span>
+<span id="cb22-40"><a href="#cb22-40"></a>         [<span class="dv">2</span>]</span>
+<span id="cb22-41"><a href="#cb22-41"></a>           \</span>
+<span id="cb22-42"><a href="#cb22-42"></a>           [<span class="dv">1</span>]  </span>
+<span id="cb22-43"><a href="#cb22-43"></a></span>
+<span id="cb22-44"><a href="#cb22-44"></a></span>
+<span id="cb22-45"><a href="#cb22-45"></a>Ըստ աճման կարգի դասավրոված զանցվածի վրա համեմատությունների քանակը՝ </span>
+<span id="cb22-46"><a href="#cb22-46"></a><span class="dv">1</span>+<span class="dv">2</span>+...+n-<span class="dv">1</span> = n*(n-<span class="dv">1</span>)/<span class="dv">2</span> ~ O(n^<span class="dv">2</span>) - ամենավատ տարվերակն է քանի որ բաժանման տեղը ձախ եզրային տարրն է:</span>
+<span id="cb22-47"><a href="#cb22-47"></a></span></code></pre></div>
+<p>Զանգվածը դասավրոված է ըստ նվազման կարգի</p>
+<div class="sourceCode" id="cb23" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb23-1"><a href="#cb23-1"></a>[<span class="dv">50</span> <span class="dv">40</span> <span class="dv">30</span> <span class="dv">20</span> <span class="dv">10</span> ∞]</span>
+<span id="cb23-2"><a href="#cb23-2"></a> i              j   </span>
+<span id="cb23-3"><a href="#cb23-3"></a></span>
+<span id="cb23-4"><a href="#cb23-4"></a>|----+---------------------+---------------------------------+------------|</span>
+<span id="cb23-5"><a href="#cb23-5"></a>|    | [<span class="dv">50</span><span class="er">&#39;</span> <span class="dv">40</span> <span class="dv">30</span> <span class="dv">20</span> <span class="dv">10</span> ∞] | n - elements                    | #Comp: n   |</span>
+<span id="cb23-6"><a href="#cb23-6"></a>| <span class="fl">1.</span> | i            j      |                                 |            |</span>
+<span id="cb23-7"><a href="#cb23-7"></a>|    | [<span class="dv">50</span><span class="er">&#39;</span> <span class="dv">40</span> <span class="dv">30</span> <span class="dv">20</span> <span class="dv">10</span> ∞] |                                 |            |</span>
+<span id="cb23-8"><a href="#cb23-8"></a>|    | .             j  i  | i&gt;j, =&gt; swap(el&#39;, A[j])         |            |</span>
+<span id="cb23-9"><a href="#cb23-9"></a>|    | [<span class="dv">10</span> <span class="dv">40</span> <span class="dv">30</span> <span class="dv">20</span> <span class="dv">50</span> ∞]  | no element in right side        |            |</span>
+<span id="cb23-10"><a href="#cb23-10"></a>|----+---------------------+---------------------------------+------------|</span>
+<span id="cb23-11"><a href="#cb23-11"></a>|    | [<span class="dv">10</span><span class="er">&#39;</span> <span class="dv">40</span> <span class="dv">30</span> <span class="dv">20</span> ∞]    | <span class="dv">50</span> act like infinity            | #Comp: n-<span class="dv">1</span> |</span>
+<span id="cb23-12"><a href="#cb23-12"></a>| <span class="fl">2.</span> | i            j      |                                 |            |</span>
+<span id="cb23-13"><a href="#cb23-13"></a>|    | [<span class="dv">10</span><span class="er">&#39;</span> <span class="dv">40</span> <span class="dv">30</span> <span class="dv">20</span> ∞]    |                                 |            |</span>
+<span id="cb23-14"><a href="#cb23-14"></a>|    | j   i               | i&gt;j, =&gt; swap(el&#39;, A[j]), itself |            |</span>
+<span id="cb23-15"><a href="#cb23-15"></a>|    | [<span class="dv">10</span> <span class="dv">40</span> <span class="dv">30</span> <span class="dv">20</span> ∞]     | no element in left side         |            |</span>
+<span id="cb23-16"><a href="#cb23-16"></a>|----+---------------------+---------------------------------+------------|</span>
+<span id="cb23-17"><a href="#cb23-17"></a>| <span class="fl">3.</span> | [<span class="dv">40</span> <span class="dv">30</span> <span class="dv">20</span> ∞]        |                                 | #Comp: n-<span class="dv">2</span> |</span>
+<span id="cb23-18"><a href="#cb23-18"></a>|    | ......              |                                 |            |</span>
+<span id="cb23-19"><a href="#cb23-19"></a>|    |                     | no element in right side        |            |</span>
+<span id="cb23-20"><a href="#cb23-20"></a></span>
+<span id="cb23-21"><a href="#cb23-21"></a>   [n]</span>
+<span id="cb23-22"><a href="#cb23-22"></a>   /</span>
+<span id="cb23-23"><a href="#cb23-23"></a> [n-<span class="dv">1</span>]</span>
+<span id="cb23-24"><a href="#cb23-24"></a>     \</span>
+<span id="cb23-25"><a href="#cb23-25"></a>     [n-<span class="dv">2</span>]</span>
+<span id="cb23-26"><a href="#cb23-26"></a>    /</span>
+<span id="cb23-27"><a href="#cb23-27"></a> ...</span>
+<span id="cb23-28"><a href="#cb23-28"></a></span>
+<span id="cb23-29"><a href="#cb23-29"></a>Ըստ նվազման կարգի դասավրոված զանցվածի վրա համեմատությունների քանակը՝ </span>
+<span id="cb23-30"><a href="#cb23-30"></a><span class="dv">1</span>+<span class="dv">2</span>+...+n-<span class="dv">1</span> = n*(n-<span class="dv">1</span>)/<span class="dv">2</span> ~ O(n^<span class="dv">2</span>) - ամենավատ տարբերակն է (Worst <span class="cf">case</span>), քանի որ բաժանման տեղը ձախ կամ աջ եզրային տարրն է, </span>
+<span id="cb23-31"><a href="#cb23-31"></a>և  ստացված զանգվաղներից մեկը մի շտա դատարկ է իսկ մյուսը պարունակում է մնացած տարրերը:</span>
+<span id="cb23-32"><a href="#cb23-32"></a></span></code></pre></div>
+<p><strong>Լավագույն տարբերակը (Best case)</strong></p>
+<p>Դիցուք ամեն անգամ <strong>բաժանման տեղը</strong> մեջտեղում է, այդ դեպքում րեկւորսիվ կանչերի ծառը կունենա այսպիսի տեսք՝</p>
+<div class="sourceCode" id="cb24" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb24-1"><a href="#cb24-1"></a></span>
+<span id="cb24-2"><a href="#cb24-2"></a>n=<span class="dv">15</span></span>
+<span id="cb24-3"><a href="#cb24-3"></a>n - recursive calls</span>
+<span id="cb24-4"><a href="#cb24-4"></a></span>
+<span id="cb24-5"><a href="#cb24-5"></a>               [<span class="dv">1</span>-<span class="dv">15</span>] ~ #Comp: n </span>
+<span id="cb24-6"><a href="#cb24-6"></a>              /  <span class="dv">8</span>   \</span>
+<span id="cb24-7"><a href="#cb24-7"></a>             /         \</span>
+<span id="cb24-8"><a href="#cb24-8"></a>         [<span class="dv">1</span>-<span class="dv">7</span>]          [<span class="dv">9</span> - <span class="dv">15</span>] ~ #Comp: n</span>
+<span id="cb24-9"><a href="#cb24-9"></a>         / <span class="dv">4</span> \           / <span class="dv">12</span>   \</span>
+<span id="cb24-10"><a href="#cb24-10"></a>    [<span class="dv">1</span>-<span class="dv">3</span>]   [<span class="dv">4</span>-<span class="dv">7</span>]       [<span class="dv">9</span>-<span class="dv">12</span>]    [<span class="dv">13</span>-<span class="dv">15</span>] ~ #Comp: n</span>
+<span id="cb24-11"><a href="#cb24-11"></a>    / <span class="dv">2</span> \   / <span class="dv">6</span> \       / <span class="dv">10</span> \      / <span class="dv">14</span>  \ </span>
+<span id="cb24-12"><a href="#cb24-12"></a>[<span class="dv">1</span>,<span class="dv">1</span>] [<span class="dv">3</span>,<span class="dv">3</span>][<span class="dv">5</span>,<span class="dv">5</span>][<span class="dv">7</span>,<span class="dv">7</span>] [<span class="dv">9</span>,<span class="dv">9</span>][<span class="dv">11</span>,<span class="dv">11</span>] [<span class="dv">13</span>,<span class="dv">13</span>][<span class="dv">15</span>,<span class="dv">15</span>] ~ #Comp: n</span>
+<span id="cb24-13"><a href="#cb24-13"></a></span>
+<span id="cb24-14"><a href="#cb24-14"></a>Ծառի բարձրությունը log(n), ամեն մակարդակում իրականացվում է n համեմատությում, բոլոր համեմատությունների քանակը՝ n*log(n):</span>
+<span id="cb24-15"><a href="#cb24-15"></a></span>
+<span id="cb24-16"><a href="#cb24-16"></a>Average Case: T = O(n*log(n))</span>
+<span id="cb24-17"><a href="#cb24-17"></a>Best Case:   T = O(n*log(n)),  <span class="cf">if</span> partitioning dome in a middle. </span>
+<span id="cb24-18"><a href="#cb24-18"></a>Worst Case:  T = O(n^<span class="dv">2</span>),  <span class="cf">if</span> partitioning at any end of the list - left or right: list already sorted.</span></code></pre></div>
+</section>
+<section id="դիտողություններ-3" class="level3">
+<h3>Դիտողություններ</h3>
+<ul>
+<li>Արագ տեսակավորման ալգորիթմը ռեկուրսիվ ձևով օգտագործում է Բաժանման ընթացակարգը:</li>
+<li>Արագ տեսակավորման ալգորիթմը կարող է աշխատել առնվազն 2 տարր պարունակող զանգվածի վրա, մեկ տարրը արդեն կարգավրոված է և կարիք չունի այլևս տեսակավորման:</li>
+<li>«Արագ» բառը չի նշանակւոմ ամենարագ տեսակավորման ալգորիթն է: «Արագ» ավելի շատ նկատոի ունեն, որ ընտրված էլեմենտը շատ արագ գտնում է իր տեղը</li>
+<li>Արագ տեսակավորման այլ անունները՝
+<ul>
+<li>Selection Echange Sort</li>
+<li>Partition Exchange Sort</li>
+<li>Quick Sort</li>
+</ul></li>
+<li>Զուգահեռներ՝ ընտրությամբ և արագ տեսակավորման ալգորիթմների աշխատանքի սկզբունքներում: Ընտրությամբ տեսակավորման դեպքում. ընտրում ենք տեղ և փնտրում ենք տարրը որը պետք է լինի այդ տեղում, իսկ արագ տեսակավորման ժամանակ՝ ընտրոմ ենք էլեմենտը և փնտրոէմ գտնում ենք այն տեղը որտեծ պետք է գտնվի այդ տարրը:
+<ul>
+<li>selecting a position finding an element vs selecting an element finding a position</li>
+<li>index vs element</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb25" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb25-1"><a href="#cb25-1"></a><span class="co">// middle element as pivotal</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a>we can select middle element as pivot, exchanging with first element, then:</span>
+<span id="cb25-3"><a href="#cb25-3"></a>Best Case: O(nlog(n)) - sorted list</span>
+<span id="cb25-4"><a href="#cb25-4"></a>Worst <span class="cf">case</span>: partitioning at any ent - O(n^<span class="dv">2</span>) -  no definition of how looks the list of worst <span class="cf">case</span></span>
+<span id="cb25-5"><a href="#cb25-5"></a></span>
+<span id="cb25-6"><a href="#cb25-6"></a></span>
+<span id="cb25-7"><a href="#cb25-7"></a><span class="co">// Randomly selected pivotal element - Randomised quick sort</span></span>
+<span id="cb25-8"><a href="#cb25-8"></a>Best <span class="cf">case</span>: partitioning in the middle</span>
+<span id="cb25-9"><a href="#cb25-9"></a>Wors <span class="cf">case</span>: partitioning at any end of the list</span>
+<span id="cb25-10"><a href="#cb25-10"></a></span>
+<span id="cb25-11"><a href="#cb25-11"></a></span>
+<span id="cb25-12"><a href="#cb25-12"></a></span></code></pre></div>
+</section>
+<section id="կոդը-3" class="level3">
+<h3>Կոդը</h3>
+<div class="sourceCode" id="cb26" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb26-1"><a href="#cb26-1"></a><span class="dt">int</span> partition(<span class="dt">int</span> A[],<span class="dt">int</span> l,<span class="dt">int</span> h)</span>
+<span id="cb26-2"><a href="#cb26-2"></a>{</span>
+<span id="cb26-3"><a href="#cb26-3"></a>  <span class="dt">int</span> pivot=A[l];</span>
+<span id="cb26-4"><a href="#cb26-4"></a>  <span class="dt">int</span> i=l,j=h;</span>
+<span id="cb26-5"><a href="#cb26-5"></a>  <span class="cf">do</span></span>
+<span id="cb26-6"><a href="#cb26-6"></a>  {</span>
+<span id="cb26-7"><a href="#cb26-7"></a>    <span class="cf">do</span>{i++;}<span class="cf">while</span>(A[i] &lt;= pivot);</span>
+<span id="cb26-8"><a href="#cb26-8"></a>    <span class="cf">do</span>{j--;}<span class="cf">while</span>(A[j] &gt; pivot);</span>
+<span id="cb26-9"><a href="#cb26-9"></a>    <span class="cf">if</span>(i &lt; j) swap(&amp;A[i], &amp;A[j]);</span>
+<span id="cb26-10"><a href="#cb26-10"></a></span>
+<span id="cb26-11"><a href="#cb26-11"></a>  }<span class="cf">while</span>(i &lt; j);</span>
+<span id="cb26-12"><a href="#cb26-12"></a></span>
+<span id="cb26-13"><a href="#cb26-13"></a>  swap(&amp;A[l], &amp;A[j]);</span>
+<span id="cb26-14"><a href="#cb26-14"></a></span>
+<span id="cb26-15"><a href="#cb26-15"></a>  <span class="cf">return</span> j;</span>
+<span id="cb26-16"><a href="#cb26-16"></a>}</span>
+<span id="cb26-17"><a href="#cb26-17"></a></span>
+<span id="cb26-18"><a href="#cb26-18"></a><span class="dt">void</span> QuickSort(<span class="dt">int</span> A[],<span class="dt">int</span> l,<span class="dt">int</span> h)</span>
+<span id="cb26-19"><a href="#cb26-19"></a>{</span>
+<span id="cb26-20"><a href="#cb26-20"></a>  <span class="dt">int</span> j;</span>
+<span id="cb26-21"><a href="#cb26-21"></a>  <span class="cf">if</span>(l &lt; h)</span>
+<span id="cb26-22"><a href="#cb26-22"></a>  {</span>
+<span id="cb26-23"><a href="#cb26-23"></a>    j = partition(A,l,h);</span>
+<span id="cb26-24"><a href="#cb26-24"></a>    QuickSort(A,l,j);</span>
+<span id="cb26-25"><a href="#cb26-25"></a>    QuickSort(A,j+<span class="dv">1</span>,h);</span>
+<span id="cb26-26"><a href="#cb26-26"></a>  }</span>
+<span id="cb26-27"><a href="#cb26-27"></a>}</span>
+<span id="cb26-28"><a href="#cb26-28"></a></span>
+<span id="cb26-29"><a href="#cb26-29"></a><span class="dt">void</span> swap(<span class="dt">int</span> *x,<span class="dt">int</span> *y)</span>
+<span id="cb26-30"><a href="#cb26-30"></a>{</span>
+<span id="cb26-31"><a href="#cb26-31"></a>  <span class="dt">int</span> temp=*x;</span>
+<span id="cb26-32"><a href="#cb26-32"></a>  *x = *y;</span>
+<span id="cb26-33"><a href="#cb26-33"></a>  *y = temp;</span>
+<span id="cb26-34"><a href="#cb26-34"></a>}</span>
+<span id="cb26-35"><a href="#cb26-35"></a></span>
+<span id="cb26-36"><a href="#cb26-36"></a><span class="dt">int</span> main()</span>
+<span id="cb26-37"><a href="#cb26-37"></a>{</span>
+<span id="cb26-38"><a href="#cb26-38"></a>  <span class="dt">int</span> A[] = {<span class="dv">11</span>, <span class="dv">13</span>, <span class="dv">7</span>, <span class="dv">12</span>, <span class="dv">16</span>, <span class="dv">9</span>, <span class="dv">24</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">3</span>, INT32_MAX};</span>
+<span id="cb26-39"><a href="#cb26-39"></a>  <span class="dt">int</span> n = <span class="dv">11</span>, i;</span>
+<span id="cb26-40"><a href="#cb26-40"></a></span>
+<span id="cb26-41"><a href="#cb26-41"></a>  QuickSort(A, <span class="dv">0</span>, n-<span class="dv">1</span>);</span>
+<span id="cb26-42"><a href="#cb26-42"></a></span>
+<span id="cb26-43"><a href="#cb26-43"></a>  <span class="cf">for</span>(i = <span class="dv">0</span>; i &lt; n; i++)</span>
+<span id="cb26-44"><a href="#cb26-44"></a>    printf(<span class="st">&quot;%d &quot;</span>, A[i]);</span>
+<span id="cb26-45"><a href="#cb26-45"></a></span>
+<span id="cb26-46"><a href="#cb26-46"></a>  printf(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>);</span>
+<span id="cb26-47"><a href="#cb26-47"></a>  <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb26-48"><a href="#cb26-48"></a>}</span>
+<span id="cb26-49"><a href="#cb26-49"></a></span></code></pre></div>
+</section>
 </section>
 </section>
 </div>
@@ -489,21 +746,34 @@ Number of swap: n-1 ~ O(n)
     <link>http://imast.am/mitq/programming/online-courses.html</link>
     <description><![CDATA[<div class="post-content">
 <div id="TOC"><ul>
-<li><a href="#data-structures-algorithms">Data Structures &amp; Algorithms</a></li>
+<li><a href="#data-structures-algorithms">Data Structures &amp; Algorithms</a><ul>
+<li><a href="#introduction-to-algorithms">1. Introduction to Algorithms</a></li>
+<li><a href="#divide-and-conquer">2 Divide and Conquer</a></li>
+<li><a href="#greedy-mehod">3. Greedy Mehod</a></li>
+<li><a href="#dynamic-programing">3. Dynamic Programing</a></li>
+<li><a href="#graphs">5. Graphs</a></li>
+<li><a href="#backtracking">6. Backtracking</a></li>
+<li><a href="#branch-and-bound">7. Branch and Bound</a></li>
+<li><a href="#np-problems">8. Np problems</a></li>
+<li><a href="#string-algorithms">9. String Algorithms</a></li>
+<li><a href="#trees">10. Trees</a></li>
+<li><a href="#misc">11. Misc</a></li>
 <li><a href="#programming-concepts">Programming Concepts</a></li>
+</ul></li>
 </ul></div>
 <section id="data-structures-algorithms" class="level1">
 <h1>Data Structures &amp; Algorithms</h1>
+<section id="introduction-to-algorithms" class="level2">
+<h2>1. Introduction to Algorithms</h2>
 <ul>
-<li><a href="https://www.youtube.com/watch?v=0IAPZzGSbME&amp;list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&amp;index=1">1. Introduction to Algorithms</a>
-<ul>
+<li><a href="https://www.youtube.com/watch?v=0IAPZzGSbME&amp;list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&amp;index=1">1. Introduction to Algorithms</a></li>
 <li><a href="https://www.youtube.com/watch?v=-JTq1BFBwmo&amp;list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&amp;index=2">1.1 Priori Analysis and Posteriori Testing</a></li>
 <li><a href="https://www.youtube.com/watch?v=FbYzBWdhMb0&amp;list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&amp;index=3">1.2 Characteristics of Algorithm</a></li>
 <li><a href="http://youtu.be/xGYsEqe9Vl0">1.3 How Write and Analyze Algorithm</a></li>
 <li><a href="http://youtu.be/1U3Uwct45IY">1.4 Frequency Count Method</a></li>
 <li><a href="http://youtu.be/9TlHvipP5yA">1.5.1 Time Complexity #1</a></li>
 <li><a href="http://youtu.be/9SgLBjXqwd4">1.5.2 Time Complexity Example #2</a></li>
-<li><a href="http://youtu.be/p1EnSvS3urU">1.5.3 Time Complexity Example #3</a></li>
+<li><a href="http://youtu.be/p1EnSvS3urU">1.5.3 Time Complexity of While and if #3</a></li>
 <li><a href="http://youtu.be/w7t4_JUUTeg">1.6 Classes of functions</a></li>
 <li><a href="http://youtu.be/5v-tKX2uRAk">1.7 Compare Class of Functions</a></li>
 <li><a href="http://youtu.be/A03oI0znAoc">1.8.1 Asymptotic Notations Big Oh - Omega - Theta #1</a></li>
@@ -513,62 +783,118 @@ Number of swap: n-1 ~ O(n)
 <li><a href="http://youtu.be/WlBBTSL0ZRc">1.10.2 Comparison of Functions #2</a></li>
 <li><a href="http://youtu.be/lj3E24nnPjI">1.11 Best Worst and Average Case Analysis</a></li>
 <li><a href="http://youtu.be/wU6udHRIkcc">1.12 Disjoint Sets Data Structure - Weighted Union and Collapsing Find</a></li>
-</ul></li>
-<li><a href="http://youtu.be/2Rr2tW9zvRg">2 Divide And Conquer</a>
+</ul>
+</section>
+<section id="divide-and-conquer" class="level2">
+<h2>2 Divide and Conquer</h2>
 <ul>
+<li><a href="http://youtu.be/2Rr2tW9zvRg">2 Divide And Conquer</a></li>
 <li><a href="http://youtu.be/4V30R3I1vLI">2.1.1 Recurrence Relation (T(n)= T(n-1) + 1) #1</a></li>
 <li><a href="http://youtu.be/IawM82BQ4II">2.1.2 Recurrence Relation (T(n)= T(n-1) + n) #2</a></li>
-<li><a href="http://youtu.be/MhT7XmxhaCE">2.1.3 Recurrence Relation (T(n)= T(n-1) + n) #3</a></li>
-<li><a href="http://youtu.be/JvcqtZk2mng">2.1.4 Recurrence Relation (T(n)= T(n-1) + n) #4</a></li>
+<li><a href="http://youtu.be/MhT7XmxhaCE">2.1.3 Recurrence Relation (T(n)= T(n-1) + log n) #3</a></li>
+<li><a href="http://youtu.be/JvcqtZk2mng">2.1.4 Recurrence Relation T(n)=2 T(n-1)+1 #4</a></li>
 <li><a href="http://youtu.be/CyknhZbfMqc">2.2 Masters Theorem Decreasing Function</a></li>
 <li><a href="http://youtu.be/8gt0D0IqU5w">2.3.1 Recurrence Relation Dividing Function T(n)=T(n/2)+1 #1</a></li>
-<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
-<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
-<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
-</ul></li>
-<li><a href="http://youtu.be/ARvQcqJ_-NY">3. Greedy Method - Introduction</a>
+<li><a href="http://youtu.be/XcZw01FuH18">2.3.2 Recurrence Relation Dividing {T(n)=T(n/2) +n} #2</a></li>
+<li><a href="http://youtu.be/1K9ebQJosvo">2.3.3 Recurrence Relation {T(n)= 2T(n/2) +n} #3</a></li>
+<li><a href="http://youtu.be/OynWkEj0S-s">2.4.1 Masters Theorem in Algorithms for Dividing Function #1</a></li>
+<li><a href="http://youtu.be/kGcO-nAm9Vc">2.4.2 Examples for Master Theorem #2</a></li>
+<li><a href="http://youtu.be/9rVuyjxzwgM">2.5 Root function (Recurrence Relation)</a></li>
+<li><a href="http://youtu.be/C2apEw9pgtw">2.6.1 Binary Search Iterative Method</a></li>
+<li><a href="http://youtu.be/uEUXGcc2VXM">2.6.2 Binary Search Recursive Method</a></li>
+<li><a href="http://youtu.be/HqPJF2L5h9U">2.6.3 Heap - Heap Sort - Heapify - Priority Queues</a></li>
+<li><a href="http://youtu.be/6pV2IF0fgKY">2.7.1 Two Way MergeSort - Iterative method</a></li>
+<li><a href="http://youtu.be/mB5HXBb_HY">2.7.2 Merge Sort Algorithm</a></li>
+<li><a href="http://youtu.be/ak-pz7tS5DE">2.7.3 MergeSort in-depth Analysis</a></li>
+<li><a href="http://youtu.be/7h1s2SojIRw">2.8.1 QuickSort Algorithm</a></li>
+<li><a href="http://youtu.be/-qOVVRIZzao">2.8.2 QuickSort Analysis</a></li>
+<li><a href="http://youtu.be/0oJyNmEbS4w">2.9 Strassens Matrix Multiplication</a></li>
+</ul>
+</section>
+<section id="greedy-mehod" class="level2">
+<h2>3. Greedy Mehod</h2>
 <ul>
-<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
-<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
-<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
-<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
-<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
-</ul></li>
-<li><a href="http://youtu.be/5dRGRueKU3M">4 Principle of Optimality - Dynamic Programming introduction</a>
+<li><a href="http://youtu.be/ARvQcqJ_-NY">3. Greedy Method - Introduction</a></li>
+<li><a href="http://youtu.be/oTTzNMHM05I">3.1 Knapsack Problem - Greedy Method</a></li>
+<li><a href="http://youtu.be/zPtI8q9gvX8">3.2 Job Sequencing with Deadlines - Greedy Method</a></li>
+<li><a href="http://youtu.be/HHIc5JZyenI">3.3 Optimal Merge Pattern - Greedy Method</a></li>
+<li><a href="http://youtu.be/co4_ahEDCho">3.4 Huffman Coding - Greedy Method</a></li>
+<li><a href="http://youtu.be/4ZlRH0eK-qQ">3.5 Prims and Kruskals Algorithms - Greedy Method</a></li>
+<li><a href="http://youtu.be/XB4MIexjvY0">3.6 Dijkstra Algorithm - Single Source Shortest Path - Greedy Method</a></li>
+</ul>
+</section>
+<section id="dynamic-programing" class="level2">
+<h2>3. Dynamic Programing</h2>
 <ul>
-<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
-<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
-<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
-<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
-<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
-</ul></li>
-<li><a href="http://youtu.be/pcKY4hjDrxk">5.1 Graph Traversals - BFS &amp; DFS -Breadth First Search and Depth First Search</a>
+<li><a href="http://youtu.be/5dRGRueKU3M">4 Principle of Optimality - Dynamic Programming introduction</a></li>
+<li><a href="http://youtu.be/9iE9Mj4m8jk">4.1 MultiStage Graph - Dynamic Programming</a></li>
+<li><a href="http://youtu.be/FcScLYJI42E">4.1.1 MultiStage Graph (Program) - Dynamic Programming</a></li>
+<li><a href="http://youtu.be/oNI0rf2P9gE">4.2 All Pairs Shortest Path (Floyd-Warshall) - Dynamic Programming</a></li>
+<li><a href="http://youtu.be/prx1psByp7U">4.3 Matrix Chain Multiplication - Dynamic Programming</a></li>
+<li><a href="http://youtu.be/_WncuhSJZyA">(New) Matrix Chain Multiplication using Dynamic Programming Formula</a></li>
+<li><a href="http://youtu.be/eKkXU3uu2zk">4.3.1 Matrix Chain Multiplication (Program) - Dynamic Programming</a></li>
+<li><a href="http://youtu.be/FtN3BYH2Zes">4.4 Bellman Ford Algorithm - Single Source Shortest Path - Dynamic Programming</a></li>
+<li><a href="http://youtu.be/nLmhmB6NzcM">4.5 0/1 Knapsack - Two Methods - Dynamic Programming</a></li>
+<li><a href="http://youtu.be/zRza99HPvkQ">4.5.1 0/1 Knapsack Problem (Program) - Dynamic Programming</a></li>
+<li><a href="http://youtu.be/vLS-zRCHo-Y">4.6 Optimal Binary Search Tree (Successful Search Only) - Dynamic Programming</a></li>
+<li><a href="http://youtu.be/wAy6nDMPYAE">4.6.2 (New) Optimal Binary Search Tree Successful and Unsuccessful Probability - Dynamic Programming</a></li>
+<li><a href="http://youtu.be/Q4zHb-Swzro">4.7 (New) Traveling Salesman Problem - Dynamic Programming using Formula</a></li>
+<li><a href="http://youtu.be/uJOmqBwENB8">4.8 Reliability Design - Dynamic Programming</a></li>
+<li><a href="http://youtu.be/sSno9rV8Rhg">4.9 Longest Common Subsequence (LCS) - Recursion and Dynamic Programming</a></li>
+<li></li>
+<li><a href="http://youtu.be/oBt53YbR9Kk">Dynamic Programming - Learn to Solve Algorithmic Problems &amp; Coding Challenges</a></li>
+</ul>
+</section>
+<section id="graphs" class="level2">
+<h2>5. Graphs</h2>
 <ul>
+<li><a href="http://youtu.be/pcKY4hjDrxk">5.1 Graph Traversals - BFS &amp; DFS -Breadth First Search and Depth First Search</a></li>
 <li><a href="http://youtu.be/jFZsDDB0-vo">5.2 Articulation Point and Biconnected Components</a></li>
-</ul></li>
-<li><a href="http://youtu.be/DKCbsiDBN6c">6 Introduction to Backtracking - Brute Force Approach</a>
+</ul>
+</section>
+<section id="backtracking" class="level2">
+<h2>6. Backtracking</h2>
 <ul>
-<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
-<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
-<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
-<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
-</ul></li>
-<li><a href="http://youtu.be/3RBNPc0_Q6g">7 Branch and Bound Introduction</a>
+<li><a href="http://youtu.be/DKCbsiDBN6c">6 Introduction to Backtracking - Brute Force Approach</a></li>
+<li><a href="http://youtu.be/xFv_Hl4B83A">6.1 N Queens Problem using Backtracking</a></li>
+<li><a href="http://youtu.be/kyLxTdsT8ws">6.2 Sum Of Subsets Problem - Backtracking</a></li>
+<li><a href="http://youtu.be/052VkKhIaQ4">6.3 Graph Coloring Problem - Backtracking</a></li>
+<li><a href="http://youtu.be/dQr4wZCiJJ4">6.4 Hamiltonian Cycle - Backtracking</a></li>
+</ul>
+</section>
+<section id="branch-and-bound" class="level2">
+<h2>7. Branch and Bound</h2>
 <ul>
-<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
-<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
-<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
-<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
-</ul></li>
-<li><a href="http://youtu.be/e2cF8a5aAhE">8. NP-Hard and NP-Complete Problems</a>
+<li><a href="http://youtu.be/3RBNPc0_Q6g">7 Branch and Bound Introduction</a></li>
+<li><a href="http://youtu.be/M7Fl_z7_J2k">7.1 Job Sequencing with Deadline - Branch and Bound</a></li>
+<li><a href="http://youtu.be/yV1d-b_NeK8">7.2 0/1 Knapsack using Branch and Bound</a></li>
+<li><a href="http://youtu.be/1FEP_sNb62k">7.3 Traveling Salesman Problem - Branch and Bound</a></li>
+</ul>
+</section>
+<section id="np-problems" class="level2">
+<h2>8. Np problems</h2>
 <ul>
-<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
-</ul></li>
-<li><a href="http://youtu.be/V5-7GzOfADQ">9.1 Knuth-Morris-Pratt KMP String Matching Algorithm</a>
+<li><a href="http://youtu.be/e2cF8a5aAhE">8. NP-Hard and NP-Complete Problems</a></li>
+<li><a href="http://youtu.be/qZs767KQcvE">8.1 NP-Hard Graph Problem - Clique Decision Problem</a></li>
+</ul>
+</section>
+<section id="string-algorithms" class="level2">
+<h2>9. String Algorithms</h2>
 <ul>
-<li>[[<a href="http://youtu.be/">http://youtu.be/</a>][]</li>
-</ul></li>
+<li><a href="http://youtu.be/V5-7GzOfADQ">9.1 Knuth-Morris-Pratt KMP String Matching Algorithm</a></li>
+<li><a href="http://youtu.be/qQ8vS2btsxI">9.2 Rabin-Karp String Matching Algorithm</a></li>
+</ul>
+</section>
+<section id="trees" class="level2">
+<h2>10. Trees</h2>
+<ul>
 <li><a href="http://youtu.be/jDM6_TnYIqE">10.1 AVL Tree - Insertion and Rotations</a></li>
+<li><a href="http://youtu.be/aZjYr87r1b8">10.2 B Trees and B+ Trees. How they are useful in Databases</a></li>
+</ul>
+</section>
+<section id="misc" class="level2">
+<h2>11. Misc</h2>
+<ul>
 <li><a href="http://youtu.be/ddsP7NecEBk">Asymptotic Notations - Simplified</a></li>
 <li><a href="http://youtu.be/mFY0J5W8Udk">Hashing Technique - Simplified</a></li>
 <li><a href="http://youtu.be/2raV0H9KqY8">Shortest Path Algorithms (Dijkstra and Bellman-Ford) - Simplified</a></li>
@@ -577,8 +903,8 @@ Number of swap: n-1 ~ O(n)
 <li><a href="http://youtu.be/MJZd6uPi88E">Row-Major and Column-Major Mapping</a></li>
 </ul>
 </section>
-<section id="programming-concepts" class="level1">
-<h1>Programming Concepts</h1>
+<section id="programming-concepts" class="level2">
+<h2>Programming Concepts</h2>
 <ul>
 <li><a href="http://youtu.be/OqLt2GfX6jg">Uses of pointers</a></li>
 <li><a href="http://youtu.be/PdvGEI-P3-M">Stack vs Heap</a></li>
@@ -586,6 +912,7 @@ Number of swap: n-1 ~ O(n)
 <li><a href="http://youtu.be/868qXWoGS9E">Pointer to Array</a></li>
 <li><a href="http://youtu.be/ygK0YON10sQ">Recursion and Stack</a></li>
 </ul>
+</section>
 </section>
 </div>
 
