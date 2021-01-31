@@ -7,8 +7,990 @@
         <description><![CDATA[]]></description>
         <atom:link href="http://imast.am/rss.xml" rel="self"
                    type="application/rss+xml" />
-        <lastBuildDate>Wed, 02 Dec 2020 00:00:00 UT</lastBuildDate>
+        <lastBuildDate>Sun, 31 Jan 2021 00:00:00 UT</lastBuildDate>
         <item>
+    <title>Async</title>
+    <link>http://imast.am/mitq/programming/async-resources.html</link>
+    <description><![CDATA[<div class="post-content">
+<div id="TOC"><ul>
+<li><a href="#net-async-talks">.Net Async Talks</a><ul>
+<li><a href="#lucian-wischik">Lucian Wischik</a></li>
+<li><a href="#wintellect">Wintellect</a></li>
+<li><a href="#stephen-toub">Stephen Toub</a></li>
+</ul></li>
+<li><a href="#net-blogs">.Net Blogs</a><ul>
+<li><a href="#msdn">MSDN</a></li>
+<li><a href="#stephen-toub-1">Stephen Toub</a></li>
+<li><a href="#eric-lipper">Eric Lipper</a></li>
+<li><a href="#raymond-chen">Raymond Chen</a></li>
+<li><a href="#stephen-cleary">Stephen Cleary</a></li>
+<li><a href="#i3arnon">i3arnon</a></li>
+<li><a href="#code">Code</a></li>
+</ul></li>
+</ul></div>
+<section id="net-async-talks" class="level2">
+<h2>.Net Async Talks</h2>
+<section id="lucian-wischik" class="level3">
+<h3>Lucian Wischik</h3>
+<ul>
+<li><p><a href="https://channel9.msdn.com/Series/Three-Essential-Tips-for-Async/Three-Essential-Tips-For-Async-Introduction">Six Essential Tips For Async - Introduction</a> - Talks</p></li>
+<li><p><a href="https://docs.microsoft.com/en-us/archive/blogs/lucian/talk-async-best-practices">Talk: Async best practices</a></p></li>
+<li><p><a href="https://docs.microsoft.com/en-us/archive/blogs/lucian/talk-the-complete-async-three-talks-from-teched-europe-2013">Talk: The Complete Async – three talks from TechEd Europe 2013</a></p></li>
+<li><p><a href="https://channel9.msdn.com/Events/TechEd/Europe/2013/DEV-B317#fbid=aIWUq0ssW74">Intro: Using Async</a></p></li>
+<li><p><a href="https://channel9.msdn.com/Events/TechEd/Europe/2013/DEV-B319#fbid=aIWUq0ssW74">Three Essential Tips for Using Async in Microsoft Visual C# and Visual Basic</a> 01:06:30 - Common problems - usefull tips</p></li>
+<li><p><a href="https://channel9.msdn.com/Events/TechEd/Europe/2013/DEV-B318#fbid=aIWUq0ssW74">Creating Async Libraries That Are Modular, Reusable and Fast</a></p></li>
+</ul>
+</section>
+<section id="wintellect" class="level3">
+<h3>Wintellect</h3>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=CYowfMeSg_k&amp;list=PL9XzOCngAkqudQyRcJnb3bwjx8m6C_Gaw&amp;index=7">Advanced .NET Threading, Part 3: I/O-Bound Async Operations</a></li>
+<li><a href="https://www.youtube.com/watch?v=KzDShvKbEMs&amp;list=PL9XzOCngAkqudQyRcJnb3bwjx8m6C_Gaw&amp;index=2">LIDNUG &amp; Wintellect Lock-Free Thread Synchronization with Jeffrey Richter</a></li>
+<li><a href="https://www.youtube.com/watch?v=42-ng2eAj7Q">LIDNUG &amp; Wintellect - Performing Asynchronous IO Bound Operations</a></li>
+<li><a href="https://www.youtube.com/watch?v=VNa3P5BAVrU">SWIT 2014. Джефрі Ріхтер. Performing Asynchronous I/O Bound Operations</a></li>
+<li><a href="https://www.youtube.com/watch?v=ZnXOGhQrxm8&amp;feature=emb_logo">SWIT 2014. Джефрі Ріхтер. Windows Store Apps Process Model</a></li>
+<li><a href="https://www.youtube.com/watch?v=gWcyXGIbRDI">Jeffrey Richter «Efficient Buffer Manipulation using C# 7.2’s Span»</a></li>
+<li><a href="https://www.youtube.com/watch?v=ADd8SmmGSYI&amp;list=PL9XzOCngAkqudQyRcJnb3bwjx8m6C_Gaw&amp;index=13">Jeffrey Richter — Generics</a></li>
+<li><a href="https://www.wintellectnow.com/Home/Instructor?instructorId=JeffreyRichter">Wintellect Now video list</a></li>
+</ul>
+</section>
+<section id="stephen-toub" class="level3">
+<h3>Stephen Toub</h3>
+<ul>
+<li><a href="https://channel9.msdn.com/Shows/On-NET/Understanding-how-to-use-Task-and-ValueTask">Understanding how to use Task and ValueTask</a></li>
+</ul>
+</section>
+</section>
+<section id="net-blogs" class="level2">
+<h2>.Net Blogs</h2>
+<section id="msdn" class="level3">
+<h3>MSDN</h3>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/async">Asynchronous programming</a></li>
+<li><a href="https://docs.microsoft.com/en-us/dotnet/standard/async-in-depth">Async in depth</a></li>
+</ul>
+</section>
+<section id="stephen-toub-1" class="level3">
+<h3>Stephen Toub</h3>
+<ul>
+<li><a href="https://devblogs.microsoft.com/pfxteam/tasks-monads-and-linq/">Tasks, Monads, and LINQ</a></li>
+<li><a href="https://devblogs.microsoft.com/pfxteam/task-run-vs-task-factory-startnew/">Task.Run vs Task.Factory.StartNew</a></li>
+<li><a href="https://devblogs.microsoft.com/pfxteam/task-factory-startnew-vs-new-task-start/">“Task.Factory.StartNew” vs “new Task(…).Start”</a></li>
+</ul>
+</section>
+<section id="eric-lipper" class="level3">
+<h3>Eric Lipper</h3>
+<ul>
+<li><a href="https://ericlippert.com/category/monads/">series exploring monads and C#</a></li>
+<li><a href="https://ericlippert.com/category/conwayslife/">Conways Life game</a></li>
+</ul>
+</section>
+<section id="raymond-chen" class="level3">
+<h3>Raymond Chen</h3>
+<ul>
+<li><a href="https://devblogs.microsoft.com/oldnewthing/">Raymond Chen blog</a></li>
+</ul>
+</section>
+<section id="stephen-cleary" class="level3">
+<h3>Stephen Cleary</h3>
+<ul>
+<li><a href="https://blog.stephencleary.com/2013/08/startnew-is-dangerous.html">StartNew is Dangerous</a></li>
+</ul>
+</section>
+<section id="i3arnon" class="level3">
+<h3>i3arnon</h3>
+<ul>
+<li><a href="http://blog.i3arnon.com/2015/07/02/task-run-long-running/">LongRunning Is Useless For Task.Run With Async/Await</a></li>
+<li><a href="https://stackoverflow.com/questions/24777253/waiting-for-async-await-inside-a-task/24777502#24777502">SO Answer</a></li>
+<li><a href="https://stackoverflow.com/questions/26921191/how-to-pass-longrunning-flag-specifically-to-task-run">SO-How to pass LongRunning flag specifically to Task.Run()?</a></li>
+</ul>
+</section>
+<section id="code" class="level3">
+<h3>Code</h3>
+<div class="sourceCode" id="cb1" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1"></a>Task&lt;<span class="dt">int</span>&gt; t = FredAsync(<span class="st">&quot;&quot;</span>);   <span class="co">// ArgumentException(&quot;a&quot;)</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>try {</span>
+<span id="cb1-3"><a href="#cb1-3"></a>  <span class="dt">int</span> i = await t;  <span class="co">// async version</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>}</span>
+<span id="cb1-5"><a href="#cb1-5"></a>catch (ArgumentException ex)</span>
+<span id="cb1-6"><a href="#cb1-6"></a>{</span>
+<span id="cb1-7"><a href="#cb1-7"></a>}</span>
+<span id="cb1-8"><a href="#cb1-8"></a></span>
+<span id="cb1-9"><a href="#cb1-9"></a>----</span>
+<span id="cb1-10"><a href="#cb1-10"></a></span>
+<span id="cb1-11"><a href="#cb1-11"></a>try {</span>
+<span id="cb1-12"><a href="#cb1-12"></a>  <span class="dt">int</span> i = t.Result;  <span class="co">// (2) problems</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a>}</span>
+<span id="cb1-14"><a href="#cb1-14"></a>catch (AggregateException ex)</span>
+<span id="cb1-15"><a href="#cb1-15"></a>{</span>
+<span id="cb1-16"><a href="#cb1-16"></a>}</span>
+<span id="cb1-17"><a href="#cb1-17"></a></span>
+<span id="cb1-18"><a href="#cb1-18"></a>------</span>
+<span id="cb1-19"><a href="#cb1-19"></a></span>
+<span id="cb1-20"><a href="#cb1-20"></a>try {</span>
+<span id="cb1-21"><a href="#cb1-21"></a>   <span class="dt">int</span> i = t.GetResult(); <span class="co">// for WinRT ops, this will FAIL if op</span></span>
+<span id="cb1-22"><a href="#cb1-22"></a>                          <span class="co">// isn&#39;t yet completed</span></span>
+<span id="cb1-23"><a href="#cb1-23"></a></span>
+<span id="cb1-24"><a href="#cb1-24"></a>   <span class="dt">int</span> i = t.GetAwaiter().GetResult();</span>
+<span id="cb1-25"><a href="#cb1-25"></a>   <span class="co">// still bad because it blocks the calling thread</span></span>
+<span id="cb1-26"><a href="#cb1-26"></a>   <span class="co">// AND hidden from intellisense</span></span>
+<span id="cb1-27"><a href="#cb1-27"></a>   <span class="co">// until the task completes</span></span>
+<span id="cb1-28"><a href="#cb1-28"></a>   <span class="co">// but at least it gets the same exception as </span></span>
+<span id="cb1-29"><a href="#cb1-29"></a>}</span>
+<span id="cb1-30"><a href="#cb1-30"></a>catch (ArgumentException ex)</span>
+<span id="cb1-31"><a href="#cb1-31"></a>{</span>
+<span id="cb1-32"><a href="#cb1-32"></a>}</span>
+<span id="cb1-33"><a href="#cb1-33"></a></span>
+<span id="cb1-34"><a href="#cb1-34"></a></span>
+<span id="cb1-35"><a href="#cb1-35"></a></span>
+<span id="cb1-36"><a href="#cb1-36"></a></span>
+<span id="cb1-37"><a href="#cb1-37"></a>...</span>
+<span id="cb1-38"><a href="#cb1-38"></a>Task&lt;<span class="dt">int</span>&gt; t = AlphaAsync();  <span class="co">// first function: exception is raised here</span></span>
+<span id="cb1-39"><a href="#cb1-39"></a><span class="dt">int</span> i = await t;             <span class="co">// second function: exception is raised here!</span></span>
+<span id="cb1-40"><a href="#cb1-40"></a></span>
+<span id="cb1-41"><a href="#cb1-41"></a>async Task&lt;<span class="dt">int</span>&gt; AlphaAsync()</span>
+<span id="cb1-42"><a href="#cb1-42"></a>{</span>
+<span id="cb1-43"><a href="#cb1-43"></a>   Console.WriteLine(<span class="st">&quot;hello&quot;</span>);</span>
+<span id="cb1-44"><a href="#cb1-44"></a>   throw new ArgumentException(<span class="st">&quot;no arguments&quot;</span>); <span class="co">// this exception is stored inside</span></span>
+<span id="cb1-45"><a href="#cb1-45"></a>                                                <span class="co">// the &quot;Task&quot; that&#39;s returned from AlphaAsync</span></span>
+<span id="cb1-46"><a href="#cb1-46"></a>   <span class="cf">return</span> await BetaAsync();</span>
+<span id="cb1-47"><a href="#cb1-47"></a>}</span>
+<span id="cb1-48"><a href="#cb1-48"></a></span>
+<span id="cb1-49"><a href="#cb1-49"></a>Task&lt;<span class="dt">int</span>&gt; AlphaAsync()</span>
+<span id="cb1-50"><a href="#cb1-50"></a>{</span>
+<span id="cb1-51"><a href="#cb1-51"></a>   Console.WriteLine(<span class="st">&quot;hello&quot;</span>);</span>
+<span id="cb1-52"><a href="#cb1-52"></a>   throw new ArgumentException(<span class="st">&quot;no arguments&quot;</span>); <span class="co">// this throws an exception back to the caller</span></span>
+<span id="cb1-53"><a href="#cb1-53"></a>   <span class="cf">return</span> BetaAsync();</span>
+<span id="cb1-54"><a href="#cb1-54"></a>}</span>
+<span id="cb1-55"><a href="#cb1-55"></a></span>
+<span id="cb1-56"><a href="#cb1-56"></a></span>
+<span id="cb1-57"><a href="#cb1-57"></a></span>
+<span id="cb1-58"><a href="#cb1-58"></a></span>
+<span id="cb1-59"><a href="#cb1-59"></a></span>
+<span id="cb1-60"><a href="#cb1-60"></a>async Task&lt;<span class="dt">int</span>&gt; BetaAsync()</span>
+<span id="cb1-61"><a href="#cb1-61"></a>{</span>
+<span id="cb1-62"><a href="#cb1-62"></a>  await Task.Delay(<span class="dv">10</span>);</span>
+<span id="cb1-63"><a href="#cb1-63"></a>  <span class="cf">return</span> <span class="dv">10</span>;</span>
+<span id="cb1-64"><a href="#cb1-64"></a>}</span>
+<span id="cb1-65"><a href="#cb1-65"></a></span>
+<span id="cb1-66"><a href="#cb1-66"></a></span>
+<span id="cb1-67"><a href="#cb1-67"></a></span>
+<span id="cb1-68"><a href="#cb1-68"></a></span>
+<span id="cb1-69"><a href="#cb1-69"></a>class Page1</span>
+<span id="cb1-70"><a href="#cb1-70"></a>{</span>
+<span id="cb1-71"><a href="#cb1-71"></a>   CancellationTokenSource cts = new CancellationTokenSource();</span>
+<span id="cb1-72"><a href="#cb1-72"></a></span>
+<span id="cb1-73"><a href="#cb1-73"></a>   async <span class="dt">void</span> Button1Click()</span>
+<span id="cb1-74"><a href="#cb1-74"></a>   {</span>
+<span id="cb1-75"><a href="#cb1-75"></a>      try</span>
+<span id="cb1-76"><a href="#cb1-76"></a>      {</span>
+<span id="cb1-77"><a href="#cb1-77"></a><span class="co">//       cts.CancelAfter(2000);</span></span>
+<span id="cb1-78"><a href="#cb1-78"></a>         var s = await httpClient.GetStringAsync(url, cts.Token);</span>
+<span id="cb1-79"><a href="#cb1-79"></a><span class="co">//         cts.Token.ThrowIfCancellationRequested(); // I could do this if GetStringAsync didn&#39;t offer it</span></span>
+<span id="cb1-80"><a href="#cb1-80"></a>         label1.Text = s;</span>
+<span id="cb1-81"><a href="#cb1-81"></a>      }</span>
+<span id="cb1-82"><a href="#cb1-82"></a>      catch (OperationCanceledException ex)</span>
+<span id="cb1-83"><a href="#cb1-83"></a>      {</span>
+<span id="cb1-84"><a href="#cb1-84"></a>         label1.Text = <span class="st">&quot;Cancelled&quot;</span>;</span>
+<span id="cb1-85"><a href="#cb1-85"></a>      }</span>
+<span id="cb1-86"><a href="#cb1-86"></a>   }</span>
+<span id="cb1-87"><a href="#cb1-87"></a></span>
+<span id="cb1-88"><a href="#cb1-88"></a></span>
+<span id="cb1-89"><a href="#cb1-89"></a>   <span class="dt">void</span> CancelButtonClick()</span>
+<span id="cb1-90"><a href="#cb1-90"></a>   {</span>
+<span id="cb1-91"><a href="#cb1-91"></a>      cts.Cancel();</span>
+<span id="cb1-92"><a href="#cb1-92"></a>   }</span>
+<span id="cb1-93"><a href="#cb1-93"></a>}</span>
+<span id="cb1-94"><a href="#cb1-94"></a></span>
+<span id="cb1-95"><a href="#cb1-95"></a><span class="co">// VOICE OF STEPHEN(S): If you&#39;re writing a library API that takes CancellationToken,</span></span>
+<span id="cb1-96"><a href="#cb1-96"></a><span class="co">// then you should certainly CHECK it, and you should certainly</span></span>
+<span id="cb1-97"><a href="#cb1-97"></a><span class="co">// expose cancellation by throwing OperationCanceledException.</span></span>
+<span id="cb1-98"><a href="#cb1-98"></a><span class="co">// That&#39;s just what everyone expects.</span></span>
+<span id="cb1-99"><a href="#cb1-99"></a><span class="co">//</span></span>
+<span id="cb1-100"><a href="#cb1-100"></a><span class="co">// (but in your own user-code, you can violate that rule if it seems wise. It&#39;s a dangerous</span></span>
+<span id="cb1-101"><a href="#cb1-101"></a><span class="co">// pattern because easy to fall into traps.)</span></span>
+<span id="cb1-102"><a href="#cb1-102"></a><span class="co">//</span></span>
+<span id="cb1-103"><a href="#cb1-103"></a></span>
+<span id="cb1-104"><a href="#cb1-104"></a>Task object has several states</span>
+<span id="cb1-105"><a href="#cb1-105"></a>  * NotYetCompleted</span>
+<span id="cb1-106"><a href="#cb1-106"></a>  * CompletedWithSuccess</span>
+<span id="cb1-107"><a href="#cb1-107"></a>  * CompletedWithFailure</span>
+<span id="cb1-108"><a href="#cb1-108"></a>  * Cancelled</span>
+<span id="cb1-109"><a href="#cb1-109"></a>The async/await machinery make the last two states look the same. But internally they are</span>
+<span id="cb1-110"><a href="#cb1-110"></a>different.</span>
+<span id="cb1-111"><a href="#cb1-111"></a></span>
+<span id="cb1-112"><a href="#cb1-112"></a></span>
+<span id="cb1-113"><a href="#cb1-113"></a></span>
+<span id="cb1-114"><a href="#cb1-114"></a></span>
+<span id="cb1-115"><a href="#cb1-115"></a></span>
+<span id="cb1-116"><a href="#cb1-116"></a>async Task MyApiWithOptionalCancellationAsync(CancellationToken cancel = null)</span>
+<span id="cb1-117"><a href="#cb1-117"></a>{</span>
+<span id="cb1-118"><a href="#cb1-118"></a>   <span class="cf">while</span> (true)</span>
+<span id="cb1-119"><a href="#cb1-119"></a>   {</span>
+<span id="cb1-120"><a href="#cb1-120"></a>     await Task.Delay(<span class="dv">100</span>);</span>
+<span id="cb1-121"><a href="#cb1-121"></a>     cancel.ThrowIfCancellationRequested();</span>
+<span id="cb1-122"><a href="#cb1-122"></a>     <span class="co">// equivalent: if (cts.Token.IsCancellationRequested) throw new OperationCanceledException();</span></span>
+<span id="cb1-123"><a href="#cb1-123"></a>   }</span>
+<span id="cb1-124"><a href="#cb1-124"></a>   <span class="co">// (pointless, since Task.Delay takes a CancellationToken, but shown here just for fun)</span></span>
+<span id="cb1-125"><a href="#cb1-125"></a>}</span>
+<span id="cb1-126"><a href="#cb1-126"></a></span>
+<span id="cb1-127"><a href="#cb1-127"></a></span>
+<span id="cb1-128"><a href="#cb1-128"></a></span>
+<span id="cb1-129"><a href="#cb1-129"></a>--------------------------------</span>
+<span id="cb1-130"><a href="#cb1-130"></a></span>
+<span id="cb1-131"><a href="#cb1-131"></a></span>
+<span id="cb1-132"><a href="#cb1-132"></a>We have an API that is SYNCHRONOUS.</span>
+<span id="cb1-133"><a href="#cb1-133"></a>We want to make it asynchronous - so it&#39;s easier to call from the UI thread</span>
+<span id="cb1-134"><a href="#cb1-134"></a>We have a large business project which is built around the assumption of synchronicity throughout.</span>
+<span id="cb1-135"><a href="#cb1-135"></a></span>
+<span id="cb1-136"><a href="#cb1-136"></a>(<span class="dv">1</span>) BEWARE of the following... don&#39;t <span class="cf">do</span> it inside a re-usable library</span>
+<span id="cb1-137"><a href="#cb1-137"></a>async Task&lt;<span class="dt">int</span>&gt; FooAsync()</span>
+<span id="cb1-138"><a href="#cb1-138"></a>{</span>
+<span id="cb1-139"><a href="#cb1-139"></a>   <span class="cf">return</span> Task.Run(_ =&gt; Foo());</span>
+<span id="cb1-140"><a href="#cb1-140"></a>}</span>
+<span id="cb1-141"><a href="#cb1-141"></a></span>
+<span id="cb1-142"><a href="#cb1-142"></a></span>
+<span id="cb1-143"><a href="#cb1-143"></a>(<span class="dv">2</span>) Start by looking at the <span class="st">&quot;leaf&quot;</span> of your call-chart, i.e. look at the APIs that</span>
+<span id="cb1-144"><a href="#cb1-144"></a>you&#39;re invoking, and see <span class="cf">if</span> any of them have true async alternatives. Then bubble this</span>
+<span id="cb1-145"><a href="#cb1-145"></a>up layer by layer. You can have two parallel sets of functions, one sync, one async.</span>
+<span id="cb1-146"><a href="#cb1-146"></a>Over time, more and more functionality will be exposed both async and sync.</span>
+<span id="cb1-147"><a href="#cb1-147"></a></span>
+<span id="cb1-148"><a href="#cb1-148"></a>Do this <span class="cf">if</span> you&#39;re aiming <span class="cf">for</span> scalability benefits.</span>
+<span id="cb1-149"><a href="#cb1-149"></a>This option is generally better.</span>
+<span id="cb1-150"><a href="#cb1-150"></a>First places to look: anything that does IO - database, file access, network, ...</span>
+<span id="cb1-151"><a href="#cb1-151"></a></span>
+<span id="cb1-152"><a href="#cb1-152"></a>If you can&#39;t find async alternatives <span class="cf">for</span> your leaves, then wrapping them up in</span>
+<span id="cb1-153"><a href="#cb1-153"></a>Task.Run as per (<span class="dv">1</span>) will NOT help your scalability. It will in fact hurt it.</span>
+<span id="cb1-154"><a href="#cb1-154"></a></span>
+<span id="cb1-155"><a href="#cb1-155"></a>Note: the async leaves that are offered to you in the .NET framework are NOT</span>
+<span id="cb1-156"><a href="#cb1-156"></a>implemented using the threadpool. They are all done in a <span class="st">&quot;true async&quot;</span> way.</span>
+<span id="cb1-157"><a href="#cb1-157"></a>That&#39;s the right way to <span class="cf">do</span> it.</span>
+<span id="cb1-158"><a href="#cb1-158"></a></span>
+<span id="cb1-159"><a href="#cb1-159"></a>Q. How does it even work? Is it really async all the way down? Isn&#39;t that impossible?</span>
+<span id="cb1-160"><a href="#cb1-160"></a>A. No! The OperatingSystem uses IO-Completion-Ports and IRQs and TimerInterrupts and things.</span>
+<span id="cb1-161"><a href="#cb1-161"></a>It doesn&#39;t need to <span class="cf">do</span> busy waits. (or, <span class="cf">if</span> it wants, it can make <span class="cf">do</span> with just one single</span>
+<span id="cb1-162"><a href="#cb1-162"></a>busy thread that dispatches off to hundreds/thousands of other threads).</span>
+<span id="cb1-163"><a href="#cb1-163"></a></span>
+<span id="cb1-164"><a href="#cb1-164"></a>TaskCompletionSource is the primary way that we build our OWN leaves, out of things</span>
+<span id="cb1-165"><a href="#cb1-165"></a>that don&#39;t otherwise already have async APIs. e.g. <span class="cf">if</span> the hardware comes back with</span>
+<span id="cb1-166"><a href="#cb1-166"></a>data (e.g. on disk controller or USB port or whatever), then that interrupt will call</span>
+<span id="cb1-167"><a href="#cb1-167"></a>TaskCompletionSource.SetResult()... or its equivalent.</span>
+<span id="cb1-168"><a href="#cb1-168"></a></span>
+<span id="cb1-169"><a href="#cb1-169"></a>Note: Task.Run&#39;s implementation is (<span class="dv">1</span>) create a new TaskCompletionSource, (<span class="dv">2</span>)</span>
+<span id="cb1-170"><a href="#cb1-170"></a>queue a user workitem on the threadpool, (<span class="dv">3</span>) when that user workitem finishes, then</span>
+<span id="cb1-171"><a href="#cb1-171"></a>it calls TaskCompletionSource.SetResult.</span>
+<span id="cb1-172"><a href="#cb1-172"></a></span>
+<span id="cb1-173"><a href="#cb1-173"></a>?? node.js? Well, that&#39;s a lot like a hypothetical version of .NET Framework which never exposes</span>
+<span id="cb1-174"><a href="#cb1-174"></a>blocking APIs. And it&#39;s like WinRT also!</span>
+<span id="cb1-175"><a href="#cb1-175"></a></span>
+<span id="cb1-176"><a href="#cb1-176"></a></span>
+<span id="cb1-177"><a href="#cb1-177"></a></span>
+<span id="cb1-178"><a href="#cb1-178"></a></span>
+<span id="cb1-179"><a href="#cb1-179"></a>(<span class="dv">3</span>) If your goal is just to free up the UI thread - this doesn&#39;t require a whole</span>
+<span id="cb1-180"><a href="#cb1-180"></a>rewrite. You can use solution (<span class="dv">1</span>) inside this <span class="cf">case</span>.</span>
+<span id="cb1-181"><a href="#cb1-181"></a></span>
+<span id="cb1-182"><a href="#cb1-182"></a>Do this <span class="cf">if</span> you&#39;re aiming <span class="cf">for</span> UI responsiveness.</span>
+<span id="cb1-183"><a href="#cb1-183"></a></span>
+<span id="cb1-184"><a href="#cb1-184"></a></span>
+<span id="cb1-185"><a href="#cb1-185"></a>Task t = Task.Delay(<span class="dv">100</span>);</span>
+<span id="cb1-186"><a href="#cb1-186"></a></span>
+<span id="cb1-187"><a href="#cb1-187"></a></span>
+<span id="cb1-188"><a href="#cb1-188"></a></span>
+<span id="cb1-189"><a href="#cb1-189"></a>------------------</span>
+<span id="cb1-190"><a href="#cb1-190"></a></span>
+<span id="cb1-191"><a href="#cb1-191"></a>Q. How about using Task to wrap around TPL (e.g. Parallel.For or linq AsEnumerable) ?</span>
+<span id="cb1-192"><a href="#cb1-192"></a>I might want to <span class="cf">do</span> that <span class="cf">if</span> I want my UI thread to initiate some threadpool CPU-bound work.</span>
+<span id="cb1-193"><a href="#cb1-193"></a></span>
+<span id="cb1-194"><a href="#cb1-194"></a>The <span class="st">&quot;Task&quot;</span> type has two distinct modes of operation:</span>
+<span id="cb1-195"><a href="#cb1-195"></a>* <span class="fl">1.</span> solely as an object which is tickled by TaskCompletionSource (<span class="st">&quot;promises&quot;</span>)</span>
+<span id="cb1-196"><a href="#cb1-196"></a>* <span class="fl">2.</span> also, separately, as a way to queue compute-bound stuff up on the threadpool (<span class="st">&quot;futures&quot;</span>)</span>
+<span id="cb1-197"><a href="#cb1-197"></a></span>
+<span id="cb1-198"><a href="#cb1-198"></a>I can await either of these two kinds of things equally.</span>
+<span id="cb1-199"><a href="#cb1-199"></a></span>
+<span id="cb1-200"><a href="#cb1-200"></a>Parallel.For is really just a Task-generator (generates lots of mode [<span class="dv">2</span>] tasks to <span class="cf">do</span> work).</span>
+<span id="cb1-201"><a href="#cb1-201"></a>The implementation is kind of like calling <span class="st">&quot;Task.Run(lambda)&quot;</span> on a list of items, so all</span>
+<span id="cb1-202"><a href="#cb1-202"></a>the lambdas get queued up to the threadpool, and blocking until all are finished.</span>
+<span id="cb1-203"><a href="#cb1-203"></a></span>
+<span id="cb1-204"><a href="#cb1-204"></a></span>
+<span id="cb1-205"><a href="#cb1-205"></a>Q. Why didn&#39;t we name them with the <span class="st">&quot;Async&quot;</span> suffix?</span>
+<span id="cb1-206"><a href="#cb1-206"></a>await Task.DelayAsync(<span class="dv">1000</span>);</span>
+<span id="cb1-207"><a href="#cb1-207"></a>await Task.WhenAllAsync(t1,t2,t3);</span>
+<span id="cb1-208"><a href="#cb1-208"></a>await Task.RunAsync(_ =&gt; cpu_bound_work());</span>
+<span id="cb1-209"><a href="#cb1-209"></a></span>
+<span id="cb1-210"><a href="#cb1-210"></a></span>
+<span id="cb1-211"><a href="#cb1-211"></a></span>
+<span id="cb1-212"><a href="#cb1-212"></a><span class="co">// The following code returns immediately</span></span>
+<span id="cb1-213"><a href="#cb1-213"></a>Parallel.For(<span class="dv">0</span>,<span class="dv">10</span>, async i =&gt; { await Task.Delay(<span class="dv">1000</span>) });</span>
+<span id="cb1-214"><a href="#cb1-214"></a></span>
+<span id="cb1-215"><a href="#cb1-215"></a><span class="co">// option 1: this is an alter</span></span>
+<span id="cb1-216"><a href="#cb1-216"></a>await Task.WhenAll(Enumerable.Range(<span class="dv">1</span>,<span class="dv">10</span>)</span>
+<span id="cb1-217"><a href="#cb1-217"></a>                   .Select(async _ =&gt; await Task.Delay(<span class="dv">1000</span>)));</span>
+<span id="cb1-218"><a href="#cb1-218"></a></span>
+<span id="cb1-219"><a href="#cb1-219"></a><span class="co">// option 2: I could also stick in .AsParallel()...</span></span>
+<span id="cb1-220"><a href="#cb1-220"></a>Enumerable.Range(<span class="dv">1</span>,<span class="dv">10</span>)</span>
+<span id="cb1-221"><a href="#cb1-221"></a>          .AsParallel()</span>
+<span id="cb1-222"><a href="#cb1-222"></a>          .Select(_ =&gt; cpu_bound_work())</span>
+<span id="cb1-223"><a href="#cb1-223"></a>          .Count();</span>
+<span id="cb1-224"><a href="#cb1-224"></a></span>
+<span id="cb1-225"><a href="#cb1-225"></a>-----------------------------------------------</span>
+<span id="cb1-226"><a href="#cb1-226"></a></span>
+<span id="cb1-227"><a href="#cb1-227"></a>Q. We&#39;ve heard that the benefit of async is</span>
+<span id="cb1-228"><a href="#cb1-228"></a>(<span class="dv">1</span>) don&#39;t tie up UI thread (or other particular threads)</span>
+<span id="cb1-229"><a href="#cb1-229"></a>(<span class="dv">2</span>) improve server scalability - make it more respnsive to spikes in load, and</span>
+<span id="cb1-230"><a href="#cb1-230"></a>make it able to serve a higher concurrent rate of requests.</span>
+<span id="cb1-231"><a href="#cb1-231"></a>   ... first benefit is that you save the thread <span class="st">&quot;occupation time&quot;</span>,</span>
+<span id="cb1-232"><a href="#cb1-232"></a>       but you still have the same TimeToFirstByte</span>
+<span id="cb1-233"><a href="#cb1-233"></a>   ... second benefit, <span class="cf">if</span> you need to gather multiple stuff together,</span>
+<span id="cb1-234"><a href="#cb1-234"></a>       async makes it easier to initiate multiple subrequests in parallel</span>
+<span id="cb1-235"><a href="#cb1-235"></a></span>
+<span id="cb1-236"><a href="#cb1-236"></a>But how does (<span class="dv">2</span>) actually work in practice?</span>
+<span id="cb1-237"><a href="#cb1-237"></a></span>
+<span id="cb1-238"><a href="#cb1-238"></a>public class AttendeePriceController : ApiController</span>
+<span id="cb1-239"><a href="#cb1-239"></a>{</span>
+<span id="cb1-240"><a href="#cb1-240"></a>    <span class="co">// GET api/&lt;controller&gt;</span></span>
+<span id="cb1-241"><a href="#cb1-241"></a>    public async List&lt;AttendeePrice&gt; Get()</span>
+<span id="cb1-242"><a href="#cb1-242"></a>    {</span>
+<span id="cb1-243"><a href="#cb1-243"></a>        using (var db = new MyContext())</span>
+<span id="cb1-244"><a href="#cb1-244"></a>        {</span>
+<span id="cb1-245"><a href="#cb1-245"></a>            <span class="cf">return</span> db.AttendeePrices.ToList(); <span class="co">// imagine that this blocks the</span></span>
+<span id="cb1-246"><a href="#cb1-246"></a>                   <span class="co">// ASP.Net thread, so the ASP.Net thread is tied up and</span></span>
+<span id="cb1-247"><a href="#cb1-247"></a>                   <span class="co">// can&#39;t be used elsewhere</span></span>
+<span id="cb1-248"><a href="#cb1-248"></a>        }</span>
+<span id="cb1-249"><a href="#cb1-249"></a>    }</span>
+<span id="cb1-250"><a href="#cb1-250"></a>}</span>
+<span id="cb1-251"><a href="#cb1-251"></a></span>
+<span id="cb1-252"><a href="#cb1-252"></a>Is this example actually *improved* by making it async?</span>
+<span id="cb1-253"><a href="#cb1-253"></a>(I believe so, yes...)</span>
+<span id="cb1-254"><a href="#cb1-254"></a></span>
+<span id="cb1-255"><a href="#cb1-255"></a>public class AttendeePriceController : ApiController</span>
+<span id="cb1-256"><a href="#cb1-256"></a>{</span>
+<span id="cb1-257"><a href="#cb1-257"></a>    <span class="co">// GET api/&lt;controller&gt;</span></span>
+<span id="cb1-258"><a href="#cb1-258"></a>    public async Task&lt;List&lt;AttendeePrice&gt;&gt; Get()</span>
+<span id="cb1-259"><a href="#cb1-259"></a>    {</span>
+<span id="cb1-260"><a href="#cb1-260"></a>        List&lt;AttendeePrice&gt; attendeesPriceList;</span>
+<span id="cb1-261"><a href="#cb1-261"></a>        using (var db = new MyContext())</span>
+<span id="cb1-262"><a href="#cb1-262"></a>        {</span>
+<span id="cb1-263"><a href="#cb1-263"></a>            attendeesPriceList = await db.AttendeePrices.ToListAsync();</span>
+<span id="cb1-264"><a href="#cb1-264"></a>        }</span>
+<span id="cb1-265"><a href="#cb1-265"></a>        <span class="cf">return</span> attendeesPriceList;</span>
+<span id="cb1-266"><a href="#cb1-266"></a>    }</span>
+<span id="cb1-267"><a href="#cb1-267"></a>}</span>
+<span id="cb1-268"><a href="#cb1-268"></a></span>
+<span id="cb1-269"><a href="#cb1-269"></a></span>
+<span id="cb1-270"><a href="#cb1-270"></a></span>
+<span id="cb1-271"><a href="#cb1-271"></a>--------------</span>
+<span id="cb1-272"><a href="#cb1-272"></a></span>
+<span id="cb1-273"><a href="#cb1-273"></a>Q. I&#39;m making screenscrapes. I make the first screenscrape, then based on that</span>
+<span id="cb1-274"><a href="#cb1-274"></a>I make subsequent further screenscrapes and write them to disk. I&#39;m having</span>
+<span id="cb1-275"><a href="#cb1-275"></a>a hard time keeping them all together and wrap my head around them.</span>
+<span id="cb1-276"><a href="#cb1-276"></a>What really is a good architecture here?</span>
+<span id="cb1-277"><a href="#cb1-277"></a></span>
+<span id="cb1-278"><a href="#cb1-278"></a></span>
+<span id="cb1-279"><a href="#cb1-279"></a>TODO: Lucian&#39;s sample of scraping+encoding would be a good one.</span>
+<span id="cb1-280"><a href="#cb1-280"></a></span>
+<span id="cb1-281"><a href="#cb1-281"></a></span>
+<span id="cb1-282"><a href="#cb1-282"></a>Q. How <span class="cf">do</span> I make several concurrent requests that are heterogenous</span>
+<span id="cb1-283"><a href="#cb1-283"></a></span>
+<span id="cb1-284"><a href="#cb1-284"></a></span>
+<span id="cb1-285"><a href="#cb1-285"></a>var q = new Queue&lt;Func&lt;Task&gt;&gt;();</span>
+<span id="cb1-286"><a href="#cb1-286"></a>q.Add( async _ =&gt; {var s = await GetStringAsync(); DoWhatIWantWithS(s);} );</span>
+<span id="cb1-287"><a href="#cb1-287"></a>q.Add( async _ =&gt; {var i = await GetIntAsync(); DoWhatIWantWithI(i);} );</span>
+<span id="cb1-288"><a href="#cb1-288"></a><span class="co">// Now I can manage the queue uniformally (and throttle it)</span></span>
+<span id="cb1-289"><a href="#cb1-289"></a><span class="co">// But the return-type remains strongly typed in all cases</span></span>
+<span id="cb1-290"><a href="#cb1-290"></a><span class="co">// Q. But is it really worth it? Doesn&#39;t look better than an explicit cast to me...</span></span>
+<span id="cb1-291"><a href="#cb1-291"></a></span>
+<span id="cb1-292"><a href="#cb1-292"></a></span>
+<span id="cb1-293"><a href="#cb1-293"></a></span>
+<span id="cb1-294"><a href="#cb1-294"></a>SemaphoreSlim -- generally, use this instead of the <span class="st">&quot;lock&quot;</span> statement <span class="cf">if</span> you have awaits.</span>
+<span id="cb1-295"><a href="#cb1-295"></a>e.g.</span>
+<span id="cb1-296"><a href="#cb1-296"></a></span>
+<span id="cb1-297"><a href="#cb1-297"></a>SemaphoreSlim s = new SemaphoreSlim(<span class="dv">1</span>);</span>
+<span id="cb1-298"><a href="#cb1-298"></a>await s.WaitAsync();   <span class="co">// nb. can also do s.Wait() to block my thread until available.</span></span>
+<span id="cb1-299"><a href="#cb1-299"></a>...</span>
+<span id="cb1-300"><a href="#cb1-300"></a>s.Release();</span>
+<span id="cb1-301"><a href="#cb1-301"></a></span>
+<span id="cb1-302"><a href="#cb1-302"></a><span class="co">// Semaphore has a counter saying how many spaces are available in the critical region</span></span>
+<span id="cb1-303"><a href="#cb1-303"></a><span class="co">// Initialize to 1 means &quot;only 1&quot;</span></span>
+<span id="cb1-304"><a href="#cb1-304"></a></span>
+<span id="cb1-305"><a href="#cb1-305"></a><span class="co">// SemaphoreSlim.WaitAsync -- queues you up until there&#39;s space available.</span></span>
+<span id="cb1-306"><a href="#cb1-306"></a></span>
+<span id="cb1-307"><a href="#cb1-307"></a><span class="co">// All it does is cause other people who &quot;await s.WaitAsync()&quot; to be stopped in their tracks</span></span>
+<span id="cb1-308"><a href="#cb1-308"></a><span class="co">// until I&#39;ve done Release().</span></span>
+<span id="cb1-309"><a href="#cb1-309"></a></span>
+<span id="cb1-310"><a href="#cb1-310"></a>NB. Semaphores are *not* re-entrant, but Monitors (<span class="st">&quot;lock/&quot;</span> statement</span>
+<span id="cb1-311"><a href="#cb1-311"></a></span>
+<span id="cb1-312"><a href="#cb1-312"></a></span>
+<span id="cb1-313"><a href="#cb1-313"></a>Q. How to prevent re-entrancy? Well, SemaphoreSlim is one option, and it&#39;s </span>
+<span id="cb1-314"><a href="#cb1-314"></a></span>
+<span id="cb1-315"><a href="#cb1-315"></a></span>
+<span id="cb1-316"><a href="#cb1-316"></a>Async Sub Button1Click(sender As Object)</span>
+<span id="cb1-317"><a href="#cb1-317"></a>  Button1.Enabled = False</span>
+<span id="cb1-318"><a href="#cb1-318"></a>  Try</span>
+<span id="cb1-319"><a href="#cb1-319"></a>    ...</span>
+<span id="cb1-320"><a href="#cb1-320"></a>  Finally</span>
+<span id="cb1-321"><a href="#cb1-321"></a>    Button1.Enabled = True</span>
+<span id="cb1-322"><a href="#cb1-322"></a>  End Try</span>
+<span id="cb1-323"><a href="#cb1-323"></a>End Sub</span>
+<span id="cb1-324"><a href="#cb1-324"></a></span>
+<span id="cb1-325"><a href="#cb1-325"></a>NOTE: This solution with Enabled is fine <span class="cf">if</span> we can assume that we&#39;re only ever called</span>
+<span id="cb1-326"><a href="#cb1-326"></a>from a single thread. But it will have errors -- race conditions -- <span class="cf">if</span> there were</span>
+<span id="cb1-327"><a href="#cb1-327"></a>multiple threads trying to <span class="cf">do</span> it.</span>
+<span id="cb1-328"><a href="#cb1-328"></a></span>
+<span id="cb1-329"><a href="#cb1-329"></a>Joe Albahari has a neat article on the perf of <span class="st">&quot;slim&quot;</span> stuff. SemaphoreSlim is VERY efficient!</span>
+<span id="cb1-330"><a href="#cb1-330"></a></span>
+<span id="cb1-331"><a href="#cb1-331"></a></span>
+<span id="cb1-332"><a href="#cb1-332"></a>---------------</span>
+<span id="cb1-333"><a href="#cb1-333"></a></span>
+<span id="cb1-334"><a href="#cb1-334"></a>Q. Console app.</span>
+<span id="cb1-335"><a href="#cb1-335"></a><span class="dt">static</span> <span class="dt">void</span> Main()</span>
+<span id="cb1-336"><a href="#cb1-336"></a>{</span>
+<span id="cb1-337"><a href="#cb1-337"></a>   MainAsync().GetAwaiter().GetResult();</span>
+<span id="cb1-338"><a href="#cb1-338"></a>}</span>
+<span id="cb1-339"><a href="#cb1-339"></a></span>
+<span id="cb1-340"><a href="#cb1-340"></a><span class="dt">static</span> Task MainAsync()</span>
+<span id="cb1-341"><a href="#cb1-341"></a>{</span>
+<span id="cb1-342"><a href="#cb1-342"></a>  <span class="co">//</span></span>
+<span id="cb1-343"><a href="#cb1-343"></a>  await httpClient.GetStringAsync();</span>
+<span id="cb1-344"><a href="#cb1-344"></a>}</span>
+<span id="cb1-345"><a href="#cb1-345"></a></span>
+<span id="cb1-346"><a href="#cb1-346"></a><span class="co">// Note: there&#39;s a bug in .NET45 where console apps with Console.WriteLine encounter</span></span>
+<span id="cb1-347"><a href="#cb1-347"></a><span class="co">// a framework bug with deadlock. </span></span>
+<span id="cb1-348"><a href="#cb1-348"></a></span></code></pre></div>
+</section>
+</section>
+</div>
+
+<div class="row">
+        <span class="date  text-right">
+            <i class="fa fa-calenda"></i> Posted on January 31, 2021
+        </span>
+        <span class="tags text-right" style="width: 100%">
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/async.html">async</a></li></ul>
+        </span>
+</div>
+]]></description>
+    <pubDate>Sun, 31 Jan 2021 00:00:00 UT</pubDate>
+    <guid>http://imast.am/mitq/programming/async-resources.html</guid>
+    <dc:creator>Arthur Vardanyan</dc:creator>
+</item>
+<item>
+    <title>Ալգորիթմների անալիզ</title>
+    <link>http://imast.am/mitq/programming/algorithm-analysis.html</link>
+    <description><![CDATA[<div class="post-content">
+<div id="TOC"><ul>
+<li><a href="#ալգորիթմ-և-ծրագիր">Ալգորիթմ և Ծրագիր</a></li>
+<li><a href="#ալգորիթմների-վերլուփության-չախանիշներըcriteria">Ալգորիթմների վերլուփության չախանիշները(criteria)</a></li>
+<li><a href="#ալգորիթմներ-գերլուծելու-եղանակները">Ալգորիթմներ Գերլուծելու եղանակները</a></li>
+<li><a href="#ժամանակային-բարդություն">Ժամանակային բարդություն</a></li>
+</ul></div>
+<section id="ալգորիթմ-և-ծրագիր" class="level1">
+<h1>Ալգորիթմ և Ծրագիր</h1>
+<p><strong>Ալգորիթմը</strong> դա հաշվողական խնդրի լուծման քայլերի նկարագրությունն է: <strong>Ծրագրի</strong> համար էլ կարող ենք նույնը ասել, ավելի լավ հասկանլու համար ինչ է ալգորիթմը՝ համեմատենք այն ծարգրի հետ</p>
+<div class="sourceCode" id="cb1" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2"></a>|    | Ալգորիթմ(Algorithm)                    | Ծրագիր(Program)                 |</span>
+<span id="cb1-3"><a href="#cb1-3"></a>|----+----------------------------------------+---------------------------------|</span>
+<span id="cb1-4"><a href="#cb1-4"></a>| <span class="fl">1.</span> | Դիզայն՝ Թղթի վրա լուծում               | Իրականացում՝ ծրագրի մշակում,    |</span>
+<span id="cb1-5"><a href="#cb1-5"></a>|    | - Ինչպե՞ս պետք է աշխատի ծրագիրը        | կազմում                         |</span>
+<span id="cb1-6"><a href="#cb1-6"></a>|    | - Ի՞նչ պետք է անում                    |                                 |</span>
+<span id="cb1-7"><a href="#cb1-7"></a>|----+----------------------------------------+---------------------------------|</span>
+<span id="cb1-8"><a href="#cb1-8"></a>| <span class="fl">2.</span> | Domain knowledge - ալգորիթմ կազմողը    | Ծրագրավորող՝ մարդ որը գրում է   |</span>
+<span id="cb1-9"><a href="#cb1-9"></a>|    | պետք է տիրապետի լուծվող խնդրի          | ծրագիրը                         |</span>
+<span id="cb1-10"><a href="#cb1-10"></a>|    | առարկայական որիտին                     |                                 |</span>
+<span id="cb1-11"><a href="#cb1-11"></a>|----+----------------------------------------+---------------------------------|</span>
+<span id="cb1-12"><a href="#cb1-12"></a>| <span class="fl">3.</span> | Ցանկացած լեզու, մոտեցում հարմար է      | Միայն ծարագրավորման լեզու կարող |</span>
+<span id="cb1-13"><a href="#cb1-13"></a>|    | ալգորիթմ նկարագրելու համար             | է օգտագործվել ծրագրի համար      |</span>
+<span id="cb1-14"><a href="#cb1-14"></a>|----+----------------------------------------+---------------------------------|</span>
+<span id="cb1-15"><a href="#cb1-15"></a>| <span class="fl">4.</span> | Ալգորիթմի նկարագրություն անկախ է       | կազված է երկաթից և Օպերացիոն    |</span>
+<span id="cb1-16"><a href="#cb1-16"></a>|    | երկաթից(Hardware), Ծրագրերից(Software) | համակրգերից                     |</span>
+<span id="cb1-17"><a href="#cb1-17"></a>|    | Օպերացիոն համակարգերից(OS)             |                                 |</span>
+<span id="cb1-18"><a href="#cb1-18"></a>|----+----------------------------------------+---------------------------------|</span>
+<span id="cb1-19"><a href="#cb1-19"></a>| <span class="fl">5.</span> | Վերլուծություն(Analyze)՝ ալգորիթմի     | Տեսատավորում(Testing)՝ ծրագրի   |</span>
+<span id="cb1-20"><a href="#cb1-20"></a>|    | արդյունավետությունը ըստ ծախսած         | աշխատանքի ստուգում              |</span>
+<span id="cb1-21"><a href="#cb1-21"></a>|    | ժամանակի(time) և օգտագործած            |                                 |</span>
+<span id="cb1-22"><a href="#cb1-22"></a>|    | հիշողության(space)                     |                                 |</span>
+<span id="cb1-23"><a href="#cb1-23"></a>|----+----------------------------------------+---------------------------------|</span>
+<span id="cb1-24"><a href="#cb1-24"></a></span></code></pre></div>
+<p><strong>Նախնական վերլուծություն և Հետին թվով Տեստավորում</strong></p>
+<p>Նախնական վերլուծության ընթարկում է ալգորիթը իսկ ծրագիրը՝ տեստավորվում է: Նախնական վերլուծության արդյունքը ժամանակի(time) ֆունկցիան է և օգտագործված հիշողության(space) ֆունկցիան:</p>
+<div class="sourceCode" id="cb2" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1"></a></span>
+<span id="cb2-2"><a href="#cb2-2"></a>|    | Նախնական վերլուծություն(Priori Analysis) | Հետին թվով Տեստավորում(Posteriori Testing) |</span>
+<span id="cb2-3"><a href="#cb2-3"></a>|----+------------------------------------------+--------------------------------------------|</span>
+<span id="cb2-4"><a href="#cb2-4"></a>| <span class="fl">1.</span> | Ալգորիթմ                                 | Ծրագիրը                                    |</span>
+<span id="cb2-5"><a href="#cb2-5"></a>|----+------------------------------------------+--------------------------------------------|</span>
+<span id="cb2-6"><a href="#cb2-6"></a>| <span class="fl">2.</span> | Անկախ լեզվից                             | Կախված լեզվից                              |</span>
+<span id="cb2-7"><a href="#cb2-7"></a>|----+------------------------------------------+--------------------------------------------|</span>
+<span id="cb2-8"><a href="#cb2-8"></a>| <span class="fl">3.</span> | Անկախ երկաթից                            | Կախված երկաթից                             |</span>
+<span id="cb2-9"><a href="#cb2-9"></a>|----+------------------------------------------+--------------------------------------------|</span>
+<span id="cb2-10"><a href="#cb2-10"></a>| <span class="fl">4.</span> | ժամանակի(time) և օգտագործած              | Watch time and bytes of memory             |</span>
+<span id="cb2-11"><a href="#cb2-11"></a>|    | հիշողության(space)                       |                                            |</span>
+<span id="cb2-12"><a href="#cb2-12"></a>|----+------------------------------------------+--------------------------------------------|</span>
+<span id="cb2-13"><a href="#cb2-13"></a></span></code></pre></div>
+<p><strong>Ալգորիթմի հատկությունները</strong></p>
+<div class="sourceCode" id="cb3" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1"></a>- Մուտք(Input)՝  կարող է ենդունել <span class="dv">0</span> կամ ավել մուտքային տվյալներ</span>
+<span id="cb3-2"><a href="#cb3-2"></a>- Ելք(Output)՝ պետք է արտածի առնվազմ մեկ արդյունք</span>
+<span id="cb3-3"><a href="#cb3-3"></a>- Ընդհատություն(Finiteness)՝ պետք է ունենա վերջավոր թվով հրամաններ, պետք է կանգ առնի</span>
+<span id="cb3-4"><a href="#cb3-4"></a>- Արագություն</span>
+<span id="cb3-5"><a href="#cb3-5"></a>- Ըմբռնելիություն(Definiteness)՝ կամայական հրաման ունենա հստակ և միայն մեկ նշանակություն, բոլոր քայլերը հայտնի լինեն </span>
+<span id="cb3-6"><a href="#cb3-6"></a>- Արդյոանավետություն(Effectiveness)՝ չանի ոչ անհրաժեշտ բաներ, ոչ պետքական բաներ </span>
+<span id="cb3-7"><a href="#cb3-7"></a>- Համընդանրություն</span></code></pre></div>
+<p><strong>Ինչպես գրել ալգորիթմ</strong> Ալգորիլմ գերլու համար կարող է օգտագորղվել ցանկացած գրելաձև, դրա համար չկա ընդունված կոնկրետ ճիշտ գրելաձև Օրինակ՝</p>
+<div class="sourceCode" id="cb4" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1"></a>Algorithm Swap(a,b)</span>
+<span id="cb4-2"><a href="#cb4-2"></a>Begin</span>
+<span id="cb4-3"><a href="#cb4-3"></a>  temp &lt;- a; --- <span class="dv">1</span> unit of time</span>
+<span id="cb4-4"><a href="#cb4-4"></a>  a &lt;- b;    --- <span class="dv">1</span> unit of time</span>
+<span id="cb4-5"><a href="#cb4-5"></a>  b &lt;- temp; --- <span class="dv">1</span> uniot of time</span>
+<span id="cb4-6"><a href="#cb4-6"></a>End.           ----</span>
+<span id="cb4-7"><a href="#cb4-7"></a>               f(n) = <span class="dv">3</span></span></code></pre></div>
+</section>
+<section id="ալգորիթմների-վերլուփության-չախանիշներըcriteria" class="level1">
+<h1>Ալգորիթմների վերլուփության չախանիշները(criteria)</h1>
+<ul>
+<li><strong>Ժամանակ(Time)</strong></li>
+</ul>
+<p>Երբ ալգորիթմ կամ ինչ որ պրոցէդուրա ենք մշակում պետք է այնպես անենք որ այն լինի ինչքան հնարավոր է արագ, այլ կերպ ասած էֆեկտիվ ժամանակի մեջ(time efficient): Ալգորիթմը գրելուց հետո պետք է վերլուծել հասկանալու համար ինչքան ժամանակ կծախսի տված `n` ծավալի մուտքային տվյալների համար, այն ժամանակային չախը որ կստանանք վերլուծության արդյունքում կլինի ֆոնւկցիայի տեսքով, մենք կստանանք ժամանակային ֆունկցիան:</p>
+<ul>
+<li><strong>Ծավալ(Space)</strong></li>
+</ul>
+<p>Քանի որ ալգորիթմ աղխատացնելու համար այն պետք է վերածենք ծրագրի, որը նոր կարողանականք աշխատացնել մեքենայի վրա, հետևաբար կարևոր է հասկանալ գնահատել նաև թէ մեր ալգորիթմը ինչքան հիղողության ղավալը է օգտագործում:</p>
+<p><strong>Ժամանակ</strong> և <strong>Ծավալ</strong> երկու կարևոր չափորոշիչներն ըստ որոնց վերլուծությունը ամենակարևորն է և առաջնահերթ արվում է, որից հետո եթե կարիք կա ապա վերլուծում ենք ըստ այլ գործոնների, օրինակ՝</p>
+<ul>
+<li>Տվյալների փոխանցման ծավալՑանցի(Network COnsumption/Data transfer)</li>
+<li>Էներգիայի ծախսը սարքի վրա աշխատացնելիս (Power consumption on device)</li>
+<li>Պրոցեսորի ռեգիստրերի քանակը (how many CPU Registers uses)</li>
+</ul>
+</section>
+<section id="ալգորիթմներ-գերլուծելու-եղանակները" class="level1">
+<h1>Ալգորիթմներ Գերլուծելու եղանակները</h1>
+<p><strong>Ի՞նչպես Վերլուծել Ալգորիթմը</strong></p>
+<p>Փորձենք վերլուծել վերևում նկարագրված <strong>Swap</strong> ալգորիթմը՝</p>
+<ul>
+<li>Ի՞նչքան ժամանակ է ծախսում, բայց ի՞նչպես հաշվենք: Յուրաքանչյուր պարզ հրաման ալգորիթմում</li>
+</ul>
+<p>տևում է միավոր ժամանակ, պարզ նշանակում է որ այն չունի ներդրված(nested) այլ հրամաններ, օրինակ մեկ այլ ալգորիթմի կանպչ և այլն: <strong>Swap</strong> ալգորիթմի ժամանակային ֆունկցիան f(n) = 3, հաստատուն(կոնստանտ) ֆունկցիա է:</p>
+<ul>
+<li>Ի՞նչքան հիշողության ծավալ է օգտագործում՝(Space analysis)</li>
+</ul>
+<p>Պարզենք քանի հատ փոփոխական է օգտագործում</p>
+<div class="sourceCode" id="cb5" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1"></a>temp - <span class="dv">1</span>    </span>
+<span id="cb5-2"><a href="#cb5-2"></a>a    - <span class="dv">1</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>b    - <span class="dv">1</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a>   --------</span>
+<span id="cb5-5"><a href="#cb5-5"></a>    <span class="dv">3</span> words, S(n) = <span class="dv">3</span>, սա նույնպես հաստատուն ֆունկցիա է</span></code></pre></div>
+<p><strong>Հաճախությունները հաշվելու եղանակ(Frequency count method)</strong></p>
+<p>Եղանակը կայանում է նրանում որ՝</p>
+<ul>
+<li>յուրաքանթյուր հրամանին համապտասխանացնում ենք ժամանակի միավոր</li>
+<li>եթե հրամանը կրկնվում է ինչ որ քանակով, այլ կերպ ասած հրամանը ունի հաճախություն, ապա հրամանի կատարման հաճախությունը նույնպես հաշվում ենք</li>
+</ul>
+<p>for ցիկլերում մեշ կհետաքրքրի միայն համեմատությունների ժամանակը, դրա համար for ցիկլին կատարմանը կվերագրենք (n+1) ժամանակային միավոր, իսկ ցեկլի մարմինը կկատարվի n անգամ: Դիտարկենք օրինակներ՝</p>
+<p>ա) Զանգվածի տարրերի գումարի ալգորիթմի վերլուծությունը</p>
+<div class="sourceCode" id="cb6" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1"></a></span>
+<span id="cb6-2"><a href="#cb6-2"></a>|            |                        | Time                     | Space        |</span>
+<span id="cb6-3"><a href="#cb6-3"></a>|------------+------------------------+--------------------------+--------------+</span>
+<span id="cb6-4"><a href="#cb6-4"></a>|            | A = [<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">1</span>]        |                          | A - n words  |</span>
+<span id="cb6-5"><a href="#cb6-5"></a>|            | n = <span class="dv">5</span>                  |                          | n - <span class="dv">1</span> word   |</span>
+<span id="cb6-6"><a href="#cb6-6"></a>|            | Algorithm  Sum(A,n)    |                          |              |</span>
+<span id="cb6-7"><a href="#cb6-7"></a>|            | {                      |                          |              |</span>
+<span id="cb6-8"><a href="#cb6-8"></a>|         <span class="fl">1.</span> | S = <span class="dv">0</span>;                 | <span class="dv">1</span> - unit of time         | S - <span class="dv">1</span> word   |</span>
+<span id="cb6-9"><a href="#cb6-9"></a>|         <span class="fl">2.</span> | <span class="cf">for</span>(i = <span class="dv">0</span>; i &lt; n; i++) | n + <span class="dv">1</span> - only comparision | i - <span class="dv">1</span> word   |</span>
+<span id="cb6-10"><a href="#cb6-10"></a>|            | {                      | i values  {<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>}  |              |</span>
+<span id="cb6-11"><a href="#cb6-11"></a>|         <span class="fl">3.</span> | S = S + A[i];          | n - unit of time         |              |</span>
+<span id="cb6-12"><a href="#cb6-12"></a>|            | }                      |                          |              |</span>
+<span id="cb6-13"><a href="#cb6-13"></a>|         <span class="fl">4.</span> | <span class="cf">return</span> S;              | <span class="dv">1</span> - unit of time         |              |</span>
+<span id="cb6-14"><a href="#cb6-14"></a>|            | }                      |                          |              |</span>
+<span id="cb6-15"><a href="#cb6-15"></a>|            |                        |                          |              |</span>
+<span id="cb6-16"><a href="#cb6-16"></a>|------------+------------------------+--------------------------+--------------+</span>
+<span id="cb6-17"><a href="#cb6-17"></a>|  functions |                        | f(n) = <span class="dv">2</span><span class="er">n</span>+<span class="dv">3</span>              | S(n) = n + <span class="dv">3</span> |</span>
+<span id="cb6-18"><a href="#cb6-18"></a>| complexity |                        | Time: O(n)               | Space: O(n)  |</span>
+<span id="cb6-19"><a href="#cb6-19"></a></span></code></pre></div>
+<p>բ) Երկու nxn մատրիցաների գումարի ալգորիթմի վերլուծենք հաճախությունների հաշվման եղանակով</p>
+<div class="sourceCode" id="cb7" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1"></a></span>
+<span id="cb7-2"><a href="#cb7-2"></a>|            |                           | Time                      | Space           |</span>
+<span id="cb7-3"><a href="#cb7-3"></a>|------------+---------------------------+---------------------------+-----------------+</span>
+<span id="cb7-4"><a href="#cb7-4"></a>|            | A = [nxn] matrix          |                           | A - n^<span class="dv">2</span> words   |</span>
+<span id="cb7-5"><a href="#cb7-5"></a>|            | B = [nxn] matrix          |                           | B - n^<span class="dv">2</span> words   |</span>
+<span id="cb7-6"><a href="#cb7-6"></a>|            | C = [nxn] matrix          |                           | C - n^<span class="dv">2</span> words   |</span>
+<span id="cb7-7"><a href="#cb7-7"></a>|            | n                         |                           | n - <span class="dv">1</span> word      |</span>
+<span id="cb7-8"><a href="#cb7-8"></a>|            | Algorithm  Add(A,B,n)     |                           |                 |</span>
+<span id="cb7-9"><a href="#cb7-9"></a>|            | {                         |                           |                 |</span>
+<span id="cb7-10"><a href="#cb7-10"></a>|            | <span class="cf">for</span>(i = <span class="dv">0</span>; i &lt; n; i++)    | n + <span class="dv">1</span> - nly comparisions  | i - <span class="dv">1</span> word      |</span>
+<span id="cb7-11"><a href="#cb7-11"></a>|            | {                         |                           |                 |</span>
+<span id="cb7-12"><a href="#cb7-12"></a>|            | <span class="cf">for</span>(j = <span class="dv">0</span>; j &lt; n; j++)    | n * (n + <span class="dv">1</span>) - body * comp | j - <span class="dv">1</span> word      |</span>
+<span id="cb7-13"><a href="#cb7-13"></a>|            | {                         |                           |                 |</span>
+<span id="cb7-14"><a href="#cb7-14"></a>|            | C[i,j] = A[i,j] + B[i,j]; | n * n - unit of time      |                 |</span>
+<span id="cb7-15"><a href="#cb7-15"></a>|            | }                         |                           |                 |</span>
+<span id="cb7-16"><a href="#cb7-16"></a>|            | }                         |                           |                 |</span>
+<span id="cb7-17"><a href="#cb7-17"></a>|            | }                         |                           |                 |</span>
+<span id="cb7-18"><a href="#cb7-18"></a>|------------+---------------------------+---------------------------+-----------------+</span>
+<span id="cb7-19"><a href="#cb7-19"></a>| functions  |                           | f(n) = <span class="dv">2</span><span class="er">n</span>^<span class="dv">2</span> + <span class="dv">2</span><span class="er">n</span> + <span class="dv">1</span>      | S(n) = <span class="dv">3</span><span class="er">n</span>^<span class="dv">2</span> + <span class="dv">3</span> |</span>
+<span id="cb7-20"><a href="#cb7-20"></a>| complexity |                           | Time: O(n^<span class="dv">2</span>)              | Space: O(n^<span class="dv">2</span>)   |</span></code></pre></div>
+<p>բ) Երկու nxn մատրիցաների արտադրյալի ալգորիթմի վերլուծությունը</p>
+<div class="sourceCode" id="cb8" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th></th>
+<th>Time</th>
+<th>Space</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>A = [nxn] matrix</td>
+<td></td>
+<td>A - n<sup>2</sup> words</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>B = [nxn] matrix</td>
+<td></td>
+<td>B - n<sup>2</sup> words</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>C = [nxn] matrix</td>
+<td></td>
+<td>C - n<sup>2</sup> words</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>n</td>
+<td></td>
+<td>n - 1 word</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Algorithm Multiply(A,B,n)</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>{</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>for(i = 0; i &lt; n; i++)</td>
+<td>n + 1 - only comparisions of i&lt;n</td>
+<td>i - 1 word</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>{</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>for(j = 0; j &lt; n; j++)</td>
+<td>n * (n + 1) - body * comp</td>
+<td>j - 1 word</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>{</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>C[i,j] = 0;</td>
+<td>n * n - unit of time</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>for(k = 0; k &lt; n; k++)</td>
+<td>n * n * (n + 1) - body * comp</td>
+<td>k - 1 word</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>{</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>C[i,j] = C[i,j] + A[i,k] * B[i,j];</td>
+<td>n * n * n - unit of time</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>}</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>}</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>}</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>} // end algorithm</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>functions</td>
+<td></td>
+<td>f(n) = 2n<sup>3</sup> + 3n<sup>2</sup> + 2n + 1</td>
+<td>S(n) = 3n<sup>2</sup> + 4</td>
+</tr>
+<tr class="even">
+<td>complexity</td>
+<td></td>
+<td>Time: O(n<sup>3</sup>)</td>
+<td>Space: O(n<sup>2</sup>)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ժամանակային-բարդություն" class="level1">
+<h1>Ժամանակային բարդություն</h1>
+<p>Մանրամասն օրինակներ ժամանակային վերլուծության տարբեր դեպքերի համար</p>
+<ol>
+<li>Միայնակ ցիկլ</li>
+</ol>
+<p>Ցիկլերի համար կարոծ ենք անտեսել (n + 1) համեմատությունները որոնք ծախսվում են հենց ցիկլ կազմակերպելու համար, այն պարզ պատճառով որ այն չի փոխում ժռամանակային ֆունկցիայի աստիճանը:</p>
+<div class="sourceCode" id="cb9" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1"></a> <span class="cf">for</span>(i = <span class="dv">0</span>; i &lt; n; i++) -- n + <span class="dv">1</span>, այսուհետ հաշվի չենք առնի այս գործակիցը  </span>
+<span id="cb9-2"><a href="#cb9-2"></a> {</span>
+<span id="cb9-3"><a href="#cb9-3"></a>   statement;          -- n  =&gt; O(n)</span>
+<span id="cb9-4"><a href="#cb9-4"></a> }</span>
+<span id="cb9-5"><a href="#cb9-5"></a></span>
+<span id="cb9-6"><a href="#cb9-6"></a></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="cf">for</span>(i = n; i &gt; <span class="dv">0</span>; i--) - decrementing order n -&gt; <span class="dv">1</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a> {</span>
+<span id="cb9-9"><a href="#cb9-9"></a>   statement;          -- n  =&gt; O(n)</span>
+<span id="cb9-10"><a href="#cb9-10"></a> }</span>
+<span id="cb9-11"><a href="#cb9-11"></a></span>
+<span id="cb9-12"><a href="#cb9-12"></a></span>
+<span id="cb9-13"><a href="#cb9-13"></a><span class="cf">for</span>(i = <span class="dv">1</span>; i &lt; n; i = i + <span class="dv">2</span>) ավելի ընդհանուր դեպքը`` i = i + k</span>
+<span id="cb9-14"><a href="#cb9-14"></a> {                i = i + k   </span>
+<span id="cb9-15"><a href="#cb9-15"></a>   statement;          -- n/<span class="dv">2</span> =&gt; f(n) = n/<span class="dv">2</span> =&gt; O(n)</span>
+<span id="cb9-16"><a href="#cb9-16"></a>                       -- n/k =&gt; f(n) = n/k =&gt; O(n)  </span>
+<span id="cb9-17"><a href="#cb9-17"></a> }</span>
+<span id="cb9-18"><a href="#cb9-18"></a></span>
+<span id="cb9-19"><a href="#cb9-19"></a></span></code></pre></div>
+<ol>
+<li>Կրկնակի ցիկլեր</li>
+</ol>
+<div class="sourceCode" id="cb10" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb10-1"><a href="#cb10-1"></a>  <span class="cf">for</span>(i = <span class="dv">0</span>; i &lt; n; i++)   -- n + <span class="dv">1</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>  {</span>
+<span id="cb10-3"><a href="#cb10-3"></a>    <span class="cf">for</span>(j = <span class="dv">0</span>; j &lt; n; j++) -- n * (n+<span class="dv">1</span>)</span>
+<span id="cb10-4"><a href="#cb10-4"></a>      {</span>
+<span id="cb10-5"><a href="#cb10-5"></a>        statement;         -- n * n</span>
+<span id="cb10-6"><a href="#cb10-6"></a>      }                   f(n) = <span class="dv">2</span><span class="er">n</span>^<span class="dv">2</span> + <span class="dv">2</span><span class="er">n</span>+<span class="dv">2</span> =&gt; O(n^<span class="dv">2</span>)</span>
+<span id="cb10-7"><a href="#cb10-7"></a>  }</span>
+<span id="cb10-8"><a href="#cb10-8"></a></span>
+<span id="cb10-9"><a href="#cb10-9"></a></span>
+<span id="cb10-10"><a href="#cb10-10"></a>  <span class="cf">for</span>(i = <span class="dv">0</span>; i &lt; n; i++)                          </span>
+<span id="cb10-11"><a href="#cb10-11"></a>  { </span>
+<span id="cb10-12"><a href="#cb10-12"></a>    <span class="cf">for</span>(j = <span class="dv">0</span>; j &lt; i; j++) </span>
+<span id="cb10-13"><a href="#cb10-13"></a>      {</span>
+<span id="cb10-14"><a href="#cb10-14"></a>        statement;         -- n * (n + <span class="dv">1</span>)/<span class="dv">2</span> see below table  </span>
+<span id="cb10-15"><a href="#cb10-15"></a>      }                   f(n) = (n^<span class="dv">2</span> + n)/<span class="dv">2</span> =&gt; O(n^<span class="dv">2</span>)</span>
+<span id="cb10-16"><a href="#cb10-16"></a>  }</span>
+<span id="cb10-17"><a href="#cb10-17"></a></span>
+<span id="cb10-18"><a href="#cb10-18"></a></span>
+<span id="cb10-19"><a href="#cb10-19"></a>|   i |   j | count |</span>
+<span id="cb10-20"><a href="#cb10-20"></a>|-----+-----+-------|</span>
+<span id="cb10-21"><a href="#cb10-21"></a>|   <span class="dv">0</span> |  <span class="er">0x</span> |     <span class="dv">0</span> |</span>
+<span id="cb10-22"><a href="#cb10-22"></a>|   <span class="dv">1</span> |   <span class="dv">0</span> |     <span class="dv">1</span> |</span>
+<span id="cb10-23"><a href="#cb10-23"></a>|     |  <span class="dv">1</span><span class="er">x</span> |       |</span>
+<span id="cb10-24"><a href="#cb10-24"></a>|   <span class="dv">2</span> |   <span class="dv">0</span> |     <span class="dv">2</span> |</span>
+<span id="cb10-25"><a href="#cb10-25"></a>|     |   <span class="dv">1</span> |       |</span>
+<span id="cb10-26"><a href="#cb10-26"></a>|     |  <span class="dv">2</span><span class="er">x</span> |       |</span>
+<span id="cb10-27"><a href="#cb10-27"></a>|   <span class="dv">3</span> |   <span class="dv">0</span> |     <span class="dv">3</span> |</span>
+<span id="cb10-28"><a href="#cb10-28"></a>|     |   <span class="dv">1</span> |       |</span>
+<span id="cb10-29"><a href="#cb10-29"></a>|     |   <span class="dv">2</span> |       |</span>
+<span id="cb10-30"><a href="#cb10-30"></a>|     |  <span class="dv">3</span><span class="er">x</span> |       |</span>
+<span id="cb10-31"><a href="#cb10-31"></a>| ... | ... |   ... |</span>
+<span id="cb10-32"><a href="#cb10-32"></a>|   n |   <span class="dv">0</span> |     n |</span>
+<span id="cb10-33"><a href="#cb10-33"></a>|     |   <span class="dv">1</span> |       |</span>
+<span id="cb10-34"><a href="#cb10-34"></a>|     | ... |       |</span>
+<span id="cb10-35"><a href="#cb10-35"></a>|     |  nx |       |</span>
+<span id="cb10-36"><a href="#cb10-36"></a></span></code></pre></div>
+<ol>
+<li>Ցիկլի պայմանի փոփոխություն մարմնում</li>
+</ol>
+<div class="sourceCode" id="cb11" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb11-1"><a href="#cb11-1"></a>  <span class="cf">for</span>(i = <span class="dv">1</span>; p &lt;= n; i++)       i  p </span>
+<span id="cb11-2"><a href="#cb11-2"></a>  {                             <span class="dv">1</span>  <span class="dv">0</span> + <span class="dv">1</span> = <span class="dv">1</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a>    p = p + i;                  <span class="dv">2</span>  <span class="dv">1</span> + <span class="dv">2</span> = <span class="dv">3</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a>  }                             <span class="dv">3</span>  <span class="dv">1</span> + <span class="dv">2</span> + <span class="dv">3</span> = <span class="dv">6</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a>                                ....</span>
+<span id="cb11-6"><a href="#cb11-6"></a>                                k  <span class="dv">1</span>+<span class="dv">2</span>+<span class="dv">3</span>+...+k = k*(k+<span class="dv">1</span>)/<span class="dv">2</span>  </span>
+<span id="cb11-7"><a href="#cb11-7"></a></span>
+<span id="cb11-8"><a href="#cb11-8"></a>ցիկլը կանգ է առնում երբ p&gt;n, Ենթադրենք k քայլում =&gt; p = k*(k+<span class="dv">1</span>)/<span class="dv">2</span>  </span>
+<span id="cb11-9"><a href="#cb11-9"></a>k*(k+<span class="dv">1</span>)/<span class="dv">2</span> &gt; n ~ k^<span class="dv">2</span> &gt; n =&gt; k &gt; √n</span></code></pre></div>
+<ol>
+<li></li>
+</ol>
+<div class="sourceCode" id="cb12"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb12-1"><a href="#cb12-1"></a></span>
+<span id="cb12-2"><a href="#cb12-2"></a>  for(i = 1; i &lt;= n; i=i*2)     i   </span>
+<span id="cb12-3"><a href="#cb12-3"></a>  {                             1x2 = 2  </span>
+<span id="cb12-4"><a href="#cb12-4"></a>    statment; -- logn           2x2 = 4 = 2^2   </span>
+<span id="cb12-5"><a href="#cb12-5"></a>  }                             4x2 = 8 = 2^3 </span>
+<span id="cb12-6"><a href="#cb12-6"></a>                                ....</span>
+<span id="cb12-7"><a href="#cb12-7"></a>                                2^k  </span>
+<span id="cb12-8"><a href="#cb12-8"></a>ցիկլը կանգ է կաառնի երբ i&gt;=n, Ենթադրենք k քայլում i &gt;= n</span>
+<span id="cb12-9"><a href="#cb12-9"></a>i = 2^k</span>
+<span id="cb12-10"><a href="#cb12-10"></a>2^k &gt;= n, եթե վերցնենք 2^k = n =&gt; k = log 2 n</span>
+<span id="cb12-11"><a href="#cb12-11"></a>O(log2n)</span>
+<span id="cb12-12"><a href="#cb12-12"></a>Օրինակ n=8</span>
+<span id="cb12-13"><a href="#cb12-13"></a>i</span>
+<span id="cb12-14"><a href="#cb12-14"></a>1</span>
+<span id="cb12-15"><a href="#cb12-15"></a>2</span>
+<span id="cb12-16"><a href="#cb12-16"></a>4</span>
+<span id="cb12-17"><a href="#cb12-17"></a>8 - ցիկլի վերջ</span>
+<span id="cb12-18"><a href="#cb12-18"></a>log8 = 3</span>
+<span id="cb12-19"><a href="#cb12-19"></a></span>
+<span id="cb12-20"><a href="#cb12-20"></a>Օրինակ n=10</span>
+<span id="cb12-21"><a href="#cb12-21"></a>i</span>
+<span id="cb12-22"><a href="#cb12-22"></a>1</span>
+<span id="cb12-23"><a href="#cb12-23"></a>2</span>
+<span id="cb12-24"><a href="#cb12-24"></a>4</span>
+<span id="cb12-25"><a href="#cb12-25"></a>8</span>
+<span id="cb12-26"><a href="#cb12-26"></a>16 - ցիկլի վերջ</span>
+<span id="cb12-27"><a href="#cb12-27"></a>log10 = 3,2, բայց մենք կլորացնում ենք դեպի վերև, քանի որ ցիկլը կրկնվում է 4 անգամ: երբ կոտորակային թիվ ենք ստանում </span>
+<span id="cb12-28"><a href="#cb12-28"></a>պետք է որոշենք թէ որ կոծմ ենք կլորացնում՝ վերև թէ ներքև:</span></code></pre></div>
+<ol>
+<li></li>
+</ol>
+<div class="sourceCode" id="cb13" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb13-1"><a href="#cb13-1"></a>  <span class="cf">for</span>(i = n; i &gt;= n; i=i/<span class="dv">2</span>)          </span>
+<span id="cb13-2"><a href="#cb13-2"></a>  {                             i -&gt;  n, n/<span class="dv">2</span>, n/<span class="dv">2</span>^<span class="dv">2</span>, n/<span class="dv">2</span>^<span class="dv">3</span>, ..., n/<span class="dv">2</span>^k </span>
+<span id="cb13-3"><a href="#cb13-3"></a>    statement;                    </span>
+<span id="cb13-4"><a href="#cb13-4"></a>  }                               </span>
+<span id="cb13-5"><a href="#cb13-5"></a></span>
+<span id="cb13-6"><a href="#cb13-6"></a></span>
+<span id="cb13-7"><a href="#cb13-7"></a></span>
+<span id="cb13-8"><a href="#cb13-8"></a>ցիկլը կանգ  կառնի երբ i &lt; <span class="dv">1</span>, Ենթադրենք k քայլում =&gt; i&lt;<span class="dv">1</span> =&gt; n/<span class="dv">2</span>^k &lt; <span class="dv">1</span></span>
+<span id="cb13-9"><a href="#cb13-9"></a>վերցնենք  n/<span class="dv">2</span>^k = <span class="dv">1</span>, k = log2 n</span>
+<span id="cb13-10"><a href="#cb13-10"></a></span>
+<span id="cb13-11"><a href="#cb13-11"></a>O(log2  n)</span>
+<span id="cb13-12"><a href="#cb13-12"></a></span></code></pre></div>
+<ol>
+<li></li>
+</ol>
+<div class="sourceCode" id="cb14" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb14-1"><a href="#cb14-1"></a></span>
+<span id="cb14-2"><a href="#cb14-2"></a>  <span class="cf">for</span>(i = <span class="dv">0</span>; i*i &lt; n; i++)       <span class="dv">1</span>   </span>
+<span id="cb14-3"><a href="#cb14-3"></a>  {                             i n n/<span class="dv">2</span> n/<span class="dv">2</span>^<span class="dv">2</span> n/<span class="dv">2</span>^<span class="dv">3</span> ... n/<span class="dv">2</span>^k </span>
+<span id="cb14-4"><a href="#cb14-4"></a>    statement;                    </span>
+<span id="cb14-5"><a href="#cb14-5"></a>  }                               </span>
+<span id="cb14-6"><a href="#cb14-6"></a></span>
+<span id="cb14-7"><a href="#cb14-7"></a></span>
+<span id="cb14-8"><a href="#cb14-8"></a></span>
+<span id="cb14-9"><a href="#cb14-9"></a>ցիկլը կանգ  կառնի երբ i*i &gt;=n, վերցնենք  i^<span class="dv">2</span> = n =&gt; i = √n</span>
+<span id="cb14-10"><a href="#cb14-10"></a></span>
+<span id="cb14-11"><a href="#cb14-11"></a>O(√n)</span>
+<span id="cb14-12"><a href="#cb14-12"></a></span></code></pre></div>
+<ol>
+<li>Երկու անկխա ցիկլեր</li>
+</ol>
+<div class="sourceCode" id="cb15" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb15-1"><a href="#cb15-1"></a>  <span class="cf">for</span>(i=<span class="dv">0</span>; i &lt; n; i++)</span>
+<span id="cb15-2"><a href="#cb15-2"></a>  {</span>
+<span id="cb15-3"><a href="#cb15-3"></a>    P++;  -- n </span>
+<span id="cb15-4"><a href="#cb15-4"></a>  }</span>
+<span id="cb15-5"><a href="#cb15-5"></a>  <span class="cf">for</span>(j=<span class="dv">0</span>; j &lt; n; j++)</span>
+<span id="cb15-6"><a href="#cb15-6"></a>  {</span>
+<span id="cb15-7"><a href="#cb15-7"></a>    statement;  -- n</span>
+<span id="cb15-8"><a href="#cb15-8"></a>  }</span>
+<span id="cb15-9"><a href="#cb15-9"></a>f(n) = <span class="dv">2</span><span class="er">n</span></span>
+<span id="cb15-10"><a href="#cb15-10"></a>O(n)</span></code></pre></div>
+<ol>
+<li>Կրկնակի ցիկլ</li>
+</ol>
+<div class="sourceCode" id="cb16" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb16-1"><a href="#cb16-1"></a><span class="cf">for</span>(i=<span class="dv">0</span>; i &lt; n; i=i*<span class="dv">2</span>)</span>
+<span id="cb16-2"><a href="#cb16-2"></a>{</span>
+<span id="cb16-3"><a href="#cb16-3"></a>  P++;  -- P = log2 n </span>
+<span id="cb16-4"><a href="#cb16-4"></a>}</span>
+<span id="cb16-5"><a href="#cb16-5"></a><span class="cf">for</span>(j=<span class="dv">0</span>; j &lt; P; j=j*<span class="dv">2</span>)</span>
+<span id="cb16-6"><a href="#cb16-6"></a>{</span>
+<span id="cb16-7"><a href="#cb16-7"></a>  statement;  -- log2 P =&gt; log2 log2 n =&gt; O(log log2 n)</span>
+<span id="cb16-8"><a href="#cb16-8"></a>}</span>
+<span id="cb16-9"><a href="#cb16-9"></a></span></code></pre></div>
+<ol>
+<li>Կրկնակի ցիկլ</li>
+</ol>
+<div class="sourceCode" id="cb17" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"></code></pre></div>
+<ol>
+<li>Կրկնակի ցիկլ</li>
+</ol>
+<div class="sourceCode" id="cb18" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"></code></pre></div>
+<ol>
+<li>Կրկնակի ցիկլ</li>
+</ol>
+<div class="sourceCode" id="cb19" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"></code></pre></div>
+<ol>
+<li>Կրկնակի ցիկլ</li>
+</ol>
+<div class="sourceCode" id="cb20" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"></code></pre></div>
+</section>
+</div>
+
+<div class="row">
+        <span class="date  text-right">
+            <i class="fa fa-calenda"></i> Posted on January 18, 2021
+        </span>
+        <span class="tags text-right" style="width: 100%">
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/asymptotic.html">asymptotic</a></li><li><a href="/tags/algorithms.html">algorithms</a></li></ul>
+        </span>
+</div>
+]]></description>
+    <pubDate>Mon, 18 Jan 2021 00:00:00 UT</pubDate>
+    <guid>http://imast.am/mitq/programming/algorithm-analysis.html</guid>
+    <dc:creator>Arthur Vardanyan</dc:creator>
+</item>
+<item>
+    <title>Դինամիկ Ծրագրավորում</title>
+    <link>http://imast.am/mitq/programming/dynamic-programming.html</link>
+    <description><![CDATA[<div class="post-content">
+<div id="TOC"><ul>
+<li><a href="#ներածություն">Ներածություն</a><ul>
+<li><a href="#resources">Resources</a></li>
+</ul></li>
+</ul></div>
+<section id="ներածություն" class="level1">
+<h1>Ներածություն</h1>
+<p>Ինչու՞ է անվանվում <strong>դինամիկ ծրագրավորում</strong></p>
+<p><strong>Richard E. Bellman (1920–1984)</strong> պատմում է որ 1950թ. երբ աշխատել է <a href="https://en.wikipedia.org/wiki/RAND_Corporation">RAND</a> -ում, նա փնտրտուքի մեջ էր, թէ ինչե՞ս անվանի «բազմաստիճան որոշում կայացնելու գործընթացները»(multistage decision processes): Բարդություն նրանում էր, որ Բելմանի ղեկավարներից մեկը տանել չէր կարողանում հետազոտություն(research), մաթեմատիկա(mathematics) բառերը, հետևաբար պետք է ընտրել այնպիսի անուն, վերնագիր որը մի կողմից նկարագրեր հետածոտության իմաստը, բայց չհիշեցներ մաթեմատիկան, որպեսզի Բելամնը կարողանար շարունակել աշխատել իր հետազոտության վրա: Բելմանը առաջին հերթին հետաքրքրված էր արտահայտել պլանավորում, որոշում կայացնելը և մտածելը, բայց պլանավորումը հարմար չհամարելով ընտրում է <strong>«ծրագրավորում»</strong> բառը: <strong>«Դինամիկ»</strong> բառը որպեսզի նկարագրի խնդրի ժամանակի ընթացքում փոփոխվող բնութը, համ էլ տպավրոիչ բառ է: <strong>«Ծրագրավորում»</strong> բառը օպտիմալ ծրագիր գտնելու մեթոդի օգտագործումը, նույն իմաստով ինչ իմաստով որ օգտագորղվում է այնպիսի արտահայտություններում ինչպիսիք են՝ <strong>«գծային ծրագրավորում»</strong> և <strong>«մաթեմատիկական ծրագրավորում»</strong> որոնք հոմանիշներ են <strong>«մաթեմաթիկական ոպտիմիզացիա»</strong> արտահայտությանը:</p>
+<p><strong>Դինամնիկ ծրագրավորումը</strong> մաթեմատիկական օպտիմիզացիայի և համակարգչային ծրագրավորման մեթոդ է, որը կիրառվում է բազմաթիվ ոլորտներում բազմապիսի խնդիրներ լուծելիս:</p>
+<p><strong>Priciple of optimality</strong></p>
+<section id="resources" class="level2">
+<h2>Resources</h2>
+<ul>
+<li><a href="http://youtu.be/5dRGRueKU3M">4 Principle of Optimality - Dynamic Programming introduction</a></li>
+</ul>
+</section>
+</section>
+</div>
+
+<div class="row">
+        <span class="date  text-right">
+            <i class="fa fa-calenda"></i> Posted on December  9, 2020
+        </span>
+        <span class="tags text-right" style="width: 100%">
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/dynamic.html">dynamic</a></li><li><a href="/tags/algorithms.html">algorithms</a></li></ul>
+        </span>
+</div>
+]]></description>
+    <pubDate>Wed, 09 Dec 2020 00:00:00 UT</pubDate>
+    <guid>http://imast.am/mitq/programming/dynamic-programming.html</guid>
+    <dc:creator>Arthur Vardanyan</dc:creator>
+</item>
+<item>
     <title>Տեսակավորման ալգորիթմներ</title>
     <link>http://imast.am/mitq/programming/sorting-algorithms.html</link>
     <description><![CDATA[<div class="post-content">
@@ -1279,712 +2261,6 @@ P(ω<sub>i</sub>) = 1/n, i=1,..,n<br />
 ]]></description>
     <pubDate>Fri, 06 Jul 2018 00:00:00 UT</pubDate>
     <guid>http://imast.am/mitq/programming/dev-server-setup.html</guid>
-    <dc:creator>Arthur Vardanyan</dc:creator>
-</item>
-<item>
-    <title>Logics</title>
-    <link>http://imast.am/mitq/logic/logics.html</link>
-    <description><![CDATA[<div class="post-content">
-<div id="TOC"><ul>
-<li><a href="#mathematical-logic">Mathematical Logic</a><ul>
-<li><a href="#brings-mathematics-to-logic---boole-did">brings mathematics to logic - (Boole did)</a></li>
-<li><a href="#brings-logic-to-mathematics">brings logic to mathematics</a><ul>
-<li><a href="#getting-closer-to-leibnizs-dream">Getting Closer to Leibniz’s Dream</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#paul-snively-talk">Paul Snively talk</a></li>
-<li><a href="#type-theory">Type theory</a><ul>
-<li><a href="#origins-of-type-theory">Origins of type theory</a></li>
-<li><a href="#type-systems">Type systems</a><ul>
-<li><a href="#hindley-milner-type-system">HIndley-Milner Type System</a></li>
-<li><a href="#wadler-blott">Wadler-Blott</a></li>
-</ul></li>
-</ul></li>
-</ul></div>
-<p><a href="https://www.youtube.com/watch?v=9YmEFCWlNLI&amp;list=PLTn74Qx5mPsQ1KbuGMHcK4q9odtR7Htdp&amp;index=7&amp;utm_medium=referral&amp;utm_campaign=ZEEF&amp;utm_source=https%3A%2F%2Ffp.zeef.com%2Farthur">From Aristotle to the iPhone Moshe Y. Vardi</a></p>
-<ul>
-<li>propositions is potentialy <code>true</code> or <code>false</code> statements.</li>
-</ul>
-<section id="mathematical-logic" class="level1">
-<h1>Mathematical Logic</h1>
-<section id="brings-mathematics-to-logic---boole-did" class="level2">
-<h2>brings mathematics to logic - (Boole did)</h2>
-<p>Aristotle (384-322 BC) - Syllogism - Forms of reasoning</p>
-<p>Ramon Lull (1232-1315)</p>
-<p>Gottfried Wilhelm Leibniz (1646-1716) - Invent binary notation, bits</p>
-<ul>
-<li>“When I was young, I found pleasure in the Lullian art”</li>
-<li>Leibniz Dream a universal mathematical language, lingua characteristica universalis, in which all human knowledge can be expressed, and calculational rules, calclulus rationator, carried out by machines, to derive all logical relationships.</li>
-<li>Leibniz’s wheel, 1671</li>
-</ul>
-<p>George Boole(1815-1864) - represent logic as algebra, literally <code>True=1</code>, <code>False=0</code> Boole’s insight: Aristotle’s syllogism are about classes of objects, which cab be treated algebraically.</p>
-<ul>
-<li>Boolean Algebra New axiom: x = x * x, logical conjaction is idempotic operation then:
-<ul>
-<li>x = x &amp; x</li>
-<li>x - x &amp; x = 0</li>
-<li>x(1-x) = 0, expresses the principle of contradiction, which Aristotle has described as the most fundamental axiom of all philosophy.</li>
-</ul></li>
-</ul>
-<p>William Stanley Jevons(1835-1882) - Economist and Logician, develop “Boolean Algebra”, also interested in Mechanizing logical reasoning, and the actually he built the logical machine in 1870 “Logical Piano”. Augustus De Morgan(1806-1871) - De Morgan’s Laws: conjunction and disjunction can be expressed in terms of negation of each other.</p>
-<p>Claude Elwood Shannon(1916-2001) - on 1937 Master’s thesis on boolean algebra and electrical circuit analogy.</p>
-<p>Charles Sanders Peirce(1839-1914) -</p>
-<ul>
-<li>1889 … Calculating machines are specialized logical macines.</li>
-<li>1887 …</li>
-</ul>
-</section>
-<section id="brings-logic-to-mathematics" class="level2">
-<h2>brings logic to mathematics</h2>
-<p>E.P. Wigner (1960)</p>
-<ul>
-<li>1960 “On the unreasonable Effectivness fo Mathematis in the Natural Sciences”
-<ul>
-<li>Euclid: “The laws of nature are but the mathematical thoughts of God”</li>
-<li>Galileo:</li>
-<li>Descartes:</li>
-<li>The empirical law of epistemology:</li>
-</ul></li>
-</ul>
-<p>Mario Livio: “Is God a mathematican?”</p>
-<p>Question: What makes mathematics so certain? Answer: Proofs - the high road to truth!</p>
-<p>The Most influential Mathematican is Euclid (325-265 BC)</p>
-<p>Dichotomy:</p>
-<ul>
-<li>Geometry: logically perfect science
-<ul>
-<li>On the gates of his academy, Plato has inscribed: “Let no ungeometrical person enter here.”</li>
-</ul></li>
-<li>Algebra and calculus: shaky faoundations</li>
-</ul>
-<p>19th century Reversal:</p>
-<p>Bolyai and Lobachevsky: non-Euclidean geometry Bolzano, Cauchy, Cantor, Dedekind and Weierstrass: formalization of calclulus in terms of infinity - the role iof inifinte is controversial</p>
-<p>Central Issue: What is a rigorous proof?</p>
-<p>The infinite Old Controversary: Aristotle: “Infinitum Actu Non Datur” - there is no actual infinity. St. Augustine</p>
-<p>Amir Aczel, “The Mystery of the Aleph” - Aleph the simbol of inifinte</p>
-<p>Infinitely Contraversial</p>
-<ul>
-<li><p>Contor’s Theorem, 1874: There are infinitely many inifinties! (Proof uses self-reference) - now the phylosophical debate become mathematical debate</p></li>
-<li><p>Mathematical Controversy:</p>
-<ul>
-<li>Leibniz</li>
-<li>Gauss</li>
-<li>Kronecher</li>
-<li>Hilbert</li>
-<li>Frege</li>
-</ul></li>
-</ul>
-<p>The most important Logic after Aristotle (1848-1925)</p>
-<section id="getting-closer-to-leibnizs-dream" class="level3">
-<h3>Getting Closer to Leibniz’s Dream</h3>
-<ol>
-<li><p>Frege</p>
-<p>Frege’s Contribution, book Begriffsschrift, “Langugage of concept” 1879: want to answer the question what is the language of mathematics, first step to metamatematics. Central to Frege’s Work: sets, i.e. collections of objects.</p>
-<ul>
-<li>Objects, 2</li>
-<li>Predicates(relationships), 2 &lt; 3</li>
-<li>Operations(functions), 2 + 3</li>
-<li>Logical operations (a la Boole), “and”</li>
-<li>Quantifiers, “for all”, “most”</li>
-</ul>
-<p>Frege show that you can take the old Arsitotle logic and write it formally. Back to Aristotle</p>
-<ul>
-<li>All men are mortal</li>
-<li>“For all <code>x</code>, if <code>x</code> is a man, then <code>x</code> is mortal”</li>
-<li>(∀x)(Man(x) -&gt; Mortal(x)): First-Order Logic</li>
-</ul>
-<p>van Heijenoort, From Frege to Godel, 1967, say about Frege work- “perhaps the most important single work ever written in logic”</p></li>
-<li><p>Russel</p>
-<p>Russell’s Letter A letter from Russell to Frege, June 16, 1902 … miner disagreement - Russel paradox show that Frege system is inconsistent.</p>
-<p>Appendinx to Frege 1903 volume:</p>
-<p>Despair:</p>
-<p>Russell itself understood the problem - was the concept Central to Frege’s Work: sets, i.e. collections of objects. in Boole work called classes of objects, now more precise we call them set of objects.</p>
-<p>Principia Mathemaca, by Russel 1910-1927, page 2000</p>
-<ul>
-<li>systematic derivation of mathematics from logic</li>
-<li>avoided obvious paradox</li>
-<li>attempt to derive all mathematical truths</li>
-<li>Uses an elaborate system of types</li>
-<li>the prove of 1+1=2, vol 1, page 397</li>
-</ul>
-<p>show how to base mathematics on Logic, called Logicism - basic mathematics on logic</p>
-<p>At first people think that problem is solved, then realized that: Frege has a small book and Russell found a paradox, now we have 3 volumes and 2000 pages, hwo know how many paradox are lurking betwwen the lines of Principia Mathemaca.</p>
-<p>The crises has not been resolved and into that crices stepped the David Hilbert (1862-1943), king of mathemacs.</p>
-<p>Mathematical logic as based on the theory of types (1908)</p>
-<ul>
-<li>Hierarchy of types</li>
-<li>No totality can contain members defined in terms of itself</li>
-</ul></li>
-<li><p>Hilbert’s Program (1922-1930)</p>
-<p>Formalize mathemacs and establish that:</p>
-<ul>
-<li>Mathemacs is consistent: a mathematical statement and its negation cannot even both be proved.</li>
-<li>Mathemacs is complete: all true mathematical statements can be proved</li>
-<li>Mathemacs is decidable: there is a mechanical way to determine whether a given mathematical statement is true or false.</li>
-</ul></li>
-<li><p>The Demiise of Hilbert’s Program</p>
-<p>K. Godel (1930-1933)</p>
-<ul>
-<li>Incompleteness of ordinary arithmetic
-<ul>
-<li>there is no systematic way of resolving all mathematical questions.</li>
-</ul></li>
-<li>Impossibility of proving consistency of mathemacs. (cannot prove consistency mathemacs mathematicaly)</li>
-<li>“This statement cannot be proved”</li>
-<li>Any sufficient powerful system cannot be both consistent and complete</li>
-<li>Arithmetic cannot prove its own consistency</li>
-<li>End of Hilbert’s program</li>
-</ul>
-<p>A. Church and A. Turing (1936-1937)</p>
-<ul>
-<li>Undecidability of first-order logic.
-<ul>
-<li>The set of all true firs-order logic formulas is not computable -there is no systematic computational way to decide the truth of first-order logic formulas.</li>
-</ul></li>
-</ul></li>
-<li><p>The Death of Program</p>
-<p>Koninsberg, September 7, 1930: Conference on The Epistemology of The Exact Sciences.</p></li>
-<li><p>Birth of Computer Science</p>
-<p>Church, Godel, Kleene, Post, Turing: Mathematical proofs have to be “machine checkable” - computation lies at the heart of mathematics!</p>
-<p>Fundamental Question: What is “machine checkable”</p></li>
-<li><p>ENIAC</p>
-<p>Feb 14, 1946 18000 vacuum tubes 30 tons 150KW</p>
-<p>von Neumann joind the project in August 1944</p>
-<ul>
-<li>Design base on Boole’s and Turing’s ideas - von Neumann architecture</li>
-</ul></li>
-<li><p>Closing the Circle</p>
-<p>By the early 1950s dozens of “” by the early 1950 dozens of “johniacs”, reasoning machines, have been built around the world.</p>
-<p>Leibniz’s dream came truth! From reasoning to patterns of reasoning to logic to computers to computers that</p></li>
-<li><p>Logic in Computer science</p>
-<p>M. Davis (1988) Influences of Mathematical logic on Computer Science Christos H. Papadimitruou (2001)</p></li>
-</ol>
-</section>
-</section>
-</section>
-<section id="paul-snively-talk" class="level1">
-<h1>Paul Snively talk</h1>
-<p>Charles Lutwidge Dodgson(1832-1898) = Lewis Caroll - Brilliant teacher of formal logic via literary nonsense</p>
-<p>Bertrand Russell - “Principia Mathematica” (“P M”) - all posible mathematics in formal logic. 1+1=2 takes 450 pages to prove. there is a gap in “P M” - substitution of variables was not treated fomrally</p>
-<p>Alonzo Church - look at “P M” and said. “I can do better”.</p>
-<ul>
-<li>Wanted to put “Principia Mathematica” on an even more formal logical footing.</li>
-<li>Created a new logical formalism including substitution, abstraction, application - Called λ calculus</li>
-<li>λ calculus very few rule logic. Untyped λ calculus was and is a Logic. It was designed as a Logic, it was developed as a Logic and it suppose to lay a new Foundation just like “Principia Mathematica” was for all Mathemacs. And it suppose to replace the “Principia Mathemaca”. That was Church goal.</li>
-</ul>
-<p>Alnozo Church’s Student</p>
-<ul>
-<li><p>Raymond Smullyan - puzzle Knightes and Knaves</p></li>
-<li><p>Stephen Cole Kleene, John Barkley Rosser, Sr.</p>
-<ul>
-<li>proved untyped λ calculus inconsistent (Kleene-Rosser Paradox, 1936), and the proove called Y-combinator: <code>λ f.(λ x.(f (x x)) λ x.(f (x x)))</code>, and this is a the rule how we do general recusriosn in the untyped λ called, turns out that general recursion is logical inconsistency. You cannot reason about your code in the presence of the general recursion. And this is that we say that λ calculus was a Logic from day one,was formal Logic from day one. It was proven incosistent and that is why <code>Types</code>. And in fact even the simplke typed λ calculus inforces consistency in λ calculus</li>
-</ul></li>
-</ul>
-<p>Takeaways: f : A -&gt; B(function from A to B) means ∀ a:A E b:B such that b = f(a) e.g. factorial : Int -&gt; Int, what is wrong with this function? factorial function is not defined for all integers, for example negative integer passing to factorial cause loop forever, exception… the is a logical inconsistency. So, Either we have to make the Domain smaller, we can do on <code>Nat</code> types. If your function is not defined for every value in the Domain, which is called a partial function (oposite total functions), then you run the risk of Logical incosistency. You run the risk introdcuing inconsistency that reveal by throwing exception or going into infinite loop or crashing, When we advocate the functional programming should be also be clear that we advocateing the total functional programming: no parital functions. If you want to readon about your code Logically then your functions do need to be the total.</p>
-</section>
-<section id="type-theory" class="level1">
-<h1>Type theory</h1>
-<section id="origins-of-type-theory" class="level2">
-<h2>Origins of type theory</h2>
-<ul>
-<li>type theory began as part of a failed program to prove the consistency of arithmetic</li>
-</ul>
-</section>
-<section id="type-systems" class="level2">
-<h2>Type systems</h2>
-<section id="hindley-milner-type-system" class="level3">
-<h3>HIndley-Milner Type System</h3>
-<p>Moses Schonfinkel - Combinatory logic</p>
-<ul>
-<li>On the building blocks of mathematical logic(1924)
-<ul>
-<li>Currying
-<ul>
-<li>fa()</li>
-</ul></li>
-<li>Combinatory logic</li>
-</ul></li>
-</ul>
-</section>
-<section id="wadler-blott" class="level3">
-<h3>Wadler-Blott</h3>
-</section>
-</section>
-</section>
-</div>
-
-<div class="row">
-        <span class="date  text-right">
-            <i class="fa fa-calenda"></i> Posted on April 20, 2018
-        </span>
-        <span class="tags text-right" style="width: 100%">
-            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/logic.html">logic</a></li><li><a href="/tags/math.html">math</a></li></ul>
-        </span>
-</div>
-]]></description>
-    <pubDate>Fri, 20 Apr 2018 00:00:00 UT</pubDate>
-    <guid>http://imast.am/mitq/logic/logics.html</guid>
-    <dc:creator>Arthur Vardanyan</dc:creator>
-</item>
-<item>
-    <title>Rail+NGinx+PostgreSQL+Redis setup</title>
-    <link>http://imast.am/mitq/programming/deployment.html</link>
-    <description><![CDATA[<div class="post-content">
-<div id="TOC"><ul>
-<li><a href="#todo">TODO</a></li>
-<li><a href="#create-ssh-key-for-remote-server">create ssh key for remote server</a></li>
-<li><a href="#server-fingerprint-changes">server fingerprint changes</a></li>
-<li><a href="#create-user">create user</a></li>
-<li><a href="#nginx">Nginx</a></li>
-<li><a href="#set-domain-or-subdomain">set domain or subdomain</a></li>
-<li><a href="#lets-encrypt">Let’s Encrypt</a></li>
-<li><a href="#ruby-nodejs-go-rails-instruction">Ruby, Nodejs, <span>Go rails instruction</span></a></li>
-<li><a href="#postgresql">PostgreSQL</a><ul>
-<li><a href="#postgresql-hacks">postgresql hacks</a></li>
-</ul></li>
-<li><a href="#redis">Redis</a></li>
-<li><a href="#mina">Mina</a><ul>
-<li><a href="#install-mina-gem">install mina gem</a></li>
-</ul></li>
-<li><a href="#some-commands-with-no-password">some commands with no password</a><ul>
-<li><a href="#deploy-with-mina">deploy with mina</a></li>
-</ul></li>
-<li><a href="#backup-gem">Backup gem</a></li>
-<li><a href="#cron">CRON</a><ul>
-<li><a href="#activate-log-for-cron-jobs">activate log for cron jobs</a></li>
-</ul></li>
-<li><a href="#convert-putty-to-ssh-agent">Convert putty to ssh-agent</a></li>
-<li><a href="#linux-commands">Linux commands</a><ul>
-<li><a href="#folder-size">folder size</a></li>
-<li><a href="#system.d">system.d</a></li>
-<li><a href="#logs">logs</a></li>
-<li><a href="#bash">bash</a></li>
-</ul></li>
-</ul></div>
-<section id="todo" class="level1">
-<h1>TODO</h1>
-<ul>
-<li>Backup Letsencrypt folder</li>
-<li>backup config files move to shared folder</li>
-</ul>
-</section>
-<section id="create-ssh-key-for-remote-server" class="level1">
-<h1>create ssh key for remote server</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">ssh-keygen</span> -t rsa</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">cat</span> ~/.ssh/<span class="op">&lt;</span>ssh_file_name<span class="op">&gt;</span>.pub</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">ssh</span> user@<span class="op">&lt;</span>ip<span class="op">&gt;</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># check for key in server</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">cat</span> ~/.ssh/authorized_keys</span></code></pre></div>
-</section>
-<section id="server-fingerprint-changes" class="level1">
-<h1>server fingerprint changes</h1>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">ssh-keygen</span> -f <span class="st">&quot;/home/arthur/.ssh/known_hosts&quot;</span> -R <span class="op">&lt;</span>ip_address<span class="op">&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">ssh-keygen</span> -f <span class="st">&quot;/home/arthur/.ssh/known_hosts&quot;</span> -R <span class="op">&lt;</span>domain_name<span class="op">&gt;</span></span></code></pre></div>
-</section>
-<section id="create-user" class="level1">
-<h1>create user</h1>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">adduser</span> deployer</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">sudo</span> usermod -aG sudo deployer</span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="fu">mkdir</span> /home/deployer/.ssh</span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="fu">cp</span> .ssh/authorized_keys /home/deployer/.ssh/</span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="fu">sudo</span> chown -R deployer:deployer /home/deployer/.ssh/</span>
-<span id="cb3-6"><a href="#cb3-6"></a></span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="co"># edit file</span></span>
-<span id="cb3-8"><a href="#cb3-8"></a><span class="fu">sudo</span> vi /etc/ssh/sshd_config</span>
-<span id="cb3-9"><a href="#cb3-9"></a><span class="ex">...</span></span>
-<span id="cb3-10"><a href="#cb3-10"></a><span class="ex">PasswordAuthentication</span> no</span>
-<span id="cb3-11"><a href="#cb3-11"></a><span class="ex">...</span></span>
-<span id="cb3-12"><a href="#cb3-12"></a><span class="co"># allow from some hosts</span></span>
-<span id="cb3-13"><a href="#cb3-13"></a><span class="co"># Settings that override the global settings for matching IP addresses only</span></span>
-<span id="cb3-14"><a href="#cb3-14"></a><span class="ex">Match</span> address 192.0.2.0/24</span>
-<span id="cb3-15"><a href="#cb3-15"></a>  <span class="ex">PasswordAuthentication</span> yes</span>
-<span id="cb3-16"><a href="#cb3-16"></a><span class="ex">service</span> ssh reload</span>
-<span id="cb3-17"><a href="#cb3-17"></a></span>
-<span id="cb3-18"><a href="#cb3-18"></a><span class="co"># on remote server check permission and set to if needed</span></span>
-<span id="cb3-19"><a href="#cb3-19"></a><span class="co"># chmod 700 .ssh</span></span>
-<span id="cb3-20"><a href="#cb3-20"></a><span class="co"># chmod 600 .ssh/authorized_keys</span></span>
-<span id="cb3-21"><a href="#cb3-21"></a><span class="bu">logout</span></span>
-<span id="cb3-22"><a href="#cb3-22"></a><span class="fu">ssh</span> deployer@<span class="op">&lt;</span>ip_adddress<span class="op">&gt;</span></span></code></pre></div>
-</section>
-<section id="nginx" class="level1">
-<h1>Nginx</h1>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># https://websiteforstudents.com/install-nginx-latest-version-ubuntu-16-10-17-04/</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="co"># For the stable version, change mainline to stable.</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="fu">sudo</span> sh -c <span class="st">&#39;echo &quot;deb http://nginx.org/packages/mainline/ubuntu/ `lsb_release -cs` nginx&quot; &gt;&gt; /etc/apt/sources.list.d/nginx.list&#39;</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="fu">sudo</span> sh -c <span class="st">&#39;echo &quot;deb-src http://nginx.org/packages/mainline/ubuntu/ `lsb_release -cs` nginx&quot; &gt;&gt; /etc/apt/sources.list.d/nginx.list&#39;</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="fu">wget</span> -q http://nginx.org/keys/nginx_signing.key -O - <span class="kw">|</span> <span class="fu">sudo</span> apt-key add -</span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="fu">sudo</span> apt -y update</span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="ex">apt-cache</span> policy nginx</span>
-<span id="cb4-8"><a href="#cb4-8"></a><span class="fu">sudo</span> apt install -y nginx</span>
-<span id="cb4-9"><a href="#cb4-9"></a><span class="ex">nginx</span> -v</span>
-<span id="cb4-10"><a href="#cb4-10"></a><span class="fu">sudo</span> systemctl enable nginx</span>
-<span id="cb4-11"><a href="#cb4-11"></a><span class="fu">sudo</span> service nginx start</span>
-<span id="cb4-12"><a href="#cb4-12"></a><span class="ex">systemctl</span> status nginx</span></code></pre></div>
-</section>
-<section id="set-domain-or-subdomain" class="level1">
-<h1>set domain or subdomain</h1>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># add A-record to dns server</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">sudo</span> vi  /etc/hosts</span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="ex">127.0.1.1</span> test.<span class="op">&lt;</span>domain_name<span class="op">&gt;</span> test</span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="ex">127.0.0.1</span> localhost</span></code></pre></div>
-</section>
-<section id="lets-encrypt" class="level1">
-<h1>Let’s Encrypt</h1>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a> <span class="co"># it is easy to get certificate before you have the advacned nginx config for</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a> <span class="co"># your site</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="fu">sudo</span> add-apt-repository ppa:certbot/certbot</span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="fu">sudo</span> apt update -y</span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="fu">sudo</span> apt install -y python-certbot-nginx</span>
-<span id="cb6-6"><a href="#cb6-6"></a><span class="fu">sudo</span> systemctl reload nginx</span>
-<span id="cb6-7"><a href="#cb6-7"></a><span class="ex">verify</span> the syntax of configurations</span>
-<span id="cb6-8"><a href="#cb6-8"></a><span class="fu">sudo</span> nginx -t</span>
-<span id="cb6-9"><a href="#cb6-9"></a><span class="fu">sudo</span> certbot certonly --dry-run --nginx -d <span class="op">&lt;</span>domain_name<span class="op">&gt;</span> -d www.<span class="op">&lt;</span>domain_name<span class="op">&gt;</span></span>
-<span id="cb6-10"><a href="#cb6-10"></a></span>
-<span id="cb6-11"><a href="#cb6-11"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: backup /etc/letsencrypt fodler</span></span>
-<span id="cb6-12"><a href="#cb6-12"></a><span class="co"># configuration directory at /etc/letsencrypt. You should make a</span></span>
-<span id="cb6-13"><a href="#cb6-13"></a><span class="co"># secure backup of this folder now. This configuration directory will</span></span>
-<span id="cb6-14"><a href="#cb6-14"></a><span class="co"># also contain certificates and private keys obtained by Certbot so</span></span>
-<span id="cb6-15"><a href="#cb6-15"></a><span class="co"># making regular backups of this folder is ideal.</span></span>
-<span id="cb6-16"><a href="#cb6-16"></a></span>
-<span id="cb6-17"><a href="#cb6-17"></a><span class="co"># at first comment ssl parts from nginx config for the site we want to get  certificate</span></span>
-<span id="cb6-18"><a href="#cb6-18"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: generate pre-certifiacation config for site</span></span>
-<span id="cb6-19"><a href="#cb6-19"></a><span class="co"># enter email address, c - is canceling all process.</span></span>
-<span id="cb6-20"><a href="#cb6-20"></a><span class="fu">sudo</span> certbot --nginx -d <span class="op">&lt;</span>domain_name<span class="op">&gt;</span> -d www.<span class="op">&lt;</span>domain_name<span class="op">&gt;</span></span>
-<span id="cb6-21"><a href="#cb6-21"></a></span>
-<span id="cb6-22"><a href="#cb6-22"></a><span class="fu">sudo</span> certbot renew --dry-run</span></code></pre></div>
-</section>
-<section id="ruby-nodejs-go-rails-instruction" class="level1">
-<h1>Ruby, Nodejs, <a href="https://gorails.com/setup/ubuntu/16.04">Go rails instruction</a></h1>
-<p>Nodejs</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="ex">curl</span> -sL https://deb.nodesource.com/setup_10.x <span class="kw">|</span> <span class="fu">sudo</span> -E bash -</span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="fu">sudo</span> apt -y update</span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="fu">sudo</span> apt -y install git-core curl zlib1g-dev build-essential libssl-dev</span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="fu">sudo</span> apt -y install  libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev</span>
-<span id="cb7-5"><a href="#cb7-5"></a><span class="fu">sudo</span> apt -y install  libcurl4-openssl-dev libffi-dev nodejs</span></code></pre></div>
-<p>Yarn</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="ex">curl</span> -sL https://dl.yarnpkg.com/debian/pubkey.gpg <span class="kw">|</span> <span class="fu">sudo</span> apt-key add -</span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="bu">echo</span> <span class="st">&quot;deb https://dl.yarnpkg.com/debian/ stable main&quot;</span> <span class="kw">|</span> <span class="fu">sudo</span> tee /etc/apt/sources.list.d/yarn.list</span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="fu">sudo</span> apt-get update <span class="kw">&amp;&amp;</span> <span class="fu">sudo</span> apt-get install yarn</span></code></pre></div>
-<p>rbenv</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="bu">cd</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="fu">git</span> clone https://github.com/rbenv/rbenv.git ~/.rbenv</span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="bu">echo</span> <span class="st">&#39;export PATH=&quot;$HOME/.rbenv/bin:$PATH&quot;&#39;</span> <span class="op">&gt;&gt;</span> ~/.bashrc</span>
-<span id="cb9-4"><a href="#cb9-4"></a><span class="bu">echo</span> <span class="st">&#39;eval &quot;$(rbenv init -)&quot;&#39;</span> <span class="op">&gt;&gt;</span> ~/.bashrc</span>
-<span id="cb9-5"><a href="#cb9-5"></a><span class="bu">exec</span> <span class="va">$SHELL</span></span>
-<span id="cb9-6"><a href="#cb9-6"></a></span>
-<span id="cb9-7"><a href="#cb9-7"></a><span class="fu">git</span> clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build</span>
-<span id="cb9-8"><a href="#cb9-8"></a><span class="bu">echo</span> <span class="st">&#39;export PATH=&quot;$HOME/.rbenv/plugins/ruby-build/bin:$PATH&quot;&#39;</span> <span class="op">&gt;&gt;</span> ~/.bashrc</span>
-<span id="cb9-9"><a href="#cb9-9"></a><span class="bu">exec</span> <span class="va">$SHELL</span></span>
-<span id="cb9-10"><a href="#cb9-10"></a></span>
-<span id="cb9-11"><a href="#cb9-11"></a><span class="ex">rbenv</span> install 2.5.1</span>
-<span id="cb9-12"><a href="#cb9-12"></a><span class="ex">rbenv</span> global 2.5.1</span>
-<span id="cb9-13"><a href="#cb9-13"></a><span class="ex">ruby</span> -v</span>
-<span id="cb9-14"><a href="#cb9-14"></a></span>
-<span id="cb9-15"><a href="#cb9-15"></a><span class="bu">echo</span> <span class="st">&quot;gem: --no-document&quot;</span> <span class="op">&gt;</span> ~/.gemrc</span>
-<span id="cb9-16"><a href="#cb9-16"></a><span class="ex">gem</span> install bundler</span>
-<span id="cb9-17"><a href="#cb9-17"></a><span class="ex">rbenv</span> rehash</span>
-<span id="cb9-18"><a href="#cb9-18"></a><span class="ex">gem</span> list rails</span>
-<span id="cb9-19"><a href="#cb9-19"></a><span class="ex">gem</span> env home</span>
-<span id="cb9-20"><a href="#cb9-20"></a></span>
-<span id="cb9-21"><a href="#cb9-21"></a><span class="co"># Commands</span></span>
-<span id="cb9-22"><a href="#cb9-22"></a><span class="ex">rbenv</span> install -l <span class="co"># list of versions that you can choose to install.</span></span>
-<span id="cb9-23"><a href="#cb9-23"></a><span class="ex">rbenv</span> versions <span class="co"># Lists all Ruby versions known to rbenv</span></span>
-<span id="cb9-24"><a href="#cb9-24"></a><span class="ex">rbenv</span> version <span class="co"># Displays the currently active Ruby version</span></span></code></pre></div>
-</section>
-<section id="postgresql" class="level1">
-<h1>PostgreSQL</h1>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">sudo</span> sh -c <span class="st">&#39;echo &quot;deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main&quot; &gt;&gt; /etc/apt/sources.list.d/pgdg.list&#39;</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="fu">wget</span> -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - <span class="kw">|</span> <span class="fu">sudo</span> apt-key add -</span>
-<span id="cb10-3"><a href="#cb10-3"></a><span class="fu">sudo</span> apt update -y</span>
-<span id="cb10-4"><a href="#cb10-4"></a><span class="fu">sudo</span> apt -y install postgresql postgresql-contrib libpq-dev</span>
-<span id="cb10-5"><a href="#cb10-5"></a><span class="co"># add user auth</span></span>
-<span id="cb10-6"><a href="#cb10-6"></a><span class="fu">sudo</span> vi /etc/postgresql/10//main/pg_hba.conf</span>
-<span id="cb10-7"><a href="#cb10-7"></a><span class="bu">local</span>   <span class="op">&lt;</span><span class="ex">db_name</span><span class="op">&gt;</span> <span class="op">&lt;</span>user_role<span class="op">&gt;</span> md5</span>
-<span id="cb10-8"><a href="#cb10-8"></a><span class="fu">sudo</span> systemctl status  postgresql</span>
-<span id="cb10-9"><a href="#cb10-9"></a><span class="fu">sudo</span> systemctl enable  postgresql</span>
-<span id="cb10-10"><a href="#cb10-10"></a><span class="fu">sudo</span> systemctl restart postgresql</span></code></pre></div>
-<p>create db user, set postgres password</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">sudo</span> su postgres</span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="ex">psql</span></span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="co"># set password for psotgres</span></span>
-<span id="cb11-4"><a href="#cb11-4"></a>\<span class="ex">password</span> --</span>
-<span id="cb11-5"><a href="#cb11-5"></a><span class="co"># &lt;your_password for super user&gt;</span></span>
-<span id="cb11-6"><a href="#cb11-6"></a><span class="ex">create</span> user iot with password <span class="st">&#39;yourpass&#39;</span> createdb superuser<span class="kw">;</span></span>
-<span id="cb11-7"><a href="#cb11-7"></a>\<span class="fu">du</span> -- list users</span>
-<span id="cb11-8"><a href="#cb11-8"></a>\<span class="ex">q</span></span>
-<span id="cb11-9"><a href="#cb11-9"></a><span class="bu">exit</span></span></code></pre></div>
-<section id="postgresql-hacks" class="level2">
-<h2>postgresql hacks</h2>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1"></a><span class="op">&gt;</span> <span class="ex">SELECT</span> pg_terminate_backend(pg_stat_activity.pid) <span class="ex">FROM</span> pg_stat_activity</span>
-<span id="cb12-2"><a href="#cb12-2"></a>  <span class="ex">WHERE</span> pg_stat_activity.datname = <span class="st">&#39;iothub_production;</span></span></code></pre></div>
-</section>
-</section>
-<section id="redis" class="level1">
-<h1>Redis</h1>
-<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1"></a><span class="ex">---------Install</span> build and test dependencies: ------</span>
-<span id="cb13-2"><a href="#cb13-2"></a><span class="fu">sudo</span> apt -y update</span>
-<span id="cb13-3"><a href="#cb13-3"></a><span class="fu">sudo</span> apt -y full-upgrade</span>
-<span id="cb13-4"><a href="#cb13-4"></a><span class="co"># make test required tcl to run</span></span>
-<span id="cb13-5"><a href="#cb13-5"></a><span class="fu">sudo</span> apt-get -y install build-essential tcl</span>
-<span id="cb13-6"><a href="#cb13-6"></a></span>
-<span id="cb13-7"><a href="#cb13-7"></a><span class="ex">---------Set</span> up redis: -------</span>
-<span id="cb13-8"><a href="#cb13-8"></a><span class="co">#Download latest copy via this link or with this</span></span>
-<span id="cb13-9"><a href="#cb13-9"></a><span class="fu">mkdir</span> Downloads</span>
-<span id="cb13-10"><a href="#cb13-10"></a><span class="bu">cd</span> Downloads</span>
-<span id="cb13-11"><a href="#cb13-11"></a><span class="ex">curl</span> -O http://download.redis.io/redis-stable.tar.gz</span>
-<span id="cb13-12"><a href="#cb13-12"></a><span class="fu">tar</span> xzvf redis-stable.tar.gz</span>
-<span id="cb13-13"><a href="#cb13-13"></a></span>
-<span id="cb13-14"><a href="#cb13-14"></a><span class="bu">cd</span> redis-stable</span>
-<span id="cb13-15"><a href="#cb13-15"></a><span class="fu">make</span></span>
-<span id="cb13-16"><a href="#cb13-16"></a><span class="fu">sudo</span> make install</span>
-<span id="cb13-17"><a href="#cb13-17"></a><span class="fu">make</span> test</span>
-<span id="cb13-18"><a href="#cb13-18"></a></span>
-<span id="cb13-19"><a href="#cb13-19"></a><span class="ex">------</span> Configure redis: -------</span>
-<span id="cb13-20"><a href="#cb13-20"></a><span class="co">#Create configuration directory:</span></span>
-<span id="cb13-21"><a href="#cb13-21"></a><span class="fu">sudo</span> mkdir /etc/redis</span>
-<span id="cb13-22"><a href="#cb13-22"></a><span class="co"># Move sample redis configuration file:</span></span>
-<span id="cb13-23"><a href="#cb13-23"></a><span class="fu">sudo</span> cp ~/Downloads/redis-stable/redis.conf /etc/redis</span>
-<span id="cb13-24"><a href="#cb13-24"></a><span class="fu">sudo</span> vi /etc/redis/redis.conf</span>
-<span id="cb13-25"><a href="#cb13-25"></a><span class="co">#set dir for persistent data dump, for log</span></span>
-<span id="cb13-26"><a href="#cb13-26"></a><span class="ex">supervised</span> systemd</span>
-<span id="cb13-27"><a href="#cb13-27"></a><span class="fu">dir</span> /var/redis</span>
-<span id="cb13-28"><a href="#cb13-28"></a><span class="ex">logfile</span> /var/redis/redis.log</span>
-<span id="cb13-29"><a href="#cb13-29"></a></span>
-<span id="cb13-30"><a href="#cb13-30"></a><span class="ex">------</span> Set up the systemd unit file:------</span>
-<span id="cb13-31"><a href="#cb13-31"></a><span class="co">#create file</span></span>
-<span id="cb13-32"><a href="#cb13-32"></a><span class="fu">sudo</span> vi /etc/systemd/system/redis.service</span>
-<span id="cb13-33"><a href="#cb13-33"></a></span>
-<span id="cb13-34"><a href="#cb13-34"></a><span class="co"># add to file</span></span>
-<span id="cb13-35"><a href="#cb13-35"></a>[<span class="ex">Unit</span>]</span>
-<span id="cb13-36"><a href="#cb13-36"></a><span class="va">Description=</span>Redis <span class="ex">In-Memory</span> Data Store</span>
-<span id="cb13-37"><a href="#cb13-37"></a><span class="va">After=</span>network.target</span>
-<span id="cb13-38"><a href="#cb13-38"></a></span>
-<span id="cb13-39"><a href="#cb13-39"></a>[<span class="ex">Service</span>]</span>
-<span id="cb13-40"><a href="#cb13-40"></a><span class="va">User=</span>redis</span>
-<span id="cb13-41"><a href="#cb13-41"></a><span class="va">Group=</span>redis</span>
-<span id="cb13-42"><a href="#cb13-42"></a><span class="va">ExecStart=</span>/usr/local/bin/redis-server <span class="ex">/etc/redis/redis.conf</span></span>
-<span id="cb13-43"><a href="#cb13-43"></a><span class="va">ExecStop=</span>/usr/local/bin/redis-cli <span class="ex">shutdown</span></span>
-<span id="cb13-44"><a href="#cb13-44"></a><span class="va">Restart=</span>always</span>
-<span id="cb13-45"><a href="#cb13-45"></a></span>
-<span id="cb13-46"><a href="#cb13-46"></a>[<span class="ex">Install</span>]</span>
-<span id="cb13-47"><a href="#cb13-47"></a><span class="va">WantedBy=</span>multi-user.target</span>
-<span id="cb13-48"><a href="#cb13-48"></a></span>
-<span id="cb13-49"><a href="#cb13-49"></a><span class="ex">-----</span>––––-----–– Set up redis user, groups and directories: –––</span>
-<span id="cb13-50"><a href="#cb13-50"></a><span class="co"># if /etc/systemd/system/redis.service cahnged</span></span>
-<span id="cb13-51"><a href="#cb13-51"></a><span class="fu">sudo</span> systemctl daemon-reload</span>
-<span id="cb13-52"><a href="#cb13-52"></a><span class="co"># create redis user and group with same ID but no home directory:</span></span>
-<span id="cb13-53"><a href="#cb13-53"></a></span>
-<span id="cb13-54"><a href="#cb13-54"></a><span class="fu">sudo</span> adduser --system --group --no-create-home redis</span>
-<span id="cb13-55"><a href="#cb13-55"></a><span class="fu">sudo</span> mkdir /var/redis   <span class="co"># create directory</span></span>
-<span id="cb13-56"><a href="#cb13-56"></a><span class="fu">sudo</span> chown redis:redis /var/redis   <span class="co"># make redis own /var/redis</span></span>
-<span id="cb13-57"><a href="#cb13-57"></a><span class="fu">sudo</span> chmod 770 /var/redis   <span class="co"># adjust permission</span></span>
-<span id="cb13-58"><a href="#cb13-58"></a></span>
-<span id="cb13-59"><a href="#cb13-59"></a><span class="fu">sudo</span> systemctl enable redis <span class="co"># Enable redis to start at boot:</span></span>
-<span id="cb13-60"><a href="#cb13-60"></a><span class="fu">sudo</span> systemctl start redis</span>
-<span id="cb13-61"><a href="#cb13-61"></a></span>
-<span id="cb13-62"><a href="#cb13-62"></a><span class="co">#other commands</span></span>
-<span id="cb13-63"><a href="#cb13-63"></a><span class="ex">systemctl</span> status redis</span>
-<span id="cb13-64"><a href="#cb13-64"></a><span class="fu">sudo</span> systemctl restart redis</span>
-<span id="cb13-65"><a href="#cb13-65"></a></span>
-<span id="cb13-66"><a href="#cb13-66"></a><span class="ex">-------</span> Enable redis to start at boot:------</span>
-<span id="cb13-67"><a href="#cb13-67"></a><span class="fu">sudo</span> systemctl enable redis</span>
-<span id="cb13-68"><a href="#cb13-68"></a></span>
-<span id="cb13-69"><a href="#cb13-69"></a><span class="ex">-----------------</span> Test instance: ------------</span>
-<span id="cb13-70"><a href="#cb13-70"></a><span class="ex">redis-cli</span></span>
-<span id="cb13-71"><a href="#cb13-71"></a><span class="fu">ping</span></span>
-<span id="cb13-72"><a href="#cb13-72"></a><span class="kw">set</span> <span class="bu">test</span> <span class="st">&quot;It&#39;s working!&quot;</span></span>
-<span id="cb13-73"><a href="#cb13-73"></a><span class="ex">get</span> test</span>
-<span id="cb13-74"><a href="#cb13-74"></a><span class="bu">exit</span></span>
-<span id="cb13-75"><a href="#cb13-75"></a><span class="fu">sudo</span> systemctl restart redis</span>
-<span id="cb13-76"><a href="#cb13-76"></a><span class="ex">--</span>–– FIX Warnings ––-</span>
-<span id="cb13-77"><a href="#cb13-77"></a></span>
-<span id="cb13-78"><a href="#cb13-78"></a><span class="ex">---</span> WARNING overcommit_memory is set to 0</span>
-<span id="cb13-79"><a href="#cb13-79"></a><span class="ex">--</span> fix warning</span>
-<span id="cb13-80"><a href="#cb13-80"></a><span class="fu">sudo</span> vi /etc/sysctl.conf</span>
-<span id="cb13-81"><a href="#cb13-81"></a><span class="ex">vm.overcommit_memory</span>=1</span>
-<span id="cb13-82"><a href="#cb13-82"></a></span>
-<span id="cb13-83"><a href="#cb13-83"></a><span class="co"># run on trminal as well</span></span>
-<span id="cb13-84"><a href="#cb13-84"></a><span class="fu">sudo</span> sysctl vm.overcommit_memory=1</span>
-<span id="cb13-85"><a href="#cb13-85"></a></span>
-<span id="cb13-86"><a href="#cb13-86"></a><span class="ex">---</span> The TCP backlog setting of 511 cannot be enforced because</span>
-<span id="cb13-87"><a href="#cb13-87"></a><span class="ex">----</span> /proc/sys/net/core/somaxconn is set to the lower value of 128</span>
-<span id="cb13-88"><a href="#cb13-88"></a></span>
-<span id="cb13-89"><a href="#cb13-89"></a><span class="fu">sudo</span> vi /etc/rc.local</span>
-<span id="cb13-90"><a href="#cb13-90"></a><span class="ex">sysctl</span> -w net.core.somaxconn=65535</span>
-<span id="cb13-91"><a href="#cb13-91"></a></span>
-<span id="cb13-92"><a href="#cb13-92"></a><span class="co"># run on trminal as well</span></span>
-<span id="cb13-93"><a href="#cb13-93"></a><span class="fu">sudo</span> sysctl -w net.core.somaxconn=65535</span></code></pre></div>
-</section>
-<section id="mina" class="level1">
-<h1>Mina</h1>
-<section id="install-mina-gem" class="level2">
-<h2>install mina gem</h2>
-<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1"></a><span class="ex">gem</span> instal mina</span></code></pre></div>
-</section>
-</section>
-<section id="some-commands-with-no-password" class="level1">
-<h1>some commands with no password</h1>
-<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">sudo</span> vi /etc/sudoers</span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="co"># shift+G</span></span>
-<span id="cb15-3"><a href="#cb15-3"></a>ՈՒշադրություն, գրել վերջում</span>
-<span id="cb15-4"><a href="#cb15-4"></a><span class="co"># IMPORTANT!!!  add at the end</span></span>
-<span id="cb15-5"><a href="#cb15-5"></a><span class="ex">deployer</span> ALL=(ALL) <span class="ex">NOPASSWD</span>: /bin/ln</span>
-<span id="cb15-6"><a href="#cb15-6"></a><span class="ex">deployer</span> ALL=(ALL) <span class="ex">NOPASSWD</span>: /bin/chmod</span>
-<span id="cb15-7"><a href="#cb15-7"></a><span class="ex">deployer</span> ALL=(ALL) <span class="ex">NOPASSWD</span>: /bin/cp</span>
-<span id="cb15-8"><a href="#cb15-8"></a></span>
-<span id="cb15-9"><a href="#cb15-9"></a><span class="co"># :wq!</span></span>
-<span id="cb15-10"><a href="#cb15-10"></a><span class="co"># https://github.com/mina-deploy/mina/issues/234#issuecomment-57242061</span></span>
-<span id="cb15-11"><a href="#cb15-11"></a><span class="fu">sudo</span> service ssh reload</span></code></pre></div>
-<section id="deploy-with-mina" class="level2">
-<h2>deploy with mina</h2>
-<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1"></a><span class="op">&gt;</span> <span class="ex">mina</span> test setup</span>
-<span id="cb16-2"><a href="#cb16-2"></a><span class="co"># at frist time uncomment schema_load, then comment</span></span>
-<span id="cb16-3"><a href="#cb16-3"></a><span class="op">&gt;</span> <span class="ex">mina</span> test deploy</span></code></pre></div>
-</section>
-</section>
-<section id="backup-gem" class="level1">
-<h1>Backup gem</h1>
-<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1"></a><span class="ex">gem</span> install backup -v5.0.0.beta.2</span></code></pre></div>
-</section>
-<section id="cron" class="level1">
-<h1>CRON</h1>
-<section id="activate-log-for-cron-jobs" class="level2">
-<h2>activate log for cron jobs</h2>
-<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">sudo</span> vi  /etc/rsyslog.d/50-default.conf</span>
-<span id="cb18-2"><a href="#cb18-2"></a><span class="ex">/s</span> <span class="co">#cron</span></span>
-<span id="cb18-3"><a href="#cb18-3"></a><span class="co"># uncomment the line</span></span>
-<span id="cb18-4"><a href="#cb18-4"></a><span class="ex">cron.*</span>                          /var/log/cron.log</span>
-<span id="cb18-5"><a href="#cb18-5"></a></span>
-<span id="cb18-6"><a href="#cb18-6"></a><span class="fu">sudo</span> service rsyslog restart</span>
-<span id="cb18-7"><a href="#cb18-7"></a><span class="fu">sudo</span> service cron restart</span>
-<span id="cb18-8"><a href="#cb18-8"></a><span class="co"># Cron activity will now be logged to /var/log/cron.log file (in addition to syslog).</span></span>
-<span id="cb18-9"><a href="#cb18-9"></a></span>
-<span id="cb18-10"><a href="#cb18-10"></a><span class="co"># to continuously monitor it</span></span>
-<span id="cb18-11"><a href="#cb18-11"></a><span class="fu">tail</span> -f /var/log/syslog <span class="kw">|</span> <span class="fu">grep</span> CRON</span>
-<span id="cb18-12"><a href="#cb18-12"></a></span></code></pre></div>
-</section>
-</section>
-<section id="convert-putty-to-ssh-agent" class="level1">
-<h1>Convert putty to ssh-agent</h1>
-<div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># puttygen supports exporting your private key to an OpenSSH compatible format. You can then use OpenSSH tools to recreate the public key.</span></span>
-<span id="cb19-2"><a href="#cb19-2"></a></span>
-<span id="cb19-3"><a href="#cb19-3"></a><span class="co"># 1. Open PuttyGen</span></span>
-<span id="cb19-4"><a href="#cb19-4"></a><span class="co"># 2. Click Load</span></span>
-<span id="cb19-5"><a href="#cb19-5"></a><span class="co"># 3. Load your private key</span></span>
-<span id="cb19-6"><a href="#cb19-6"></a><span class="co"># 4. Go to Conversions-&gt;Export OpenSSH and export your private key</span></span>
-<span id="cb19-7"><a href="#cb19-7"></a><span class="co"># 5. Copy your private key to ~/.ssh/id_dsa (or id_rsa).</span></span>
-<span id="cb19-8"><a href="#cb19-8"></a><span class="co"># 6. Create the RFC 4716 version of the public key using ssh-keygen</span></span>
-<span id="cb19-9"><a href="#cb19-9"></a><span class="fu">ssh-keygen</span> -e -f ~/.ssh/id_dsa <span class="op">&gt;</span> ~/.ssh/id_dsa_com.pub</span>
-<span id="cb19-10"><a href="#cb19-10"></a><span class="co"># 7. Convert the RFC 4716 version of the public key to the OpenSSH format:</span></span>
-<span id="cb19-11"><a href="#cb19-11"></a><span class="fu">ssh-keygen</span> -i -f ~/.ssh/id_dsa_com.pub <span class="op">&gt;</span> ~/.ssh/id_dsa.pub</span></code></pre></div>
-</section>
-<section id="linux-commands" class="level1">
-<h1>Linux commands</h1>
-<section id="folder-size" class="level2">
-<h2>folder size</h2>
-<div class="sourceCode" id="cb20"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># disk usage info</span></span>
-<span id="cb20-2"><a href="#cb20-2"></a><span class="fu">df</span> -h --total</span>
-<span id="cb20-3"><a href="#cb20-3"></a></span>
-<span id="cb20-4"><a href="#cb20-4"></a><span class="co"># each folder size</span></span>
-<span id="cb20-5"><a href="#cb20-5"></a><span class="fu">du</span> -sh * <span class="kw">|</span> <span class="fu">sort</span> -g</span>
-<span id="cb20-6"><a href="#cb20-6"></a><span class="fu">du</span> -sk * <span class="kw">|</span> <span class="fu">sort</span> -n</span>
-<span id="cb20-7"><a href="#cb20-7"></a></span>
-<span id="cb20-8"><a href="#cb20-8"></a><span class="co"># each folder size including hiddens</span></span>
-<span id="cb20-9"><a href="#cb20-9"></a><span class="fu">du</span> -sch .[!.]* * <span class="kw">|</span><span class="fu">sort</span> -h</span>
-<span id="cb20-10"><a href="#cb20-10"></a><span class="co"># try ncdu</span></span>
-<span id="cb20-11"><a href="#cb20-11"></a><span class="fu">sudo</span> apt-get install ncdu</span>
-<span id="cb20-12"><a href="#cb20-12"></a><span class="ex">ncdu</span></span></code></pre></div>
-</section>
-<section id="system.d" class="level2">
-<h2>system.d</h2>
-<div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># nginx config test</span></span>
-<span id="cb21-2"><a href="#cb21-2"></a><span class="fu">sudo</span> nginx -t</span>
-<span id="cb21-3"><a href="#cb21-3"></a><span class="fu">sudo</span> nginx -t -c /etc/nginx/conf.d/taxicenter.conf</span>
-<span id="cb21-4"><a href="#cb21-4"></a></span>
-<span id="cb21-5"><a href="#cb21-5"></a><span class="co"># systemd</span></span>
-<span id="cb21-6"><a href="#cb21-6"></a><span class="co"># reload if unit file changed</span></span>
-<span id="cb21-7"><a href="#cb21-7"></a><span class="fu">sudo</span> systemctl daemon-reload</span></code></pre></div>
-</section>
-<section id="logs" class="level2">
-<h2>logs</h2>
-<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># read</span></span>
-<span id="cb22-2"><a href="#cb22-2"></a><span class="fu">cat</span> /node-1.log <span class="kw">|</span> <span class="fu">head</span> -20</span>
-<span id="cb22-3"><a href="#cb22-3"></a><span class="fu">tail</span> -f logs/node-1.log</span>
-<span id="cb22-4"><a href="#cb22-4"></a><span class="ex">jq</span> select(.ns[1]==<span class="st">&quot;consensus&quot;</span>)</span>
-<span id="cb22-5"><a href="#cb22-5"></a><span class="ex">jq</span> -c . <span class="kw">|</span> <span class="kw">{</span> <span class="st">&quot;at&quot;</span>: <span class="ex">.at</span>, <span class="st">&quot;val&quot;</span>: .data.H <span class="kw">}</span></span></code></pre></div>
-</section>
-<section id="bash" class="level2">
-<h2>bash</h2>
-<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">find</span> -name all.js</span>
-<span id="cb23-2"><a href="#cb23-2"></a><span class="kw">for</span> <span class="ex">j</span> in <span class="va">$(</span><span class="fu">find</span> -name all.js<span class="va">)</span><span class="kw">;</span> <span class="kw">do</span> <span class="fu">cp</span> -v /tmp/all.js <span class="va">$j</span><span class="kw">;</span> <span class="kw">done</span></span></code></pre></div>
-</section>
-</section>
-</div>
-
-<div class="row">
-        <span class="date  text-right">
-            <i class="fa fa-calenda"></i> Posted on March 24, 2018
-        </span>
-        <span class="tags text-right" style="width: 100%">
-            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/DevOps.html">DevOps</a></li><li><a href="/tags/deployment.html">deployment</a></li><li><a href="/tags/linux-setup.html">linux-setup</a></li></ul>
-        </span>
-</div>
-]]></description>
-    <pubDate>Sat, 24 Mar 2018 00:00:00 UT</pubDate>
-    <guid>http://imast.am/mitq/programming/deployment.html</guid>
-    <dc:creator>Arthur Vardanyan</dc:creator>
-</item>
-<item>
-    <title>The Algebra of Algebraic Data Types</title>
-    <link>http://imast.am/mitq/haskell/algebraic-data-types.html</link>
-    <description><![CDATA[<div class="post-content">
-<div id="TOC"><ul>
-<li><a href="#algebra">Algebra</a><ul>
-<li><a href="#haskell-types-are-algebra">Haskell types are Algebra</a></li>
-</ul></li>
-<li><a href="#type-calculus">Type Calculus</a><ul>
-<li><a href="#deriviative-of-list-recursive-type">Deriviative of List recursive type</a></li>
-</ul></li>
-</ul></div>
-<p><a href="https://www.youtube.com/watch?v=YScIPA8RbVE">video</a> <a href="https://stackoverflow.com/questions/9190352/abusing-the-algebra-of-algebraic-data-types-why-does-this-work">Abusing the algebra of algebraic data types - why does this work?</a></p>
-<p>initial algebra in category thoery</p>
-<section id="algebra" class="level1">
-<h1>Algebra</h1>
-<ul>
-<li>Symbols: Things</li>
-<li>Operations: Ways to make new things</li>
-<li>Laws: Rules the things follow</li>
-</ul>
-<section id="haskell-types-are-algebra" class="level2">
-<h2>Haskell types are Algebra</h2>
-<ul>
-<li>Symbols - Types ((), Int, Bool)</li>
-<li>Operations - Type Constructors (Maybe, Either, [])</li>
-<li>Laws - ?</li>
-</ul>
-</section>
-</section>
-<section id="type-calculus" class="level1">
-<h1>Type Calculus</h1>
-<p>δ1 = 0 δx = 1 δ(f+g) = δf + δg δ(f*g) = δf * g + f * δg δ(f(g)) = δf(g) * δg</p>
-<section id="deriviative-of-list-recursive-type" class="level2">
-<h2>Deriviative of List recursive type</h2>
-<p>L(x) = 1 / (1 - x) δL(x) = 1 / (1 - x)<sup>2</sup></p>
-</section>
-</section>
-</div>
-
-<div class="row">
-        <span class="date  text-right">
-            <i class="fa fa-calenda"></i> Posted on June  9, 2016
-        </span>
-        <span class="tags text-right" style="width: 100%">
-            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/haskell.html">haskell</a></li><li><a href="/tags/adt.html">adt</a></li></ul>
-        </span>
-</div>
-]]></description>
-    <pubDate>Thu, 09 Jun 2016 00:00:00 UT</pubDate>
-    <guid>http://imast.am/mitq/haskell/algebraic-data-types.html</guid>
     <dc:creator>Arthur Vardanyan</dc:creator>
 </item>
 

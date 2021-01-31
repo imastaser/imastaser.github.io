@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Ալգորիթմների անալիզ</title>
+        <link rel="alternate" type="application/rss+xml" title="AV notes" href="../../rss.xml" />
+        <link rel="shortcut icon" href="../../favicon.ico?v=2" type="image/x-icon" />
+        <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+        <link rel="stylesheet" href="../../css/bootstrap-theme.min.css" />
+        <link rel="stylesheet" href="../../css/default.css" />
+        <link rel="stylesheet" href="../../css/syntax.css" />
+          <link rel="stylesheet" href="../../css/quotes.css" />
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config( { tex2jax: { inlineMath: [ ["\\(", "\\)"] ]
+                                           , displayMath: [ ["\\[", "\\]" ] ]
+                                           , processEscapes: true
+                                           }
+                              });
+
+
+
+        </script>
+        <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
+
+        <script type="text/javascript" src="../../js/jquery.min.js">
+        </script>
+        <script type="text/javascript" src="../../js/bootstrap.min.js">
+        </script>
+        <script type="text/javascript" src="../../js/codeCopy.js">
+        </script>
+
+    </head>
+    <body>
+        <div class="container">
+
+
+            <div id="header">
+
+                <ul id="navigation" class="list-inline text-center">
+                    <li class="logo"><a href="../../" class="home-link">ԳԼԽԱՎՈՐ</a></i>
+                    <li><a href="../../hogi/">ՀՈԳԻ</a></li>
+                    <li><a href="../../mitq/">ՄԻՏՔ</a></li>
+                    <li><a href="../../marmin/">ՄԱՐՄԻՆ</a></li>
+                    <li><a href="../../rss.xml"><i class="fa fa-rss"></i></a></li>
+                    <!-- <li><a href="/atom.xml"><i class="fa fa-rss"></i></a></li> -->
+                </ul>
+            </div>
+            <div class="clear"></div>
+            <!---->
+
+  <div class="clear"></div>
+<!--  <p style="font-size: 11px;"><strong>Ուշադրություն.</strong> <small>«իմաստասէր» բառը պետք է հասկանալ տառացի. ոչ որպէս փիլիսոփա իմաստով:</small></p> -->
+            <div id="content">
+
+               <!-- <div class="title text-center">
+                    <h4>Ալգորիթմների անալիզ</h4>
+                    <hr>
+                </div> -->
+                <div class="post-content">
+<div id="TOC"><ul>
+<li><a href="#ալգորիթմ-և-ծրագիր">Ալգորիթմ և Ծրագիր</a></li>
+<li><a href="#ալգորիթմների-վերլուփության-չախանիշներըcriteria">Ալգորիթմների վերլուփության չախանիշները(criteria)</a></li>
+<li><a href="#ալգորիթմներ-գերլուծելու-եղանակները">Ալգորիթմներ Գերլուծելու եղանակները</a></li>
+<li><a href="#ժամանակային-բարդություն">Ժամանակային բարդություն</a></li>
+</ul></div>
+<section id="ալգորիթմ-և-ծրագիր" class="level1">
+<h1>Ալգորիթմ և Ծրագիր</h1>
+<p><strong>Ալգորիթմը</strong> դա հաշվողական խնդրի լուծման քայլերի նկարագրությունն է: <strong>Ծրագրի</strong> համար էլ կարող ենք նույնը ասել, ավելի լավ հասկանլու համար ինչ է ալգորիթմը՝ համեմատենք այն ծարգրի հետ</p>
+<div class="sourceCode" id="cb1" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2"></a>|    | Ալգորիթմ(Algorithm)                    | Ծրագիր(Program)                 |</span>
+<span id="cb1-3"><a href="#cb1-3"></a>|----+----------------------------------------+---------------------------------|</span>
+<span id="cb1-4"><a href="#cb1-4"></a>| <span class="fl">1.</span> | Դիզայն՝ Թղթի վրա լուծում               | Իրականացում՝ ծրագրի մշակում,    |</span>
+<span id="cb1-5"><a href="#cb1-5"></a>|    | - Ինչպե՞ս պետք է աշխատի ծրագիրը        | կազմում                         |</span>
+<span id="cb1-6"><a href="#cb1-6"></a>|    | - Ի՞նչ պետք է անում                    |                                 |</span>
+<span id="cb1-7"><a href="#cb1-7"></a>|----+----------------------------------------+---------------------------------|</span>
+<span id="cb1-8"><a href="#cb1-8"></a>| <span class="fl">2.</span> | Domain knowledge - ալգորիթմ կազմողը    | Ծրագրավորող՝ մարդ որը գրում է   |</span>
+<span id="cb1-9"><a href="#cb1-9"></a>|    | պետք է տիրապետի լուծվող խնդրի          | ծրագիրը                         |</span>
+<span id="cb1-10"><a href="#cb1-10"></a>|    | առարկայական որիտին                     |                                 |</span>
+<span id="cb1-11"><a href="#cb1-11"></a>|----+----------------------------------------+---------------------------------|</span>
+<span id="cb1-12"><a href="#cb1-12"></a>| <span class="fl">3.</span> | Ցանկացած լեզու, մոտեցում հարմար է      | Միայն ծարագրավորման լեզու կարող |</span>
+<span id="cb1-13"><a href="#cb1-13"></a>|    | ալգորիթմ նկարագրելու համար             | է օգտագործվել ծրագրի համար      |</span>
+<span id="cb1-14"><a href="#cb1-14"></a>|----+----------------------------------------+---------------------------------|</span>
+<span id="cb1-15"><a href="#cb1-15"></a>| <span class="fl">4.</span> | Ալգորիթմի նկարագրություն անկախ է       | կազված է երկաթից և Օպերացիոն    |</span>
+<span id="cb1-16"><a href="#cb1-16"></a>|    | երկաթից(Hardware), Ծրագրերից(Software) | համակրգերից                     |</span>
+<span id="cb1-17"><a href="#cb1-17"></a>|    | Օպերացիոն համակարգերից(OS)             |                                 |</span>
+<span id="cb1-18"><a href="#cb1-18"></a>|----+----------------------------------------+---------------------------------|</span>
+<span id="cb1-19"><a href="#cb1-19"></a>| <span class="fl">5.</span> | Վերլուծություն(Analyze)՝ ալգորիթմի     | Տեսատավորում(Testing)՝ ծրագրի   |</span>
+<span id="cb1-20"><a href="#cb1-20"></a>|    | արդյունավետությունը ըստ ծախսած         | աշխատանքի ստուգում              |</span>
+<span id="cb1-21"><a href="#cb1-21"></a>|    | ժամանակի(time) և օգտագործած            |                                 |</span>
+<span id="cb1-22"><a href="#cb1-22"></a>|    | հիշողության(space)                     |                                 |</span>
+<span id="cb1-23"><a href="#cb1-23"></a>|----+----------------------------------------+---------------------------------|</span>
+<span id="cb1-24"><a href="#cb1-24"></a></span></code></pre></div>
+<p><strong>Նախնական վերլուծություն և Հետին թվով Տեստավորում</strong></p>
+<p>Նախնական վերլուծության ընթարկում է ալգորիթը իսկ ծրագիրը՝ տեստավորվում է: Նախնական վերլուծության արդյունքը ժամանակի(time) ֆունկցիան է և օգտագործված հիշողության(space) ֆունկցիան:</p>
+<div class="sourceCode" id="cb2" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1"></a></span>
+<span id="cb2-2"><a href="#cb2-2"></a>|    | Նախնական վերլուծություն(Priori Analysis) | Հետին թվով Տեստավորում(Posteriori Testing) |</span>
+<span id="cb2-3"><a href="#cb2-3"></a>|----+------------------------------------------+--------------------------------------------|</span>
+<span id="cb2-4"><a href="#cb2-4"></a>| <span class="fl">1.</span> | Ալգորիթմ                                 | Ծրագիրը                                    |</span>
+<span id="cb2-5"><a href="#cb2-5"></a>|----+------------------------------------------+--------------------------------------------|</span>
+<span id="cb2-6"><a href="#cb2-6"></a>| <span class="fl">2.</span> | Անկախ լեզվից                             | Կախված լեզվից                              |</span>
+<span id="cb2-7"><a href="#cb2-7"></a>|----+------------------------------------------+--------------------------------------------|</span>
+<span id="cb2-8"><a href="#cb2-8"></a>| <span class="fl">3.</span> | Անկախ երկաթից                            | Կախված երկաթից                             |</span>
+<span id="cb2-9"><a href="#cb2-9"></a>|----+------------------------------------------+--------------------------------------------|</span>
+<span id="cb2-10"><a href="#cb2-10"></a>| <span class="fl">4.</span> | ժամանակի(time) և օգտագործած              | Watch time and bytes of memory             |</span>
+<span id="cb2-11"><a href="#cb2-11"></a>|    | հիշողության(space)                       |                                            |</span>
+<span id="cb2-12"><a href="#cb2-12"></a>|----+------------------------------------------+--------------------------------------------|</span>
+<span id="cb2-13"><a href="#cb2-13"></a></span></code></pre></div>
+<p><strong>Ալգորիթմի հատկությունները</strong></p>
+<div class="sourceCode" id="cb3" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1"></a>- Մուտք(Input)՝  կարող է ենդունել <span class="dv">0</span> կամ ավել մուտքային տվյալներ</span>
+<span id="cb3-2"><a href="#cb3-2"></a>- Ելք(Output)՝ պետք է արտածի առնվազմ մեկ արդյունք</span>
+<span id="cb3-3"><a href="#cb3-3"></a>- Ընդհատություն(Finiteness)՝ պետք է ունենա վերջավոր թվով հրամաններ, պետք է կանգ առնի</span>
+<span id="cb3-4"><a href="#cb3-4"></a>- Արագություն</span>
+<span id="cb3-5"><a href="#cb3-5"></a>- Ըմբռնելիություն(Definiteness)՝ կամայական հրաման ունենա հստակ և միայն մեկ նշանակություն, բոլոր քայլերը հայտնի լինեն </span>
+<span id="cb3-6"><a href="#cb3-6"></a>- Արդյոանավետություն(Effectiveness)՝ չանի ոչ անհրաժեշտ բաներ, ոչ պետքական բաներ </span>
+<span id="cb3-7"><a href="#cb3-7"></a>- Համընդանրություն</span></code></pre></div>
+<p><strong>Ինչպես գրել ալգորիթմ</strong> Ալգորիլմ գերլու համար կարող է օգտագորղվել ցանկացած գրելաձև, դրա համար չկա ընդունված կոնկրետ ճիշտ գրելաձև Օրինակ՝</p>
+<div class="sourceCode" id="cb4" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1"></a>Algorithm Swap(a,b)</span>
+<span id="cb4-2"><a href="#cb4-2"></a>Begin</span>
+<span id="cb4-3"><a href="#cb4-3"></a>  temp &lt;- a; --- <span class="dv">1</span> unit of time</span>
+<span id="cb4-4"><a href="#cb4-4"></a>  a &lt;- b;    --- <span class="dv">1</span> unit of time</span>
+<span id="cb4-5"><a href="#cb4-5"></a>  b &lt;- temp; --- <span class="dv">1</span> uniot of time</span>
+<span id="cb4-6"><a href="#cb4-6"></a>End.           ----</span>
+<span id="cb4-7"><a href="#cb4-7"></a>               f(n) = <span class="dv">3</span></span></code></pre></div>
+</section>
+<section id="ալգորիթմների-վերլուփության-չախանիշներըcriteria" class="level1">
+<h1>Ալգորիթմների վերլուփության չախանիշները(criteria)</h1>
+<ul>
+<li><strong>Ժամանակ(Time)</strong></li>
+</ul>
+<p>Երբ ալգորիթմ կամ ինչ որ պրոցէդուրա ենք մշակում պետք է այնպես անենք որ այն լինի ինչքան հնարավոր է արագ, այլ կերպ ասած էֆեկտիվ ժամանակի մեջ(time efficient): Ալգորիթմը գրելուց հետո պետք է վերլուծել հասկանալու համար ինչքան ժամանակ կծախսի տված `n` ծավալի մուտքային տվյալների համար, այն ժամանակային չախը որ կստանանք վերլուծության արդյունքում կլինի ֆոնւկցիայի տեսքով, մենք կստանանք ժամանակային ֆունկցիան:</p>
+<ul>
+<li><strong>Ծավալ(Space)</strong></li>
+</ul>
+<p>Քանի որ ալգորիթմ աղխատացնելու համար այն պետք է վերածենք ծրագրի, որը նոր կարողանականք աշխատացնել մեքենայի վրա, հետևաբար կարևոր է հասկանալ գնահատել նաև թէ մեր ալգորիթմը ինչքան հիղողության ղավալը է օգտագործում:</p>
+<p><strong>Ժամանակ</strong> և <strong>Ծավալ</strong> երկու կարևոր չափորոշիչներն ըստ որոնց վերլուծությունը ամենակարևորն է և առաջնահերթ արվում է, որից հետո եթե կարիք կա ապա վերլուծում ենք ըստ այլ գործոնների, օրինակ՝</p>
+<ul>
+<li>Տվյալների փոխանցման ծավալՑանցի(Network COnsumption/Data transfer)</li>
+<li>Էներգիայի ծախսը սարքի վրա աշխատացնելիս (Power consumption on device)</li>
+<li>Պրոցեսորի ռեգիստրերի քանակը (how many CPU Registers uses)</li>
+</ul>
+</section>
+<section id="ալգորիթմներ-գերլուծելու-եղանակները" class="level1">
+<h1>Ալգորիթմներ Գերլուծելու եղանակները</h1>
+<p><strong>Ի՞նչպես Վերլուծել Ալգորիթմը</strong></p>
+<p>Փորձենք վերլուծել վերևում նկարագրված <strong>Swap</strong> ալգորիթմը՝</p>
+<ul>
+<li>Ի՞նչքան ժամանակ է ծախսում, բայց ի՞նչպես հաշվենք: Յուրաքանչյուր պարզ հրաման ալգորիթմում</li>
+</ul>
+<p>տևում է միավոր ժամանակ, պարզ նշանակում է որ այն չունի ներդրված(nested) այլ հրամաններ, օրինակ մեկ այլ ալգորիթմի կանպչ և այլն: <strong>Swap</strong> ալգորիթմի ժամանակային ֆունկցիան f(n) = 3, հաստատուն(կոնստանտ) ֆունկցիա է:</p>
+<ul>
+<li>Ի՞նչքան հիշողության ծավալ է օգտագործում՝(Space analysis)</li>
+</ul>
+<p>Պարզենք քանի հատ փոփոխական է օգտագործում</p>
+<div class="sourceCode" id="cb5" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1"></a>temp - <span class="dv">1</span>    </span>
+<span id="cb5-2"><a href="#cb5-2"></a>a    - <span class="dv">1</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>b    - <span class="dv">1</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a>   --------</span>
+<span id="cb5-5"><a href="#cb5-5"></a>    <span class="dv">3</span> words, S(n) = <span class="dv">3</span>, սա նույնպես հաստատուն ֆունկցիա է</span></code></pre></div>
+<p><strong>Հաճախությունները հաշվելու եղանակ(Frequency count method)</strong></p>
+<p>Եղանակը կայանում է նրանում որ՝</p>
+<ul>
+<li>յուրաքանթյուր հրամանին համապտասխանացնում ենք ժամանակի միավոր</li>
+<li>եթե հրամանը կրկնվում է ինչ որ քանակով, այլ կերպ ասած հրամանը ունի հաճախություն, ապա հրամանի կատարման հաճախությունը նույնպես հաշվում ենք</li>
+</ul>
+<p>for ցիկլերում մեշ կհետաքրքրի միայն համեմատությունների ժամանակը, դրա համար for ցիկլին կատարմանը կվերագրենք (n+1) ժամանակային միավոր, իսկ ցեկլի մարմինը կկատարվի n անգամ: Դիտարկենք օրինակներ՝</p>
+<p>ա) Զանգվածի տարրերի գումարի ալգորիթմի վերլուծությունը</p>
+<div class="sourceCode" id="cb6" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1"></a></span>
+<span id="cb6-2"><a href="#cb6-2"></a>|            |                        | Time                     | Space        |</span>
+<span id="cb6-3"><a href="#cb6-3"></a>|------------+------------------------+--------------------------+--------------+</span>
+<span id="cb6-4"><a href="#cb6-4"></a>|            | A = [<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">1</span>]        |                          | A - n words  |</span>
+<span id="cb6-5"><a href="#cb6-5"></a>|            | n = <span class="dv">5</span>                  |                          | n - <span class="dv">1</span> word   |</span>
+<span id="cb6-6"><a href="#cb6-6"></a>|            | Algorithm  Sum(A,n)    |                          |              |</span>
+<span id="cb6-7"><a href="#cb6-7"></a>|            | {                      |                          |              |</span>
+<span id="cb6-8"><a href="#cb6-8"></a>|         <span class="fl">1.</span> | S = <span class="dv">0</span>;                 | <span class="dv">1</span> - unit of time         | S - <span class="dv">1</span> word   |</span>
+<span id="cb6-9"><a href="#cb6-9"></a>|         <span class="fl">2.</span> | <span class="cf">for</span>(i = <span class="dv">0</span>; i &lt; n; i++) | n + <span class="dv">1</span> - only comparision | i - <span class="dv">1</span> word   |</span>
+<span id="cb6-10"><a href="#cb6-10"></a>|            | {                      | i values  {<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>}  |              |</span>
+<span id="cb6-11"><a href="#cb6-11"></a>|         <span class="fl">3.</span> | S = S + A[i];          | n - unit of time         |              |</span>
+<span id="cb6-12"><a href="#cb6-12"></a>|            | }                      |                          |              |</span>
+<span id="cb6-13"><a href="#cb6-13"></a>|         <span class="fl">4.</span> | <span class="cf">return</span> S;              | <span class="dv">1</span> - unit of time         |              |</span>
+<span id="cb6-14"><a href="#cb6-14"></a>|            | }                      |                          |              |</span>
+<span id="cb6-15"><a href="#cb6-15"></a>|            |                        |                          |              |</span>
+<span id="cb6-16"><a href="#cb6-16"></a>|------------+------------------------+--------------------------+--------------+</span>
+<span id="cb6-17"><a href="#cb6-17"></a>|  functions |                        | f(n) = <span class="dv">2</span><span class="er">n</span>+<span class="dv">3</span>              | S(n) = n + <span class="dv">3</span> |</span>
+<span id="cb6-18"><a href="#cb6-18"></a>| complexity |                        | Time: O(n)               | Space: O(n)  |</span>
+<span id="cb6-19"><a href="#cb6-19"></a></span></code></pre></div>
+<p>բ) Երկու nxn մատրիցաների գումարի ալգորիթմի վերլուծենք հաճախությունների հաշվման եղանակով</p>
+<div class="sourceCode" id="cb7" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1"></a></span>
+<span id="cb7-2"><a href="#cb7-2"></a>|            |                           | Time                      | Space           |</span>
+<span id="cb7-3"><a href="#cb7-3"></a>|------------+---------------------------+---------------------------+-----------------+</span>
+<span id="cb7-4"><a href="#cb7-4"></a>|            | A = [nxn] matrix          |                           | A - n^<span class="dv">2</span> words   |</span>
+<span id="cb7-5"><a href="#cb7-5"></a>|            | B = [nxn] matrix          |                           | B - n^<span class="dv">2</span> words   |</span>
+<span id="cb7-6"><a href="#cb7-6"></a>|            | C = [nxn] matrix          |                           | C - n^<span class="dv">2</span> words   |</span>
+<span id="cb7-7"><a href="#cb7-7"></a>|            | n                         |                           | n - <span class="dv">1</span> word      |</span>
+<span id="cb7-8"><a href="#cb7-8"></a>|            | Algorithm  Add(A,B,n)     |                           |                 |</span>
+<span id="cb7-9"><a href="#cb7-9"></a>|            | {                         |                           |                 |</span>
+<span id="cb7-10"><a href="#cb7-10"></a>|            | <span class="cf">for</span>(i = <span class="dv">0</span>; i &lt; n; i++)    | n + <span class="dv">1</span> - nly comparisions  | i - <span class="dv">1</span> word      |</span>
+<span id="cb7-11"><a href="#cb7-11"></a>|            | {                         |                           |                 |</span>
+<span id="cb7-12"><a href="#cb7-12"></a>|            | <span class="cf">for</span>(j = <span class="dv">0</span>; j &lt; n; j++)    | n * (n + <span class="dv">1</span>) - body * comp | j - <span class="dv">1</span> word      |</span>
+<span id="cb7-13"><a href="#cb7-13"></a>|            | {                         |                           |                 |</span>
+<span id="cb7-14"><a href="#cb7-14"></a>|            | C[i,j] = A[i,j] + B[i,j]; | n * n - unit of time      |                 |</span>
+<span id="cb7-15"><a href="#cb7-15"></a>|            | }                         |                           |                 |</span>
+<span id="cb7-16"><a href="#cb7-16"></a>|            | }                         |                           |                 |</span>
+<span id="cb7-17"><a href="#cb7-17"></a>|            | }                         |                           |                 |</span>
+<span id="cb7-18"><a href="#cb7-18"></a>|------------+---------------------------+---------------------------+-----------------+</span>
+<span id="cb7-19"><a href="#cb7-19"></a>| functions  |                           | f(n) = <span class="dv">2</span><span class="er">n</span>^<span class="dv">2</span> + <span class="dv">2</span><span class="er">n</span> + <span class="dv">1</span>      | S(n) = <span class="dv">3</span><span class="er">n</span>^<span class="dv">2</span> + <span class="dv">3</span> |</span>
+<span id="cb7-20"><a href="#cb7-20"></a>| complexity |                           | Time: O(n^<span class="dv">2</span>)              | Space: O(n^<span class="dv">2</span>)   |</span></code></pre></div>
+<p>բ) Երկու nxn մատրիցաների արտադրյալի ալգորիթմի վերլուծությունը</p>
+<div class="sourceCode" id="cb8" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th></th>
+<th>Time</th>
+<th>Space</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>A = [nxn] matrix</td>
+<td></td>
+<td>A - n<sup>2</sup> words</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>B = [nxn] matrix</td>
+<td></td>
+<td>B - n<sup>2</sup> words</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>C = [nxn] matrix</td>
+<td></td>
+<td>C - n<sup>2</sup> words</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>n</td>
+<td></td>
+<td>n - 1 word</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Algorithm Multiply(A,B,n)</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>{</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>for(i = 0; i &lt; n; i++)</td>
+<td>n + 1 - only comparisions of i&lt;n</td>
+<td>i - 1 word</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>{</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>for(j = 0; j &lt; n; j++)</td>
+<td>n * (n + 1) - body * comp</td>
+<td>j - 1 word</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>{</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>C[i,j] = 0;</td>
+<td>n * n - unit of time</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>for(k = 0; k &lt; n; k++)</td>
+<td>n * n * (n + 1) - body * comp</td>
+<td>k - 1 word</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>{</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>C[i,j] = C[i,j] + A[i,k] * B[i,j];</td>
+<td>n * n * n - unit of time</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>}</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>}</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>}</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>} // end algorithm</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>functions</td>
+<td></td>
+<td>f(n) = 2n<sup>3</sup> + 3n<sup>2</sup> + 2n + 1</td>
+<td>S(n) = 3n<sup>2</sup> + 4</td>
+</tr>
+<tr class="even">
+<td>complexity</td>
+<td></td>
+<td>Time: O(n<sup>3</sup>)</td>
+<td>Space: O(n<sup>2</sup>)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ժամանակային-բարդություն" class="level1">
+<h1>Ժամանակային բարդություն</h1>
+<p>Մանրամասն օրինակներ ժամանակային վերլուծության տարբեր դեպքերի համար</p>
+<ol>
+<li>Միայնակ ցիկլ</li>
+</ol>
+<p>Ցիկլերի համար կարոծ ենք անտեսել (n + 1) համեմատությունները որոնք ծախսվում են հենց ցիկլ կազմակերպելու համար, այն պարզ պատճառով որ այն չի փոխում ժռամանակային ֆունկցիայի աստիճանը:</p>
+<div class="sourceCode" id="cb9" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1"></a> <span class="cf">for</span>(i = <span class="dv">0</span>; i &lt; n; i++) -- n + <span class="dv">1</span>, այսուհետ հաշվի չենք առնի այս գործակիցը  </span>
+<span id="cb9-2"><a href="#cb9-2"></a> {</span>
+<span id="cb9-3"><a href="#cb9-3"></a>   statement;          -- n  =&gt; O(n)</span>
+<span id="cb9-4"><a href="#cb9-4"></a> }</span>
+<span id="cb9-5"><a href="#cb9-5"></a></span>
+<span id="cb9-6"><a href="#cb9-6"></a></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="cf">for</span>(i = n; i &gt; <span class="dv">0</span>; i--) - decrementing order n -&gt; <span class="dv">1</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a> {</span>
+<span id="cb9-9"><a href="#cb9-9"></a>   statement;          -- n  =&gt; O(n)</span>
+<span id="cb9-10"><a href="#cb9-10"></a> }</span>
+<span id="cb9-11"><a href="#cb9-11"></a></span>
+<span id="cb9-12"><a href="#cb9-12"></a></span>
+<span id="cb9-13"><a href="#cb9-13"></a><span class="cf">for</span>(i = <span class="dv">1</span>; i &lt; n; i = i + <span class="dv">2</span>) ավելի ընդհանուր դեպքը`` i = i + k</span>
+<span id="cb9-14"><a href="#cb9-14"></a> {                i = i + k   </span>
+<span id="cb9-15"><a href="#cb9-15"></a>   statement;          -- n/<span class="dv">2</span> =&gt; f(n) = n/<span class="dv">2</span> =&gt; O(n)</span>
+<span id="cb9-16"><a href="#cb9-16"></a>                       -- n/k =&gt; f(n) = n/k =&gt; O(n)  </span>
+<span id="cb9-17"><a href="#cb9-17"></a> }</span>
+<span id="cb9-18"><a href="#cb9-18"></a></span>
+<span id="cb9-19"><a href="#cb9-19"></a></span></code></pre></div>
+<ol>
+<li>Կրկնակի ցիկլեր</li>
+</ol>
+<div class="sourceCode" id="cb10" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb10-1"><a href="#cb10-1"></a>  <span class="cf">for</span>(i = <span class="dv">0</span>; i &lt; n; i++)   -- n + <span class="dv">1</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>  {</span>
+<span id="cb10-3"><a href="#cb10-3"></a>    <span class="cf">for</span>(j = <span class="dv">0</span>; j &lt; n; j++) -- n * (n+<span class="dv">1</span>)</span>
+<span id="cb10-4"><a href="#cb10-4"></a>      {</span>
+<span id="cb10-5"><a href="#cb10-5"></a>        statement;         -- n * n</span>
+<span id="cb10-6"><a href="#cb10-6"></a>      }                   f(n) = <span class="dv">2</span><span class="er">n</span>^<span class="dv">2</span> + <span class="dv">2</span><span class="er">n</span>+<span class="dv">2</span> =&gt; O(n^<span class="dv">2</span>)</span>
+<span id="cb10-7"><a href="#cb10-7"></a>  }</span>
+<span id="cb10-8"><a href="#cb10-8"></a></span>
+<span id="cb10-9"><a href="#cb10-9"></a></span>
+<span id="cb10-10"><a href="#cb10-10"></a>  <span class="cf">for</span>(i = <span class="dv">0</span>; i &lt; n; i++)                          </span>
+<span id="cb10-11"><a href="#cb10-11"></a>  { </span>
+<span id="cb10-12"><a href="#cb10-12"></a>    <span class="cf">for</span>(j = <span class="dv">0</span>; j &lt; i; j++) </span>
+<span id="cb10-13"><a href="#cb10-13"></a>      {</span>
+<span id="cb10-14"><a href="#cb10-14"></a>        statement;         -- n * (n + <span class="dv">1</span>)/<span class="dv">2</span> see below table  </span>
+<span id="cb10-15"><a href="#cb10-15"></a>      }                   f(n) = (n^<span class="dv">2</span> + n)/<span class="dv">2</span> =&gt; O(n^<span class="dv">2</span>)</span>
+<span id="cb10-16"><a href="#cb10-16"></a>  }</span>
+<span id="cb10-17"><a href="#cb10-17"></a></span>
+<span id="cb10-18"><a href="#cb10-18"></a></span>
+<span id="cb10-19"><a href="#cb10-19"></a>|   i |   j | count |</span>
+<span id="cb10-20"><a href="#cb10-20"></a>|-----+-----+-------|</span>
+<span id="cb10-21"><a href="#cb10-21"></a>|   <span class="dv">0</span> |  <span class="er">0x</span> |     <span class="dv">0</span> |</span>
+<span id="cb10-22"><a href="#cb10-22"></a>|   <span class="dv">1</span> |   <span class="dv">0</span> |     <span class="dv">1</span> |</span>
+<span id="cb10-23"><a href="#cb10-23"></a>|     |  <span class="dv">1</span><span class="er">x</span> |       |</span>
+<span id="cb10-24"><a href="#cb10-24"></a>|   <span class="dv">2</span> |   <span class="dv">0</span> |     <span class="dv">2</span> |</span>
+<span id="cb10-25"><a href="#cb10-25"></a>|     |   <span class="dv">1</span> |       |</span>
+<span id="cb10-26"><a href="#cb10-26"></a>|     |  <span class="dv">2</span><span class="er">x</span> |       |</span>
+<span id="cb10-27"><a href="#cb10-27"></a>|   <span class="dv">3</span> |   <span class="dv">0</span> |     <span class="dv">3</span> |</span>
+<span id="cb10-28"><a href="#cb10-28"></a>|     |   <span class="dv">1</span> |       |</span>
+<span id="cb10-29"><a href="#cb10-29"></a>|     |   <span class="dv">2</span> |       |</span>
+<span id="cb10-30"><a href="#cb10-30"></a>|     |  <span class="dv">3</span><span class="er">x</span> |       |</span>
+<span id="cb10-31"><a href="#cb10-31"></a>| ... | ... |   ... |</span>
+<span id="cb10-32"><a href="#cb10-32"></a>|   n |   <span class="dv">0</span> |     n |</span>
+<span id="cb10-33"><a href="#cb10-33"></a>|     |   <span class="dv">1</span> |       |</span>
+<span id="cb10-34"><a href="#cb10-34"></a>|     | ... |       |</span>
+<span id="cb10-35"><a href="#cb10-35"></a>|     |  nx |       |</span>
+<span id="cb10-36"><a href="#cb10-36"></a></span></code></pre></div>
+<ol>
+<li>Ցիկլի պայմանի փոփոխություն մարմնում</li>
+</ol>
+<div class="sourceCode" id="cb11" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb11-1"><a href="#cb11-1"></a>  <span class="cf">for</span>(i = <span class="dv">1</span>; p &lt;= n; i++)       i  p </span>
+<span id="cb11-2"><a href="#cb11-2"></a>  {                             <span class="dv">1</span>  <span class="dv">0</span> + <span class="dv">1</span> = <span class="dv">1</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a>    p = p + i;                  <span class="dv">2</span>  <span class="dv">1</span> + <span class="dv">2</span> = <span class="dv">3</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a>  }                             <span class="dv">3</span>  <span class="dv">1</span> + <span class="dv">2</span> + <span class="dv">3</span> = <span class="dv">6</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a>                                ....</span>
+<span id="cb11-6"><a href="#cb11-6"></a>                                k  <span class="dv">1</span>+<span class="dv">2</span>+<span class="dv">3</span>+...+k = k*(k+<span class="dv">1</span>)/<span class="dv">2</span>  </span>
+<span id="cb11-7"><a href="#cb11-7"></a></span>
+<span id="cb11-8"><a href="#cb11-8"></a>ցիկլը կանգ է առնում երբ p&gt;n, Ենթադրենք k քայլում =&gt; p = k*(k+<span class="dv">1</span>)/<span class="dv">2</span>  </span>
+<span id="cb11-9"><a href="#cb11-9"></a>k*(k+<span class="dv">1</span>)/<span class="dv">2</span> &gt; n ~ k^<span class="dv">2</span> &gt; n =&gt; k &gt; √n</span></code></pre></div>
+<ol>
+<li></li>
+</ol>
+<div class="sourceCode" id="cb12"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb12-1"><a href="#cb12-1"></a></span>
+<span id="cb12-2"><a href="#cb12-2"></a>  for(i = 1; i &lt;= n; i=i*2)     i   </span>
+<span id="cb12-3"><a href="#cb12-3"></a>  {                             1x2 = 2  </span>
+<span id="cb12-4"><a href="#cb12-4"></a>    statment; -- logn           2x2 = 4 = 2^2   </span>
+<span id="cb12-5"><a href="#cb12-5"></a>  }                             4x2 = 8 = 2^3 </span>
+<span id="cb12-6"><a href="#cb12-6"></a>                                ....</span>
+<span id="cb12-7"><a href="#cb12-7"></a>                                2^k  </span>
+<span id="cb12-8"><a href="#cb12-8"></a>ցիկլը կանգ է կաառնի երբ i&gt;=n, Ենթադրենք k քայլում i &gt;= n</span>
+<span id="cb12-9"><a href="#cb12-9"></a>i = 2^k</span>
+<span id="cb12-10"><a href="#cb12-10"></a>2^k &gt;= n, եթե վերցնենք 2^k = n =&gt; k = log 2 n</span>
+<span id="cb12-11"><a href="#cb12-11"></a>O(log2n)</span>
+<span id="cb12-12"><a href="#cb12-12"></a>Օրինակ n=8</span>
+<span id="cb12-13"><a href="#cb12-13"></a>i</span>
+<span id="cb12-14"><a href="#cb12-14"></a>1</span>
+<span id="cb12-15"><a href="#cb12-15"></a>2</span>
+<span id="cb12-16"><a href="#cb12-16"></a>4</span>
+<span id="cb12-17"><a href="#cb12-17"></a>8 - ցիկլի վերջ</span>
+<span id="cb12-18"><a href="#cb12-18"></a>log8 = 3</span>
+<span id="cb12-19"><a href="#cb12-19"></a></span>
+<span id="cb12-20"><a href="#cb12-20"></a>Օրինակ n=10</span>
+<span id="cb12-21"><a href="#cb12-21"></a>i</span>
+<span id="cb12-22"><a href="#cb12-22"></a>1</span>
+<span id="cb12-23"><a href="#cb12-23"></a>2</span>
+<span id="cb12-24"><a href="#cb12-24"></a>4</span>
+<span id="cb12-25"><a href="#cb12-25"></a>8</span>
+<span id="cb12-26"><a href="#cb12-26"></a>16 - ցիկլի վերջ</span>
+<span id="cb12-27"><a href="#cb12-27"></a>log10 = 3,2, բայց մենք կլորացնում ենք դեպի վերև, քանի որ ցիկլը կրկնվում է 4 անգամ: երբ կոտորակային թիվ ենք ստանում </span>
+<span id="cb12-28"><a href="#cb12-28"></a>պետք է որոշենք թէ որ կոծմ ենք կլորացնում՝ վերև թէ ներքև:</span></code></pre></div>
+<ol>
+<li></li>
+</ol>
+<div class="sourceCode" id="cb13" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb13-1"><a href="#cb13-1"></a>  <span class="cf">for</span>(i = n; i &gt;= n; i=i/<span class="dv">2</span>)          </span>
+<span id="cb13-2"><a href="#cb13-2"></a>  {                             i -&gt;  n, n/<span class="dv">2</span>, n/<span class="dv">2</span>^<span class="dv">2</span>, n/<span class="dv">2</span>^<span class="dv">3</span>, ..., n/<span class="dv">2</span>^k </span>
+<span id="cb13-3"><a href="#cb13-3"></a>    statement;                    </span>
+<span id="cb13-4"><a href="#cb13-4"></a>  }                               </span>
+<span id="cb13-5"><a href="#cb13-5"></a></span>
+<span id="cb13-6"><a href="#cb13-6"></a></span>
+<span id="cb13-7"><a href="#cb13-7"></a></span>
+<span id="cb13-8"><a href="#cb13-8"></a>ցիկլը կանգ  կառնի երբ i &lt; <span class="dv">1</span>, Ենթադրենք k քայլում =&gt; i&lt;<span class="dv">1</span> =&gt; n/<span class="dv">2</span>^k &lt; <span class="dv">1</span></span>
+<span id="cb13-9"><a href="#cb13-9"></a>վերցնենք  n/<span class="dv">2</span>^k = <span class="dv">1</span>, k = log2 n</span>
+<span id="cb13-10"><a href="#cb13-10"></a></span>
+<span id="cb13-11"><a href="#cb13-11"></a>O(log2  n)</span>
+<span id="cb13-12"><a href="#cb13-12"></a></span></code></pre></div>
+<ol>
+<li></li>
+</ol>
+<div class="sourceCode" id="cb14" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb14-1"><a href="#cb14-1"></a></span>
+<span id="cb14-2"><a href="#cb14-2"></a>  <span class="cf">for</span>(i = <span class="dv">0</span>; i*i &lt; n; i++)       <span class="dv">1</span>   </span>
+<span id="cb14-3"><a href="#cb14-3"></a>  {                             i n n/<span class="dv">2</span> n/<span class="dv">2</span>^<span class="dv">2</span> n/<span class="dv">2</span>^<span class="dv">3</span> ... n/<span class="dv">2</span>^k </span>
+<span id="cb14-4"><a href="#cb14-4"></a>    statement;                    </span>
+<span id="cb14-5"><a href="#cb14-5"></a>  }                               </span>
+<span id="cb14-6"><a href="#cb14-6"></a></span>
+<span id="cb14-7"><a href="#cb14-7"></a></span>
+<span id="cb14-8"><a href="#cb14-8"></a></span>
+<span id="cb14-9"><a href="#cb14-9"></a>ցիկլը կանգ  կառնի երբ i*i &gt;=n, վերցնենք  i^<span class="dv">2</span> = n =&gt; i = √n</span>
+<span id="cb14-10"><a href="#cb14-10"></a></span>
+<span id="cb14-11"><a href="#cb14-11"></a>O(√n)</span>
+<span id="cb14-12"><a href="#cb14-12"></a></span></code></pre></div>
+<ol>
+<li>Երկու անկխա ցիկլեր</li>
+</ol>
+<div class="sourceCode" id="cb15" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb15-1"><a href="#cb15-1"></a>  <span class="cf">for</span>(i=<span class="dv">0</span>; i &lt; n; i++)</span>
+<span id="cb15-2"><a href="#cb15-2"></a>  {</span>
+<span id="cb15-3"><a href="#cb15-3"></a>    P++;  -- n </span>
+<span id="cb15-4"><a href="#cb15-4"></a>  }</span>
+<span id="cb15-5"><a href="#cb15-5"></a>  <span class="cf">for</span>(j=<span class="dv">0</span>; j &lt; n; j++)</span>
+<span id="cb15-6"><a href="#cb15-6"></a>  {</span>
+<span id="cb15-7"><a href="#cb15-7"></a>    statement;  -- n</span>
+<span id="cb15-8"><a href="#cb15-8"></a>  }</span>
+<span id="cb15-9"><a href="#cb15-9"></a>f(n) = <span class="dv">2</span><span class="er">n</span></span>
+<span id="cb15-10"><a href="#cb15-10"></a>O(n)</span></code></pre></div>
+<ol>
+<li>Կրկնակի ցիկլ</li>
+</ol>
+<div class="sourceCode" id="cb16" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb16-1"><a href="#cb16-1"></a><span class="cf">for</span>(i=<span class="dv">0</span>; i &lt; n; i=i*<span class="dv">2</span>)</span>
+<span id="cb16-2"><a href="#cb16-2"></a>{</span>
+<span id="cb16-3"><a href="#cb16-3"></a>  P++;  -- P = log2 n </span>
+<span id="cb16-4"><a href="#cb16-4"></a>}</span>
+<span id="cb16-5"><a href="#cb16-5"></a><span class="cf">for</span>(j=<span class="dv">0</span>; j &lt; P; j=j*<span class="dv">2</span>)</span>
+<span id="cb16-6"><a href="#cb16-6"></a>{</span>
+<span id="cb16-7"><a href="#cb16-7"></a>  statement;  -- log2 P =&gt; log2 log2 n =&gt; O(log log2 n)</span>
+<span id="cb16-8"><a href="#cb16-8"></a>}</span>
+<span id="cb16-9"><a href="#cb16-9"></a></span></code></pre></div>
+<ol>
+<li>Կրկնակի ցիկլ</li>
+</ol>
+<div class="sourceCode" id="cb17" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"></code></pre></div>
+<ol>
+<li>Կրկնակի ցիկլ</li>
+</ol>
+<div class="sourceCode" id="cb18" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"></code></pre></div>
+<ol>
+<li>Կրկնակի ցիկլ</li>
+</ol>
+<div class="sourceCode" id="cb19" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"></code></pre></div>
+<ol>
+<li>Կրկնակի ցիկլ</li>
+</ol>
+<div class="sourceCode" id="cb20" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"></code></pre></div>
+</section>
+</div>
+
+<div class="row">
+        <span class="date  text-right">
+            <i class="fa fa-calenda"></i> Posted on January 18, 2021
+        </span>
+        <span class="tags text-right" style="width: 100%">
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="../../tags/asymptotic.html">asymptotic</a></li><li><a href="../../tags/algorithms.html">algorithms</a></li></ul>
+        </span>
+</div>
+
+            </div>
+            <div id="footer" class="col-md-12">
+                <div class="row"><hr /></div>
+
+                <div class="row text-center">
+                  powered by  <a href="http://jaspervdj.be/hakyll" target="_blank">Hakyll</a>,
+                                      <a href="https://en.wikipedia.org/wiki/Org-mode" target="_blank"> Org-mode</a>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="../../js/quotes.js">
+        </script>
+    </body>
+</html>

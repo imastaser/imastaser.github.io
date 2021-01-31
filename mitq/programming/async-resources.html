@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Async</title>
+        <link rel="alternate" type="application/rss+xml" title="AV notes" href="../../rss.xml" />
+        <link rel="shortcut icon" href="../../favicon.ico?v=2" type="image/x-icon" />
+        <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+        <link rel="stylesheet" href="../../css/bootstrap-theme.min.css" />
+        <link rel="stylesheet" href="../../css/default.css" />
+        <link rel="stylesheet" href="../../css/syntax.css" />
+          <link rel="stylesheet" href="../../css/quotes.css" />
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config( { tex2jax: { inlineMath: [ ["\\(", "\\)"] ]
+                                           , displayMath: [ ["\\[", "\\]" ] ]
+                                           , processEscapes: true
+                                           }
+                              });
+
+
+
+        </script>
+        <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
+
+        <script type="text/javascript" src="../../js/jquery.min.js">
+        </script>
+        <script type="text/javascript" src="../../js/bootstrap.min.js">
+        </script>
+        <script type="text/javascript" src="../../js/codeCopy.js">
+        </script>
+
+    </head>
+    <body>
+        <div class="container">
+
+
+            <div id="header">
+
+                <ul id="navigation" class="list-inline text-center">
+                    <li class="logo"><a href="../../" class="home-link">ԳԼԽԱՎՈՐ</a></i>
+                    <li><a href="../../hogi/">ՀՈԳԻ</a></li>
+                    <li><a href="../../mitq/">ՄԻՏՔ</a></li>
+                    <li><a href="../../marmin/">ՄԱՐՄԻՆ</a></li>
+                    <li><a href="../../rss.xml"><i class="fa fa-rss"></i></a></li>
+                    <!-- <li><a href="/atom.xml"><i class="fa fa-rss"></i></a></li> -->
+                </ul>
+            </div>
+            <div class="clear"></div>
+            <!---->
+
+  <div class="clear"></div>
+<!--  <p style="font-size: 11px;"><strong>Ուշադրություն.</strong> <small>«իմաստասէր» բառը պետք է հասկանալ տառացի. ոչ որպէս փիլիսոփա իմաստով:</small></p> -->
+            <div id="content">
+
+               <!-- <div class="title text-center">
+                    <h4>Async</h4>
+                    <hr>
+                </div> -->
+                <div class="post-content">
+<div id="TOC"><ul>
+<li><a href="#net-async-talks">.Net Async Talks</a><ul>
+<li><a href="#lucian-wischik">Lucian Wischik</a></li>
+<li><a href="#wintellect">Wintellect</a></li>
+<li><a href="#stephen-toub">Stephen Toub</a></li>
+</ul></li>
+<li><a href="#net-blogs">.Net Blogs</a><ul>
+<li><a href="#msdn">MSDN</a></li>
+<li><a href="#stephen-toub-1">Stephen Toub</a></li>
+<li><a href="#eric-lipper">Eric Lipper</a></li>
+<li><a href="#raymond-chen">Raymond Chen</a></li>
+<li><a href="#stephen-cleary">Stephen Cleary</a></li>
+<li><a href="#i3arnon">i3arnon</a></li>
+<li><a href="#code">Code</a></li>
+</ul></li>
+</ul></div>
+<section id="net-async-talks" class="level2">
+<h2>.Net Async Talks</h2>
+<section id="lucian-wischik" class="level3">
+<h3>Lucian Wischik</h3>
+<ul>
+<li><p><a href="https://channel9.msdn.com/Series/Three-Essential-Tips-for-Async/Three-Essential-Tips-For-Async-Introduction">Six Essential Tips For Async - Introduction</a> - Talks</p></li>
+<li><p><a href="https://docs.microsoft.com/en-us/archive/blogs/lucian/talk-async-best-practices">Talk: Async best practices</a></p></li>
+<li><p><a href="https://docs.microsoft.com/en-us/archive/blogs/lucian/talk-the-complete-async-three-talks-from-teched-europe-2013">Talk: The Complete Async – three talks from TechEd Europe 2013</a></p></li>
+<li><p><a href="https://channel9.msdn.com/Events/TechEd/Europe/2013/DEV-B317#fbid=aIWUq0ssW74">Intro: Using Async</a></p></li>
+<li><p><a href="https://channel9.msdn.com/Events/TechEd/Europe/2013/DEV-B319#fbid=aIWUq0ssW74">Three Essential Tips for Using Async in Microsoft Visual C# and Visual Basic</a> 01:06:30 - Common problems - usefull tips</p></li>
+<li><p><a href="https://channel9.msdn.com/Events/TechEd/Europe/2013/DEV-B318#fbid=aIWUq0ssW74">Creating Async Libraries That Are Modular, Reusable and Fast</a></p></li>
+</ul>
+</section>
+<section id="wintellect" class="level3">
+<h3>Wintellect</h3>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=CYowfMeSg_k&amp;list=PL9XzOCngAkqudQyRcJnb3bwjx8m6C_Gaw&amp;index=7">Advanced .NET Threading, Part 3: I/O-Bound Async Operations</a></li>
+<li><a href="https://www.youtube.com/watch?v=KzDShvKbEMs&amp;list=PL9XzOCngAkqudQyRcJnb3bwjx8m6C_Gaw&amp;index=2">LIDNUG &amp; Wintellect Lock-Free Thread Synchronization with Jeffrey Richter</a></li>
+<li><a href="https://www.youtube.com/watch?v=42-ng2eAj7Q">LIDNUG &amp; Wintellect - Performing Asynchronous IO Bound Operations</a></li>
+<li><a href="https://www.youtube.com/watch?v=VNa3P5BAVrU">SWIT 2014. Джефрі Ріхтер. Performing Asynchronous I/O Bound Operations</a></li>
+<li><a href="https://www.youtube.com/watch?v=ZnXOGhQrxm8&amp;feature=emb_logo">SWIT 2014. Джефрі Ріхтер. Windows Store Apps Process Model</a></li>
+<li><a href="https://www.youtube.com/watch?v=gWcyXGIbRDI">Jeffrey Richter «Efficient Buffer Manipulation using C# 7.2’s Span»</a></li>
+<li><a href="https://www.youtube.com/watch?v=ADd8SmmGSYI&amp;list=PL9XzOCngAkqudQyRcJnb3bwjx8m6C_Gaw&amp;index=13">Jeffrey Richter — Generics</a></li>
+<li><a href="https://www.wintellectnow.com/Home/Instructor?instructorId=JeffreyRichter">Wintellect Now video list</a></li>
+</ul>
+</section>
+<section id="stephen-toub" class="level3">
+<h3>Stephen Toub</h3>
+<ul>
+<li><a href="https://channel9.msdn.com/Shows/On-NET/Understanding-how-to-use-Task-and-ValueTask">Understanding how to use Task and ValueTask</a></li>
+</ul>
+</section>
+</section>
+<section id="net-blogs" class="level2">
+<h2>.Net Blogs</h2>
+<section id="msdn" class="level3">
+<h3>MSDN</h3>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/async">Asynchronous programming</a></li>
+<li><a href="https://docs.microsoft.com/en-us/dotnet/standard/async-in-depth">Async in depth</a></li>
+</ul>
+</section>
+<section id="stephen-toub-1" class="level3">
+<h3>Stephen Toub</h3>
+<ul>
+<li><a href="https://devblogs.microsoft.com/pfxteam/tasks-monads-and-linq/">Tasks, Monads, and LINQ</a></li>
+<li><a href="https://devblogs.microsoft.com/pfxteam/task-run-vs-task-factory-startnew/">Task.Run vs Task.Factory.StartNew</a></li>
+<li><a href="https://devblogs.microsoft.com/pfxteam/task-factory-startnew-vs-new-task-start/">“Task.Factory.StartNew” vs “new Task(…).Start”</a></li>
+</ul>
+</section>
+<section id="eric-lipper" class="level3">
+<h3>Eric Lipper</h3>
+<ul>
+<li><a href="https://ericlippert.com/category/monads/">series exploring monads and C#</a></li>
+<li><a href="https://ericlippert.com/category/conwayslife/">Conways Life game</a></li>
+</ul>
+</section>
+<section id="raymond-chen" class="level3">
+<h3>Raymond Chen</h3>
+<ul>
+<li><a href="https://devblogs.microsoft.com/oldnewthing/">Raymond Chen blog</a></li>
+</ul>
+</section>
+<section id="stephen-cleary" class="level3">
+<h3>Stephen Cleary</h3>
+<ul>
+<li><a href="https://blog.stephencleary.com/2013/08/startnew-is-dangerous.html">StartNew is Dangerous</a></li>
+</ul>
+</section>
+<section id="i3arnon" class="level3">
+<h3>i3arnon</h3>
+<ul>
+<li><a href="http://blog.i3arnon.com/2015/07/02/task-run-long-running/">LongRunning Is Useless For Task.Run With Async/Await</a></li>
+<li><a href="https://stackoverflow.com/questions/24777253/waiting-for-async-await-inside-a-task/24777502#24777502">SO Answer</a></li>
+<li><a href="https://stackoverflow.com/questions/26921191/how-to-pass-longrunning-flag-specifically-to-task-run">SO-How to pass LongRunning flag specifically to Task.Run()?</a></li>
+</ul>
+</section>
+<section id="code" class="level3">
+<h3>Code</h3>
+<div class="sourceCode" id="cb1" data-org-language="C"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1"></a>Task&lt;<span class="dt">int</span>&gt; t = FredAsync(<span class="st">&quot;&quot;</span>);   <span class="co">// ArgumentException(&quot;a&quot;)</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>try {</span>
+<span id="cb1-3"><a href="#cb1-3"></a>  <span class="dt">int</span> i = await t;  <span class="co">// async version</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>}</span>
+<span id="cb1-5"><a href="#cb1-5"></a>catch (ArgumentException ex)</span>
+<span id="cb1-6"><a href="#cb1-6"></a>{</span>
+<span id="cb1-7"><a href="#cb1-7"></a>}</span>
+<span id="cb1-8"><a href="#cb1-8"></a></span>
+<span id="cb1-9"><a href="#cb1-9"></a>----</span>
+<span id="cb1-10"><a href="#cb1-10"></a></span>
+<span id="cb1-11"><a href="#cb1-11"></a>try {</span>
+<span id="cb1-12"><a href="#cb1-12"></a>  <span class="dt">int</span> i = t.Result;  <span class="co">// (2) problems</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a>}</span>
+<span id="cb1-14"><a href="#cb1-14"></a>catch (AggregateException ex)</span>
+<span id="cb1-15"><a href="#cb1-15"></a>{</span>
+<span id="cb1-16"><a href="#cb1-16"></a>}</span>
+<span id="cb1-17"><a href="#cb1-17"></a></span>
+<span id="cb1-18"><a href="#cb1-18"></a>------</span>
+<span id="cb1-19"><a href="#cb1-19"></a></span>
+<span id="cb1-20"><a href="#cb1-20"></a>try {</span>
+<span id="cb1-21"><a href="#cb1-21"></a>   <span class="dt">int</span> i = t.GetResult(); <span class="co">// for WinRT ops, this will FAIL if op</span></span>
+<span id="cb1-22"><a href="#cb1-22"></a>                          <span class="co">// isn't yet completed</span></span>
+<span id="cb1-23"><a href="#cb1-23"></a></span>
+<span id="cb1-24"><a href="#cb1-24"></a>   <span class="dt">int</span> i = t.GetAwaiter().GetResult();</span>
+<span id="cb1-25"><a href="#cb1-25"></a>   <span class="co">// still bad because it blocks the calling thread</span></span>
+<span id="cb1-26"><a href="#cb1-26"></a>   <span class="co">// AND hidden from intellisense</span></span>
+<span id="cb1-27"><a href="#cb1-27"></a>   <span class="co">// until the task completes</span></span>
+<span id="cb1-28"><a href="#cb1-28"></a>   <span class="co">// but at least it gets the same exception as </span></span>
+<span id="cb1-29"><a href="#cb1-29"></a>}</span>
+<span id="cb1-30"><a href="#cb1-30"></a>catch (ArgumentException ex)</span>
+<span id="cb1-31"><a href="#cb1-31"></a>{</span>
+<span id="cb1-32"><a href="#cb1-32"></a>}</span>
+<span id="cb1-33"><a href="#cb1-33"></a></span>
+<span id="cb1-34"><a href="#cb1-34"></a></span>
+<span id="cb1-35"><a href="#cb1-35"></a></span>
+<span id="cb1-36"><a href="#cb1-36"></a></span>
+<span id="cb1-37"><a href="#cb1-37"></a>...</span>
+<span id="cb1-38"><a href="#cb1-38"></a>Task&lt;<span class="dt">int</span>&gt; t = AlphaAsync();  <span class="co">// first function: exception is raised here</span></span>
+<span id="cb1-39"><a href="#cb1-39"></a><span class="dt">int</span> i = await t;             <span class="co">// second function: exception is raised here!</span></span>
+<span id="cb1-40"><a href="#cb1-40"></a></span>
+<span id="cb1-41"><a href="#cb1-41"></a>async Task&lt;<span class="dt">int</span>&gt; AlphaAsync()</span>
+<span id="cb1-42"><a href="#cb1-42"></a>{</span>
+<span id="cb1-43"><a href="#cb1-43"></a>   Console.WriteLine(<span class="st">&quot;hello&quot;</span>);</span>
+<span id="cb1-44"><a href="#cb1-44"></a>   throw new ArgumentException(<span class="st">&quot;no arguments&quot;</span>); <span class="co">// this exception is stored inside</span></span>
+<span id="cb1-45"><a href="#cb1-45"></a>                                                <span class="co">// the &quot;Task&quot; that's returned from AlphaAsync</span></span>
+<span id="cb1-46"><a href="#cb1-46"></a>   <span class="cf">return</span> await BetaAsync();</span>
+<span id="cb1-47"><a href="#cb1-47"></a>}</span>
+<span id="cb1-48"><a href="#cb1-48"></a></span>
+<span id="cb1-49"><a href="#cb1-49"></a>Task&lt;<span class="dt">int</span>&gt; AlphaAsync()</span>
+<span id="cb1-50"><a href="#cb1-50"></a>{</span>
+<span id="cb1-51"><a href="#cb1-51"></a>   Console.WriteLine(<span class="st">&quot;hello&quot;</span>);</span>
+<span id="cb1-52"><a href="#cb1-52"></a>   throw new ArgumentException(<span class="st">&quot;no arguments&quot;</span>); <span class="co">// this throws an exception back to the caller</span></span>
+<span id="cb1-53"><a href="#cb1-53"></a>   <span class="cf">return</span> BetaAsync();</span>
+<span id="cb1-54"><a href="#cb1-54"></a>}</span>
+<span id="cb1-55"><a href="#cb1-55"></a></span>
+<span id="cb1-56"><a href="#cb1-56"></a></span>
+<span id="cb1-57"><a href="#cb1-57"></a></span>
+<span id="cb1-58"><a href="#cb1-58"></a></span>
+<span id="cb1-59"><a href="#cb1-59"></a></span>
+<span id="cb1-60"><a href="#cb1-60"></a>async Task&lt;<span class="dt">int</span>&gt; BetaAsync()</span>
+<span id="cb1-61"><a href="#cb1-61"></a>{</span>
+<span id="cb1-62"><a href="#cb1-62"></a>  await Task.Delay(<span class="dv">10</span>);</span>
+<span id="cb1-63"><a href="#cb1-63"></a>  <span class="cf">return</span> <span class="dv">10</span>;</span>
+<span id="cb1-64"><a href="#cb1-64"></a>}</span>
+<span id="cb1-65"><a href="#cb1-65"></a></span>
+<span id="cb1-66"><a href="#cb1-66"></a></span>
+<span id="cb1-67"><a href="#cb1-67"></a></span>
+<span id="cb1-68"><a href="#cb1-68"></a></span>
+<span id="cb1-69"><a href="#cb1-69"></a>class Page1</span>
+<span id="cb1-70"><a href="#cb1-70"></a>{</span>
+<span id="cb1-71"><a href="#cb1-71"></a>   CancellationTokenSource cts = new CancellationTokenSource();</span>
+<span id="cb1-72"><a href="#cb1-72"></a></span>
+<span id="cb1-73"><a href="#cb1-73"></a>   async <span class="dt">void</span> Button1Click()</span>
+<span id="cb1-74"><a href="#cb1-74"></a>   {</span>
+<span id="cb1-75"><a href="#cb1-75"></a>      try</span>
+<span id="cb1-76"><a href="#cb1-76"></a>      {</span>
+<span id="cb1-77"><a href="#cb1-77"></a><span class="co">//       cts.CancelAfter(2000);</span></span>
+<span id="cb1-78"><a href="#cb1-78"></a>         var s = await httpClient.GetStringAsync(url, cts.Token);</span>
+<span id="cb1-79"><a href="#cb1-79"></a><span class="co">//         cts.Token.ThrowIfCancellationRequested(); // I could do this if GetStringAsync didn't offer it</span></span>
+<span id="cb1-80"><a href="#cb1-80"></a>         label1.Text = s;</span>
+<span id="cb1-81"><a href="#cb1-81"></a>      }</span>
+<span id="cb1-82"><a href="#cb1-82"></a>      catch (OperationCanceledException ex)</span>
+<span id="cb1-83"><a href="#cb1-83"></a>      {</span>
+<span id="cb1-84"><a href="#cb1-84"></a>         label1.Text = <span class="st">&quot;Cancelled&quot;</span>;</span>
+<span id="cb1-85"><a href="#cb1-85"></a>      }</span>
+<span id="cb1-86"><a href="#cb1-86"></a>   }</span>
+<span id="cb1-87"><a href="#cb1-87"></a></span>
+<span id="cb1-88"><a href="#cb1-88"></a></span>
+<span id="cb1-89"><a href="#cb1-89"></a>   <span class="dt">void</span> CancelButtonClick()</span>
+<span id="cb1-90"><a href="#cb1-90"></a>   {</span>
+<span id="cb1-91"><a href="#cb1-91"></a>      cts.Cancel();</span>
+<span id="cb1-92"><a href="#cb1-92"></a>   }</span>
+<span id="cb1-93"><a href="#cb1-93"></a>}</span>
+<span id="cb1-94"><a href="#cb1-94"></a></span>
+<span id="cb1-95"><a href="#cb1-95"></a><span class="co">// VOICE OF STEPHEN(S): If you're writing a library API that takes CancellationToken,</span></span>
+<span id="cb1-96"><a href="#cb1-96"></a><span class="co">// then you should certainly CHECK it, and you should certainly</span></span>
+<span id="cb1-97"><a href="#cb1-97"></a><span class="co">// expose cancellation by throwing OperationCanceledException.</span></span>
+<span id="cb1-98"><a href="#cb1-98"></a><span class="co">// That's just what everyone expects.</span></span>
+<span id="cb1-99"><a href="#cb1-99"></a><span class="co">//</span></span>
+<span id="cb1-100"><a href="#cb1-100"></a><span class="co">// (but in your own user-code, you can violate that rule if it seems wise. It's a dangerous</span></span>
+<span id="cb1-101"><a href="#cb1-101"></a><span class="co">// pattern because easy to fall into traps.)</span></span>
+<span id="cb1-102"><a href="#cb1-102"></a><span class="co">//</span></span>
+<span id="cb1-103"><a href="#cb1-103"></a></span>
+<span id="cb1-104"><a href="#cb1-104"></a>Task object has several states</span>
+<span id="cb1-105"><a href="#cb1-105"></a>  * NotYetCompleted</span>
+<span id="cb1-106"><a href="#cb1-106"></a>  * CompletedWithSuccess</span>
+<span id="cb1-107"><a href="#cb1-107"></a>  * CompletedWithFailure</span>
+<span id="cb1-108"><a href="#cb1-108"></a>  * Cancelled</span>
+<span id="cb1-109"><a href="#cb1-109"></a>The async/await machinery make the last two states look the same. But internally they are</span>
+<span id="cb1-110"><a href="#cb1-110"></a>different.</span>
+<span id="cb1-111"><a href="#cb1-111"></a></span>
+<span id="cb1-112"><a href="#cb1-112"></a></span>
+<span id="cb1-113"><a href="#cb1-113"></a></span>
+<span id="cb1-114"><a href="#cb1-114"></a></span>
+<span id="cb1-115"><a href="#cb1-115"></a></span>
+<span id="cb1-116"><a href="#cb1-116"></a>async Task MyApiWithOptionalCancellationAsync(CancellationToken cancel = null)</span>
+<span id="cb1-117"><a href="#cb1-117"></a>{</span>
+<span id="cb1-118"><a href="#cb1-118"></a>   <span class="cf">while</span> (true)</span>
+<span id="cb1-119"><a href="#cb1-119"></a>   {</span>
+<span id="cb1-120"><a href="#cb1-120"></a>     await Task.Delay(<span class="dv">100</span>);</span>
+<span id="cb1-121"><a href="#cb1-121"></a>     cancel.ThrowIfCancellationRequested();</span>
+<span id="cb1-122"><a href="#cb1-122"></a>     <span class="co">// equivalent: if (cts.Token.IsCancellationRequested) throw new OperationCanceledException();</span></span>
+<span id="cb1-123"><a href="#cb1-123"></a>   }</span>
+<span id="cb1-124"><a href="#cb1-124"></a>   <span class="co">// (pointless, since Task.Delay takes a CancellationToken, but shown here just for fun)</span></span>
+<span id="cb1-125"><a href="#cb1-125"></a>}</span>
+<span id="cb1-126"><a href="#cb1-126"></a></span>
+<span id="cb1-127"><a href="#cb1-127"></a></span>
+<span id="cb1-128"><a href="#cb1-128"></a></span>
+<span id="cb1-129"><a href="#cb1-129"></a>--------------------------------</span>
+<span id="cb1-130"><a href="#cb1-130"></a></span>
+<span id="cb1-131"><a href="#cb1-131"></a></span>
+<span id="cb1-132"><a href="#cb1-132"></a>We have an API that is SYNCHRONOUS.</span>
+<span id="cb1-133"><a href="#cb1-133"></a>We want to make it asynchronous - so it's easier to call from the UI thread</span>
+<span id="cb1-134"><a href="#cb1-134"></a>We have a large business project which is built around the assumption of synchronicity throughout.</span>
+<span id="cb1-135"><a href="#cb1-135"></a></span>
+<span id="cb1-136"><a href="#cb1-136"></a>(<span class="dv">1</span>) BEWARE of the following... don't <span class="cf">do</span> it inside a re-usable library</span>
+<span id="cb1-137"><a href="#cb1-137"></a>async Task&lt;<span class="dt">int</span>&gt; FooAsync()</span>
+<span id="cb1-138"><a href="#cb1-138"></a>{</span>
+<span id="cb1-139"><a href="#cb1-139"></a>   <span class="cf">return</span> Task.Run(_ =&gt; Foo());</span>
+<span id="cb1-140"><a href="#cb1-140"></a>}</span>
+<span id="cb1-141"><a href="#cb1-141"></a></span>
+<span id="cb1-142"><a href="#cb1-142"></a></span>
+<span id="cb1-143"><a href="#cb1-143"></a>(<span class="dv">2</span>) Start by looking at the <span class="st">&quot;leaf&quot;</span> of your call-chart, i.e. look at the APIs that</span>
+<span id="cb1-144"><a href="#cb1-144"></a>you're invoking, and see <span class="cf">if</span> any of them have true async alternatives. Then bubble this</span>
+<span id="cb1-145"><a href="#cb1-145"></a>up layer by layer. You can have two parallel sets of functions, one sync, one async.</span>
+<span id="cb1-146"><a href="#cb1-146"></a>Over time, more and more functionality will be exposed both async and sync.</span>
+<span id="cb1-147"><a href="#cb1-147"></a></span>
+<span id="cb1-148"><a href="#cb1-148"></a>Do this <span class="cf">if</span> you're aiming <span class="cf">for</span> scalability benefits.</span>
+<span id="cb1-149"><a href="#cb1-149"></a>This option is generally better.</span>
+<span id="cb1-150"><a href="#cb1-150"></a>First places to look: anything that does IO - database, file access, network, ...</span>
+<span id="cb1-151"><a href="#cb1-151"></a></span>
+<span id="cb1-152"><a href="#cb1-152"></a>If you can't find async alternatives <span class="cf">for</span> your leaves, then wrapping them up in</span>
+<span id="cb1-153"><a href="#cb1-153"></a>Task.Run as per (<span class="dv">1</span>) will NOT help your scalability. It will in fact hurt it.</span>
+<span id="cb1-154"><a href="#cb1-154"></a></span>
+<span id="cb1-155"><a href="#cb1-155"></a>Note: the async leaves that are offered to you in the .NET framework are NOT</span>
+<span id="cb1-156"><a href="#cb1-156"></a>implemented using the threadpool. They are all done in a <span class="st">&quot;true async&quot;</span> way.</span>
+<span id="cb1-157"><a href="#cb1-157"></a>That's the right way to <span class="cf">do</span> it.</span>
+<span id="cb1-158"><a href="#cb1-158"></a></span>
+<span id="cb1-159"><a href="#cb1-159"></a>Q. How does it even work? Is it really async all the way down? Isn't that impossible?</span>
+<span id="cb1-160"><a href="#cb1-160"></a>A. No! The OperatingSystem uses IO-Completion-Ports and IRQs and TimerInterrupts and things.</span>
+<span id="cb1-161"><a href="#cb1-161"></a>It doesn't need to <span class="cf">do</span> busy waits. (or, <span class="cf">if</span> it wants, it can make <span class="cf">do</span> with just one single</span>
+<span id="cb1-162"><a href="#cb1-162"></a>busy thread that dispatches off to hundreds/thousands of other threads).</span>
+<span id="cb1-163"><a href="#cb1-163"></a></span>
+<span id="cb1-164"><a href="#cb1-164"></a>TaskCompletionSource is the primary way that we build our OWN leaves, out of things</span>
+<span id="cb1-165"><a href="#cb1-165"></a>that don't otherwise already have async APIs. e.g. <span class="cf">if</span> the hardware comes back with</span>
+<span id="cb1-166"><a href="#cb1-166"></a>data (e.g. on disk controller or USB port or whatever), then that interrupt will call</span>
+<span id="cb1-167"><a href="#cb1-167"></a>TaskCompletionSource.SetResult()... or its equivalent.</span>
+<span id="cb1-168"><a href="#cb1-168"></a></span>
+<span id="cb1-169"><a href="#cb1-169"></a>Note: Task.Run's implementation is (<span class="dv">1</span>) create a new TaskCompletionSource, (<span class="dv">2</span>)</span>
+<span id="cb1-170"><a href="#cb1-170"></a>queue a user workitem on the threadpool, (<span class="dv">3</span>) when that user workitem finishes, then</span>
+<span id="cb1-171"><a href="#cb1-171"></a>it calls TaskCompletionSource.SetResult.</span>
+<span id="cb1-172"><a href="#cb1-172"></a></span>
+<span id="cb1-173"><a href="#cb1-173"></a>?? node.js? Well, that's a lot like a hypothetical version of .NET Framework which never exposes</span>
+<span id="cb1-174"><a href="#cb1-174"></a>blocking APIs. And it's like WinRT also!</span>
+<span id="cb1-175"><a href="#cb1-175"></a></span>
+<span id="cb1-176"><a href="#cb1-176"></a></span>
+<span id="cb1-177"><a href="#cb1-177"></a></span>
+<span id="cb1-178"><a href="#cb1-178"></a></span>
+<span id="cb1-179"><a href="#cb1-179"></a>(<span class="dv">3</span>) If your goal is just to free up the UI thread - this doesn't require a whole</span>
+<span id="cb1-180"><a href="#cb1-180"></a>rewrite. You can use solution (<span class="dv">1</span>) inside this <span class="cf">case</span>.</span>
+<span id="cb1-181"><a href="#cb1-181"></a></span>
+<span id="cb1-182"><a href="#cb1-182"></a>Do this <span class="cf">if</span> you're aiming <span class="cf">for</span> UI responsiveness.</span>
+<span id="cb1-183"><a href="#cb1-183"></a></span>
+<span id="cb1-184"><a href="#cb1-184"></a></span>
+<span id="cb1-185"><a href="#cb1-185"></a>Task t = Task.Delay(<span class="dv">100</span>);</span>
+<span id="cb1-186"><a href="#cb1-186"></a></span>
+<span id="cb1-187"><a href="#cb1-187"></a></span>
+<span id="cb1-188"><a href="#cb1-188"></a></span>
+<span id="cb1-189"><a href="#cb1-189"></a>------------------</span>
+<span id="cb1-190"><a href="#cb1-190"></a></span>
+<span id="cb1-191"><a href="#cb1-191"></a>Q. How about using Task to wrap around TPL (e.g. Parallel.For or linq AsEnumerable) ?</span>
+<span id="cb1-192"><a href="#cb1-192"></a>I might want to <span class="cf">do</span> that <span class="cf">if</span> I want my UI thread to initiate some threadpool CPU-bound work.</span>
+<span id="cb1-193"><a href="#cb1-193"></a></span>
+<span id="cb1-194"><a href="#cb1-194"></a>The <span class="st">&quot;Task&quot;</span> type has two distinct modes of operation:</span>
+<span id="cb1-195"><a href="#cb1-195"></a>* <span class="fl">1.</span> solely as an object which is tickled by TaskCompletionSource (<span class="st">&quot;promises&quot;</span>)</span>
+<span id="cb1-196"><a href="#cb1-196"></a>* <span class="fl">2.</span> also, separately, as a way to queue compute-bound stuff up on the threadpool (<span class="st">&quot;futures&quot;</span>)</span>
+<span id="cb1-197"><a href="#cb1-197"></a></span>
+<span id="cb1-198"><a href="#cb1-198"></a>I can await either of these two kinds of things equally.</span>
+<span id="cb1-199"><a href="#cb1-199"></a></span>
+<span id="cb1-200"><a href="#cb1-200"></a>Parallel.For is really just a Task-generator (generates lots of mode [<span class="dv">2</span>] tasks to <span class="cf">do</span> work).</span>
+<span id="cb1-201"><a href="#cb1-201"></a>The implementation is kind of like calling <span class="st">&quot;Task.Run(lambda)&quot;</span> on a list of items, so all</span>
+<span id="cb1-202"><a href="#cb1-202"></a>the lambdas get queued up to the threadpool, and blocking until all are finished.</span>
+<span id="cb1-203"><a href="#cb1-203"></a></span>
+<span id="cb1-204"><a href="#cb1-204"></a></span>
+<span id="cb1-205"><a href="#cb1-205"></a>Q. Why didn't we name them with the <span class="st">&quot;Async&quot;</span> suffix?</span>
+<span id="cb1-206"><a href="#cb1-206"></a>await Task.DelayAsync(<span class="dv">1000</span>);</span>
+<span id="cb1-207"><a href="#cb1-207"></a>await Task.WhenAllAsync(t1,t2,t3);</span>
+<span id="cb1-208"><a href="#cb1-208"></a>await Task.RunAsync(_ =&gt; cpu_bound_work());</span>
+<span id="cb1-209"><a href="#cb1-209"></a></span>
+<span id="cb1-210"><a href="#cb1-210"></a></span>
+<span id="cb1-211"><a href="#cb1-211"></a></span>
+<span id="cb1-212"><a href="#cb1-212"></a><span class="co">// The following code returns immediately</span></span>
+<span id="cb1-213"><a href="#cb1-213"></a>Parallel.For(<span class="dv">0</span>,<span class="dv">10</span>, async i =&gt; { await Task.Delay(<span class="dv">1000</span>) });</span>
+<span id="cb1-214"><a href="#cb1-214"></a></span>
+<span id="cb1-215"><a href="#cb1-215"></a><span class="co">// option 1: this is an alter</span></span>
+<span id="cb1-216"><a href="#cb1-216"></a>await Task.WhenAll(Enumerable.Range(<span class="dv">1</span>,<span class="dv">10</span>)</span>
+<span id="cb1-217"><a href="#cb1-217"></a>                   .Select(async _ =&gt; await Task.Delay(<span class="dv">1000</span>)));</span>
+<span id="cb1-218"><a href="#cb1-218"></a></span>
+<span id="cb1-219"><a href="#cb1-219"></a><span class="co">// option 2: I could also stick in .AsParallel()...</span></span>
+<span id="cb1-220"><a href="#cb1-220"></a>Enumerable.Range(<span class="dv">1</span>,<span class="dv">10</span>)</span>
+<span id="cb1-221"><a href="#cb1-221"></a>          .AsParallel()</span>
+<span id="cb1-222"><a href="#cb1-222"></a>          .Select(_ =&gt; cpu_bound_work())</span>
+<span id="cb1-223"><a href="#cb1-223"></a>          .Count();</span>
+<span id="cb1-224"><a href="#cb1-224"></a></span>
+<span id="cb1-225"><a href="#cb1-225"></a>-----------------------------------------------</span>
+<span id="cb1-226"><a href="#cb1-226"></a></span>
+<span id="cb1-227"><a href="#cb1-227"></a>Q. We've heard that the benefit of async is</span>
+<span id="cb1-228"><a href="#cb1-228"></a>(<span class="dv">1</span>) don't tie up UI thread (or other particular threads)</span>
+<span id="cb1-229"><a href="#cb1-229"></a>(<span class="dv">2</span>) improve server scalability - make it more respnsive to spikes in load, and</span>
+<span id="cb1-230"><a href="#cb1-230"></a>make it able to serve a higher concurrent rate of requests.</span>
+<span id="cb1-231"><a href="#cb1-231"></a>   ... first benefit is that you save the thread <span class="st">&quot;occupation time&quot;</span>,</span>
+<span id="cb1-232"><a href="#cb1-232"></a>       but you still have the same TimeToFirstByte</span>
+<span id="cb1-233"><a href="#cb1-233"></a>   ... second benefit, <span class="cf">if</span> you need to gather multiple stuff together,</span>
+<span id="cb1-234"><a href="#cb1-234"></a>       async makes it easier to initiate multiple subrequests in parallel</span>
+<span id="cb1-235"><a href="#cb1-235"></a></span>
+<span id="cb1-236"><a href="#cb1-236"></a>But how does (<span class="dv">2</span>) actually work in practice?</span>
+<span id="cb1-237"><a href="#cb1-237"></a></span>
+<span id="cb1-238"><a href="#cb1-238"></a>public class AttendeePriceController : ApiController</span>
+<span id="cb1-239"><a href="#cb1-239"></a>{</span>
+<span id="cb1-240"><a href="#cb1-240"></a>    <span class="co">// GET api/&lt;controller&gt;</span></span>
+<span id="cb1-241"><a href="#cb1-241"></a>    public async List&lt;AttendeePrice&gt; Get()</span>
+<span id="cb1-242"><a href="#cb1-242"></a>    {</span>
+<span id="cb1-243"><a href="#cb1-243"></a>        using (var db = new MyContext())</span>
+<span id="cb1-244"><a href="#cb1-244"></a>        {</span>
+<span id="cb1-245"><a href="#cb1-245"></a>            <span class="cf">return</span> db.AttendeePrices.ToList(); <span class="co">// imagine that this blocks the</span></span>
+<span id="cb1-246"><a href="#cb1-246"></a>                   <span class="co">// ASP.Net thread, so the ASP.Net thread is tied up and</span></span>
+<span id="cb1-247"><a href="#cb1-247"></a>                   <span class="co">// can't be used elsewhere</span></span>
+<span id="cb1-248"><a href="#cb1-248"></a>        }</span>
+<span id="cb1-249"><a href="#cb1-249"></a>    }</span>
+<span id="cb1-250"><a href="#cb1-250"></a>}</span>
+<span id="cb1-251"><a href="#cb1-251"></a></span>
+<span id="cb1-252"><a href="#cb1-252"></a>Is this example actually *improved* by making it async?</span>
+<span id="cb1-253"><a href="#cb1-253"></a>(I believe so, yes...)</span>
+<span id="cb1-254"><a href="#cb1-254"></a></span>
+<span id="cb1-255"><a href="#cb1-255"></a>public class AttendeePriceController : ApiController</span>
+<span id="cb1-256"><a href="#cb1-256"></a>{</span>
+<span id="cb1-257"><a href="#cb1-257"></a>    <span class="co">// GET api/&lt;controller&gt;</span></span>
+<span id="cb1-258"><a href="#cb1-258"></a>    public async Task&lt;List&lt;AttendeePrice&gt;&gt; Get()</span>
+<span id="cb1-259"><a href="#cb1-259"></a>    {</span>
+<span id="cb1-260"><a href="#cb1-260"></a>        List&lt;AttendeePrice&gt; attendeesPriceList;</span>
+<span id="cb1-261"><a href="#cb1-261"></a>        using (var db = new MyContext())</span>
+<span id="cb1-262"><a href="#cb1-262"></a>        {</span>
+<span id="cb1-263"><a href="#cb1-263"></a>            attendeesPriceList = await db.AttendeePrices.ToListAsync();</span>
+<span id="cb1-264"><a href="#cb1-264"></a>        }</span>
+<span id="cb1-265"><a href="#cb1-265"></a>        <span class="cf">return</span> attendeesPriceList;</span>
+<span id="cb1-266"><a href="#cb1-266"></a>    }</span>
+<span id="cb1-267"><a href="#cb1-267"></a>}</span>
+<span id="cb1-268"><a href="#cb1-268"></a></span>
+<span id="cb1-269"><a href="#cb1-269"></a></span>
+<span id="cb1-270"><a href="#cb1-270"></a></span>
+<span id="cb1-271"><a href="#cb1-271"></a>--------------</span>
+<span id="cb1-272"><a href="#cb1-272"></a></span>
+<span id="cb1-273"><a href="#cb1-273"></a>Q. I'm making screenscrapes. I make the first screenscrape, then based on that</span>
+<span id="cb1-274"><a href="#cb1-274"></a>I make subsequent further screenscrapes and write them to disk. I'm having</span>
+<span id="cb1-275"><a href="#cb1-275"></a>a hard time keeping them all together and wrap my head around them.</span>
+<span id="cb1-276"><a href="#cb1-276"></a>What really is a good architecture here?</span>
+<span id="cb1-277"><a href="#cb1-277"></a></span>
+<span id="cb1-278"><a href="#cb1-278"></a></span>
+<span id="cb1-279"><a href="#cb1-279"></a>TODO: Lucian's sample of scraping+encoding would be a good one.</span>
+<span id="cb1-280"><a href="#cb1-280"></a></span>
+<span id="cb1-281"><a href="#cb1-281"></a></span>
+<span id="cb1-282"><a href="#cb1-282"></a>Q. How <span class="cf">do</span> I make several concurrent requests that are heterogenous</span>
+<span id="cb1-283"><a href="#cb1-283"></a></span>
+<span id="cb1-284"><a href="#cb1-284"></a></span>
+<span id="cb1-285"><a href="#cb1-285"></a>var q = new Queue&lt;Func&lt;Task&gt;&gt;();</span>
+<span id="cb1-286"><a href="#cb1-286"></a>q.Add( async _ =&gt; {var s = await GetStringAsync(); DoWhatIWantWithS(s);} );</span>
+<span id="cb1-287"><a href="#cb1-287"></a>q.Add( async _ =&gt; {var i = await GetIntAsync(); DoWhatIWantWithI(i);} );</span>
+<span id="cb1-288"><a href="#cb1-288"></a><span class="co">// Now I can manage the queue uniformally (and throttle it)</span></span>
+<span id="cb1-289"><a href="#cb1-289"></a><span class="co">// But the return-type remains strongly typed in all cases</span></span>
+<span id="cb1-290"><a href="#cb1-290"></a><span class="co">// Q. But is it really worth it? Doesn't look better than an explicit cast to me...</span></span>
+<span id="cb1-291"><a href="#cb1-291"></a></span>
+<span id="cb1-292"><a href="#cb1-292"></a></span>
+<span id="cb1-293"><a href="#cb1-293"></a></span>
+<span id="cb1-294"><a href="#cb1-294"></a>SemaphoreSlim -- generally, use this instead of the <span class="st">&quot;lock&quot;</span> statement <span class="cf">if</span> you have awaits.</span>
+<span id="cb1-295"><a href="#cb1-295"></a>e.g.</span>
+<span id="cb1-296"><a href="#cb1-296"></a></span>
+<span id="cb1-297"><a href="#cb1-297"></a>SemaphoreSlim s = new SemaphoreSlim(<span class="dv">1</span>);</span>
+<span id="cb1-298"><a href="#cb1-298"></a>await s.WaitAsync();   <span class="co">// nb. can also do s.Wait() to block my thread until available.</span></span>
+<span id="cb1-299"><a href="#cb1-299"></a>...</span>
+<span id="cb1-300"><a href="#cb1-300"></a>s.Release();</span>
+<span id="cb1-301"><a href="#cb1-301"></a></span>
+<span id="cb1-302"><a href="#cb1-302"></a><span class="co">// Semaphore has a counter saying how many spaces are available in the critical region</span></span>
+<span id="cb1-303"><a href="#cb1-303"></a><span class="co">// Initialize to 1 means &quot;only 1&quot;</span></span>
+<span id="cb1-304"><a href="#cb1-304"></a></span>
+<span id="cb1-305"><a href="#cb1-305"></a><span class="co">// SemaphoreSlim.WaitAsync -- queues you up until there's space available.</span></span>
+<span id="cb1-306"><a href="#cb1-306"></a></span>
+<span id="cb1-307"><a href="#cb1-307"></a><span class="co">// All it does is cause other people who &quot;await s.WaitAsync()&quot; to be stopped in their tracks</span></span>
+<span id="cb1-308"><a href="#cb1-308"></a><span class="co">// until I've done Release().</span></span>
+<span id="cb1-309"><a href="#cb1-309"></a></span>
+<span id="cb1-310"><a href="#cb1-310"></a>NB. Semaphores are *not* re-entrant, but Monitors (<span class="st">&quot;lock/&quot;</span> statement</span>
+<span id="cb1-311"><a href="#cb1-311"></a></span>
+<span id="cb1-312"><a href="#cb1-312"></a></span>
+<span id="cb1-313"><a href="#cb1-313"></a>Q. How to prevent re-entrancy? Well, SemaphoreSlim is one option, and it's </span>
+<span id="cb1-314"><a href="#cb1-314"></a></span>
+<span id="cb1-315"><a href="#cb1-315"></a></span>
+<span id="cb1-316"><a href="#cb1-316"></a>Async Sub Button1Click(sender As Object)</span>
+<span id="cb1-317"><a href="#cb1-317"></a>  Button1.Enabled = False</span>
+<span id="cb1-318"><a href="#cb1-318"></a>  Try</span>
+<span id="cb1-319"><a href="#cb1-319"></a>    ...</span>
+<span id="cb1-320"><a href="#cb1-320"></a>  Finally</span>
+<span id="cb1-321"><a href="#cb1-321"></a>    Button1.Enabled = True</span>
+<span id="cb1-322"><a href="#cb1-322"></a>  End Try</span>
+<span id="cb1-323"><a href="#cb1-323"></a>End Sub</span>
+<span id="cb1-324"><a href="#cb1-324"></a></span>
+<span id="cb1-325"><a href="#cb1-325"></a>NOTE: This solution with Enabled is fine <span class="cf">if</span> we can assume that we're only ever called</span>
+<span id="cb1-326"><a href="#cb1-326"></a>from a single thread. But it will have errors -- race conditions -- <span class="cf">if</span> there were</span>
+<span id="cb1-327"><a href="#cb1-327"></a>multiple threads trying to <span class="cf">do</span> it.</span>
+<span id="cb1-328"><a href="#cb1-328"></a></span>
+<span id="cb1-329"><a href="#cb1-329"></a>Joe Albahari has a neat article on the perf of <span class="st">&quot;slim&quot;</span> stuff. SemaphoreSlim is VERY efficient!</span>
+<span id="cb1-330"><a href="#cb1-330"></a></span>
+<span id="cb1-331"><a href="#cb1-331"></a></span>
+<span id="cb1-332"><a href="#cb1-332"></a>---------------</span>
+<span id="cb1-333"><a href="#cb1-333"></a></span>
+<span id="cb1-334"><a href="#cb1-334"></a>Q. Console app.</span>
+<span id="cb1-335"><a href="#cb1-335"></a><span class="dt">static</span> <span class="dt">void</span> Main()</span>
+<span id="cb1-336"><a href="#cb1-336"></a>{</span>
+<span id="cb1-337"><a href="#cb1-337"></a>   MainAsync().GetAwaiter().GetResult();</span>
+<span id="cb1-338"><a href="#cb1-338"></a>}</span>
+<span id="cb1-339"><a href="#cb1-339"></a></span>
+<span id="cb1-340"><a href="#cb1-340"></a><span class="dt">static</span> Task MainAsync()</span>
+<span id="cb1-341"><a href="#cb1-341"></a>{</span>
+<span id="cb1-342"><a href="#cb1-342"></a>  <span class="co">//</span></span>
+<span id="cb1-343"><a href="#cb1-343"></a>  await httpClient.GetStringAsync();</span>
+<span id="cb1-344"><a href="#cb1-344"></a>}</span>
+<span id="cb1-345"><a href="#cb1-345"></a></span>
+<span id="cb1-346"><a href="#cb1-346"></a><span class="co">// Note: there's a bug in .NET45 where console apps with Console.WriteLine encounter</span></span>
+<span id="cb1-347"><a href="#cb1-347"></a><span class="co">// a framework bug with deadlock. </span></span>
+<span id="cb1-348"><a href="#cb1-348"></a></span></code></pre></div>
+</section>
+</section>
+</div>
+
+<div class="row">
+        <span class="date  text-right">
+            <i class="fa fa-calenda"></i> Posted on January 31, 2021
+        </span>
+        <span class="tags text-right" style="width: 100%">
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="../../tags/async.html">async</a></li></ul>
+        </span>
+</div>
+
+            </div>
+            <div id="footer" class="col-md-12">
+                <div class="row"><hr /></div>
+
+                <div class="row text-center">
+                  powered by  <a href="http://jaspervdj.be/hakyll" target="_blank">Hakyll</a>,
+                                      <a href="https://en.wikipedia.org/wiki/Org-mode" target="_blank"> Org-mode</a>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="../../js/quotes.js">
+        </script>
+    </body>
+</html>
