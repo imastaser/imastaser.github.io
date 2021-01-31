@@ -1,0 +1,415 @@
+---
+title: Async 
+tags: async
+date: 2021-01-31
+description: DESCRIPTION
+comments: true
+toc: true
+---
+
+
+
+** .Net Async Talks
+
+*** Lucian Wischik
+- [[https://channel9.msdn.com/Series/Three-Essential-Tips-for-Async/Three-Essential-Tips-For-Async-Introduction][Six Essential Tips For Async - Introduction]] - Talks
+- [[https://docs.microsoft.com/en-us/archive/blogs/lucian/talk-async-best-practices][Talk: Async best practices]]
+
+- [[https://docs.microsoft.com/en-us/archive/blogs/lucian/talk-the-complete-async-three-talks-from-teched-europe-2013][Talk: The Complete Async -- three talks from TechEd Europe 2013]]
+- [[https://channel9.msdn.com/Events/TechEd/Europe/2013/DEV-B317#fbid=aIWUq0ssW74][Intro: Using Async]]
+- [[https://channel9.msdn.com/Events/TechEd/Europe/2013/DEV-B319#fbid=aIWUq0ssW74][Three Essential Tips for Using Async in Microsoft Visual C# and Visual Basic]]
+  01:06:30 - Common problems - usefull tips
+- [[https://channel9.msdn.com/Events/TechEd/Europe/2013/DEV-B318#fbid=aIWUq0ssW74][Creating Async Libraries That Are Modular, Reusable and Fast]]
+
+*** Wintellect
+- [[https://www.youtube.com/watch?v=CYowfMeSg_k&list=PL9XzOCngAkqudQyRcJnb3bwjx8m6C_Gaw&index=7][Advanced .NET Threading, Part 3: I/O-Bound Async Operations]]
+- [[https://www.youtube.com/watch?v=KzDShvKbEMs&list=PL9XzOCngAkqudQyRcJnb3bwjx8m6C_Gaw&index=2][LIDNUG & Wintellect Lock-Free Thread Synchronization with Jeffrey Richter]]
+- [[https://www.youtube.com/watch?v=42-ng2eAj7Q][LIDNUG & Wintellect - Performing Asynchronous IO Bound Operations]]
+- [[https://www.youtube.com/watch?v=VNa3P5BAVrU][SWIT 2014. Джефрі Ріхтер. Performing Asynchronous I/O Bound Operations]]
+- [[https://www.youtube.com/watch?v=ZnXOGhQrxm8&feature=emb_logo][SWIT 2014. Джефрі Ріхтер. Windows Store Apps Process Model]]
+- [[https://www.youtube.com/watch?v=gWcyXGIbRDI][Jeffrey Richter «Efficient Buffer Manipulation using C# 7.2's Span»]]
+- [[https://www.youtube.com/watch?v=ADd8SmmGSYI&list=PL9XzOCngAkqudQyRcJnb3bwjx8m6C_Gaw&index=13][Jeffrey Richter — Generics]]
+- [[https://www.wintellectnow.com/Home/Instructor?instructorId=JeffreyRichter][Wintellect Now video list]]
+
+*** Stephen Toub 
+- [[https://channel9.msdn.com/Shows/On-NET/Understanding-how-to-use-Task-and-ValueTask][Understanding how to use Task Valsk]]
+** .Net Blogs
+*** MSDN
+- [[https://docs.microsoft.com/en-us/dotnet/csharp/async][Asynchronous programming]]
+- [[https://docs.microsoft.com/en-us/dotnet/standard/async-in-depth][Async in depth]]
+
+*** Stephen Toub 
+- [[https://devblogs.microsoft.com/pfxteam/tasks-monads-and-linq/][Tasks, Monads, and LINQ]]
+- [[https://devblogs.microsoft.com/pfxteam/task-run-vs-task-factory-startnew/][Task.Run vs Task.Factory.StartNew]]
+- [[https://devblogs.microsoft.com/pfxteam/task-factory-startnew-vs-new-task-start/][“Task.Factory.StartNew” vs “new Task(…).Start”]]
+
+*** Eric Lipper
+- [[https://ericlippert.com/category/monads/][series exploring monads and C#]]
+- [[https://ericlippert.com/category/conwayslife/][Conways Life game]]
+
+*** Raymond Chen
+- [[https://devblogs.microsoft.com/oldnewthing/][Raymond Chen blog]]
+
+*** Stephen Cleary
+- [[https://blog.stephencleary.com/2013/08/startnew-is-dangerous.html][StartNew is Dangerous]]
+
+*** i3arnon
+- [[http://blog.i3arnon.com/2015/07/02/task-run-long-running/][LongRunning Is Useless For Task.Run With Async/Await]]
+- [[https://stackoverflow.com/questions/24777253/waiting-for-async-await-inside-a-task/24777502#24777502][SO Answer]]
+- [[https://stackoverflow.com/questions/26921191/how-to-pass-longrunning-flag-specifically-to-task-run][SO-How to pass LongRunning flag specifically to Task.Run()?]]
+
+
+*** Code
+#+BEGIN_SRC C
+Task<int> t = FredAsync("");   // ArgumentException("a")
+try {
+  int i = await t;  // async version
+}
+catch (ArgumentException ex)
+{
+}
+
+----
+
+try {
+  int i = t.Result;  // (2) problems
+}
+catch (AggregateException ex)
+{
+}
+
+------
+
+try {
+   int i = t.GetResult(); // for WinRT ops, this will FAIL if op
+                          // isn't yet completed
+
+   int i = t.GetAwaiter().GetResult();
+   // still bad because it blocks the calling thread
+   // AND hidden from intellisense
+   // until the task completes
+   // but at least it gets the same exception as 
+}
+catch (ArgumentException ex)
+{
+}
+
+
+
+
+...
+Task<int> t = AlphaAsync();  // first function: exception is raised here
+int i = await t;             // second function: exception is raised here!
+
+async Task<int> AlphaAsync()
+{
+   Console.WriteLine("hello");
+   throw new ArgumentException("no arguments"); // this exception is stored inside
+                                                // the "Task" that's returned from AlphaAsync
+   return await BetaAsync();
+}
+
+Task<int> AlphaAsync()
+{
+   Console.WriteLine("hello");
+   throw new ArgumentException("no arguments"); // this throws an exception back to the caller
+   return BetaAsync();
+}
+
+
+
+
+
+async Task<int> BetaAsync()
+{
+  await Task.Delay(10);
+  return 10;
+}
+
+
+
+
+class Page1
+{
+   CancellationTokenSource cts = new CancellationTokenSource();
+
+   async void Button1Click()
+   {
+      try
+      {
+//       cts.CancelAfter(2000);
+         var s = await httpClient.GetStringAsync(url, cts.Token);
+//         cts.Token.ThrowIfCancellationRequested(); // I could do this if GetStringAsync didn't offer it
+         label1.Text = s;
+      }
+      catch (OperationCanceledException ex)
+      {
+         label1.Text = "Cancelled";
+      }
+   }
+
+
+   void CancelButtonClick()
+   {
+      cts.Cancel();
+   }
+}
+
+// VOICE OF STEPHEN(S): If you're writing a library API that takes CancellationToken,
+// then you should certainly CHECK it, and you should certainly
+// expose cancellation by throwing OperationCanceledException.
+// That's just what everyone expects.
+//
+// (but in your own user-code, you can violate that rule if it seems wise. It's a dangerous
+// pattern because easy to fall into traps.)
+//
+
+Task object has several states
+  * NotYetCompleted
+  * CompletedWithSuccess
+  * CompletedWithFailure
+  * Cancelled
+The async/await machinery make the last two states look the same. But internally they are
+different.
+
+
+
+
+
+async Task MyApiWithOptionalCancellationAsync(CancellationToken cancel = null)
+{
+   while (true)
+   {
+     await Task.Delay(100);
+     cancel.ThrowIfCancellationRequested();
+     // equivalent: if (cts.Token.IsCancellationRequested) throw new OperationCanceledException();
+   }
+   // (pointless, since Task.Delay takes a CancellationToken, but shown here just for fun)
+}
+
+
+
+--------------------------------
+
+
+We have an API that is SYNCHRONOUS.
+We want to make it asynchronous - so it's easier to call from the UI thread
+We have a large business project which is built around the assumption of synchronicity throughout.
+
+(1) BEWARE of the following... don't do it inside a re-usable library
+async Task<int> FooAsync()
+{
+   return Task.Run(_ => Foo());
+}
+
+
+(2) Start by looking at the "leaf" of your call-chart, i.e. look at the APIs that
+you're invoking, and see if any of them have true async alternatives. Then bubble this
+up layer by layer. You can have two parallel sets of functions, one sync, one async.
+Over time, more and more functionality will be exposed both async and sync.
+
+Do this if you're aiming for scalability benefits.
+This option is generally better.
+First places to look: anything that does IO - database, file access, network, ...
+
+If you can't find async alternatives for your leaves, then wrapping them up in
+Task.Run as per (1) will NOT help your scalability. It will in fact hurt it.
+
+Note: the async leaves that are offered to you in the .NET framework are NOT
+implemented using the threadpool. They are all done in a "true async" way.
+That's the right way to do it.
+
+Q. How does it even work? Is it really async all the way down? Isn't that impossible?
+A. No! The OperatingSystem uses IO-Completion-Ports and IRQs and TimerInterrupts and things.
+It doesn't need to do busy waits. (or, if it wants, it can make do with just one single
+busy thread that dispatches off to hundreds/thousands of other threads).
+
+TaskCompletionSource is the primary way that we build our OWN leaves, out of things
+that don't otherwise already have async APIs. e.g. if the hardware comes back with
+data (e.g. on disk controller or USB port or whatever), then that interrupt will call
+TaskCompletionSource.SetResult()... or its equivalent.
+
+Note: Task.Run's implementation is (1) create a new TaskCompletionSource, (2)
+queue a user workitem on the threadpool, (3) when that user workitem finishes, then
+it calls TaskCompletionSource.SetResult.
+
+?? node.js? Well, that's a lot like a hypothetical version of .NET Framework which never exposes
+blocking APIs. And it's like WinRT also!
+
+
+
+
+(3) If your goal is just to free up the UI thread - this doesn't require a whole
+rewrite. You can use solution (1) inside this case.
+
+Do this if you're aiming for UI responsiveness.
+
+
+Task t = Task.Delay(100);
+
+
+
+------------------
+
+Q. How about using Task to wrap around TPL (e.g. Parallel.For or linq AsEnumerable) ?
+I might want to do that if I want my UI thread to initiate some threadpool CPU-bound work.
+
+The "Task" type has two distinct modes of operation:
+* 1. solely as an object which is tickled by TaskCompletionSource ("promises")
+* 2. also, separately, as a way to queue compute-bound stuff up on the threadpool ("futures")
+
+I can await either of these two kinds of things equally.
+
+Parallel.For is really just a Task-generator (generates lots of mode [2] tasks to do work).
+The implementation is kind of like calling "Task.Run(lambda)" on a list of items, so all
+the lambdas get queued up to the threadpool, and blocking until all are finished.
+
+
+Q. Why didn't we name them with the "Async" suffix?
+await Task.DelayAsync(1000);
+await Task.WhenAllAsync(t1,t2,t3);
+await Task.RunAsync(_ => cpu_bound_work());
+
+
+
+// The following code returns immediately
+Parallel.For(0,10, async i => { await Task.Delay(1000) });
+
+// option 1: this is an alter
+await Task.WhenAll(Enumerable.Range(1,10)
+                   .Select(async _ => await Task.Delay(1000)));
+
+// option 2: I could also stick in .AsParallel()...
+Enumerable.Range(1,10)
+          .AsParallel()
+          .Select(_ => cpu_bound_work())
+          .Count();
+
+-----------------------------------------------
+
+Q. We've heard that the benefit of async is
+(1) don't tie up UI thread (or other particular threads)
+(2) improve server scalability - make it more respnsive to spikes in load, and
+make it able to serve a higher concurrent rate of requests.
+   ... first benefit is that you save the thread "occupation time",
+       but you still have the same TimeToFirstByte
+   ... second benefit, if you need to gather multiple stuff together,
+       async makes it easier to initiate multiple subrequests in parallel
+
+But how does (2) actually work in practice?
+
+public class AttendeePriceController : ApiController
+{
+    // GET api/<controller>
+    public async List<AttendeePrice> Get()
+    {
+        using (var db = new MyContext())
+        {
+            return db.AttendeePrices.ToList(); // imagine that this blocks the
+                   // ASP.Net thread, so the ASP.Net thread is tied up and
+                   // can't be used elsewhere
+        }
+    }
+}
+
+Is this example actually *improved* by making it async?
+(I believe so, yes...)
+
+public class AttendeePriceController : ApiController
+{
+    // GET api/<controller>
+    public async Task<List<AttendeePrice>> Get()
+    {
+        List<AttendeePrice> attendeesPriceList;
+        using (var db = new MyContext())
+        {
+            attendeesPriceList = await db.AttendeePrices.ToListAsync();
+        }
+        return attendeesPriceList;
+    }
+}
+
+
+
+--------------
+
+Q. I'm making screenscrapes. I make the first screenscrape, then based on that
+I make subsequent further screenscrapes and write them to disk. I'm having
+a hard time keeping them all together and wrap my head around them.
+What really is a good architecture here?
+
+
+TODO: Lucian's sample of scraping+encoding would be a good one.
+
+
+Q. How do I make several concurrent requests that are heterogenous
+
+
+var q = new Queue<Func<Task>>();
+q.Add( async _ => {var s = await GetStringAsync(); DoWhatIWantWithS(s);} );
+q.Add( async _ => {var i = await GetIntAsync(); DoWhatIWantWithI(i);} );
+// Now I can manage the queue uniformally (and throttle it)
+// But the return-type remains strongly typed in all cases
+// Q. But is it really worth it? Doesn't look better than an explicit cast to me...
+
+
+
+SemaphoreSlim -- generally, use this instead of the "lock" statement if you have awaits.
+e.g.
+
+SemaphoreSlim s = new SemaphoreSlim(1);
+await s.WaitAsync();   // nb. can also do s.Wait() to block my thread until available.
+...
+s.Release();
+
+// Semaphore has a counter saying how many spaces are available in the critical region
+// Initialize to 1 means "only 1"
+
+// SemaphoreSlim.WaitAsync -- queues you up until there's space available.
+
+// All it does is cause other people who "await s.WaitAsync()" to be stopped in their tracks
+// until I've done Release().
+
+NB. Semaphores are *not* re-entrant, but Monitors ("lock/" statement
+
+
+Q. How to prevent re-entrancy? Well, SemaphoreSlim is one option, and it's 
+
+
+Async Sub Button1Click(sender As Object)
+  Button1.Enabled = False
+  Try
+    ...
+  Finally
+    Button1.Enabled = True
+  End Try
+End Sub
+
+NOTE: This solution with Enabled is fine if we can assume that we're only ever called
+from a single thread. But it will have errors -- race conditions -- if there were
+multiple threads trying to do it.
+
+Joe Albahari has a neat article on the perf of "slim" stuff. SemaphoreSlim is VERY efficient!
+
+
+---------------
+
+Q. Console app.
+static void Main()
+{
+   MainAsync().GetAwaiter().GetResult();
+}
+
+static Task MainAsync()
+{
+  //
+  await httpClient.GetStringAsync();
+}
+
+// Note: there's a bug in .NET45 where console apps with Console.WriteLine encounter
+// a framework bug with deadlock. 
+
+#+END_SRC
+
+
+
