@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Formal Verification of Programm (Coq)</title>
+        <link rel="alternate" type="application/rss+xml" title="AV notes" href="../../rss.xml" />
+        <link rel="shortcut icon" href="../../favicon.ico?v=2" type="image/x-icon" />
+        <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+        <link rel="stylesheet" href="../../css/bootstrap-theme.min.css" />
+        <link rel="stylesheet" href="../../css/default.css" />
+        <link rel="stylesheet" href="../../css/syntax.css" />
+          <link rel="stylesheet" href="../../css/quotes.css" />
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config( { tex2jax: { inlineMath: [ ["\\(", "\\)"] ]
+                                           , displayMath: [ ["\\[", "\\]" ] ]
+                                           , processEscapes: true
+                                           }
+                              });
+
+
+
+        </script>
+        <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
+
+        <script type="text/javascript" src="../../js/jquery.min.js">
+        </script>
+        <script type="text/javascript" src="../../js/bootstrap.min.js">
+        </script>
+        <script type="text/javascript" src="../../js/codeCopy.js">
+        </script>
+
+    </head>
+    <body>
+        <div class="container">
+
+
+            <div id="header">
+
+                <ul id="navigation" class="list-inline text-center">
+                    <li class="logo"><a href="../../" class="home-link">ԳԼԽԱՎՈՐ</a></i>
+                    <li><a href="../../hogi/">ՀՈԳԻ</a></li>
+                    <li><a href="../../mitq/">ՄԻՏՔ</a></li>
+                    <li><a href="../../marmin/">ՄԱՐՄԻՆ</a></li>
+                    <li><a href="../../rss.xml"><i class="fa fa-rss"></i></a></li>
+                    <!-- <li><a href="/atom.xml"><i class="fa fa-rss"></i></a></li> -->
+                </ul>
+            </div>
+            <div class="clear"></div>
+            <!---->
+
+  <div class="clear"></div>
+<!--  <p style="font-size: 11px;"><strong>Ուշադրություն.</strong> <small>«իմաստասէր» բառը պետք է հասկանալ տառացի. ոչ որպէս փիլիսոփա իմաստով:</small></p> -->
+            <div id="content">
+
+               <!-- <div class="title text-center">
+                    <h4>Formal Verification of Programm (Coq)</h4>
+                    <hr>
+                </div> -->
+                <div class="post-content">
+<div id="TOC"><ul>
+<li><a href="#введение-в-формальную-верификацию-программ">Введение в формальную верификацию программ</a><ul>
+<li><a href="#cs-клуб-2021-а.-трунов">CS клуб 2021 А. Трунов</a></li>
+<li><a href="#тинькофф-2020-а.-трунов">Тинькофф 2020 А. Трунов</a></li>
+</ul></li>
+</ul></div>
+<section id="введение-в-формальную-верификацию-программ" class="level1">
+<h1>Введение в формальную верификацию программ</h1>
+<section id="cs-клуб-2021-а.-трунов" class="level2">
+<h2>CS клуб 2021 А. Трунов</h2>
+<p>(<a href="https://compsciclub.ru/courses/2021-spring/6.926-formalverification/about/">about</a>) | (<a href="https://compsciclub.ru/courses/2021-spring/6.926-formalverification/classes/">playlist</a>) | (<a href="https://github.com/anton-trunov/csclub-coq-course-spring-2021">Материалы с курса</a>) |</p>
+</section>
+<section id="тинькофф-2020-а.-трунов" class="level2">
+<h2>Тинькофф 2020 А. Трунов</h2>
+<p>(<a href="https://www.youtube.com/playlist?list=PLQ-XJe6nVU5BwX1gV80aDhwW0Jt3tipIY">playlist</a>) | (<a href="https://github.com/anton-trunov/coq-lecture-notes">Материалы с курса</a>)</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=1B2IfWxiyNU&amp;list=PLQ-XJe6nVU5BwX1gV80aDhwW0Jt3tipIY&amp;index=1">Лекция 1. Введение в курс, основы ФП в Coq (2:04:38)</a></li>
+<li><a href="https://www.youtube.com/watch?v=uiohYwJQ4xo&amp;list=PLQ-XJe6nVU5BwX1gV80aDhwW0Jt3tipIY&amp;index=2">Лекция 2. Интуиционистская логика, равенство, язык SSReflect (2:54:50)</a></li>
+<li><a href="https://www.youtube.com/watch?v=cFxIyOzdWUI&amp;list=PLQ-XJe6nVU5BwX1gV80aDhwW0Jt3tipIY&amp;index=3">Лекция 3. Зависимые типы, кванторы. Конструкторы. Индукция (2:11:23)</a></li>
+<li><a href="https://www.youtube.com/watch?v=GYMfRUCosa8&amp;list=PLQ-XJe6nVU5BwX1gV80aDhwW0Jt3tipIY&amp;index=4">Лекция 4. Индукция и её виды: парная, сильная, структурная (2:17:52)</a></li>
+<li><a href="https://www.youtube.com/watch?v=tc8qe6BnljM&amp;list=PLQ-XJe6nVU5BwX1gV80aDhwW0Jt3tipIY&amp;index=5">Лекция 5. Reflect-предикат, зависимые типы для переписывания (1:34:36)</a></li>
+<li><a href="https://www.youtube.com/watch?v=7LaRj8XU5Ic&amp;list=PLQ-XJe6nVU5BwX1gV80aDhwW0Jt3tipIY&amp;index=6">Лекция 6. Канонические структуры. Архитектура eqType (1:21:27)</a></li>
+<li><a href="https://www.youtube.com/watch?v=vm-1Gk94R8A&amp;list=PLQ-XJe6nVU5BwX1gV80aDhwW0Jt3tipIY&amp;index=7">Лекция 7. Канонические миксины. Фантомные типы. Клоны (1:13:05)</a></li>
+<li><a href="https://www.youtube.com/watch?v=AVPpL_CUbBU&amp;list=PLQ-XJe6nVU5BwX1gV80aDhwW0Jt3tipIY&amp;index=8">Лекция 8. Подтипирование. Неразличимость доказательств (1:03:32)</a></li>
+<li><a href="https://www.youtube.com/watch?v=J9HsvCVya4Y&amp;list=PLQ-XJe6nVU5BwX1gV80aDhwW0Jt3tipIY&amp;index=9">Лекция 9. Prop и Type. Тотальность и завершаемость (1:08:12)</a></li>
+<li><a href="https://www.youtube.com/watch?v=vzxYYNyiNYg&amp;list=PLQ-XJe6nVU5BwX1gV80aDhwW0Jt3tipIY&amp;index=10">Лекция 10. Верификация функциональных алгоритмов (1:24:20)</a></li>
+<li><a href="https://www.youtube.com/watch?v=CUL9Ys9uA40&amp;list=PLQ-XJe6nVU5BwX1gV80aDhwW0Jt3tipIY&amp;index=11">Лекция 11. Деревья Брауна: подходы к реализации. Экстракция (1:28:40)</a></li>
+<li><a href="https://www.youtube.com/watch?v=GAWkS09wz1o&amp;list=PLQ-XJe6nVU5BwX1gV80aDhwW0Jt3tipIY&amp;index=12">Лекция 12. Рандомизированное тестирование: QuickChick (48:53)</a></li>
+<li><a href="https://www.youtube.com/watch?v=BfnaHVz51j8&amp;list=PLQ-XJe6nVU5BwX1gV80aDhwW0Jt3tipIY&amp;index=13">Лекция 13. Обзор подходов к верификации императивных алгоритмов (58:46)</a></li>
+<li><a href="https://www.youtube.com/watch?v=cQwkQATBUkU&amp;list=PLQ-XJe6nVU5BwX1gV80aDhwW0Jt3tipIY&amp;index=14">Лекция 14. Сепарационная логика и фреймворк VST для верификации программ на Си (1:46:20)</a></li>
+</ul>
+</section>
+</section>
+</div>
+
+<div class="row">
+        <span class="date  text-right">
+            <i class="fa fa-calenda"></i> Posted on April  3, 2021
+        </span>
+        <span class="tags text-right" style="width: 100%">
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="../../tags/coq.html">coq</a></li><li><a href="../../tags/proover.html">proover</a></li><li><a href="../../tags/math.html">math</a></li></ul>
+        </span>
+</div>
+
+            </div>
+            <div id="footer" class="col-md-12">
+                <div class="row"><hr /></div>
+
+                <div class="row text-center">
+                  powered by  <a href="http://jaspervdj.be/hakyll" target="_blank">Hakyll</a>,
+                                      <a href="https://en.wikipedia.org/wiki/Org-mode" target="_blank"> Org-mode</a>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="../../js/quotes.js">
+        </script>
+    </body>
+</html>
