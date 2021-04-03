@@ -1,0 +1,30 @@
+---
+title: Formal Verification of Programm (Coq)
+tags: coq, proover, math
+date: 2021-04-03
+author: 
+description: proof assitance, formal verificatin, software foundation
+comments: true
+toc: true
+---
+
+
+* Введение в формальную верификацию программ
+** CS клуб 2021 А. Трунов 
+**** ([[https://compsciclub.ru/courses/2021-spring/6.926-formalverification/about/][about]]) | ([[https://compsciclub.ru/courses/2021-spring/6.926-formalverification/classes/][playlist]]) | ([[https://github.com/anton-trunov/csclub-coq-course-spring-2021][Материалы с курса]]) | 
+** Тинькофф 2020 А. Трунов 
+**** ([[https://www.youtube.com/playlist?list=PLQ-XJe6nVU5BwX1gV80aDhwW0Jt3tipIY][playlist]]) | ([[https://github.com/anton-trunov/coq-lecture-notes][Материалы с курса]])
+  - [[https://www.youtube.com/watch?v=1B2IfWxiyNU&list=PLQ-XJe6nVU5BwX1gV80aDhwW0Jt3tipIY&index=1][Лекция 1. Введение в курс, основы ФП в Coq (2:04:38)]]
+  - [[https://www.youtube.com/watch?v=uiohYwJQ4xo&list=PLQ-XJe6nVU5BwX1gV80aDhwW0Jt3tipIY&index=2][Лекция 2. Интуиционистская логика, равенство, язык SSReflect (2:54:50)]]
+  - [[https://www.youtube.com/watch?v=cFxIyOzdWUI&list=PLQ-XJe6nVU5BwX1gV80aDhwW0Jt3tipIY&index=3][Лекция 3. Зависимые типы, кванторы. Конструкторы. Индукция (2:11:23)]]
+  - [[https://www.youtube.com/watch?v=GYMfRUCosa8&list=PLQ-XJe6nVU5BwX1gV80aDhwW0Jt3tipIY&index=4][Лекция 4. Индукция и её виды: парная, сильная, структурная (2:17:52)]]
+  - [[https://www.youtube.com/watch?v=tc8qe6BnljM&list=PLQ-XJe6nVU5BwX1gV80aDhwW0Jt3tipIY&index=5][Лекция 5. Reflect-предикат, зависимые типы для переписывания (1:34:36)]]
+  - [[https://www.youtube.com/watch?v=7LaRj8XU5Ic&list=PLQ-XJe6nVU5BwX1gV80aDhwW0Jt3tipIY&index=6][Лекция 6. Канонические структуры. Архитектура eqType (1:21:27)]]
+  - [[https://www.youtube.com/watch?v=vm-1Gk94R8A&list=PLQ-XJe6nVU5BwX1gV80aDhwW0Jt3tipIY&index=7][Лекция 7. Канонические миксины. Фантомные типы. Клоны (1:13:05)]]
+  - [[https://www.youtube.com/watch?v=AVPpL_CUbBU&list=PLQ-XJe6nVU5BwX1gV80aDhwW0Jt3tipIY&index=8][Лекция 8. Подтипирование. Неразличимость доказательств (1:03:32)]]
+  - [[https://www.youtube.com/watch?v=J9HsvCVya4Y&list=PLQ-XJe6nVU5BwX1gV80aDhwW0Jt3tipIY&index=9][Лекция 9. Prop и Type. Тотальность и завершаемость (1:08:12)]]
+  - [[https://www.youtube.com/watch?v=vzxYYNyiNYg&list=PLQ-XJe6nVU5BwX1gV80aDhwW0Jt3tipIY&index=10][Лекция 10. Верификация функциональных алгоритмов (1:24:20)]]
+  - [[https://www.youtube.com/watch?v=CUL9Ys9uA40&list=PLQ-XJe6nVU5BwX1gV80aDhwW0Jt3tipIY&index=11][Лекция 11. Деревья Брауна: подходы к реализации. Экстракция (1:28:40)]]
+  - [[https://www.youtube.com/watch?v=GAWkS09wz1o&list=PLQ-XJe6nVU5BwX1gV80aDhwW0Jt3tipIY&index=12][Лекция 12. Рандомизированное тестирование: QuickChick (48:53)]]
+  - [[https://www.youtube.com/watch?v=BfnaHVz51j8&list=PLQ-XJe6nVU5BwX1gV80aDhwW0Jt3tipIY&index=13][Лекция 13. Обзор подходов к верификации императивных алгоритмов (58:46)]]
+  - [[https://www.youtube.com/watch?v=cQwkQATBUkU&list=PLQ-XJe6nVU5BwX1gV80aDhwW0Jt3tipIY&index=14][Лекция 14. Сепарационная логика и фреймворк VST для верификации программ на Си (1:46:20)]]
