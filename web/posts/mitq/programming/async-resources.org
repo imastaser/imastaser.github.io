@@ -9,12 +9,16 @@ toc: true
 
 
 
+
 ** .Net Async Talks
+
+- [[https://habr.com/en/company/jugru/blog/543380/][Многопоточность на низком уровне]]
+- [[https://2015.dotnext-moscow.ru/talks/simonyan/][Атомарные операции и примитивы в .NET - Карлен szKarlen Симонян ]]
+- [[https://habr.com/ru/post/354748/][Мифы о кэше процессора, в которые верят программисты]]
 
 *** Lucian Wischik
 - [[https://channel9.msdn.com/Series/Three-Essential-Tips-for-Async/Three-Essential-Tips-For-Async-Introduction][Six Essential Tips For Async - Introduction]] - Talks
 - [[https://docs.microsoft.com/en-us/archive/blogs/lucian/talk-async-best-practices][Talk: Async best practices]]
-
 - [[https://docs.microsoft.com/en-us/archive/blogs/lucian/talk-the-complete-async-three-talks-from-teched-europe-2013][Talk: The Complete Async -- three talks from TechEd Europe 2013]]
 - [[https://channel9.msdn.com/Events/TechEd/Europe/2013/DEV-B317#fbid=aIWUq0ssW74][Intro: Using Async]]
 - [[https://channel9.msdn.com/Events/TechEd/Europe/2013/DEV-B319#fbid=aIWUq0ssW74][Three Essential Tips for Using Async in Microsoft Visual C# and Visual Basic]]
