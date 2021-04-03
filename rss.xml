@@ -82,15 +82,20 @@
 </ul></div>
 <section id="net-async-talks" class="level2">
 <h2>.Net Async Talks</h2>
+<ul>
+<li><a href="https://habr.com/en/company/jugru/blog/543380/">Многопоточность на низком уровне</a></li>
+<li><a href="https://2015.dotnext-moscow.ru/talks/simonyan/">Атомарные операции и примитивы в .NET - Карлен szKarlen Симонян </a></li>
+<li><a href="https://habr.com/ru/post/354748/">Мифы о кэше процессора, в которые верят программисты</a></li>
+</ul>
 <section id="lucian-wischik" class="level3">
 <h3>Lucian Wischik</h3>
 <ul>
-<li><p><a href="https://channel9.msdn.com/Series/Three-Essential-Tips-for-Async/Three-Essential-Tips-For-Async-Introduction">Six Essential Tips For Async - Introduction</a> - Talks</p></li>
-<li><p><a href="https://docs.microsoft.com/en-us/archive/blogs/lucian/talk-async-best-practices">Talk: Async best practices</a></p></li>
-<li><p><a href="https://docs.microsoft.com/en-us/archive/blogs/lucian/talk-the-complete-async-three-talks-from-teched-europe-2013">Talk: The Complete Async – three talks from TechEd Europe 2013</a></p></li>
-<li><p><a href="https://channel9.msdn.com/Events/TechEd/Europe/2013/DEV-B317#fbid=aIWUq0ssW74">Intro: Using Async</a></p></li>
-<li><p><a href="https://channel9.msdn.com/Events/TechEd/Europe/2013/DEV-B319#fbid=aIWUq0ssW74">Three Essential Tips for Using Async in Microsoft Visual C# and Visual Basic</a> 01:06:30 - Common problems - usefull tips</p></li>
-<li><p><a href="https://channel9.msdn.com/Events/TechEd/Europe/2013/DEV-B318#fbid=aIWUq0ssW74">Creating Async Libraries That Are Modular, Reusable and Fast</a></p></li>
+<li><a href="https://channel9.msdn.com/Series/Three-Essential-Tips-for-Async/Three-Essential-Tips-For-Async-Introduction">Six Essential Tips For Async - Introduction</a> - Talks</li>
+<li><a href="https://docs.microsoft.com/en-us/archive/blogs/lucian/talk-async-best-practices">Talk: Async best practices</a></li>
+<li><a href="https://docs.microsoft.com/en-us/archive/blogs/lucian/talk-the-complete-async-three-talks-from-teched-europe-2013">Talk: The Complete Async – three talks from TechEd Europe 2013</a></li>
+<li><a href="https://channel9.msdn.com/Events/TechEd/Europe/2013/DEV-B317#fbid=aIWUq0ssW74">Intro: Using Async</a></li>
+<li><a href="https://channel9.msdn.com/Events/TechEd/Europe/2013/DEV-B319#fbid=aIWUq0ssW74">Three Essential Tips for Using Async in Microsoft Visual C# and Visual Basic</a> 01:06:30 - Common problems - usefull tips</li>
+<li><a href="https://channel9.msdn.com/Events/TechEd/Europe/2013/DEV-B318#fbid=aIWUq0ssW74">Creating Async Libraries That Are Modular, Reusable and Fast</a></li>
 </ul>
 </section>
 <section id="wintellect" class="level3">
