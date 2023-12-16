@@ -371,7 +371,7 @@
 <span id="cb1-201"><a href="#cb1-201"></a>The implementation is kind of like calling <span class="st">&quot;Task.Run(lambda)&quot;</span> on a list of items, so all</span>
 <span id="cb1-202"><a href="#cb1-202"></a>the lambdas get queued up to the threadpool, and blocking until all are finished.</span>
 <span id="cb1-203"><a href="#cb1-203"></a></span>
-<span id="cb1-204"><a href="#cb1-204"></a></span>
+<span id="cb1-204"><a href="#cb1-204"></a>BD</span>
 <span id="cb1-205"><a href="#cb1-205"></a>Q. Why didn&#39;t we name them with the <span class="st">&quot;Async&quot;</span> suffix?</span>
 <span id="cb1-206"><a href="#cb1-206"></a>await Task.DelayAsync(<span class="dv">1000</span>);</span>
 <span id="cb1-207"><a href="#cb1-207"></a>await Task.WhenAllAsync(t1,t2,t3);</span>
