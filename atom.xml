@@ -8,8 +8,75 @@
         <name>Arthur Vardanyan</name>
         <email>arthur@imast.am</email>
     </author>
-    <updated>2021-04-03T00:00:00Z</updated>
+    <updated>2023-12-16T00:00:00Z</updated>
     <entry>
+    <title>New How to Notes</title>
+    <link href="http://imast.am/mitq/programming/yet-another-deployment.html" />
+    <id>http://imast.am/mitq/programming/yet-another-deployment.html</id>
+    <published>2023-12-16T00:00:00Z</published>
+    <updated>2023-12-16T00:00:00Z</updated>
+    <summary type="html"><![CDATA[<div class="post-content">
+<div id="TOC"><ul>
+<li><a href="#wsl">WSL</a><ul>
+<li><a href="#wsl-commands">wsl commands</a></li>
+<li><a href="#wsl-problem-when-using-windows-apps">wsl problem when using windows apps</a></li>
+</ul></li>
+<li><a href="#install-ruby-and-rails-httpsubuntu.comserverdocsprogramming-ruby-on-rails">install ruby and rails <span>https://ubuntu.com/server/docs/programming-ruby-on-rails</span></a></li>
+</ul></div>
+<section id="wsl" class="level1">
+<h1>WSL</h1>
+<section id="wsl-commands" class="level2">
+<h2>wsl commands</h2>
+<p>&gt; wsl –shutdown #will shut down all running distributions. &gt; wsl –terminate &lt;distroName&gt; #to terminate a a specific distribution. &gt; systemctl list-unit-files –type=service # show status of servicies</p>
+</section>
+<section id="wsl-problem-when-using-windows-apps" class="level2">
+<h2>wsl problem when using windows apps</h2>
+<p>when ubuntu wsl using npm(or any package) installed on my windows, to check just type ‘which node’ for solving this: In WSL, you can now disable Windows paths getting added to $PATH by editing the /etc/wsl.conf file. You may need to restart your WSL session for this change to take effect.</p>
+<p>An example of its contents would be:</p>
+<p>[interop] appendWindowsPath=false</p>
+<p>for more info see: <a href="https://learn.microsoft.com/en-us/windows/wsl/wsl-config#configure-per-distro-launch-settings-with-wslconf">https://learn.microsoft.com/en-us/windows/wsl/wsl-config#configure-per-distro-launch-settings-with-wslconf</a></p>
+<p>sudo add-apt-repository ppa:mozillateam/ppa</p>
+<p>sudo gedit /etc/apt/preferences.d/mozillateamppa</p>
+<p>Package: firefox* Pin: release o=LP-PPA-mozillateam Pin-Priority: 501</p>
+<p>sudo apt update sudo apt install firefox # or firefox-esr</p>
+</section>
+</section>
+<section id="install-ruby-and-rails-httpsubuntu.comserverdocsprogramming-ruby-on-rails" class="level1">
+<h1>install ruby and rails <a href="https://ubuntu.com/server/docs/programming-ruby-on-rails">https://ubuntu.com/server/docs/programming-ruby-on-rails</a></h1>
+<ul>
+<li>sudo apt-get update</li>
+<li>sudo apt-get install git-core zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev</li>
+<li>cd</li>
+<li>git clone <a href="https://github.com/excid3/asdf.git">https://github.com/excid3/asdf.git</a> ~/.asdf</li>
+<li>echo ‘. “$HOME/.asdf/asdf.sh”’ &gt;&gt; ~/.bashrc</li>
+<li>echo ‘. “$HOME/.asdf/completions/asdf.bash”’ &gt;&gt; ~/.bashrc</li>
+<li>echo ‘legacy<sub>versionfile</sub> = yes’ &gt;&gt; ~/.asdfrc</li>
+<li>echo ‘export EDITOR=“code –wait”’ &gt;&gt; ~/.bashrc</li>
+<li>exec $SHELL</li>
+<li>asdf plugin add ruby</li>
+<li>asdf install ruby 3.2.2</li>
+<li>asdf global ruby 3.2.2</li>
+<li>gem update –system</li>
+<li>git config –global color.ui true</li>
+<li>git config –global user.name “Arthur Vardanyan”</li>
+<li>git config –global user.email “artie.vard@gmail.com”</li>
+<li>gem install rails -v 7.1.2</li>
+<li>sudo apt install postgresql libpq-dev</li>
+</ul>
+</section>
+</div>
+
+<div class="row">
+        <span class="date  text-right">
+            <i class="fa fa-calenda"></i> Posted on December 16, 2023
+        </span>
+        <span class="tags text-right" style="width: 100%">
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/howto-2023.html">howto-2023</a></li></ul>
+        </span>
+</div>
+]]></summary>
+</entry>
+<entry>
     <title>Formal Verification of Programm (Coq)</title>
     <link href="http://imast.am/mitq/logic/formal-verification.html" />
     <id>http://imast.am/mitq/logic/formal-verification.html</id>
@@ -2128,79 +2195,6 @@ P(ω<sub>i</sub>) = 1/n, i=1,..,n<br />
         </span>
         <span class="tags text-right" style="width: 100%">
             <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/math.html">math</a></li><li><a href="/tags/seminar.html">seminar</a></li></ul>
-        </span>
-</div>
-]]></summary>
-</entry>
-<entry>
-    <title>NixOS</title>
-    <link href="http://imast.am/mitq/programming/nixos.html" />
-    <id>http://imast.am/mitq/programming/nixos.html</id>
-    <published>2018-10-14T00:00:00Z</published>
-    <updated>2018-10-14T00:00:00Z</updated>
-    <summary type="html"><![CDATA[<div class="post-content">
-<div id="TOC"><ul>
-<li><a href="#nixos-in-hetzner-machine">NixOS in hetzner machine</a><ul>
-<li><a href="#enable-ssh">enable ssh</a></li>
-</ul></li>
-<li><a href="#install-with-nix-env">install with nix-env</a><ul>
-<li><a href="#install-emacs">install emacs</a></li>
-</ul></li>
-<li><a href="#emacs-under-nix-shell">Emacs under nix-shell</a></li>
-</ul></div>
-<p><a href="https://github.com/Gabriel439/haskell-nix">https://github.com/Gabriel439/haskell-nix</a> <a href="https://www.domenkozar.com/2014/03/11/why-puppet-chef-ansible-arent-good-enough-and-we-can-do-better/">https://www.domenkozar.com/2014/03/11/why-puppet-chef-ansible-arent-good-enough-and-we-can-do-better/</a> <a href="https://wiki.ocharles.org.uk/posts/2014-02-04-how-i-develop-with-nixos.html">https://wiki.ocharles.org.uk/posts/2014-02-04-how-i-develop-with-nixos.html</a> <a href="http://lucumr.pocoo.org/2013/11/17/my-favorite-database/">http://lucumr.pocoo.org/2013/11/17/my-favorite-database/</a> <a href="https://www.fosskers.ca/blog/nix-en.html">https://www.fosskers.ca/blog/nix-en.html</a> <a href="https://nixos.org/nixpkgs/manual/#users-guide-to-the-haskell-infrastructure">https://nixos.org/nixpkgs/manual/#users-guide-to-the-haskell-infrastructure</a></p>
-<section id="nixos-in-hetzner-machine" class="level1">
-<h1>NixOS in hetzner machine</h1>
-<section id="enable-ssh" class="level2">
-<h2>enable ssh</h2>
-<p>enable sshd in hetzner, put in user data</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># generate config file</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="ex">nixos-generate-config</span> --root /mnt</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="ex">vi</span> /mnt/etc/nixos/configuration.nix</span>
-<span id="cb1-4"><a href="#cb1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># uncomment ssh</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="ex">services.sshd.enable</span> = true<span class="kw">;</span></span></code></pre></div>
-</section>
-</section>
-<section id="install-with-nix-env" class="level1">
-<h1>install with nix-env</h1>
-<section id="install-emacs" class="level2">
-<h2>install emacs</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># figure out the proper attribute path for emacs pakages</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="ex">nix-env</span> -qaP emacs</span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="op">&gt;</span> <span class="ex">nixpkgs.emacs25</span>  emacs-25.3</span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="op">&gt;</span> <span class="ex">nixpkgs.emacs</span>    emacs-26.1</span>
-<span id="cb2-5"><a href="#cb2-5"></a></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="co"># install emacs</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a><span class="ex">nix-env</span> -iA nixpkgs.emacs</span>
-<span id="cb2-8"><a href="#cb2-8"></a></span></code></pre></div>
-<p>_</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># list ghc compilers</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="ex">nix-env</span> -f <span class="st">&quot;&lt;nixpkgs&gt;&quot;</span> -qaP -A haskell.compiler</span>
-<span id="cb3-3"><a href="#cb3-3"></a></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="co"># install cabal-install</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="ex">nix-env</span> -f <span class="st">&quot;&lt;nixpkgs&gt;&quot;</span> -iA haskellPackages.ghc haskellPackages.cabal-install</span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="co"># or more specific</span></span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="ex">nix-env</span> -f <span class="st">&quot;&lt;nixpkgs&gt;&quot;</span> -iA haskell.compiler.integer-simple.ghc863 haskellPackages.cabal-install</span>
-<span id="cb3-8"><a href="#cb3-8"></a></span>
-<span id="cb3-9"><a href="#cb3-9"></a><span class="co"># enter nix-shell where ghc 8.6.3</span></span>
-<span id="cb3-10"><a href="#cb3-10"></a> <span class="ex">nix-shell</span> -p haskell.compiler.integer-simple.ghc863</span>
-<span id="cb3-11"><a href="#cb3-11"></a></span>
-<span id="cb3-12"><a href="#cb3-12"></a><span class="co"># install (if not exists) and enter the nix-shell with ghc 8.4.4</span></span>
-<span id="cb3-13"><a href="#cb3-13"></a><span class="ex">nix-shell</span> -p haskell.compiler.ghc844</span></code></pre></div>
-</section>
-</section>
-<section id="emacs-under-nix-shell" class="level1">
-<h1>Emacs under nix-shell</h1>
-</section>
-</div>
-
-<div class="row">
-        <span class="date  text-right">
-            <i class="fa fa-calenda"></i> Posted on October 14, 2018
-        </span>
-        <span class="tags text-right" style="width: 100%">
-            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/nixos.html">nixos</a></li></ul>
         </span>
 </div>
 ]]></summary>
