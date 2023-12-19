@@ -7,8 +7,87 @@
         <description><![CDATA[]]></description>
         <atom:link href="http://imast.am/rss.xml" rel="self"
                    type="application/rss+xml" />
-        <lastBuildDate>Sat, 16 Dec 2023 00:00:00 UT</lastBuildDate>
+        <lastBuildDate>Tue, 19 Dec 2023 00:00:00 UT</lastBuildDate>
         <item>
+    <title>Cryptography</title>
+    <link>http://imast.am/mitq/programming/cryptography.html</link>
+    <description><![CDATA[<div class="post-content">
+<div id="TOC"><ul>
+<li><a href="#կեսարի-ծածկագիր">Կեսարի ծածկագիր</a></li>
+<li><a href="#գաղտնագրություն">Գաղտնագրություն</a></li>
+<li><a href="#binar">Binar</a></li>
+</ul></div>
+<section id="կեսարի-ծածկագիր" class="level1">
+<h1>Կեսարի ծածկագիր</h1>
+<p>տառին համապատասխանում է տառ շատ հեշտ է ջարդել</p>
+<p>Վիժեների գաղտանգրությունե , նույն կեսարի ծածկագիրն է՝ բարդացրած, փոխվում է rot կամ շեղումը ամեն տառի համար:</p>
+<p>Վիժիները բարդ է չարդելե, բայց հնարավոր է, քանի որ հիմնականում օգրագործում ենք կարճ բանալի բառեր, հետևաբար կրկնվում է pattern-ը, որը կարելի է բացահայտել:</p>
+</section>
+<section id="գաղտնագրություն" class="level1">
+<h1>Գաղտնագրություն</h1>
+<p>Գաղտնագրման համար պետք է երեք բան</p>
+<ul>
+<li>գաղտնագրվող տեքստը</li>
+<li>բանալին</li>
+<li>ալգորիթմը</li>
+</ul>
+</section>
+<section id="binar" class="level1">
+<h1>Binar</h1>
+<p>Քանի որ համակարգչի մեջ ամեն ինչ, վերջ ի վետջո, ներկայացվում է 0 և 1, հետևաբար ամբողջ մանիպուլացիիան պետք է արվի 0 և 1-ի հետ, որպես ալգորիթմ շատ հարմար է exclusive or XOR,</p>
+<table>
+<thead>
+<tr class="header">
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>որտեղ՝</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>B - բանալին է</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>C - ծածկագրված տեքստը</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</div>
+
+<div class="row">
+        <span class="date  text-right">
+            <i class="fa fa-calenda"></i> Posted on December 19, 2023
+        </span>
+        <span class="tags text-right" style="width: 100%">
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/cryptography.html">cryptography</a></li></ul>
+        </span>
+</div>
+]]></description>
+    <pubDate>Tue, 19 Dec 2023 00:00:00 UT</pubDate>
+    <guid>http://imast.am/mitq/programming/cryptography.html</guid>
+    <dc:creator>Arthur Vardanyan</dc:creator>
+</item>
+<item>
     <title>New How to Notes</title>
     <link>http://imast.am/mitq/programming/yet-another-deployment.html</link>
     <description><![CDATA[<div class="post-content">
@@ -2167,35 +2246,6 @@ P(ω<sub>i</sub>) = 1/n, i=1,..,n<br />
 ]]></description>
     <pubDate>Wed, 31 Oct 2018 00:00:00 UT</pubDate>
     <guid>http://imast.am/mitq/math/seminars/havtes-intro.html</guid>
-    <dc:creator>Arthur Vardanyan</dc:creator>
-</item>
-<item>
-    <title>Սեմինարներ/Seminars</title>
-    <link>http://imast.am/mitq/math/seminars.html</link>
-    <description><![CDATA[<div class="post-content">
-<div id="TOC"><ul>
-<li><a href="#հավանականությունների-տեսություն">Հավանականությունների Տեսություն</a></li>
-</ul></div>
-<section id="հավանականությունների-տեսություն" class="level3">
-<h3>Հավանականությունների Տեսություն</h3>
-<p>Սկիզբը 31.10.2018, Փ. Հակոբյանի հետ Խոսելու ենք նաև «Ձևադրական ստուգման համակարգերի» մասին</p>
-<ol>
-<li><p><a href="./seminars/havtes-intro.html">Ներածություն</a></p></li>
-</ol>
-</section>
-</div>
-
-<div class="row">
-        <span class="date  text-right">
-            <i class="fa fa-calenda"></i> Posted on October 31, 2018
-        </span>
-        <span class="tags text-right" style="width: 100%">
-            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/math.html">math</a></li><li><a href="/tags/seminar.html">seminar</a></li></ul>
-        </span>
-</div>
-]]></description>
-    <pubDate>Wed, 31 Oct 2018 00:00:00 UT</pubDate>
-    <guid>http://imast.am/mitq/math/seminars.html</guid>
     <dc:creator>Arthur Vardanyan</dc:creator>
 </item>
 

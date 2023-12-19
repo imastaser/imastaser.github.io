@@ -8,8 +8,87 @@
         <name>Arthur Vardanyan</name>
         <email>arthur@imast.am</email>
     </author>
-    <updated>2023-12-16T00:00:00Z</updated>
+    <updated>2023-12-19T00:00:00Z</updated>
     <entry>
+    <title>Cryptography</title>
+    <link href="http://imast.am/mitq/programming/cryptography.html" />
+    <id>http://imast.am/mitq/programming/cryptography.html</id>
+    <published>2023-12-19T00:00:00Z</published>
+    <updated>2023-12-19T00:00:00Z</updated>
+    <summary type="html"><![CDATA[<div class="post-content">
+<div id="TOC"><ul>
+<li><a href="#կեսարի-ծածկագիր">Կեսարի ծածկագիր</a></li>
+<li><a href="#գաղտնագրություն">Գաղտնագրություն</a></li>
+<li><a href="#binar">Binar</a></li>
+</ul></div>
+<section id="կեսարի-ծածկագիր" class="level1">
+<h1>Կեսարի ծածկագիր</h1>
+<p>տառին համապատասխանում է տառ շատ հեշտ է ջարդել</p>
+<p>Վիժեների գաղտանգրությունե , նույն կեսարի ծածկագիրն է՝ բարդացրած, փոխվում է rot կամ շեղումը ամեն տառի համար:</p>
+<p>Վիժիները բարդ է չարդելե, բայց հնարավոր է, քանի որ հիմնականում օգրագործում ենք կարճ բանալի բառեր, հետևաբար կրկնվում է pattern-ը, որը կարելի է բացահայտել:</p>
+</section>
+<section id="գաղտնագրություն" class="level1">
+<h1>Գաղտնագրություն</h1>
+<p>Գաղտնագրման համար պետք է երեք բան</p>
+<ul>
+<li>գաղտնագրվող տեքստը</li>
+<li>բանալին</li>
+<li>ալգորիթմը</li>
+</ul>
+</section>
+<section id="binar" class="level1">
+<h1>Binar</h1>
+<p>Քանի որ համակարգչի մեջ ամեն ինչ, վերջ ի վետջո, ներկայացվում է 0 և 1, հետևաբար ամբողջ մանիպուլացիիան պետք է արվի 0 և 1-ի հետ, որպես ալգորիթմ շատ հարմար է exclusive or XOR,</p>
+<table>
+<thead>
+<tr class="header">
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>որտեղ՝</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>B - բանալին է</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>C - ծածկագրված տեքստը</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</div>
+
+<div class="row">
+        <span class="date  text-right">
+            <i class="fa fa-calenda"></i> Posted on December 19, 2023
+        </span>
+        <span class="tags text-right" style="width: 100%">
+            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/cryptography.html">cryptography</a></li></ul>
+        </span>
+</div>
+]]></summary>
+</entry>
+<entry>
     <title>New How to Notes</title>
     <link href="http://imast.am/mitq/programming/yet-another-deployment.html" />
     <id>http://imast.am/mitq/programming/yet-another-deployment.html</id>
@@ -2157,35 +2236,6 @@ P(ω<sub>i</sub>) = 1/n, i=1,..,n<br />
 Պտահույթի հավանականությունը</p>
 <p>P(A)=<strong>N</strong><sub>A</sub>/N</p>
 </section>
-</section>
-</div>
-
-<div class="row">
-        <span class="date  text-right">
-            <i class="fa fa-calenda"></i> Posted on October 31, 2018
-        </span>
-        <span class="tags text-right" style="width: 100%">
-            <ul class="list-inline"><li><i class="fa fa-tags"></i></li><li><a href="/tags/math.html">math</a></li><li><a href="/tags/seminar.html">seminar</a></li></ul>
-        </span>
-</div>
-]]></summary>
-</entry>
-<entry>
-    <title>Սեմինարներ/Seminars</title>
-    <link href="http://imast.am/mitq/math/seminars.html" />
-    <id>http://imast.am/mitq/math/seminars.html</id>
-    <published>2018-10-31T00:00:00Z</published>
-    <updated>2018-10-31T00:00:00Z</updated>
-    <summary type="html"><![CDATA[<div class="post-content">
-<div id="TOC"><ul>
-<li><a href="#հավանականությունների-տեսություն">Հավանականությունների Տեսություն</a></li>
-</ul></div>
-<section id="հավանականությունների-տեսություն" class="level3">
-<h3>Հավանականությունների Տեսություն</h3>
-<p>Սկիզբը 31.10.2018, Փ. Հակոբյանի հետ Խոսելու ենք նաև «Ձևադրական ստուգման համակարգերի» մասին</p>
-<ol>
-<li><p><a href="./seminars/havtes-intro.html">Ներածություն</a></p></li>
-</ol>
 </section>
 </div>
 
