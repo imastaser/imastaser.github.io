@@ -41,7 +41,6 @@
 <th>A</th>
 <th>B</th>
 <th>C</th>
-<th>որտեղ՝</th>
 </tr>
 </thead>
 <tbody>
@@ -49,28 +48,25 @@
 <td>0</td>
 <td>0</td>
 <td>0</td>
-<td>B - բանալին է</td>
 </tr>
 <tr class="even">
 <td>0</td>
 <td>1</td>
 <td>1</td>
-<td>C - ծածկագրված տեքստը</td>
 </tr>
 <tr class="odd">
 <td>1</td>
 <td>0</td>
 <td>1</td>
-<td></td>
 </tr>
 <tr class="even">
 <td>1</td>
 <td>1</td>
 <td>0</td>
-<td></td>
 </tr>
 </tbody>
 </table>
+<p>որտեղ՝ A - տեքստն է որ պիտի ծածկագրվի B - բանալին է C - ծածկագրված տեքստը</p>
 </section>
 </div>
 
