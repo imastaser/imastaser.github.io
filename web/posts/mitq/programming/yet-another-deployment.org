@@ -1,0 +1,66 @@
+---
+title: New How to Deployment
+tags: yad-2023
+date: 2023-12-16
+description: DESCRIPTION
+comments: true
+toc: true
+---
+
+* WSL
+** wsl commands
+
+#+BEGIN_SRC bash
+  > wsl --shutdown #will shut down all running distributions.
+  > wsl --terminate <distroName> #to terminate a a specific distribution.
+  > systemctl list-unit-files --type=service # show status of servicies
+#+END_SRC
+  
+** wsl problem when using windows apps
+  when ubuntu wsl using npm(or any package) installed on my windows, to check
+  just type 'which node'
+  for solving this:
+  In WSL, you can now disable Windows paths getting added to $PATH by editing the /etc/wsl.conf file. You may need to restart your WSL session for this change to take effect.
+
+An example of its contents would be:
+
+[interop]
+appendWindowsPath=false
+
+for more info see:  https://learn.microsoft.com/en-us/windows/wsl/wsl-config#configure-per-distro-launch-settings-with-wslconf
+  
+
+# install firefox in wsl
+sudo add-apt-repository ppa:mozillateam/ppa
+
+# Create a new file, it should be empty as it opens:
+sudo gedit /etc/apt/preferences.d/mozillateamppa
+
+# Insert these lines, then save and exit
+Package: firefox*
+Pin: release o=LP-PPA-mozillateam
+Pin-Priority: 501
+
+# after saving, do
+sudo apt update
+sudo apt install firefox # or firefox-esr
+
+* install ruby and rails https://ubuntu.com/server/docs/programming-ruby-on-rails
+  - sudo apt-get update
+  - sudo apt-get install git-core zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev
+  - cd
+  - git clone https://github.com/excid3/asdf.git ~/.asdf
+  - echo '. "$HOME/.asdf/asdf.sh"' >> ~/.bashrc
+  - echo '. "$HOME/.asdf/completions/asdf.bash"' >> ~/.bashrc
+  - echo 'legacy_version_file = yes' >> ~/.asdfrc
+  - echo 'export EDITOR="code --wait"' >> ~/.bashrc
+  - exec $SHELL
+  - asdf plugin add ruby
+  - asdf install ruby 3.2.2
+  - asdf global ruby 3.2.2
+  - gem update --system
+  - git config --global color.ui true
+  - git config --global user.name "Arthur Vardanyan"
+  - git config --global user.email "artie.vard@gmail.com"
+  - gem install rails -v 7.1.2
+  - sudo apt install postgresql libpq-dev

@@ -1,0 +1,101 @@
+---
+title: Yet another How to Notes
+tags: howto-2024
+date: 2024-01-09
+description: DESCRIPTION
+comments: true
+toc: true
+---
+
+* WSL
+WSL has two versions: WSL 1 and WSL 2.
+WSL 1 - uses a translation layer to convert Linux system calls into Windows ones. As such, running Docker directly in WSL 1 is not possible.
+WSL 2 - is required Hyper-V on your Windows computer. 
+Hyper-V can lead to some conflicting problems with other VMs, so deciding between WSL 1 and WSL 2 is up to the individual.
+
+#+BEGIN_SRC bash
+  > wsl --shutdown #will shut down all running distributions.
+  > wsl --terminate <distroName> #to terminate a a specific distribution.
+  > systemctl list-unit-files --type=service # show status of servicies
+#+END_SRC
+
+** WSL commnds
+
+#+BEGIN_SRC bash
+
+# update wsl 
+wsl --update
+
+wsl --version
+
+# Enabling systemd
+sudo nano /etc/wsl.conf
+
+# add
+[boot]
+systemd=true
+
+# shut down all instances of running WSL distributions
+wsl --shutdown
+
+
+
+#+END_SRC
+
+** Enable ssh to wsl 
+#+BEGIN_SRC bash
+
+# install OpenSSH in WSL machine
+sudo apt-get update
+sudo apt install openssh-server
+
+# check service
+sudo service ssh status
+
+# start ssh service
+sudo systemctl start sshd.service
+
+# verify
+ssh arthur@localhost
+
+# change the port number for the Linux SSH server
+# we do not want to use the same default port number as the Windows SSH port number to cause any conflict
+sudo vim /etc/ssh/sshd_config
+# And then uncomment and change the Port = 22 to Port = 2222 or any number you prefer.
+
+# allow port forwarding and start service
+sudo ufw allow ssh
+sudo service ssh start
+
+# check the status and confirm the port number is set up correctly
+systemctl status ssh.service
+
+# port forward from your Windows system to the WSL subsystem. 
+# Since the WSL subsystem has it's IP address network, we first need to find it out:
+sudo apt install net-tools
+ifconfig
+
+#+END_SRC
+
+
+
+
+** Haskell 
+# touch ~/.ghci
+#+BEGIN_SRC bash
+   :set editor nvim -u $HOME/.vim/vimrc
+   :set prompt "\ESC[1;34m%s :: \ESC[0;37mλ> \ESC[m"
+#+END_SRC
+
+*** ghcup
+ > ghcup tui
+
+*** cabal
+#+BEGIN_SRC bash
+cabal init -n --no-comments
+cabal list-bin .
+# find files by name
+find ./ -name <name> -type f
+# find and copy the file
+find ./ -name <name> -type f -exec cp {} ./ \;
+#+END_SRC

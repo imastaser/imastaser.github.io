@@ -1,0 +1,11 @@
+---
+title: Վիճակագրություն
+tags: math, statistics
+date: 2024-03-09
+description: Հավանականությունների տեսություն
+comments: true
+toc: true
+---
+
+
+
